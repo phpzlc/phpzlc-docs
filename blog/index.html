@@ -17,14 +17,14 @@ column_title: 博客动态
                     <div class="blog-list single-col-max mx-auto" style="min-height: 500px">
                         <!-- 遍历分页后的文章 -->
                         {% for post in paginator.posts %}
-                            <div class="post-1552 post type-post status-publish format-standard has-post-thumbnail hentry category-blog">
-                                <div class="content">
+                            <div class="post-1552 post type-post status-publish format-standard has-post-thumbnail hentry category-blog blog-list-div">
+                                <div class="content" style="border-bottom: 1px">
                                     <h4 class="post-title mb-3">
-                                        <a href="{{ post.url }}" target="_blank"> {{ post.title }}</a>
+                                        <a href="{{ post.url }}"> {{ post.title }}</a>
                                     </h4>
 
-                                    <div class="entry post-entry post-excerpt">
-                                        {{ post.excerpt }}
+                                    <div class="entry post-entry post-excerpt blog-list-excerpt">
+                                        {{ post.excerpt | strip_html | strip_newlines }}
                                     </div>
                                 </div>
                             </div>

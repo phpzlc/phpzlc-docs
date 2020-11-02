@@ -64,3 +64,10 @@
     font-size: 13px;
     margin-left: 10px;
 }
+.blog-list-div{
+    border-bottom: 2px solid #5ebeee;
+    margin-bottom: 20px;
+}
+.blog-list-excerpt{
+    margin-bottom: 10px;
+}
