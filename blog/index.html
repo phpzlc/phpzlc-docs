@@ -43,27 +43,25 @@ column_title: 博客动态
                             {% endif % %}
 
                             {% for pi in (1..2) %}
-                            {% if paginator.page > pi %}
-                            <li class="page-item">
-                                {% assign pi_1 = paginator.page | minus: 2 %}
-                                {% assign pi_2 = paginator.page | minus: 1 %}
-                                {% if pi == 1 and pi_1 > 0 %}
-                                {% if pi_1 == 1 %}
-                                <a href="/blog" class="page-link">{{ pi_1 }}</a>
-                                {% else %}
-                                <a href="/blog/page{{ pi_1 }}" class="page-link">{{ pi_1 }}</a>
-                                {% endif %}
-                                {% endif %}
+                                <li class="page-item">
+                                    {% assign pi_1 = paginator.page | minus: 2 %}
+                                    {% assign pi_2 = paginator.page | minus: 1 %}
+                                    {% if pi == 1 and pi_1 > 0 %}
+                                        {% if pi_1 == 1 %}
+                                            <a href="/blog" class="page-link">{{ pi_1 }}</a>
+                                        {% else %}
+                                            <a href="/blog/page{{ pi_1 }}" class="page-link">{{ pi_1 }}</a>
+                                        {% endif %}
+                                    {% endif %}
 
-                                {% if pi_2 > 0 and pi == 2 %}
-                                {% if pi_2 == 1 %}
-                                <a href="/blog" class="page-link">{{ pi_2 }}</a>
-                                {% else %}
-                                <a href="/blog/page{{ pi_2 }}" class="page-link">{{ pi_2 }}</a>
-                                {% endif %}
-                                {% endif %}
-                            </li>
-                            {% endif %}
+                                    {% if pi_2 > 0 and pi == 2 %}
+                                        {% if pi_2 == 1 %}
+                                            <a href="/blog" class="page-link">{{ pi_2 }}</a>
+                                        {% else %}
+                                            <a href="/blog/page{{ pi_2 }}" class="page-link">{{ pi_2 }}</a>
+                                        {% endif %}
+                                    {% endif %}
+                                </li>
                             {% endfor %}
 
 
