@@ -1,0 +1,68 @@
+ <div class="content-inner">
+        <section class="doc-section" style="min-height: 500px">
+            <h2  style="text-align: center">{{ page.title }}</h2>
+            <div style="text-align: center"><i class="far fa-clock"></i> 最近更新时间: {{ page.date | date: "%Y-%m-%d" }}</div>
+            <div style="padding-top: 20px; min-height: 440px">
+                {{ content }}
+            </div>
+            <div class="entry-shang text-center">
+                <p style="font-size: 12px;line-height: 40px">「感觉有帮助？解决了大问题？一键投喂 牛奶/咖啡/冰阔乐！」</p>
+                <button class="zs show-zs btn btn-bred">赞赏</button>
+            </div>
+
+            <div class="zs-modal-bg"></div>
+            <div class="zs-modal-box">
+                <div class="zs-modal-head">
+                    <!-- 关闭按钮 -->
+                    <button type="button" class="close">×</button>
+                    <!-- 左上角logo和文字 -->
+                    <span class="author"> <img src="/assets/images/jay.jpeg" />何俊杰Jayhe </span>
+                    <p class="tip"><i></i><span>谢谢您的赞赏~</span></p>
+                </div>
+                <div class="zs-modal-body">
+                    <div class="zs-modal-btns">
+                        <button class="btn btn-blink" data-num="2">2元</button>
+                        <button class="btn btn-blink" data-num="5">5元</button>
+                        <button class="btn btn-blink" data-num="10">10元</button>
+                        <button class="btn btn-blink" data-num="50">50元</button>
+                        <button class="btn btn-blink" data-num="100">100元</button>
+                        <button class="btn btn-blink" data-num="1">任意金额</button>
+                    </div>
+                    <div class="zs-modal-pay">
+                        <button class="btn btn-bred" id="pay-text">2元</button>
+                        <p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+                        <img src="/assets/images/pay/wechat-btn.png" id="pay-image" />
+                    </div>
+                </div>
+                <div class="zs-modal-footer">
+                    <!-- 赞赏模式，你可以全部打开，也可以选择留一个你喜欢的
+                             只需注释掉你想关闭的赞赏模式对应的代码就行，然后再相应的微调一下样式
+                        -->
+                    <!-- 支付宝控件 -->
+                    <label>
+                        <input
+                                type="radio"
+                                name="zs-type"
+                                value="alipay"
+                                class="zs-type"
+                                checked="checked"
+                        />
+                        <span class="zs-alipay"><img src="/assets/images/pay/alipay-btn.png"/></span>
+                    </label>
+                    <!-- 微信控件 -->
+                    <label>
+                        <input type="radio" name="zs-type" value="wechat" class="zs-type" />
+                        <span class="zs-wechat"><img src="/assets/images/pay/wechat-btn.png"/></span>
+                    </label>
+                    <!-- 清除浮动 -->
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div style="font-size: 12px">
+                <div>
+                    <p>非特殊说明，本博所有文章均为博主原创，并遵循<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0 协议</a>许可。</p>
+                    <p class="hidden-xs">转载前请务必署名，本文链接：<span id="a_local_url"></span></p>
+                </div>
+            </div>
+        </section><!--//doc-section-->
+    </div><!--//content-inner-->

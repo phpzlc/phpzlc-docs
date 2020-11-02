@@ -1,0 +1,4 @@
+---
+title:  "Welcome to Jekyll!"
+permalink: doc/start
+---

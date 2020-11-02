@@ -1,0 +1,19 @@
+<html lang="en">
+
+{% include hender.html %}
+
+<body class="body-blue">
+<div class="page-wrapper">
+    {% include hender_column.html %}
+    <div class="doc-wrapper">
+        <div class="container">
+            <div class="doc-body row">
+                <div class="doc-content col-12 order-1">
+                    {% include content.html %}
+                </div>
+            </div><!--//doc-body-->
+        </div><!--//container-->
+    </div><!--//doc-wrapper-->
+    {% include footer.html %}
+</body>
+</html>
