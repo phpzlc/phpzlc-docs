@@ -1,5 +1,5 @@
 plugins: [jekyll-paginate]
-paginate: 5
+paginate: 1
 paginate_path: "blog/page:num"
 
 defaults:

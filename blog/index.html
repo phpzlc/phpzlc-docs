@@ -14,55 +14,87 @@ column_title: 博客动态
         <div class="container">
             <div class="doc-body row">
                 <div class="doc-content col-12 order-1">
-                    <div class="blog-list single-col-max mx-auto">
+                    <div class="blog-list single-col-max mx-auto" style="min-height: 500px">
                         <!-- 遍历分页后的文章 -->
                         {% for post in paginator.posts %}
-                        <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-                        <p class="author">
-                            <span class="date">{{ post.date }}</span>
-                        </p>
-                        <div class="content">
-                            {{ post.content }}
-                        </div>
+                            <div class="post-1552 post type-post status-publish format-standard has-post-thumbnail hentry category-blog">
+                                <div class="content">
+                                    <h4 class="post-title mb-3">
+                                        <a href="{{ post.url }}" target="_blank"> {{ post.title }}</a>
+                                    </h4>
+
+                                    <div class="entry post-entry post-excerpt">
+                                        {{ post.excerpt }}
+                                    </div>
+                                </div>
+                            </div>
                         {% endfor %}
-
-                        <!-- 分页链接 -->
-                        <div class="pagination">
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4" style="margin: 0 auto; padding: 0;">
+                        <ul class="pagination" style="width: 800px">
                             {% if paginator.previous_page %}
-                            <a href="/blog/page{{ paginator.previous_page }}" class="previous">Previous</a>
-                            {% else %}
-                            <span class="previous">Previous</span>
+                            <li class="page-item">
+                                {% if paginator.page != 2 %}
+                                <a href="/blog/page{{ paginator.previous_page }}" class="page-link">上一页</a>
+                                {% else %}
+                                <a href="/blog" class="page-link">上一页</a>
+                                {% endif %}
+                            </li>
+                            {% endif % %}
+
+                            {% for pi in (1..2) %}
+                            {% if paginator.page > pi %}
+                            <li class="page-item">
+                                {% assign pi_1 = paginator.page | minus: 2 %}
+                                {% assign pi_2 = paginator.page | minus: 1 %}
+                                {% if pi == 1 and pi_1 > 0 %}
+                                {% if pi_1 == 1 %}
+                                <a href="/blog" class="page-link">{{ pi_1 }}</a>
+                                {% else %}
+                                <a href="/blog/page{{ pi_1 }}" class="page-link">{{ pi_1 }}</a>
+                                {% endif %}
+                                {% endif %}
+
+                                {% if pi_2 > 0 and pi == 2 %}
+                                {% if pi_2 == 1 %}
+                                <a href="/blog" class="page-link">{{ pi_2 }}</a>
+                                {% else %}
+                                <a href="/blog/page{{ pi_2 }}" class="page-link">{{ pi_2 }}</a>
+                                {% endif %}
+                                {% endif %}
+                            </li>
                             {% endif %}
-                            <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+                            {% endfor %}
+
+
+                            <li class="page-item active">
+                                {% if paginator.page == 1 %}
+                                <a href="/blog" class="page-link">{{ paginator.page }}</a>
+                                {% else %}
+                                <a href="/blog/page{{ paginator.page }}" class="page-link">{{ paginator.page }}</a>
+                                {% endif %}
+                            </li>
+
+                            {% for pi in (1..3) %}
+                            {% assign pi_3 = paginator.page | plus: pi %}
+                            {% if pi_3 <= paginator.total_pages %}
+                            <li class="page-item">
+                                {% if pi_3 == 1 %}
+                                <a href="/blog" class="page-link">{{ pi_3 }}</a>
+                                {% else %}
+                                <a href="/blog/page{{ pi_3 }}" class="page-link">{{ pi_3 }}</a>
+                                {% endif %}
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+
                             {% if paginator.next_page %}
-                            <a href="/blog/page{{ paginator.next_page }}" class="next">Next</a>
-                            {% else %}
-                            <span class="next ">Next</span>
+                            <li class="page-item">
+                                <a href="/blog/page{{ paginator.next_page }}" class="page-link">下一页</a>
+                            </li>
                             {% endif %}
-                        </div>
-<!--                        {% for post in site.posts %}-->
-<!--                        <div class="post-1552 post type-post status-publish format-standard has-post-thumbnail hentry category-blog">-->
-<!--                            <div class="content">-->
-<!--                                <h4 class="post-title mb-3">-->
-<!--                                    <a href="{{ post.url }}" target="_blank"> {{ post.title }}</a>-->
-<!--                                </h4>-->
-
-<!--                                <div class="entry post-entry post-excerpt">-->
-<!--                                    {{ post.excerpt }} …-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        {% endfor %}-->
-
-<!--                        <div id="search-container">-->
-<!--                            <input type="text" id="search-input" placeholder="search...">-->
-<!--                            <ul id="results-container"></ul>-->
-
-<!--                        <input type="text" id="search-input" placeholder="Search blog posts..">-->
-<!--                        <ul id="results-container"></ul>-->
-
-                        </div>
-<!--                        -->
+                        </ul>
+                    </div>
                 </div>
             </div><!--//doc-body-->
         </div><!--//container-->
