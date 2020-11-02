@@ -1,0 +1,27 @@
+plugins: [jekyll-paginate]
+paginate: 5
+paginate_path: "blog/page:num"
+
+defaults:
+  -
+    scope:
+      path: "" # 一个空的字符串代表项目中所有的文件
+    values:
+      title: "PHPZLC"
+      description: "在深度运用symfony的基础上，探究研发知行合一的最佳实践"
+      keywords: "phpzlc,zlc,php,symfony,symfony5,symfony4"
+      author: Jay
+
+  - scope:
+      path: "_posts/doc" # 一个空的字符串代表项目中所有的文件
+    values:
+      column_title: 文档支持
+      layout: doc
+      categories: post doc
+
+  - scope:
+      path: "_posts/blog" # 一个空的字符串代表项目中所有的文件
+    values:
+      column_title: 博客动态
+      layout: blog
+      categories: post blog
