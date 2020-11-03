@@ -1,9 +1,10 @@
 ---
-title:  "Welcome to Jekyll!"
+title:  "创建更新数据库结构"
 permalink: doc/start
----
+date: 2020-11-03
+tags: doc,js
 
-# 创建更新数据库结构
+---
 
 ## 官方链接
 
