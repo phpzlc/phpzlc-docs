@@ -1,0 +1,30 @@
+---
+title: 安装和配置
+permalink: doc/install
+---
+
+> 安装symfony4.4
+
+```shell script
+     composer create-project symfony/website-skeleton:"^4.4" my_project_name
+```
+
+详细的安装教程请参照官方文档 (安装和设置symfony框架)[https://symfony.com/doc/4.4/setup.html]
+    
+> 安装框架核心架构
+
+    composer create-project phpzlc/phpzlc
+   
+> 调整完善项目README.md文件
+   
+> 选择合适的业务组件
+
+1. API组件
+
+2. Admin组件
+
+> 配置项目赋予文件夹权限
+
+> 启动与访问项目
+    
+  
