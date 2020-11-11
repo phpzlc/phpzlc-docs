@@ -2,6 +2,7 @@
         <section class="doc-section" style="min-height: 500px">
             <h2  style="text-align: center">{{ page.title }}</h2>
             <div style="text-align: center"><i class="far fa-clock"></i> 最近更新时间: {{ page.date | date: "%Y-%m-%d" }}</div>
+            <div style="text-align: center"><i class="far fa-user"></i> 作者: <span id="author"></span></div>
             <div style="padding-top: 20px; min-height: 440px">
                 {{ content }}
             </div>

@@ -13,11 +13,7 @@ permalink: doc/install
     
 > 安装框架核心架构
 
-```shell script
     composer create-project phpzlc/phpzlc
-```
-
-
    
 > 调整完善项目README.md文件
    
