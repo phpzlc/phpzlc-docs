@@ -3,17 +3,23 @@ title: 安装和配置
 permalink: doc/install
 ---
 
-> 安装symfony4.4
+## 安装symfony
 
-```shell script
+*当前Symfony的最新稳定版本是5.2,长期支持版是4.4;*
+*5.2版本其实和4.4版本的主要架构差别不大,两者的发行事件很是解决*
+*本框架当前版本主要支持symfony4.4* 
+
+```javascript
      composer create-project symfony/website-skeleton:"^4.4" my_project_name
 ```
 
-详细的安装教程请参照官方文档 (安装和设置symfony框架)[https://symfony.com/doc/4.4/setup.html]
+详细的安装教程请参照官方文档 [安装和设置symfony框架](https://symfony.com/doc/4.4/setup.html)
     
 > 安装框架核心架构
 
+```javascript
     composer create-project phpzlc/phpzlc
+```
    
 > 调整完善项目README.md文件
    
