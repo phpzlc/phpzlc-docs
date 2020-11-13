@@ -31,6 +31,7 @@ column_title: 博客动态
                         {% endfor %}
                     </div>
                     <div class="col-lg-3 col-md-6 mb-4" style="margin: 0 auto; padding: 0;">
+                        {% if total_pages.total_pages > 1 %}
                         <ul class="pagination" style="width: 800px">
                             {% if paginator.previous_page %}
                             <li class="page-item">
@@ -92,6 +93,7 @@ column_title: 博客动态
                             </li>
                             {% endif %}
                         </ul>
+                        {% endif %}
                     </div>
                 </div>
             </div><!--//doc-body-->
