@@ -3,34 +3,104 @@ title: 安装和配置
 permalink: doc/install
 ---
 
-## 安装symfony
+### 前言
 
-*当前Symfony的最新稳定版本是5.2,长期支持版是4.4;*
-*5.2版本其实和4.4版本的主要架构差别不大,两者的发行事件很是解决*
-*本框架当前版本主要支持symfony4.4* 
+在开始之前，阅读者需掌握Symfony,Composer,Git的基础知识。本篇教程需要一定的基础才可以阅读。
 
-```javascript
-     composer create-project symfony/website-skeleton:"^4.4" my_project_name
+由于PhpZlc在不改变Symfony原有写法，也不丧失Symfony原有特性的前提下丰富特性，凝练写法,所以PhpZlc可以看作Symfony的一组具像化的用法场景，大家多数需要学习的其实还是Symfony原有的知识。
+
+在教程中，不会对Symfony的使用细节进行过多的说明，知识的来源、拓展、解读会通过拓展链接提供，大家自行阅读。
+
+Symfony对于相同技术提供了多种使用途径，在教程中，所呈现的是PhpZlc认为比较合理的Symfony使用方式，有自己想法的小伙伴不必拘泥于此。
+
+### 安装Symfony4.4
+
+Symfony4.4版本是Symfony当前最新长期稳定支持版本。他比较适合商业项目的开发，PhpZlc主要支持Symfony4.4版本。
+  
+虽然5.2版本和4.4版本的区别很小, 但是目前只考虑在4.4上进行开发。这点希望使用的小伙伴格外注意。如果你还是使用了5.2版本且产生了问题，希望与我们联系，我们会尽可能的提供解决方案。
+
+对于Symfony后续版本的支持，计划在v1版本稳定之后在做安排。
+
+```shell
+composer create-project symfony/website-skeleton:"^4.4" my_project_name
 ```
 
-详细的安装教程请参照官方文档 [安装和设置symfony框架](https://symfony.com/doc/4.4/setup.html)
-    
-> 安装框架核心架构
+这里是Symfony4.4安装的简单命令，如果有疑问或者希望了解更多，请阅读官方文档[安装和设置Symfony框架](https://symfony.com/doc/4.4/setup.html)。
 
-```javascript
-    composer create-project phpzlc/phpzlc
+### 安装本地食谱服务器
+
+这是个比较麻烦的工作，因为需要了解很多的知识，具体的方法和原理请[点击]()前往。
+
+安装他的原因主要是Symfony官方提供的食谱库往里面提交代码,官方同意合并的时间很长且不稳定，所以这就导致我们的组件无法正常的安装。
+
+### PhpZlc内核安装
+
+安装完食谱服务器之后，就可以进行PhpZlc的安装了。
+
+```shell
+composer require phpzlc/phpzlc
 ```
-   
-> 调整完善项目README.md文件
-   
-> 选择合适的业务组件
 
-1. API组件
+> php内核主要组成组件
 
-2. Admin组件
+1. [phpzlc/phpzlc]() 内核组件，确定基本技术特征，技术组织形式，技术规范，写法，接口定义等。
+2. [phpzlc/validate]() 常用的验证方法和验证正则(可以独立使用)。
+3. [phpzlc/document-bundle]() API文档组件(可以独立使用), 用于项目API文档书写以及业务组件API文档书写。让API文档可以自由组合，随码而动。
+4. [doctrine/doctrine-fixtures-bundle]() 内置数据组件，symfony官方组件，用于通过命令向数据库写入数据。
+5. [ramsey/uuid]() 用于支持`Entity`实体类的主键从自增变为具有排序属性的UUID。方便项目向分布式拓展。
 
-> 配置项目赋予文件夹权限
+### PhpZlc组件安装
 
-> 启动与访问项目
+Phpzlc提供了很多好用的`vendor组件`和`业务组件`，你可以在根据实际情况进行自由组合。
+
+> 比较常用的组件有:
+
+1. [phpzlc/admin]() 用于开发管理后台。
+
+更多的组件请进入[组件中心]()。
+
+### 项目开发前的步骤
+
+1. 完善README.md，请将README.md第一行的项目名称改成自己项目的名称。这很重要。 
+
+2. 按照README.md的介绍,配置部署项目。
+
+3. 多数情况下，我建议将`Vendor`入`Git`库，因为PhpZlc需要本地食谱服务器才能够正常的安装，这点导致在服务器上很难做到。其次就实践而言，服务器上可能会出现网络问题或其他问题导致Composer无法正常工作。
+当然就原则而言，这是一个短板，不符合Composer的技术特征。关于这点不足，我们会在未来想办法解决食谱服务器的问题。
+
+    **Vendor入Git库的方法：** 找到项目根目录的`.gitignore`文件将`vendor`所在行删除即可。
+
+4. 初始化Git仓库，添加远程地址, 提交到远程仓库
+
+```shell
+git init
+git remote add origin {远程仓库地址}
+git checkout origin
+git add .
+git commit -m "project create"
+git push
+```
+
+### 访问和启动项目
+
+将项目放置在apache开放目录下, 然后通过浏览器访问项目public/index.php文件即可。
+
+
+### 开始编码
+
+一切准备就绪之后，你就可以在正式开始编码了，[路由篇]()。
+
+### 拓展链接
+
+[关于PhpZlc]()
+
+[IDE的选择和配置]()
+
+[Symfony的发行策略与版本管理,我们如何正确选择]()
+
+[Symfony4.4与之间Symfony2.8相比，有哪些区别,这些区别带来的思考和改变]()
+
+
+
     
   

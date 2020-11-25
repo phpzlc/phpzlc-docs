@@ -3,6 +3,57 @@ title: 安装和配置
 permalink: doc/install
 ---
 
+## 一：安装Symfony4.4
+
+symfony4.4版本是symfony当前最新长期稳定版本。他比较适合商业项目的开发，phpzlc主要支持symfony4.4版本。
+
+虽然symfony5.2版本和symfony4.4的区别很小，当前经过测试phpzlc也可以在symfony5.2多数情况下可以正常使用。
+
+但是phpzlc目前只考虑在symfony4.4上进行开发，这点希望使用的小伙伴格外注意。如果你还是使用了5.2版本且产生了问题，希望与我们联系，我们会提供解决版本。
+
+对于symfony更好版本的支持，我们的想法是等到phpzlc1.0版本稳定之后在进行考虑。
+
+_这里是symfony4.4安装的简单命令，如果有疑问或者希望了解更多，请阅读官方文档_  (安装和设置symfony框架)[https://symfony.com/doc/4.4/setup.html]
+
+```shell script
+     composer create-project symfony/website-skeleton:"^4.4" my_project_name
+```
+
+
+### symfony5.2和symfony4.4的区别与选择。
+
+### symfony4相当于与之前主要的变化，这些变化影射出的架构理念的变化。
+
+### phpzlc的版本策略及如何与symfony的版本进行配合。
+
+### symfony 安装。
+
+_这里是symfony4.4安装的简单命令，如果有疑问或者希望了解更多，请阅读官方文档_ 
+ 
+(安装和设置symfony框架)[https://symfony.com/doc/4.4/setup.html]
+
+```shell script
+     composer create-project symfony/website-skeleton:"^4.4" my_project_name
+```
+
+### phpzlc 安装。
+
+#### symfony flex server服务器的配置
+
+#### phpzlc 安装
+
+```shell script
+composer require phpzlc/phpzlc
+```
+
+
+
+### phpzlc 组件安装。
+
+```shell script
+composer create-project symfony/website-skeleton:"^4.4" my_project_name
+```
+
 > 安装symfony4.4
 
 ```shell script
@@ -10,15 +61,26 @@ permalink: doc/install
 ```
 
 详细的安装教程请参照官方文档 (安装和设置symfony框架)[https://symfony.com/doc/4.4/setup.html]
+
+> 更换symfony flex 的服务地址
+
+在```composer.json```相应部分修改
+```json
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "require": "4.3.*",
+            "endpoint": "http://127.0.0.1:8000"
+        }
+    }
+```
     
 > 安装框架核心架构
 
 ```shell script
-    composer create-project phpzlc/phpzlc
+   composer require phpzlc/phpzlc
 ```
 
-
-   
 > 调整完善项目README.md文件
    
 > 选择合适的业务组件

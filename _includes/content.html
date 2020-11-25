@@ -1,9 +1,36 @@
- <div class="content-inner">
+<style type="text/css">
+#md-content{
+    padding-top: 20px;
+    min-height: 440px;
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+#md-content h3{
+    padding-top: 20px;
+}
+#md-content code{
+    background: #00adef;
+}
+#md-content .language-plaintext{
+    padding: 0;
+    border-radius: 1em;
+    background: #f9f9fb;
+    color: #00adef;
+    font-weight: normal;
+}
+#md-content .language-plaintext code{
+    background-color: #f9f9fb;
+}
+pre[class*="language-"]{
+    padding: 0;
+    background: #00adef;
+}
+</style>
+<div class="content-inner">
         <section class="doc-section" style="min-height: 500px">
-            <h2  style="text-align: center">{{ page.title }}</h2>
+            <h2  style="text-align: center;font-size: 25px">{{ page.title }}</h2>
             <div style="text-align: center"><i class="far fa-clock"></i> 最近更新时间: {{ page.date | date: "%Y-%m-%d" }}</div>
             <div style="text-align: center"><i class="far fa-user"></i> 作者: <span id="author"></span></div>
-            <div style="padding-top: 20px; min-height: 440px">
+            <div id="md-content">
                 {{ content }}
             </div>
             <div class="entry-shang text-center">
