@@ -1,30 +1,83 @@
-<div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex" style="min-height: 600px">
-    <div id="doc-nav" class="doc-nav">
-        <nav id="doc-menu" class="nav doc-menu flex-column sticky">
-            <a class="nav-link scrollto" href="/doc/install">安装</a>
-            <a class="nav-link scrollto" href="#installation-section">安装</a>
-            <a class="nav-link scrollto" href="#installation-section">安装</a>
-            <nav class="doc-sub-menu nav flex-column">
-                <a class="nav-link scrollto" href="#step1">Step One</a>
-                <a class="nav-link scrollto" href="#step2">Step Two</a>
-                <a class="nav-link scrollto" href="#step3">Step Three</a>
-            </nav><!--//nav-->
-            <a class="nav-link scrollto" href="#code-section">Code</a>
-            <nav class="doc-sub-menu nav flex-column">
-                <a class="nav-link scrollto" href="#html">HTML</a>
-                <a class="nav-link scrollto" href="#css">CSS</a>
-                <a class="nav-link scrollto" href="#sass">Sass</a>
-                <a class="nav-link scrollto" href="#less">LESS</a>
-                <a class="nav-link scrollto" href="#javascript">JavaScript</a>
-                <a class="nav-link scrollto" href="#python">Python</a>
-                <a class="nav-link scrollto" href="#php">PHP</a>
-                <a class="nav-link scrollto" href="#handlebars">Handlebars</a>
-            </nav><!--//nav-->
-            <a class="nav-link scrollto" href="#callouts-section">Callouts</a>
-            <a class="nav-link scrollto" href="#tables-section">Tables</a>
-            <a class="nav-link scrollto" href="#buttons-section">Buttons</a>
-            <a class="nav-link scrollto" href="#video-section">Video</a>
-            <a class="nav-link scrollto" href="#icons-section">Icons</a>
+<style type="text/css">
+    #left-div {
+        border-right-style:solid;
+        border-width:2px;
+        width: 200px;
+        float: left;
+        margin-right: 20px;
+    }
+    #left-div .dir-item-a{
+        color: #2d8284;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+    #left-div .dir-son{
+        margin-left: 20px;
+    }
+    #left-div .dir-item{
+        margin-top: 4px;
+        border-bottom-style: dashed;
+        border-width:2px;
+    }
+</style>
+<div id="left-div">
+    <div id="dir-div">
+        <div class="dir-item">
+            <a href="/doc/install" class="dir-item-a">安装与配置</a>
+        </div>
+        <div class="dir-item">
+            <a href="/doc/skeleton" class="dir-item-a">目录与结构</a>
+        </div>
+<!--        <div class="dir-item">-->
+<!--            <span href="#" class="dir-item-a">安装与配置</span>-->
+<!--        </div>-->
+<!--        <div class="dir-item dir-son">-->
+<!--            <a href="#" class="dir-item-a">安装与配置</a>-->
+<!--        </div>-->
+<!--            <a class="nav-link scrollto" href="/doc/route">路由</a>-->
+<!--            <a class="nav-link scrollto" href="/doc/controller">控制器与接口</a>-->
+<!--            <nav class="doc-sub-menu nav flex-column">-->
+<!--                <a class="nav-link scrollto" href="#step1">请求</a>-->
+<!--                <a class="nav-link scrollto" href="#step2">响应</a>-->
+<!--            </nav>&lt;!&ndash;//nav&ndash;&gt;-->
+<!--            <a class="nav-link scrollto" href="/doc/route">环境变量与配置文件</a>-->
+<!--            <a class="nav-link scrollto" href="/doc/route">数据库操作</a>-->
+<!--            <nav class="doc-sub-menu nav flex-column">-->
+<!--                <a class="nav-link scrollto" href="#step1">创建数据库，创建表</a>-->
+<!--                <a class="nav-link scrollto" href="#step1">更新数据库结构，删除数据库</a>-->
+<!--                <a class="nav-link scrollto" href="#step1">生成get-set方法</a>-->
+<!--                <a class="nav-link scrollto" href="#step1">查询</a>-->
+<!--                <a class="nav-link scrollto" href="#step2">验证, 插入,更新</a>-->
+<!--                <a class="nav-link scrollto" href="#step2">删除</a>-->
+<!--                <a class="nav-link scrollto" href="#step1">规则</a>-->
+<!--                <a class="nav-link scrollto" href="#step1">规则碰撞</a>-->
+<!--                <a class="nav-link scrollto" href="#step1">重写规则</a>-->
+<!--                <a class="nav-link scrollto" href="#step1">表外字段</a>-->
+<!--                <a class="nav-link scrollto" href="#step1">必须规则</a>-->
+<!--                <a class="nav-link scrollto" href="#step1">重写SQL</a>-->
+<!--                <a class="nav-link scrollto" href="#step1">聚合查询</a>-->
+<!--            </nav>&lt;!&ndash;//nav&ndash;&gt;-->
+<!--            <a class="nav-link scrollto" href="/doc/route">内置数据</a>-->
+<!--            <a class="nav-link scrollto" href="/doc/route">文档编写</a>-->
+<!--            <a class="nav-link scrollto" href="/doc/route">工具</a>-->
+<!--            <nav class="doc-sub-menu nav flex-column">-->
+<!--                <a class="nav-link scrollto" href="/doc/route">错误与异常</a>-->
+<!--                <a class="nav-link scrollto" href="/doc/route">日志记录</a>-->
+<!--                <a class="nav-link scrollto" href="/doc/route">事务</a>-->
+<!--                <a class="nav-link scrollto" href="/doc/route">SQL工具</a>-->
+<!--            </nav>&lt;!&ndash;//nav&ndash;&gt;-->
+<!--            <a class="nav-link scrollto" href="/doc/route">组件编程</a>-->
+<!--            <nav class="doc-sub-menu nav flex-column">-->
+<!--                <a class="nav-link scrollto" href="/doc/route">概述</a>-->
+<!--                <a class="nav-link scrollto" href="/doc/route">业务组件</a>-->
+<!--                <a class="nav-link scrollto" href="/doc/route">vender组件</a>-->
+<!--            </nav>&lt;!&ndash;//nav&ndash;&gt;-->
+<!--            <a class="nav-link scrollto" href="/doc/route">已有组件文档</a>-->
+<!--            <nav class="doc-sub-menu nav flex-column">-->
+<!--                <a class="nav-link scrollto" href="/doc/route">admin</a>-->
+<!--                <a class="nav-link scrollto" href="/doc/route">api</a>-->
+<!--                <a class="nav-link scrollto" href="/doc/route">sms</a>-->
+<!--            </nav>&lt;!&ndash;//nav&ndash;&gt;-->
         </nav><!--//doc-menu-->
     </div>
 </div>

@@ -5,18 +5,16 @@
 <body class="body-blue">
 <div class="page-wrapper">
     {% include hender_column.html %}
-<div class="doc-wrapper">
-    <div class="container">
-        <div class="doc-body row">
-
-            <div class="doc-content col-md-9 col-12 order-1">
-                {% include content.html %}
-            </div>
-
-            {% include left_directory.html %}
-        </div><!--//doc-body-->
-    </div><!--//container-->
-</div><!--//doc-wrapper-->
+    <div class="doc-wrapper">
+        <div class="container">
+            <div class="doc-body row">
+                {% include left_directory.html %}
+                <div class="doc-content col-md-9 col-12 order-1" style="float: left">
+                    {% include content.html %}
+                </div>
+            </div><!--//doc-body-->
+        </div><!--//container-->
+    </div><!--//doc-wrapper-->
     {% include footer.html %}
 </body>
 </html>

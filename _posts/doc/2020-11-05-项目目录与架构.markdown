@@ -1,6 +1,6 @@
 ---
 title: 前言
-permalink: doc/start
+permalink: doc/skeleton
 ---
 
 # 使用建议

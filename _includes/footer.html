@@ -76,10 +76,10 @@
         var date = new Date();
         var year = date.getFullYear();
         $('#copyright-year').text(year);
-        $('.nav-link').each(function () {
+        $('.dir-item-a').each(function () {
             var path = window.location.pathname;
             if($(this).attr("href") == path || $(this).attr("href") == path.substring(0, path.length - 1)){
-                $(this).addClass('active');
+                $(this).css('color', '#00adef');
             }
         })
 
