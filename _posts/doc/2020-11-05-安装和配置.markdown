@@ -71,7 +71,6 @@ Phpzlc提供了很多好用的`vendor组件`和`业务组件`，你可以在根�
     **Vendor入Git库的方法：** 找到项目根目录的`.gitignore`文件将`vendor`所在行删除即可。
 
 4. 初始化Git仓库，添加远程地址, 提交到远程仓库
-
 ```shell
 git init
 git remote add origin {远程仓库地址}

@@ -83,7 +83,7 @@ composer install
 ```
    如果你的是`composer 2`的话安装会出现报错
    
-![compsoer2-error.png](/assets/posts/composer2-error.png)
+   ![compsoer2-error.png](/assets/posts/composer2-error.png)
   
    `composer 1`程序包下载的地址:[https://getcomposer.org/download/1.10.17/composer.phar](https://getcomposer.org/download/1.10.17/composer.phar)
     
@@ -145,4 +145,4 @@ php bin/console server:run
     
     如果是数字版本号, 采取是是最近原则的匹配，例如食谱库中只有`1.0`版本，那么大于`1.0`的包也会使用这个食谱配方
 
-3. 如果在部署的时候，出现问题，可以参照官方文档，见上文。
+3. 如果在部署使用的时候，出现问题，可以参照官方文档，见上文。
