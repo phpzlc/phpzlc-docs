@@ -1,18 +1,113 @@
 ---
-title: 前言
+title: 目录与架构
 permalink: doc/skeleton
 ---
 
-# 使用建议
+## 目录文件作用介绍
 
-# symfony的主要版本
+/bin/console  控制台命令入口  用法 *php bin/console*
 
-# phpzlc支持的版本
+/config 配置文件
 
-# phpzlc是什么？
+/config/bundles.php 注册Bundle
 
-# 我们为什么对symfony进行该找？
+/config/routes.yaml 根路由配置文件
 
-# 这样的改造会影响对于symfony的使用么
+/config/services.yaml 服务配置文件
 
-# 在这里
+/config/routes 路由配置文件 (在此目录下的配置路由会自动引入）
+
+/config/packages 包配置文件 (在此目录下的配置文件会自动引入）
+
+/config/packages/dev 开发环境下配置文件
+
+/config/packages/prod 生产环境下配置文件
+
+/config/packages/dev 测试环境下配置文件
+
+/migrations 数据库迁移记录，执行`migrations`相关的命令时会记录每次数据库变更的具体sql;
+
+/public  对外开放目录
+
+/publuc/index.php 项目入口
+
+/src 开发目录
+
+/src/Kernel.php 内核，可以通过修改他，将不同的资源引入到项目中
+
+/src/Entity 实体，定义数据库结构
+
+/src/Repository 实体操作类，相当于model层
+
+/src/DataFixtures 内置数据类目录
+
+/src/Controller 控制器目录
+
+/src/Document 文档目录
+
+/src/Document/Config.php 文档配置文件
+
+/src/Business 业务目录
+
+/templates 模版目录
+
+/tests 测试目录
+
+/translations 翻译目录
+
+/var 临时文件目录
+
+/vendor 第三方组件库
+
+.env 项目默认环境变量
+
+.env.test 测试环境默认环境变量
+
+.env.local 本地环境默认环境变量, 这里面定义的值会覆盖.env和.env.test定义的相同名称的环境值
+
+.gitignore 定义git忽略哪些文件
+
+composer.json composer版本控制配置文件
+
+composer.lock  composer版本锁定文件
+
+symfony.lock symfony版本锁定文件
+
+README.md 项目说明
+
+## PhpZlc对目录的变更及架构意义
+
+1. src/Business 
+
+    这个目录是PhpZlc原创的目录，主要用于书写复杂的业务代码。
+    
+    Symfony是MVC的框架，看目录结构可以简单的理解M是Repository,V是templates,C是Controller。MVC结构面对简单业务的时候足够了，但面对稍微复杂点的业务，代码就无法有条不紊的管理了。
+    
+    通过大量编程实践，我相信绝大多数开发商业项目的小伙伴都不会认为这样简单的分层可以应对如今的业务需求。那么为什么业务逻辑层没有被Symfony作为默认项拉入到框架初始目录中去了。我想这就是Symfony强大的地方。
+    
+    我有几点推测：
+    
+    1. PHP这门语言自由的写法是好还是坏？
+    
+    好在哪里了，就是自由自在，无拘无束，所写即所得，一句废话都没有。坏处是什么，就是缺乏系统性规划，千人千面，不利于管理，拓展。
+    
+    那么PHP能不能和JAVA一样实现千人一面的编程了。当然可以，只要框架定义必须实现什么什么接口，必须实现哪些方法，那么自然大家就按照规范走了。
+    
+    这是个很重要的理论，就是灵活的可以做成死的，但死的想活起来就很难。 Symfony没有必要自斩一刀。
+    
+    PHP入门简单，JAVA入门困难，为什么了,原因就是你编写PHP程序只需要了解需要实现这个功能的技术就可以了；但你用JAVA的话，你还得了解很多其他的辅助技术和理念才可以开展好工作。
+    
+    
+    
+    
+    
+    MVC弊端很明显，就是分层不够，那么为什么Symfony没有增加业务逻辑层了。我推测有以下几点原因：
+    
+    1. PHP是一种轻量级的语言，不需要编译，语法简单，所见即所得。简单情况下有些业务在C层用一个接口方法就可以实现了。如果为了代码系统的缜密，思路就得像JAVA项目那样还没写就先定义接口，然后在实现接口。
+所以尽可能自由的写法是PHP技术的一个重要方向，也是其一个巨大的优势。Symfony如果在项目初始目录中增加业务目录就是一种很强的指向性作用，大家会一股脑的使用这种目录结构，会使得技术的演变越来越复杂。
+
+
+    2. 那么想到哪写到哪的自由写法和JAVA这样缜密，一层套一层的写法谁更好了，我觉得PHP这样的更好，为什么了，就功能而言，最快的达到效果才是最好的，缜密的写法有时候就是画蛇添足。其次缜密的写法就是为了更好的拓展和
+   
+
+
