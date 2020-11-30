@@ -40,26 +40,6 @@ SymfonyFlex通过配置食谱，在程序包安装、更新、卸载完之后，
      [Contrib食谱存储库](https://github.com/symfony/recipes-contrib)，包含社区创建的所有食谱。保证它们全部都能正常工作，但是它们相关的软件包可能无法维护。在安装任何这些食谱之前，Symfony Flex都会征得您的许可。
       
      阅读Symfony [食谱文档](https://github.com/symfony/recipes/blob/master/README.rst)，以了解有关如何为自己的包装创建食谱的所有信息。
-   
-## 资料
-
-1. [如何为新捆绑包编写Symfony Flex配方？](https://stackoverflow.com/questions/58595101/how-write-a-symfony-flex-recipe-for-a-new-bundle)
-
-    **什么是Flex食谱？**
-    
-    请记住，flex配方是与程序包存储库分开的存储库，需要托管在Flex服务器上。此过程使配方对于第三方捆绑包（IMO）的用处大大降低。对于“官方” Symfony食谱来说，它非常整洁，但对其他用户而言却不是那么多。
-    
-    最有可能的是，您必须将食谱提交到contrib存储库，使其获得批准并合并，以便将其作为社区食谱使用。（另一种选择是拥有一台自托管的Flex服务器，但这仅在测试配方时有用，如有必要）。
-    
-    另外，请务必记住，大多数用户默认不会启用contrib存储库。因此，如果这对于安装此捆绑包很重要，则应在安装配方之前告诉用户如何操作（例如，在捆绑包的自述文件中）。
-    
-    这样就可以了：基本上，Flex配方是一个带有manifest.json文件的存储库，该文件带有用于启用某些“配置程序”的特定密钥。
-
-2. SymfonyFlex食谱由社区贡献，并存储在两个公共存储库中：
-   
-   [主要配方公共存储库](https://github.com/symfony/recipes)，是高质量和可维护包装的配方的精选列表。默认情况下，Symfony Flex仅在此存储库中查找。
-   [Contrib食谱存储库](https://github.com/symfony/recipes-contrib)，包含社区创建的所有食谱。保证它们全部都能正常工作，但是它们相关的软件包可能无法维护。在安装任何这些食谱之前，Symfony Flex都会征得您的许可。
-   阅读Symfony [食谱文档](https://github.com/symfony/recipes/blob/master/README.rst)，以了解有关如何为自己的包装创建食谱的所有信息。
 
 4. PhpZlc食谱仓库
    
