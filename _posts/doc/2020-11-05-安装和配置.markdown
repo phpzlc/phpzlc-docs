@@ -85,6 +85,17 @@ git commit -m "project create"
 git push --set-upstream origin master
 ```
 
+## IDE的选择和配置
+
+**安装配置完毕有代码提示**
+
+IDE:[PhpStorm](https://www.jetbrains.com/phpstorm/)
+
+[IDE配置，Symfony工具安装配置](https://www.jetbrains.com/help/phpstorm/symfony-support.html?_ga=2.242917706.978522081.1607327290-133517331.1605767311#enabling-the-symfony-plugin-for)
+
+## DEMO项目
+
+
 ## 访问和启动项目
 
 将项目放置在apache开放目录下, 然后通过浏览器访问项目public/index.php文件即可。
@@ -97,8 +108,6 @@ git push --set-upstream origin master
 ## 拓展链接
 
 [关于PhpZlc](#)
-
-[IDE的选择和配置](#)
 
 [Symfony的发行策略与版本管理,我们如何正确选择](#)
 
