@@ -3,8 +3,137 @@ title: 路由(Route)
 permalink: doc/config/route
 ---
 
-##原文链接
+## 原文链接
 
 [Symfony-Routing](https://symfony.com/doc/current/routing.html)
 
-##技术选型
+## 技术选型
+
+Symfony的路由有三种配置方式。```注释```,```PHP```,```yaml```。常用的是```注释```和```yaml```。
+
+在实际使用中，```注释```比较方便，适合简单应用。通常情况下，选择```yaml```方式，因为其配置的有层次，写法也简单，便于检索和管理。
+
+下文中主要介绍```yaml```方式，```注释```方式请参照官方文档。
+
+## 配置文件地址
+1. 根地址
+```shell
+config/routes.yaml
+```
+2. 创建```config/routing```目录，放置路由配置文件
+
+## 基础语法
+
+1. 指向```yaml```配置文件
+```shell
+##API模块
+api:
+  resource: "routing/api/api.yaml"
+  prefix:   /api
+```
+
+2. 指向```Action```
+```shell
+##首页
+index:
+    path: /
+    controller: App\Controller\IndexController::index
+```
+
+## 配置注意事项
+
+为了使配置出的路由有层次，便于管理和检索，需要遵循以下要求：
+
+1. config/routing目录下的目录结构应当与src/Controller目录下的目录结构保持一致，一个Controller对应一个yaml文件。
+2. 目录和文件的命名要求全小写，不同单词之间用```-```连接，例如```UserIndex```改为```user-index```。
+3. 路由名按照目录层级追加例如
+
+   上级为：
+```shell
+api:
+  resource: "routing/api/api.yaml"
+  prefix:   /api
+```
+   下级为
+```shell
+api_auth:
+  resource: "routing/api/auth.yaml"
+  prefix:   /auth
+```
+4. url路径设置需要全小写，不同单词之间也用```-```连接，例如
+```shell
+api_user_info:
+  resource: "routing/api/user-info.yaml"
+  prefix:   /user-info
+```
+
+
+### 如何获取路由类用于编程和写库
+```php
+$routeCollection = $this->get('router')->getRouteCollection();
+$routeCollection->all(); 
+```
+
+### 常用方法
+```php
+/**
+ * 生成url
+ * 
+ * @param string $name 路由名
+ * @param array $parameters  路由参数
+ * @param int $referenceType 路由模式 UrlGeneratorInterface::ABSOLUTE_PATH 相对 | UrlGeneratorInterface::ABSOLUTE_URL 绝对 
+ * @return string
+ */
+function generateUrl(string $route, array $parameters = [], int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH)
+```
+
+### 如何定义自己的路由类
+
+> 定义
+    
+```php
+use use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\Route;
+
+$routeCollection = new RouteCollection();
+$name = 'index';
+$defaults = [];
+$path = '/';
+
+$route = new Route($path, $defaults, []);
+$routeCollection->add($name, $route);
+```
+
+> 匹配
+
+```shell
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\RequestContext;
+
+public function urlMatcher($path_info)
+{
+    $matcher = new UrlMatcher($routeCollection, new RequestContext());
+
+    try {
+        return $matcher->match($path_info);
+    }catch (\Exception $exception){
+        return  array();
+    }
+}
+```
+
+> 生成url
+
+```php
+use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\Routing\Generator\UrlGenerator;
+
+public function generateUrl(string $name, array $parameters = [], int $referenceType = UrlGenerator::ABSOLUTE_PATH)
+{
+    $urlGenerator = new UrlGenerator($routeCollection, new RequestContext());
+
+    $path = $urlGenerator->generate($name, $parameters, $referenceType);
+
+    return CurSite::$baseUrl . $path;
+}
+```
