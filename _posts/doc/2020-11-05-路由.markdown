@@ -81,7 +81,7 @@ $routeCollection->all();
  * 
  * @param string $name 路由名
  * @param array $parameters  路由参数
- * @param int $referenceType 路由模式 UrlGeneratorInterface::ABSOLUTE_PATH 相对 | UrlGeneratorInterface::ABSOLUTE_URL 绝对 
+ * @param int $referenceType 返回类型 UrlGeneratorInterface::ABSOLUTE_PATH 相对路由 | UrlGeneratorInterface::ABSOLUTE_URL 绝对网址
  * @return string
  */
 function generateUrl(string $route, array $parameters = [], int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH)
