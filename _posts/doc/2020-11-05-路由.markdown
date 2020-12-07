@@ -2,3 +2,9 @@
 title: 路由(Route)
 permalink: doc/config/route
 ---
+
+##原文链接
+
+[Symfony-Routing](https://symfony.com/doc/current/routing.html)
+
+##技术选型
