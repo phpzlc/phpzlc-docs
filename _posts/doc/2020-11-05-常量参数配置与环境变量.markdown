@@ -15,6 +15,7 @@ config/services.yaml
 ```
 常量配置：
 ```yaml
+parameters:
     ##字符串
     var_string: 这是个字符串
     ##数组
