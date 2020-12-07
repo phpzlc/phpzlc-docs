@@ -87,11 +87,18 @@ git push --set-upstream origin master
 
 ## IDE的选择和配置
 
-**安装配置完毕有代码提示**
+1. 安装配置完毕有代码提示
 
-IDE:[PhpStorm](https://www.jetbrains.com/phpstorm/)
+    IDE:[PhpStorm](https://www.jetbrains.com/phpstorm/)
 
-[IDE配置，Symfony工具安装配置](https://www.jetbrains.com/help/phpstorm/symfony-support.html?_ga=2.242917706.978522081.1607327290-133517331.1605767311#enabling-the-symfony-plugin-for)
+    [IDE配置，Symfony工具安装配置](https://www.jetbrains.com/help/phpstorm/symfony-support.html?_ga=2.242917706.978522081.1607327290-133517331.1605767311#enabling-the-symfony-plugin-for)
+
+2. 忽略ide配置目录提交
+ 找到项目根目录的`.gitignore`文件，追加
+ ```shell
+.idea
+.DS_Store
+```
 
 ## DEMO项目
 
