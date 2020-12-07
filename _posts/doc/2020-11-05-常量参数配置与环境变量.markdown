@@ -1,0 +1,14 @@
+---
+title: 常量参数配置与环境变量
+permalink: doc/config/params
+---
+
+## 原文链接
+
+[配置Symfony](https://symfony.com/doc/current/configuration.html#importing-configuration-files)
+
+## 常量参数配置
+
+
+
+## 环境变量
