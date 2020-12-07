@@ -10,11 +10,11 @@ permalink: doc/config/params
 ## 常量参数配置
 
 配置文件位置：
-```
+```shell
 config/services.yaml
 ```
 常量配置：
-```yaml
+```shell
 parameters:
     ##字符串
     var_string: 这是个字符串
@@ -30,18 +30,18 @@ parameters:
 ```
 .env
 ```
-```env
+```shell
 ##字符串
 ENV_STRING=这是个字符串
 ```
 **.env文件配置项目默认环境变量，实际开发中，默认环境变量及其配置注释不可忽略，赋予的值可以是写法示例**
 
 本地环境变量位置
-```yaml
+```shell
 .env.local
 ```
 **.env.local文件不入git，属于本机环境独有的环境变量，需要手动创建。**
-```env
+```shell
 ##字符串
 ENV_STRING=这是个字符串
 ```
