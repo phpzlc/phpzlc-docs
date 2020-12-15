@@ -1463,3 +1463,8 @@ select {
     width: 560px;
   }
 }
+
+.li-link {
+  width: 200px;
+}
+

@@ -62,7 +62,8 @@
     color: #494d55;
     padding-top: 5px;
     font-size: 13px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
+    text-align: center;
 }
 .blog-list-div{
     border-bottom: 2px solid #5ebeee;
@@ -70,4 +71,119 @@
 }
 .blog-list-excerpt{
     margin-bottom: 10px;
+}
+
+@media (max-width: 1199px) {
+  /* 搜索栏 */
+  .landing-page .branding {
+    margin: 10px 0;
+  }
+  .tagline {
+    display: none;
+  }
+  .landing-page .social-container {
+    display: none;
+  }
+  .landing-page .header {
+    padding: 0;
+  }
+  .pb-4, .py-4 {
+    padding-bottom: 0!important;
+  }
+  .pt-3, .py-3 {
+    padding-top: 0!important;
+  }
+  
+  /* 页脚 */
+  .body-blue .promo-block {
+    background: #494d55;
+  }
+  .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    padding: 0 2%;
+  }
+  .promo-block-inner-bottom {
+    padding: 0;
+  }
+  .promo-block-inner-bottom .ul-1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 20px;
+  }
+  .li-link {
+    width: 50%;
+  }
+  .promo-block-inner-bottom .li-community {
+    width: 100%;
+  }
+  .promo-block-inner-bottom .li-community p {
+    padding: 10px 0;
+  }
+  .promo-block-inner-bottom .li-community .li-code p {
+    display: none;
+  }
+  .promo-block-inner-bottom .li-community ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-left: 0;
+    padding-bottom: 20px;
+  }
+  .promo-block-inner-bottom .li-community ul .li-code {
+    width: 30%;
+    padding: 0;
+    float: none;
+    margin-right: 5%;
+  }
+  .promo-block-inner-bottom .li-community ul .li-code:nth-last-of-type(1) {
+    margin-right: 0;
+  }
+  .promo-block-inner-bottom .li-1 p font {
+    color: #fff;
+    display: block;
+  }
+  .footer {
+    height: auto;
+  }
+  .page-wrapper:after {
+    height: 34px;
+  }
+  .promo-block-inner-bottom .li-code div {
+    width: 100%;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+  }
+  .promo-block-inner-bottom .li-code img {
+    display: block;
+    width: 96%;
+    height: auto;
+    margin-left: 0;
+    margin: 0 auto;
+  }
+
+  /* 内容部分 */
+  .cards-section .item {
+    margin-bottom: 20px;
+  }
+  .cards-section {
+    padding: 0;
+    padding-top: 30px;
+  }
+  .cards-section .intro {
+    margin-bottom: 20px;
+  }
+  .cards-section .item-inner {
+    height: auto;
+  }
+  .cards-section .item .intro {
+    height: 63px;
+  }
+
+  /* 文档页面 */
+  .row {
+    margin: 0;
+  }
 }
