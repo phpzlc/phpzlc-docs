@@ -94,7 +94,6 @@ Phpzlc提供了很多好用的`vendor组件`和`业务组件`，你可以在根�
 ```shell
 git init
 git remote add origin {远程仓库地址}
-git checkout origin
 git add .
 git commit -m "project create"
 git push --set-upstream origin master
