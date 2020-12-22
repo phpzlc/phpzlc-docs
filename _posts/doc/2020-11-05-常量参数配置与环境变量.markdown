@@ -23,6 +23,10 @@ parameters:
         0 : 选项1
         1 : 选项2
 ```
+调用方法
+```shell
+$this->getParameter('var_string');
+```
 
 ## 环境变量
 
@@ -37,7 +41,7 @@ ENV_STRING=这是个字符串
 **.env文件配置项目默认环境变量，实际开发中，默认环境变量及其配置注释不可忽略，赋予的值可以是写法示例**
 
 本地环境变量位置
-```shell
+``` shell
 .env.local
 ```
 **.env.local文件不入git，属于本机环境独有的环境变量，需要手动创建。**
@@ -46,4 +50,9 @@ ENV_STRING=这是个字符串
 ENV_STRING=这是个字符串
 ```
 **.env.local文件配置的环境变量会对应覆盖.env文件中值**
+
+调用方法
+``` shell
+$_ENV['ENV_STRING'];
+```
 
