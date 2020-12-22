@@ -5,7 +5,7 @@ permalink: doc/controller
 
 ## 前言
 
-官方文档：[https://symfony.com/doc/4.4//controller.html](https://symfony.com/doc/current/controller.html)
+官方文档：[https://symfony.com/doc/4.4/controller.html](https://symfony.com/doc/4.4/controller.html)
 
 Controller主要用于处理接收数据和处理数据。在这两者之间，可以执行逻辑代码。一般情况下，不建议在Controller书写逻辑代码。Controller只应该存在复用程度低，简单的业务逻辑或者业务代码的具体整合。
 
