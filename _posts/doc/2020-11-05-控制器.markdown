@@ -171,4 +171,8 @@ PHPZLC在原有基础上集成了最常见的API接口响应,定义了返回的�
        API_RESPONSE_TYPE: 响应数据类型
     ```
    
- 6. 第一个参数还支持传入Error对象；方法内部会自动的读取Error中的code和错误值进行填充。更多信息请了解[错误收集系统](#)
+ 6. 第一个参数还支持传入Error对象；方法内部会自动的读取Error中的code和错误值进行填充。更多信息请了解[错误收集系统](/doc/errors)
+ 
+    ```shell
+     return Responses::error(Errors::getError());
+    ```

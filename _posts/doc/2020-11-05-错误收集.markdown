@@ -2,3 +2,86 @@
 title: 错误收集(Errors)
 permalink: doc/errors
 ---
+
+## 前言
+
+这是一个自研的功能，很简单。作用就是更加有条理的记录，读取错误信息，并对错误进行更多的描述。
+
+## 语法
+
+```shell
+use PHPZlc\PHPZlc\Abnormal\Error;
+use PHPZlc\PHPZlc\Abnormal\Errors;
+
+//设置追加错误
+Errors::setError(new Error('错误信息'));
+
+//设置追加错误信息
+Errors::setErrorMessage('错误信息');
+
+//得到第一个写入的错误信息
+Errors::getError();
+
+//覆盖错误信息，在错误集合前追加错误信息
+Errors::coverError(new Error('错误'));
+
+//判断是否存在错误
+Errors::isExistError();
+
+//得到全部的错误信息
+Errors::getAllError();
+```
+
+## 详解 Class Error
+
+```shell
+namespace PHPZlc\PHPZlc\Abnormal;
+
+class Error
+{
+    /**
+     * @var string 错误码
+     */
+    public $code;
+
+    /**
+     * @var string 错误信息
+     */
+    public $msg;
+
+    /**
+     * @var string 错误名或标识
+     */
+    public $name;
+
+    /**
+     * @var void
+     */
+    public $value;
+
+    /**
+     * @var string 错误分组
+     */
+    public $group;
+
+    /**
+     * @var array  错误其他信息
+     */
+    public $other;
+
+    /**
+     * Error constructor.
+     *
+     * @param $msg
+     * @param int $code
+     * @param string $name
+     * @param static $group
+     * @param array $other
+     */
+    public function __construct($msg, $code = '$_ENV[API_ERROR_CODE]def(1)', $name = '', $value = '', $group = '', $other = array())
+}
+```
+
+**巧妙的运用好后面的参数，可以极大的便利开发**
+**这些特性可以更好的将错误信息挖掘，并提供更丰富的体验**
+
