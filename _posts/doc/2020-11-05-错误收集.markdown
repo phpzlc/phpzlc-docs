@@ -37,7 +37,7 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
    try {
 
    }catch (\Exception $exception){
-       return Errors::exceptionError(new \Exception('错误信息'));
+       return Errors::exceptionError($exception);
    }
    ```
 
