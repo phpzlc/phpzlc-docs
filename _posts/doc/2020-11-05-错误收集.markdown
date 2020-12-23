@@ -12,25 +12,81 @@ permalink: doc/errors
 ```shell
 use PHPZlc\PHPZlc\Abnormal\Error;
 use PHPZlc\PHPZlc\Abnormal\Errors;
-
-//设置追加错误
-Errors::setError(new Error('错误信息'));
-
-//设置追加错误信息
-Errors::setErrorMessage('错误信息');
-
-//得到第一个写入的错误信息
-Errors::getError();
-
-//覆盖错误信息，在错误集合前追加错误信息
-Errors::coverError(new Error('错误'));
-
-//判断是否存在错误
-Errors::isExistError();
-
-//得到全部的错误信息
-Errors::getAllError();
 ```
+
+1. 设置追加错误
+
+    ```shell
+    Errors::setError(new Error('错误信息'));
+    Errors::setErrorMessage('错误信息');
+    ```
+
+2. 设置异常错误
+
+    ```shell
+    Errors::exceptionError(new \Exception('错误信息'));
+    ```
+
+   _如果在开发模式中，则会直接抛出错误，程序中止。_
+   
+   _如果在生产模式中，则会写入错误**系统繁忙,请稍后再试**。程序不会报错将错误信息写入日志文件，返回**false**。_
+   
+   **此方法一般放在try catch 语法结构中**
+   
+   ```shell
+   try {
+
+   }catch (\Exception $exception){
+       return Errors::exceptionError(new \Exception('错误信息'));
+   }
+   ```
+
+3. 验证类是否符合验证注释并设置错误
+   
+   ```shell 
+   Errors::validate($validator, $class); //return bool
+   ```
+   
+    与[Symfony-Validate](https://symfony.com/doc/4.4/validation.html)相结合
+   
+   在`Controller`中写法示例:
+   
+   ```shell
+   use Symfony\Component\Validator\Validator\ValidatorInterface;
+   
+   public function index(ValidatorInterface $validator)
+   {
+       if(Errors::validate($validator, $class)){
+           echo 'ok';
+       }else{
+           echo 'no';
+       }
+   }   
+   ```
+   
+4. 得到错误
+   
+   ```shell
+   Errors::getError();
+   Errors::getAllError();
+   ```
+   
+   **注意**
+   
+   `getError` 获得最早记录的错误
+
+5. 判断是否存在错误
+
+    ```shell
+    Errors::isExistError(); // return bool
+    ```
+
+6. 覆盖错误信息(在错误集合前追加错误信息)
+   
+   ```shell
+   Errors::coverError(new Error('错误信息'));
+   Errors::coverErrorMessage('错误信息');
+   ```
 
 ## 详解 Class Error
 
