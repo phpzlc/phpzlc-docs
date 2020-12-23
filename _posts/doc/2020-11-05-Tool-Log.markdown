@@ -5,12 +5,13 @@ permalink: doc/tool/log
 
 ## 语法
 
+```shell
+use PHPZlc\PHPZlc\Bundle\Service\Log\Log;
+```
+
 1. 写日志
     
     ```shell
-    use PHPZlc\PHPZlc\Bundle\Service\Log\Log;
-    
-    //写日志
     Log::writeLog($content, $logFileName = '');
     ```
    
@@ -25,9 +26,6 @@ permalink: doc/tool/log
 2. 读日志
 
     ```shell
-    use PHPZlc\PHPZlc\Bundle\Service\Log\Log;
-   
-    //读日志
      Log::readLog(int $rows = 20, string $logFileName = '');
     ```
    
