@@ -1,0 +1,12 @@
+---
+title: 了解Entity
+permalink: doc/db/entity
+---
+
+## 编程定义
+
+## 常用的字段类型
+
+## 面向对象写法的核心
+
+## 新的字段类型：表外字段@OuterColumn
