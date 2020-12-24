@@ -39,9 +39,9 @@ DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5
    php bin/console doctrine:schema:update --force
    ```
    
-4. 创建实体及相关资源生成命令
+## 创建实体及相关资源生成命令
   
-   **创建实体**
+1. 创建实体
   
    ```shell
    php bin/console make:entity {entityClassName}
@@ -135,4 +135,4 @@ DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5
       
       `{entityClassName}` _选填_ 未指定的话则对话式询问，询问不指定则对所有实体生效
    
-   4. 在[了解Entity](/doc/db/entity)中我们将深入的讲解Entity的使用技巧和编程定义
+2. **在[了解Entity](/doc/db/entity)中我们将深入的讲解Entity的使用技巧和编程定义**
