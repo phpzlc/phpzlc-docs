@@ -1,0 +1,82 @@
+---
+title: 验证(Validate)
+permalink: doc/validate
+---
+
+## 前言
+
+PHPZlc的验证体系，主要由两种技术支撑。
+
+1. [Symfony-Validate](https://symfony.com/doc/4.4/validation.html) (自行阅读)
+
+2. [PhpZlc-Validate](https://github.com/phpzlc/validate) (下文介绍)
+
+说明:
+
+1. 两种组件都可以直接使用
+
+2. `Symfony-Validate`与框架的结合，可以参照[错误收集](/doc/errors)。
+
+## PhpZlc-Validate
+
+`Symfony-Validate`是一种可以在class中为属性添加验证注释的快捷验证方法。 是symfony原生支持的验证技术。
+
+`PhpZlc-Validate`是一种简单补充措施，其简单直接。其主要提供两个功能，常量正则和返回`bool`的静态验证方法，可以在系统的任何位置简单调用，快捷验证。
+
+1. 语法(更多的方法和正则，请到对应的类中进行查看)
+
+    `PHPZlc\Validate\Validate:Class`  存放静态验证方法  只返回真假
+    
+    `PHPZlc\Validate\Regular:Class` 存放定义为常量的验证正则
+    
+    **示例:**
+    
+    ```shell
+    Validate::isRealEmpty($variable); //验证是否真实为空，解决empty()方法对0的误判。
+    ```
+   
+    ```shell
+    Regular::REG_PRICE; //正则 价格:2位小数
+    ```
+   
+2. 常量正则如何和`Symfony-Validate`结合使用
+
+    有些注释允许在其中使用常量或方法，例如
+    
+    ```shell
+    @Assert\Choice(choices=YourClass::SOME_CONSTANT)
+    ```
+
+3. **维护策略和使用注意**
+
+   **看上去这个很简单，很方便。但其实存在比较大的麻烦。所以需要说清楚维护策略，以避免产生意外，产生不利影响。**
+   
+   1. 解决了什么问题
+       
+       1. 将常用的正则和验证方法集成，方便使用，避免寻找和产生bug。
+       
+       2. 维护这些正则，使其保持最新，例如手机号这类验证规则不是一直不变的。
+       
+       3. 统一项目中验证的标准，避免因为人员差异，导致验证规则的混乱。
+       
+   2. 维护的目标
+   
+       1. 加入更多通用常用的正则和方法。
+       
+       2. 保持正则和方法的普遍适用性，实时性，正确性。
+       
+       3. 不会删除正则库和方法库中的代码。
+   
+   3. **明显短板和使用时注意**
+   
+       拿密码正则来说，不同系统，不同项目对于密码强度和组成都是不一致的，但入上文，我们可以知道，在维护中是不可能为某一种特定业务维护的，我们对于密码正则的维护遵循普遍适用性。
+        
+       所以你应该基于这样的认知，使用此工具。如果你的业务中存在明确定义的验证规则，你应当自行定义正则或方法。
+   
+   4. 建议与反馈
+   
+      如何保持实时性，这是个困难的问题，也是一个简单的问题。当你使用的时候，发生正则存在此缺陷，`Fork`自行修改之后可以提交合并请求。或者在[issues](https://github.com/phpzlc/validate/issues)中进行反馈。
+     
+      
+
+
