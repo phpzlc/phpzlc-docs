@@ -87,6 +87,13 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
    Errors::coverError(new Error('错误信息'));
    Errors::coverErrorMessage('错误信息');
    ```
+   
+7. 清空错误
+   
+   ```shell
+   Errors::clearError()
+   ```
+   
 
 ## 详解 Class Error
 
