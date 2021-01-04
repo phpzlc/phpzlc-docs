@@ -5,7 +5,42 @@ permalink: doc/db/entity
 
 ## 编程定义
 
+1. Entity中应当定义最基本的定义，最普遍的验证。
+
+2. Entity是面向对象写法的核心，要在使其不臃肿的情况下巧妙使用。
+
+3. Entity是数据的最底层，可以有效的管理控制数据。
+
+4. 保证数据完整性，可用性是Entity的第一要务。
+
 ## 常用的字段类型
+
+1. string 
+
+    ```shell
+    /**
+     * @ORM\Column(name="name", type="string", options={"comment":"名称"})
+     */
+    private $name;
+    ```
+
+2. boolean
+
+    /**
+     * @ORM\Column(name="name", type="string", options={"comment":"名称"})
+     */
+    private $name;
+
+3. datetime / time / date
+
+5. int
+
+6. smallint
+
+7. simple_array
+
+8. array
+
 
 ## 面向对象写法的核心
 
