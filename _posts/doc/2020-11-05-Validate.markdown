@@ -5,7 +5,7 @@ permalink: doc/validate
 
 ## 前言
 
-PHPZlc的验证体系，主要由两种技术支撑。
+PHPZLC的验证体系，主要由两种技术支撑。
 
 1. [Symfony-Validate](https://symfony.com/doc/4.4/validation.html) (自行阅读)
 
