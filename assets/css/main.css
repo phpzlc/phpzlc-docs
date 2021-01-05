@@ -60,7 +60,7 @@
 }
 .promo-block-inner-bottom .li-code p{
     color: #494d55;
-    padding-top: 5px;
+    /* padding-top: 5px; */
     font-size: 13px;
     /* margin-left: 10px; */
     text-align: center;
@@ -182,8 +182,4 @@
     height: 63px;
   }
 
-  /* 文档页面 */
-  .row {
-    margin: 0;
-  }
 }

@@ -1,9 +1,11 @@
 body {
-  font-family: Microsoft Yahei, arial;
+  /* font-family: Microsoft Yahei, arial; */
+  font-family: 	Microsoft JhengHei;
 }
 p {
-  margin-bottom: 10px;
-  line-height: 1.5;
+  margin-bottom: 0px;
+  font-size: 14px;
+  line-height: 2;
 }
 
 .btn {

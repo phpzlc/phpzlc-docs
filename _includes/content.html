@@ -1,14 +1,17 @@
 <style type="text/css">
 #md-content{
-    padding-top: 20px;
+    /* padding-top: 20px; */
     min-height: 440px;
-    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    /* font-family: Consolas, "Liberation Mono", Courier, monospace; */
+    font-family: 	Microsoft JhengHei;
 }
 #md-content h2{
-    padding-top: 20px;
+    /* padding-top: 20px; */
+    margin: 30px 0 20px 0;
 }
 #md-content code{
     background: #00adef;
+    padding: 5px;
 }
 #md-content .language-plaintext{
     padding: 0;
@@ -27,12 +30,32 @@ pre[class*="language-"]{
     padding: 0;
     background: #00adef;
 }
+.update {
+  overflow: hidden;
+}
+.doc-section .title {
+  float: left;
+  width: 50%;
+  margin-bottom: 0;
+  font-size: 28px;
+  line-height: 1;
+  text-align: left;
+}
+.time {
+  float: right;
+  width: 50%;
+  padding-top: 14px;
+  font-size: 14px;
+  line-height: 1;
+  text-align: right;
+}
 </style>
 <div class="content-inner">
         <section class="doc-section" style="min-height: 500px">
-            <h2  style="text-align: center;font-size: 25px">{{ page.title }}</h2>
-            <div style="text-align: center"><i class="far fa-clock"></i> 最近更新时间: {{ page.date | date: "%Y-%m-%d" }}</div>
-            <div style="text-align: center"><i class="far fa-user"></i> 作者: <span id="author"></span></div>
+            <div class="update">
+                <h2 class="title">{{ page.title }}</h2>
+                <p class="time"><span>{{ page.date | date: "%Y-%m-%d" }}&nbsp;&nbsp;by&nbsp;&nbsp;</span><span id="author"></span></p>
+              </div>
             <div id="md-content">
                 {{ content }}
             </div>
