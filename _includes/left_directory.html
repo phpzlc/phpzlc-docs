@@ -1,152 +1,123 @@
-<style type="text/css">
+<style type="text/css">   
     #left-div {
-        /* border-right-style:solid; */
         border-width:2px;
         width: 250px;
         float: left;
         margin-right: 20px;
-        /* overflow-y: auto; */
-    }
-    #dir-div {
-        padding: 20px;
-        background: #fff;
-        border-radius: 20px;
-    }
-    #left-div .dir-item-a{
-        color: #2d8284;
-        margin-top: 10px;
-    }
-    #left-div .dir-item{
-        margin-top: 4px;
-        font-size: 16px;
-        line-height: 30px;
-        font-weight: 700;
-        font-family: 	Microsoft JhengHei;
-        border-width:2px;
-    }
-    #left-div .dir-son{
-        margin-left: 10px;
-        font-size: 14px;
-        line-height: 30px;
-        font-weight: 400;
     }
 
+    /* 导航 */
+    .nav {
+      margin-top: 15px;
+    }
+    .nav-back {
+      display: none;
+    }
+    .nav-ul-one .nav-li-one {
+      list-style: none;
+    }
+    .nav-ul-one .nav-li-one a {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 30px;
+      color: #2d8284;
+      text-decoration: none;
+    }
+    .nav-ul-one .nav-li-one a:hover {
+      color: #00adef;
+    }
+    .nav-ul-two {
+      padding-left: 20px;
+    }
+    .nav-ul-two .nav-li-two {
+      padding: 0;
+      list-style: none;
+    }
+    .nav-ul-two .nav-li-two a {
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 30px;
+      color: #2d8284;
+    }
+    .nav-ul-two .nav-li-two a:hover {
+      color: #00adef;
+    }
+
+    /* 移动端样式 */
     @media (max-width: 1199px) {
-
-        /* 导航 */
-        /* #left-div {
-          position: fixed;
-          top: 0;
-          left: 0;
-          z-index: 100;
-          display: none;
-          width: 100%;
-          height: 100%;
-          background: #000;
-          opacity: 1;
-          overflow-y: auto;
-        }
-        #dir-div {
-          background: #f9f9fb;
-        } */
-
+      #left-div {
+        display: none;
+      }
+      .nav-back {
+        display: block;
+        padding-left: 3%;
+      }
+      .nav-back a {
+        display: block;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 30px;
+        color: #2d8284;
+      }
+      .nav-ul-one {
+        padding-left: 3%;
+      }
     }
 
 </style>
 <div id="left-div">
-    <div id="dir-div">
-        <div class="dir-item">
-            <a href="/doc/install" class="dir-item-a">安装与配置</a>
-        </div>
-        <div class="dir-item">
-            <a href="/doc/skeleton" class="dir-item-a">目录与结构</a>
-        </div>
-        <div class="dir-item">
-            <a class="dir-item-a">配置</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a href="/doc/config/params" class="dir-item-a">常量参数配置与环境变量</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a href="/doc/config/route" class="dir-item-a">路由(Route)</a>
-        </div>
-        <div class="dir-item">
-            <a href="/doc/controller" class="dir-item-a">控制器(Controller)</a>
-        </div>
-        <div class="dir-item">
-            <a href="/doc/errors" class="dir-item-a">错误收集(Errors)</a>
-        </div>
-        <div class="dir-item">
-            <a href="/doc/validate" class="dir-item-a">验证(Validate)</a>
-        </div>
-        <div class="dir-item">
-            <a class="dir-item-a">数据库</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a href="/doc/db/start" class="dir-item-a">创建使用数据库</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a href="/doc/db/entity" class="dir-item-a">了解Entity</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a class="dir-item-a">插入，更新，删除，校验</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a class="dir-item-a">简单查询</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a class="dir-item-a">事务</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a class="dir-item-a">速度优化</a>
-        </div>
-        <div class="dir-item">
-            <a class="dir-item-a">业务层(Business)</a>
-        </div>
-        <div class="dir-item">
-            <a class="dir-item-a">Repository(高级查询)</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a class="dir-item-a">规则</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a class="dir-item-a">规则碰撞</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a class="dir-item-a">重写规则</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a class="dir-item-a">表外字段</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a class="dir-item-a">必须规则</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a class="dir-item-a">重写SQL</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a class="dir-item-a">聚合查询</a>
-        </div>
-        <div class="dir-item">
-            <a class="dir-item-a">内置数据(DataFixtures)</a>
-        </div>
-        <div class="dir-item">
-            <a class="dir-item-a">文档(Document)</a>
-        </div>
-        <div class="dir-item">
-            <a href="/doc/exception" class="dir-item-a">异常(Exception)</a>
-        </div>
-        <div class="dir-item">
-            <a class="dir-item-a">工具</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a href="/doc/tool/sql" class="dir-item-a">Sql</a>
-        </div>
-        <div class="dir-item dir-son">
-            <a href="/doc/tool/log" class="dir-item-a">Log</a>
-        </div>
-        <div class="dir-item">
-            <a href="/doc/symfony-flex" class="dir-item-a">Symfony Flex</a>
-        </div>
+    <!-- 导航 -->
+    <div class="nav">
+      <div class="nav-back"><a href="javascript:;">< 返回</a></div>
+      <ul class="nav-ul-one">
+        <li class="nav-li-one"><a href="http://127.0.0.1:4000/doc/install">安装与配置</a></li>
+        <li class="nav-li-one"><a href="http://127.0.0.1:4000/doc/skeleton">目录与结构</a></li>
+        <li class="nav-li-one">
+          <a>配置</a>
+          <ul class="nav-ul-two">
+            <li class="nav-li-two"><a href="http://127.0.0.1:4000/doc/config/params">常量参数配置与环境配置</a></li>
+            <li class="nav-li-two"><a href="http://127.0.0.1:4000/doc/config/route">路由（Router）</a></li>
+          </ul>
+        </li>
+        <li class="nav-li-one"><a href="http://127.0.0.1:4000/doc/controller">控制器（Controller）</a></li>
+        <li class="nav-li-one"><a href="http://127.0.0.1:4000/doc/errors">错误收集（Errors）</a></li>
+        <li class="nav-li-one"><a href="http://127.0.0.1:4000/doc/validate">验证（Validate）</a></li>
+        <li class="nav-li-one">
+          <a>数据库</a>
+          <ul class="nav-ul-two">
+            <li class="nav-li-two"><a href="http://127.0.0.1:4000/doc/db/start">创建使用数据库</a></li>
+            <li class="nav-li-two"><a href="http://127.0.0.1:4000/doc/db/entity">了解Entity</a></li>
+            <li class="nav-li-two"><a href="javascript:;">插入、更新、删除、校验</a></li>
+            <li class="nav-li-two"><a href="javascript:;">简单查询</a></li>
+            <li class="nav-li-two"><a href="javascript:;">事务</a></li>
+            <li class="nav-li-two"><a href="javascript:;">速度优化</a></li>
+          </ul>
+        </li>
+        <li class="nav-li-one"><a href="javascript:;">业务层（Business）</a></li>
+        <li class="nav-li-one">
+          <a>Repository（高级查询）</a>
+          <ul class="nav-ul-two">
+            <li class="nav-li-two"><a href="javascript:;">规则</a></li>
+            <li class="nav-li-two"><a href="javascript:;">规则碰撞</a></li>
+            <li class="nav-li-two"><a href="javascript:;">重写规则</a></li>
+            <li class="nav-li-two"><a href="javascript:;">表外字段</a></li>
+            <li class="nav-li-two"><a href="javascript:;">必须规则</a></li>
+            <li class="nav-li-two"><a href="javascript:;">重写SQL</a></li>
+            <li class="nav-li-two"><a href="javascript:;">聚合查询</a></li>
+          </ul>
+        </li>
+        <li class="nav-li-one"><a href="javascript:;">内置数据（DataFixtures）</a></li>
+        <li class="nav-li-one"><a href="javascript:;">文档（Document）</a></li>
+        <li class="nav-li-one"><a href="http://127.0.0.1:4000/doc/exception">异常（Exception）</a></li>
+        <li class="nav-li-one">
+          <a>工具</a>
+          <ul class="nav-ul-two">
+            <li class="nav-li-two"><a href="javascript:;">Sql</a></li>
+            <li class="nav-li-two"><a href="javascript:;">Log</a></li>
+          </ul>
+        </li>
+        <li class="nav-li-one"><a href="http://127.0.0.1:4000/doc/symfony-flex">Symfony Flex</a></li>
+      </ul>
     </div>
 </div>
