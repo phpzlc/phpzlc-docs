@@ -1248,6 +1248,8 @@ select {
 
 .landing-page .tagline p {
   margin-bottom: 5px;
+  font-size: 20px;
+  line-height: 30px;
 }
 
 .landing-page .tagline p:last-child {
@@ -1468,3 +1470,21 @@ select {
   width: 200px;
 }
 
+@media (max-width: 1199px) {
+  /* 文档页面 */
+
+  /* 头部 */
+  .header {
+    padding: 0;
+  }
+  .form-inline {
+    margin-bottom: 0;
+    padding-bottom: 14px;
+  }
+  .row {
+    margin: 0;
+  }
+  .branding {
+    margin-top: 10px;
+  }
+}
