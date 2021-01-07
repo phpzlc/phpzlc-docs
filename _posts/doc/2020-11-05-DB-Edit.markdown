@@ -1,4 +1,64 @@
 ---
 title: 插入、更新、删除、校验
-permalink: doc/edit
+permalink: doc/db/edit
 ---
+
+## 参照链接
+
+
+
+## 插入
+
+1. Controller 写法
+
+    ```shell
+    
+    ```
+
+2. Business 写法
+
+    ```shell
+    
+    ```
+
+## 编辑
+
+1. Controller 写法
+
+    ```shell
+    
+    ```
+
+2. Business 写法
+
+    ```shell
+    
+    ```
+
+## 校验
+
+1. Controller 写法
+
+    ```shell
+    
+    ```
+
+2. Business 写法
+
+    ```shell
+    
+    ```
+
+## 删除
+
+1. Controller 写法
+
+    ```shell
+    
+    ```
+
+2. Business 写法
+
+    ```shell
+    
+    ```
