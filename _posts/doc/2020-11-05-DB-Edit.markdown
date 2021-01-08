@@ -179,3 +179,31 @@ permalink: doc/db/edit
         return true;
     }
     ```
+   
+## 更多校验
+
+1. Controller 写法
+
+    **复杂的校验，应该在Business中完成**
+
+2. Business 写法
+
+    ```shell
+    public function validator($class): bool
+    {
+        if(parent::validator($class)) {
+            if($class instanceof User ) {
+                //检查名称是否重复
+                $user = $this->em->getRepository('App:User')->findOneBy(['name' => $class->getName()]);
+                if(!empty($user) && $site->getId() != $class->getId()){
+                    Errors::setErrorMessage('用户名称已存在');
+                    return false;
+                }
+             }
+
+             return true;
+         }
+
+        return false;
+    }
+    ```
