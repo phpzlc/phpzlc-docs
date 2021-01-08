@@ -9,6 +9,8 @@ permalink: doc/db/start
 
 [Doctrine](https://www.doctrine-project.org/)
 
+如果你对数据库有更多的需要，应该详细的阅读 [doctrine 文档](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html)
+
 ## 配置
 
 配置文件: `.env.local`
