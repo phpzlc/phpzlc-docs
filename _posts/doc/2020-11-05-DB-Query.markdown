@@ -15,8 +15,7 @@ $userRepository = $this->getDoctrine()->getRepository('App:User');
 //通过id查询，后面两个参数暂不支持
 $userRepository->find($id, $lockMode = null, $lockVersion = null);
 
-
-//查询一行数据, 参数1等同与$rules, 参数2不支持, 方法等同于findAssoc
+//查询一行数据, 参数1等同与$rules, 参数2不支持, 方法等同于findAssoc， 方便之处在于支持原生symfony的提示功能
 $userRepository->findOneBy(array $criteria, array $orderBy = null);
 
 //查询一行数据
