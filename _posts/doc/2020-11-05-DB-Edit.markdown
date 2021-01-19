@@ -1,0 +1,209 @@
+---
+title: 插入、更新、删除
+permalink: doc/db/edit
+---
+
+## 参照链接
+
+[数据库和ORM准则](https://symfony.com/doc/4.4/doctrine.html)
+
+## 写法选择原则
+
+1. 选择最简单的实现方式，比较简单拓展性不强的功能可以在Controller层完成。
+
+2. 如果业务较为复杂或者多次使用，应当在Business中完成。
+
+3. 插入的架构要求是可以通过此方法完成全部的插入操作。
+
+4. 编辑的架构要求是不要过于庞大，根据实际业务实现。
+
+5. 删除的架构要求是只要调用就可以将本身和需要连带删除的数据一起删除。是否删除的判断在调用层验证。
+
+6. 复杂的校验和需要复用的校验应当在Business中重写`Validator`方法。
+
+7. 上面的说法是一般准则。
+
+   总体按照：  
+   
+      **恰当使用，不要过度集成** 
+        
+      **复杂反复，及时升级** 
+        
+      **拆分灵活，方便复用**
+        
+      **智能连锁，方法内部封装到位** 
+        
+      **验证规则管理，统一控制**
+
+## 可能需要的类依赖
+
+1. Controller 写法依赖
+
+    ```shell
+    use App\Entity\User;
+    use PHPZlc\PHPZlc\Abnormal\Error;
+    use PHPZlc\PHPZlc\Abnormal\Errors;
+    use Symfony\Component\HttpFoundation\Request;
+    use Symfony\Component\HttpFoundation\Response;
+    use Symfony\Component\Validator\Validator\ValidatorInterface;
+    ```
+
+2. Business 写法依赖
+
+    ```shell
+    namespace App\Business;
+   
+    use App\Entity\User;
+    use PHPZlc\PHPZlc\Bundle\Business\AbstractBusiness;
+        
+    class UserBusiness extends AbstractBusiness{}
+    ```
+
+## 插入
+
+1. Controller 写法
+
+    ```shell
+    public function createUser(ValidatorInterface $validator, Request $request)
+    {
+        $manager = $this->getDoctrine()->getManager();
+
+        $user = new User();
+        $user->setName($request->get('name'));
+        $user->setIsDisable(true);
+        $user->setCreateAt(new \DateTime());
+
+        //类注释验证
+        if(Errors::validate($validator, $user)){
+            $manager->persist($user);
+            $manager->flush();
+            $manager->clear();
+
+            return Responses::success('创建成功');
+        }
+
+        return Responses::error(Errors::getError());
+    }
+    ```
+
+2. Business 写法
+
+    ```shell
+    public function createUser(User $user)
+    {
+        $user->setCreateAt(new \DateTime());
+
+        //类注释验证
+        if($this->validator($user)){
+            $this->em->persist($user);
+            $this->em->flush();
+            $this->em->clear();
+
+            return $user;
+        }
+
+        return false;
+    }
+    ```
+
+## 编辑
+
+1. Controller 写法
+
+    ```shell
+    public function updateUser(ValidatorInterface $validator, Request $request)
+    {
+        $manager = $this->getDoctrine()->getManager();
+
+        $user = $this->getDoctrine()->getRepository('App:User')->find($request->get('id'));
+
+        $user->setName($request->get('name'));
+
+        //类注释验证
+        if(Errors::validate($validator, $user)){
+            $manager->flush();
+            $manager->clear();
+            
+            return Responses::success('编辑成功');
+        }
+        
+        return Responses::error(Errors::getError());
+    }
+    ```
+
+2. Business 写法
+
+    ```shell
+    public function updateUser(User $user)
+    {
+        //类注释验证
+        if($this->validator($user)){
+            $this->em->flush();
+            $this->em->clear();
+
+            return true;
+        }
+
+        return false;
+    }
+    ```   
+
+## 删除
+
+1. Controller 写法
+
+    ```shell
+    public function removeUser(Request $request)
+    {
+        $manager = $this->getDoctrine()->getManager();
+
+        $user = $this->getDoctrine()->getRepository('App:User')->find($request->get('id'));
+
+        $manager->remove($user);
+        $manager->flush();
+
+        return Responses::success('删除成功');
+    }
+    ```
+
+2. Business 写法
+
+    ```shell
+    public function removeUser(User $user)
+    {
+        $this->em->remove($user);
+
+        $this->em->flush();
+        $this->em->clear();
+
+        return true;
+    }
+    ```
+   
+## 更多校验
+
+1. Controller 写法
+
+    **复杂的校验，应该在Business中完成**
+
+2. Business 写法
+
+    ```shell
+    public function validator($class): bool
+    {
+        if(parent::validator($class)) {
+            if($class instanceof User ) {
+                //检查名称是否重复
+                $user = $this->em->getRepository('App:User')->findOneBy(['name' => $class->getName()]);
+                if(!empty($user) && $site->getId() != $class->getId()){
+                    Errors::setErrorMessage('用户名称已存在');
+                    return false;
+                }
+             }
+
+             return true;
+         }
+
+        return false;
+    }
+    ```

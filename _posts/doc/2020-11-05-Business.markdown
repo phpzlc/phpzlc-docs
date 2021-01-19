@@ -2,3 +2,7 @@
 title: 业务层(Business)
 permalink: doc/business
 ---
+
+## 说明
+
+## 基本提供的方法

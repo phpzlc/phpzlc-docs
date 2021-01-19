@@ -1,0 +1,18 @@
+---
+title: 常用必备知识
+permalink: doc/db/cy
+---
+
+## doctrine 官方文档
+
+[doctrine 文档](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html)
+
+## 事务与并发
+
+[事务与并发](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/transactions-and-concurrency.html#transactions-and-concurrency)
+
+## 表中给字段加索引
+
+```shell
+@ORM\Table(name="sms_record", options={"comment"="短信动态码"}, indexes={@ORM\Index(name="phone", columns={"phone"})})
+```
