@@ -49,7 +49,6 @@ permalink: doc/business
 <?php
 namespace PHPZlc\PHPZlc\Bundle\Business;
 
-
 use Doctrine\DBAL\Connection;
 use Psr\Container\ContainerInterface;
 use PHPZlc\PHPZlc\Abnormal\Errors;
@@ -115,6 +114,6 @@ abstract class AbstractBusiness extends AbstractController
     try {
         
     }catch (\Exception $exception) {
-      $this->networkError(\Exception $exception);
+        $this->networkError($exception);
     } 
     ```
