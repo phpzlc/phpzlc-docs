@@ -48,7 +48,7 @@ $userRepository->findAssoc(['name' => '测试']);
 $userRepository->findAssoc(['name' . Rule::RA_LIKE => '%'. $request->get('name') . '%',]);
 ```
 
-**关于规则和更多的使用方法，见[高级查询](#)**
+**关于规则和更多的使用方法，见[高级查询](/doc/repository)**
 
 **这组查询会超出你的想象，也是我们发布的原因，相信你会喜欢**
 

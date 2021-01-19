@@ -1,7 +1,4 @@
 ---
-title: 规则
+title: 高级查询
 permalink: doc/repository/rule
 ---
-
-## 前言
-
