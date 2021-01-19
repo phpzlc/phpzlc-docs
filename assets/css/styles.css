@@ -199,6 +199,10 @@ code {
   margin-right: 0;
 }
 
+::-webkit-input-placeholder {
+  padding-left: 10px;
+}
+
 .form-control {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
