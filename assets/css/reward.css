@@ -209,6 +209,10 @@ button.close {
   color: #fff;
 }
 
+.results-container {
+  padding-left: 0;
+}
+
 .rules {
   text-align: center;
 }
