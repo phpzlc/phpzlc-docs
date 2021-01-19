@@ -5,4 +5,115 @@ permalink: doc/business
 
 ## 说明
 
+简单的功能我们在Controller中可以很轻松的实现，但遇到复杂公共的业务代码，这时候我们就需要额外的目录存放这些代码，在PHPZLC中，Business承担了这个任务。
+
+为了使业务层能够更好的完成他的工作，我们认为他应当具备两个不可或缺的基因。
+
+1. 可以调动框架内所有资源
+ 
+    ```php
+    namespace App\Business;
+    
+    
+    use App\Entity\User;
+    use PHPZlc\PHPZlc\Bundle\Business\AbstractBusiness;
+    use Psr\Container\ContainerInterface;
+    
+    class UserBusiness extends AbstractBusiness
+    {
+        public function __construct(ContainerInterface $container)
+        {
+            parent::__construct($container);
+        }
+    }
+    ```
+   
+    `AbstractBusiness`是业务层的基础类，其通过继承AbstractController,获得了`Controller`层中所有的symfony支持。
+    
+2. 独立的工作区间(命名空间),用更丰富的实现功能
+
+   正如前言和之前的文章，我们一建议将功能一开始就复杂化，因为我们认为好系统应该提供了可升级的技术策略，不需要过于的封装，担忧的焦躁的寻求一次性的解决方案。
+   
+   所以通常情况下一个类就可以是一个独立的业务，当然你可以在`Business`目录中新建一个目录让其作为一个独立的工作区域。
+    
+
+**代码规范:对于类和目录的建立，我们希望其命名应当以Business结尾。**
+
 ## 基本提供的方法
+
+   **业务层增加了一些方便的属性和方法，我相信会帮助到你们**
+   
+   
+```php
+
+<?php
+namespace PHPZlc\PHPZlc\Bundle\Business;
+
+use Doctrine\DBAL\Connection;
+use Psr\Container\ContainerInterface;
+use PHPZlc\PHPZlc\Abnormal\Errors;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Validator\Validation;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+
+abstract class AbstractBusiness extends AbstractController
+{
+    protected $em;
+
+    /**
+     * @var Connection
+     */
+    protected $conn;
+
+    /**
+     * @var ValidatorInterface
+     */
+    private static $validation;
+
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+        $this->em = $this->getDoctrine()->getManager();
+        $this->conn = $this->getDoctrine()->getConnection();
+
+        if(empty(self::$validation)){
+            self::$validation =  Validation::createValidatorBuilder()
+                ->enableAnnotationMapping()
+                ->getValidator();
+        }
+    }
+
+    public function validator($class) : bool
+    {
+        return Errors::validate(self::$validation, $class);
+    }
+
+    /**
+     * 网络错误服务
+     *
+     * @param \Exception $exception
+     */
+    final protected function networkError(\Exception $exception)
+    {
+        return Errors::exceptionError($exception);
+    }
+}
+```
+
+**重点解析**
+  
+1. networkError
+  
+    网络错误服务，这个方法在[错误收集](/doc/errors)中也存在。
+    
+    在这里强调的原因是，在使用` try catch` 语法的时候，不要遗漏该方法的使用。
+    
+    这个方法在`dev`模式下会报出错误，中止程序。但如果是`prod`模式下则记录`false`，将本身的错误信息写入日志(`prod.log`)中,呈现在用户面前的信息为_系统繁忙,请稍后再试_。
+    
+    ```php
+    try {
+        
+    }catch (\Exception $exception) {
+        $this->networkError($exception);
+    } 
+    ```
