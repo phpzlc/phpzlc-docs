@@ -11,10 +11,6 @@ permalink: blog/1.html
 [Linux之Redhat Apache添加mod_fcgid模块](https://blog.csdn.net/baidu_28553605/article/details/106425528)
 [如何设置默认版本及替换他](https://blog.csdn.net/zhouzme/article/details/53995566)
 
-
-
-
-
 ## 配置文件
 
 ```apacheconfig

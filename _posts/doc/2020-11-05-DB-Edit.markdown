@@ -39,7 +39,7 @@ permalink: doc/db/edit
 
 1. Controller 写法依赖
 
-    ```shell
+    ```php
     use App\Entity\User;
     use PHPZlc\PHPZlc\Abnormal\Error;
     use PHPZlc\PHPZlc\Abnormal\Errors;
@@ -50,7 +50,7 @@ permalink: doc/db/edit
 
 2. Business 写法依赖
 
-    ```shell
+    ```php
     namespace App\Business;
    
     use App\Entity\User;
@@ -63,7 +63,7 @@ permalink: doc/db/edit
 
 1. Controller 写法
 
-    ```shell
+    ```php
     public function createUser(ValidatorInterface $validator, Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
@@ -88,7 +88,7 @@ permalink: doc/db/edit
 
 2. Business 写法
 
-    ```shell
+    ```php
     public function createUser(User $user)
     {
         $user->setCreateAt(new \DateTime());
@@ -110,7 +110,7 @@ permalink: doc/db/edit
 
 1. Controller 写法
 
-    ```shell
+    ```php
     public function updateUser(ValidatorInterface $validator, Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
@@ -133,7 +133,7 @@ permalink: doc/db/edit
 
 2. Business 写法
 
-    ```shell
+    ```php
     public function updateUser(User $user)
     {
         //类注释验证
@@ -152,7 +152,7 @@ permalink: doc/db/edit
 
 1. Controller 写法
 
-    ```shell
+    ```php
     public function removeUser(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
@@ -168,7 +168,7 @@ permalink: doc/db/edit
 
 2. Business 写法
 
-    ```shell
+    ```php
     public function removeUser(User $user)
     {
         $this->em->remove($user);
@@ -188,7 +188,7 @@ permalink: doc/db/edit
 
 2. Business 写法
 
-    ```shell
+    ```php
     public function validator($class): bool
     {
         if(parent::validator($class)) {

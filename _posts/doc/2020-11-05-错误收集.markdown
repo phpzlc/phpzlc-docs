@@ -9,21 +9,21 @@ permalink: doc/errors
 
 ## 语法
 
-```shell
+```php
 use PHPZlc\PHPZlc\Abnormal\Error;
 use PHPZlc\PHPZlc\Abnormal\Errors;
 ```
 
 1. 设置追加错误
 
-    ```shell
+    ```php
     Errors::setError(new Error('错误信息'));
     Errors::setErrorMessage('错误信息');
     ```
 
 2. 设置异常错误
 
-    ```shell
+    ```php
     Errors::exceptionError(new \Exception('错误信息'));
     ```
 
@@ -33,7 +33,7 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
    
    **此方法一般放在try catch 语法结构中**
    
-   ```shell
+   ```php
    try {
 
    }catch (\Exception $exception){
@@ -43,7 +43,7 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
 
 3. 验证类是否符合验证注释并设置错误
    
-   ```shell 
+   ```php 
    Errors::validate($validator, $class); //return bool
    ```
    
@@ -51,7 +51,7 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
    
    在`Controller`中写法示例:
    
-   ```shell
+   ```php
    use Symfony\Component\Validator\Validator\ValidatorInterface;
    
    public function index(ValidatorInterface $validator)
@@ -66,7 +66,7 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
    
 4. 得到错误
    
-   ```shell
+   ```php
    Errors::getError();
    Errors::getAllError();
    ```
@@ -77,27 +77,27 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
 
 5. 判断是否存在错误
 
-    ```shell
+    ```php
     Errors::isExistError(); // return bool
     ```
 
 6. 覆盖错误信息(在错误集合前追加错误信息)
    
-   ```shell
+   ```php
    Errors::coverError(new Error('错误信息'));
    Errors::coverErrorMessage('错误信息');
    ```
    
 7. 清空错误
    
-   ```shell
+   ```php
    Errors::clearError()
    ```
    
 
 ## 详解 Class Error
 
-```shell
+```php
 namespace PHPZlc\PHPZlc\Abnormal;
 
 class Error

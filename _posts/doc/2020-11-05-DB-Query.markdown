@@ -9,7 +9,7 @@ PHPZLC在Symfony原有的查询支持上，封装了一套传入简单规则即�
 
 ## 语法
 
-```shell
+```php
 $userRepository = $this->getDoctrine()->getRepository('App:User');
 
 //通过id查询，后面两个参数暂不支持
@@ -42,7 +42,7 @@ $userRepository->findCount($rules = null, ResultSetMappingBuilder $resultSetMapp
 
 ## 简单查询示例
 
-```shell
+```php
 $userRepository->findAssoc(['name' => '测试']);
 
 $userRepository->findAssoc(['name' . Rule::RA_LIKE => '%'. $request->get('name') . '%',]);
@@ -58,7 +58,7 @@ $userRepository->findAssoc(['name' . Rule::RA_LIKE => '%'. $request->get('name')
 
 在此记录
 
-```shell
+```php
 /**
  * @var Connection $conn
  */

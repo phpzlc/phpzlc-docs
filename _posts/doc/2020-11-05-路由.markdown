@@ -17,7 +17,7 @@ Symfony的路由有三种配置方式。```注释```,```PHP```,```yaml```。常�
 
 ## 配置文件地址
 1. 根地址
-```shell
+```text
 config/routes.yaml
 ```
 2. 创建```config/routing```目录，放置路由配置文件
@@ -25,7 +25,7 @@ config/routes.yaml
 ## 基础语法
 
 1. 指向```yaml```配置文件
-```shell
+```yaml
 ##API模块
 api:
   resource: "routing/api/api.yaml"
@@ -33,7 +33,7 @@ api:
 ```
 
 2. 指向```Action```
-```shell
+```yaml
 ##首页
 index:
     path: /
@@ -51,19 +51,19 @@ index:
 3. 路由名按照目录层级追加例如
 
    上级为：
-```shell
+```yaml
 api:
   resource: "routing/api/api.yaml"
   prefix:   /api
 ```
    下级为
-```shell
+```yaml
 api_auth:
   resource: "routing/api/auth.yaml"
   prefix:   /auth
 ```
 4. url路径设置需要全小写，不同单词之间也用```-```连接，例如
-```shell
+```yaml
 api_user_info:
   resource: "routing/api/user-info.yaml"
   prefix:   /user-info
@@ -108,7 +108,7 @@ $routeCollection->add($name, $route);
 
 > 匹配
 
-```shell
+```php
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 

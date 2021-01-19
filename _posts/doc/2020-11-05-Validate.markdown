@@ -31,11 +31,11 @@ PHPZLC的验证体系，主要由两种技术支撑。
     
     **示例:**
     
-    ```shell
+    ```php
     Validate::isRealEmpty($variable); //验证是否真实为空，解决empty()方法对0的误判。
     ```
    
-    ```shell
+    ```php
     Regular::REG_PRICE; //正则 价格:2位小数
     ```
    
@@ -43,7 +43,7 @@ PHPZLC的验证体系，主要由两种技术支撑。
 
     有些注释允许在其中使用常量或方法，例如
     
-    ```shell
+    ```php
     @Assert\Choice(choices=YourClass::SOME_CONSTANT)
     ```
 
