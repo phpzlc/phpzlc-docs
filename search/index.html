@@ -6,66 +6,68 @@ column_title: 搜索
 {% include hender.html %}
 
 <body class="body-blue">
-<div class="page-wrapper">
+  <div class="page-wrapper">
 
     {% include hender_column.html %}
 
     <div class="doc-wrapper">
-        <div class="container">
-            <div class="doc-body row">
-                <div class="doc-content col-12 order-1">
-                    <div class="blog-list single-col-max mx-auto" style="min-height: 500px">
-                        <ul id="results-container"></ul>
-                        <!-- 遍历分页后的文章 -->
-<!--                        {% for post in paginator.posts %}-->
-<!--                        <div class="post-1552 post type-post status-publish format-standard has-post-thumbnail hentry category-blog">-->
-<!--                            <div class="content">-->
-<!--                                <h4 class="post-title mb-3">-->
-<!--                                    <a href="{{ post.url }}" target="_blank"> {{ post.title }}</a>-->
-<!--                                </h4>-->
+      <div class="container">
+        <div class="doc-body row">
+          <div class="doc-content col-12 order-1">
+            <div class="blog-list single-col-max mx-auto" style="min-height: 500px">
+              <ul id="results-container" class="results-container"></ul>
+              <!-- 遍历分页后的文章 -->
+              <!--                        {% for post in paginator.posts %}-->
+              <!--                        <div class="post-1552 post type-post status-publish format-standard has-post-thumbnail hentry category-blog">-->
+              <!--                            <div class="content">-->
+              <!--                                <h4 class="post-title mb-3">-->
+              <!--                                    <a href="{{ post.url }}" target="_blank"> {{ post.title }}</a>-->
+              <!--                                </h4>-->
 
-<!--                                <div class="entry post-entry post-excerpt">-->
-<!--                                    {{ post.excerpt }}-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        {% endfor %}-->
-                    </div>
-                </div>
-            </div><!--//doc-body-->
-        </div><!--//container-->
-    </div><!--//doc-wrapper-->
+              <!--                                <div class="entry post-entry post-excerpt">-->
+              <!--                                    {{ post.excerpt }}-->
+              <!--                                </div>-->
+              <!--                            </div>-->
+              <!--                        </div>-->
+              <!--                        {% endfor %}-->
+            </div>
+          </div>
+        </div>
+        <!--//doc-body-->
+      </div>
+      <!--//container-->
+    </div>
+    <!--//doc-wrapper-->
     {% include footer.html %}
 
-    <script  type="text/javascript" src="/assets/js/simple-jekyll-search.min.js?v=20201101"></script>
-    <script  type="text/javascript">
-        var searchInputObject = document.getElementById('search-input');
-        searchInputObject.value = GetQueryString('search');
-        var sjs = SimpleJekyllSearch({
-            searchInput:  searchInputObject,
-            resultsContainer: document.getElementById('results-container'),
-            json: '/search.json?v=20200131'
-        })
+    <script type="text/javascript" src="/assets/js/simple-jekyll-search.min.js?v=20201101"></script>
+    <script type="text/javascript">
+      var searchInputObject = document.getElementById('search-input');
+      searchInputObject.value = GetQueryString('search');
+      var sjs = SimpleJekyllSearch({
+        searchInput: searchInputObject,
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json?v=20200131'
+      })
 
-        $(function () {
-            var changeEvent = document.createEvent("HtmlEvents");
-            changeEvent.initEvent("input",true,true);
-            searchInputObject.dispatchEvent(changeEvent);
-        })
+      $(function () {
+        var changeEvent = document.createEvent("HtmlEvents");
+        changeEvent.initEvent("input", true, true);
+        searchInputObject.dispatchEvent(changeEvent);
+      })
 
-        $('#search-input').change(function () {
-            if($(this).val() == ''){
-               $('#results-container').html('<h4>请输入检索内容</h4>');
-            }
-        });
-
-        function GetQueryString(name)
-        {
-            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-            var r = window.location.search.substr(1).match(reg);
-            if(r!=null)return  unescape(r[2]); return null;
+      $('#search-input').change(function () {
+        if ($(this).val() == '') {
+          $('#results-container').html('<h4>请输入检索内容</h4>');
         }
+      });
+
+      function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+      }
     </script>
 </body>
-</html>
 
+</html>

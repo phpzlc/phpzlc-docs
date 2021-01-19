@@ -1,6 +1,6 @@
 body {
   /* font-family: Microsoft Yahei, arial; */
-  font-family: 	Microsoft JhengHei;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 p {
   margin-bottom: 0px;
@@ -53,6 +53,8 @@ button.close {
 
 .entry-shang p {
   font-size: 12px;
+  line-height: 40px;
+  letter-spacing: -1px;
 }
 
 .btn-bred {
@@ -205,6 +207,13 @@ button.close {
   background: #e26d6d;
   border-color: #e26d6d;
   color: #fff;
+}
+
+.rules {
+  text-align: center;
+}
+.hidden-xs {
+  text-align: center;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {

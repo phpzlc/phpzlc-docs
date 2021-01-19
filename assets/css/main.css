@@ -70,6 +70,7 @@
     margin-bottom: 20px;
 }
 .blog-list-excerpt{
+    display: none;
     margin-bottom: 10px;
 }
 

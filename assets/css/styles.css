@@ -62,7 +62,8 @@ code {
   color: #fff;
   font-size: 14px;
   font-weight: bold;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  /* font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; */
+  font-family: Microsoft Yahei;
   padding: 2px 8px;
   padding-top: 4px;
   display: inline-block;
