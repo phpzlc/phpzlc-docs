@@ -100,3 +100,21 @@ abstract class AbstractBusiness extends AbstractController
     }
 }
 ```
+
+**重点解析**
+  
+1. networkError
+  
+    网络错误服务，这个方法在[错误收集](/doc/errors)中也存在。
+    
+    在这里强调的原因是，在使用` try catch` 语法的时候，不要遗漏该方法的使用。
+    
+    这个方法在`dev`模式下会报出错误，中止程序。但如果是`prod`模式下则记录`false`，将本身的错误信息写入日志(`prod.log`)中,呈现在用户面前的信息为_系统繁忙,请稍后再试_。
+    
+    ```php
+    try {
+        
+    }catch (\Exception $exception) {
+      $this->networkError(\Exception $exception);
+    } 
+    ```
