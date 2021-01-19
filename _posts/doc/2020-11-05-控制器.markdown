@@ -15,7 +15,7 @@ Controller主要用于处理接收数据和处理数据。在这两者之间，�
 
 PHPZLC在此基础上增加了新的特性，增加了新的基类```PHPZlc\PHPZlc\Bundle\Controller\SystemBaseController```，用于管理项目的写法。
 
-```shell
+```php
 use PHPZlc\PHPZlc\Bundle\Controller\SystemBaseController;
 
 class IndexController extends SystemBaseController
@@ -38,7 +38,7 @@ public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, 
     
     **接口中写法**
     
-    ```shell
+    ```php
     public function index()
     {
         $r = $this->inlet();
@@ -70,7 +70,7 @@ public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, 
     
     **可使用的方法**  
     
-    ```shell
+    ```php
     SystemBaseController::setReturnType($returnType)
     
     SystemBaseController::getReturnType()
@@ -88,7 +88,7 @@ public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, 
 
 1. 常用方法
 
-    ```shell
+    ```php
     use PHPZlc\PHPZlc\Bundle\Controller\SystemBaseController;
     
     use Symfony\Component\HttpFoundation\Request;
@@ -119,7 +119,7 @@ public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, 
     }
     ```
 2. 从服务中获取Request对象
-```shell
+```php
 $request = $this->get('request_stack')->getCurrentRequest();
 ```
 
@@ -129,7 +129,7 @@ PHPZLC在原有基础上集成了最常见的API接口响应,定义了返回的�
 
 1. 调用
 
-    ```shell
+    ```php
     use PHPZlc\PHPZlc\Responses\Responses;
     
     public function responsesError()
@@ -144,12 +144,12 @@ PHPZLC在原有基础上集成了最常见的API接口响应,定义了返回的�
     ```
 
 2. 返回格式 (可以通过后面的参数进行选择)
-```shell
+```json
 {"code":1,"msg":"\u64cd\u4f5c\u5931\u8d25","msgInfo":[],"data":[]}
 ```
 
 3. code默认规定
-```shell
+```text
 0 成功
 1 常规错误
 -1 鉴权失败
@@ -165,14 +165,14 @@ PHPZLC在原有基础上集成了最常见的API接口响应,定义了返回的�
     
     配置文件地址`.env`
 
-    ```shell script
-       API_SUCCESS_CODE: 成功code码
-       API_ERROR_CODE: 错误code码
-       API_RESPONSE_TYPE: 响应数据类型
+    ```text
+    API_SUCCESS_CODE: 成功code码
+    API_ERROR_CODE: 错误code码
+    API_RESPONSE_TYPE: 响应数据类型
     ```
    
  6. 第一个参数还支持传入Error对象；方法内部会自动的读取Error中的code和错误值进行填充。更多信息请了解[错误收集系统](/doc/errors)
  
-    ```shell
+    ```php
      return Responses::error(Errors::getError());
     ```

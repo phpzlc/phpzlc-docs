@@ -13,6 +13,6 @@ permalink: doc/db/cy
 
 ## 表中给字段加索引
 
-```shell
+```php
 @ORM\Table(name="sms_record", options={"comment"="短信动态码"}, indexes={@ORM\Index(name="phone", columns={"phone"})})
 ```

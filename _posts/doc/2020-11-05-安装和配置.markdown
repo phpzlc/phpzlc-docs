@@ -15,8 +15,9 @@ Symfony对于相同技术提供了多种使用途径，在教程中，所呈现�
 
 ## 推荐PHP版本
 
-**php7.3**
-**mysql5.7以上**
+**php 7.3**
+
+**mysql 5.7以上**
 
 ## 安装Symfony4.4
 
@@ -74,7 +75,7 @@ Phpzlc提供了很多好用的`vendor组件`和`业务组件`，你可以在根�
 
 2. 忽略ide配置目录提交
  找到项目根目录的`.gitignore`文件，追加
- ```shell
+ ```text
 .idea
 .DS_Store
 ```

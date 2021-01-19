@@ -25,7 +25,7 @@ permalink: doc/db/entity
   
 1. 创建实体
   
-   ```shell
+   ```php
    php bin/console make:entity {entityClassName}
    ```
 
@@ -40,7 +40,7 @@ permalink: doc/db/entity
    
         **UUID 代码模版(推荐方式)**
         
-        ```shell
+        ```php
         <?php        
         namespace App\Entity;
         
@@ -69,7 +69,7 @@ permalink: doc/db/entity
         
         **自增ID代码模版**
         
-        ```shell
+        ```php
         <?php        
         namespace App\Entity;
         
@@ -121,7 +121,7 @@ permalink: doc/db/entity
 
 1. string 
 
-    ```shell
+    ```php
     /**
      * @var string
      * 
@@ -139,7 +139,7 @@ permalink: doc/db/entity
 
 2. boolean
 
-    ```shell
+    ```php
    /**
      * @var boolean
      *
@@ -165,7 +165,7 @@ permalink: doc/db/entity
 
 3. datetime
 
-    ```shell
+    ```php
    /**
     * @var \DateTime
     *
@@ -176,7 +176,7 @@ permalink: doc/db/entity
    
 4. date
 
-    ```shell
+    ```php
     /**
      * @var \DateTime
      *
@@ -187,7 +187,7 @@ permalink: doc/db/entity
 
 5. time
    
-   ```shell
+   ```php
    /**
     * @var \DateTime
     *
@@ -198,7 +198,7 @@ permalink: doc/db/entity
 
 5. int
 
-    ```shell
+    ```php
     /**
      * @var integer
      *
@@ -216,7 +216,7 @@ permalink: doc/db/entity
 
 6. smallint
 
-    ```shell
+    ```php
     //在表的头部定义，一者作为备注说明含义，二者设为常量活静态方法，方便其他模块调用。
     const STATUS_RESERVATION = 1;
 
@@ -253,7 +253,7 @@ permalink: doc/db/entity
 
 7. simple_array(简单数组)
 
-    ```shell
+    ```php
     /**
      * @var array
      *
@@ -266,7 +266,7 @@ permalink: doc/db/entity
 
 8. array
 
-    ```shell
+    ```php
     /**
      * @var array
      *
@@ -279,7 +279,7 @@ permalink: doc/db/entity
 
 10. double
 
-    ```shell
+    ```php
     /**
      * @var string
      *
@@ -305,7 +305,7 @@ permalink: doc/db/entity
 11. 外键
 
     **多对一**
-    ```shell
+    ```php
     /**
      * @var User
      *
@@ -316,7 +316,7 @@ permalink: doc/db/entity
     ```
     
     **一对一**
-    ```shell
+    ```php
     /**
      * @var User
      *
@@ -330,7 +330,7 @@ permalink: doc/db/entity
 
    _这是PHPZLC独有的特性,可以将子查询sql定义为字段，使其可以具有编程性，实现了Sql集中管理，提高了使用效率_
    
-   ```shell
+   ```php
     /**
      * @OuterColumn(name="site_domains", type="simple_array", sql="(SELECT GROUP_CONCAT(sd.site_domain) FROM site_domain sd WHERE sd.site_id = sql_pre.id),  options={"comment":"站点域名"}")
      */
