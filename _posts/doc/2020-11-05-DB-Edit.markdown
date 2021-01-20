@@ -77,7 +77,6 @@ permalink: doc/db/edit
         if(Errors::validate($validator, $user)){
             $manager->persist($user);
             $manager->flush();
-            $manager->clear();
 
             return Responses::success('创建成功');
         }
@@ -97,7 +96,6 @@ permalink: doc/db/edit
         if($this->validator($user)){
             $this->em->persist($user);
             $this->em->flush();
-            $this->em->clear();
 
             return $user;
         }
@@ -122,7 +120,6 @@ permalink: doc/db/edit
         //类注释验证
         if(Errors::validate($validator, $user)){
             $manager->flush();
-            $manager->clear();
             
             return Responses::success('编辑成功');
         }
@@ -139,7 +136,6 @@ permalink: doc/db/edit
         //类注释验证
         if($this->validator($user)){
             $this->em->flush();
-            $this->em->clear();
 
             return true;
         }
@@ -174,7 +170,6 @@ permalink: doc/db/edit
         $this->em->remove($user);
 
         $this->em->flush();
-        $this->em->clear();
 
         return true;
     }
