@@ -1,4 +1,4 @@
 ---
-title: API文档(Document)
-permalink: doc/document
+title: API文档(Api Document)
+permalink: doc/api-document
 ---
