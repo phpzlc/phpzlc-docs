@@ -1,6 +1,6 @@
 ---
-title: 规则
-permalink: doc/repository/rule
+title: 原理解析
+permalink: doc/repository/principle
 ---
 
 ## 使用规则

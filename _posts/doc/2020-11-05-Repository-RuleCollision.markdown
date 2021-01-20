@@ -1,6 +1,6 @@
 ---
-title: 规则
-permalink: doc/repository/rule
+title: 规则碰撞
+permalink: doc/repository/rule-collision
 ---
 
 ## 使用规则

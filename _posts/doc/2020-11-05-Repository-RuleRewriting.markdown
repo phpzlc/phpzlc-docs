@@ -1,6 +1,6 @@
 ---
-title: 规则
-permalink: doc/repository/rule
+title: 规则重写
+permalink: doc/repository/rule-rewriting
 ---
 
 ## 使用规则
