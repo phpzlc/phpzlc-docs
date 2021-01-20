@@ -1,6 +1,6 @@
 ---
-title: 常用必备知识
-permalink: doc/db/cy
+title: 高级拓展
+permalink: doc/db/gjtz
 ---
 
 ## doctrine 官方文档
