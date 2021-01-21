@@ -214,25 +214,21 @@ code {
 .form-control::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #afb3bb;
-  padding-left: 10px;
 }
 
 .form-control:-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
   color: #afb3bb;
-  padding-left: 10px;
 }
 
 .form-control::-moz-placeholder {
   /* Mozilla Firefox 19+ */
   color: #afb3bb;
-  padding-left: 10px;
 }
 
 .form-control:-ms-input-placeholder {
   /* Internet Explorer 10+ */
   color: #afb3bb;
-  padding-left: 10px;
 }
 
 .form-control:focus {
@@ -388,6 +384,7 @@ select {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   padding-top: 4px;
+  text-indent: 5px;
 }
 
 .search-form .search-input:focus {
@@ -402,6 +399,7 @@ select {
   right: 5px;
   top: 0px;
   margin-right: 0;
+  padding-top: 0;
 }
 
 .search-form .search-btn:active, .search-form .search-btn:focus, .search-form .search-btn:hover {
