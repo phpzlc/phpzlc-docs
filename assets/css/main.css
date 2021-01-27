@@ -80,10 +80,12 @@
     margin: 10px 0;
   }
   .tagline {
-    display: none;
+    /* display: none; */
+    padding: 5%;
   }
   .landing-page .social-container {
-    display: none;
+    /* display: none; */
+    padding: 1% 0;
   }
   .landing-page .header {
     padding: 0;
