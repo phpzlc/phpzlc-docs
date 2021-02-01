@@ -1,4 +1,4 @@
 ---
-title: API文档(Api Document)
+title: API文档(ApiDocument)
 permalink: doc/api-document
 ---

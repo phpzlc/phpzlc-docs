@@ -1,4 +1,4 @@
 ---
-title: 内助数据(data-fixtures)
+title: 内置数据（DataFixtures）
 permalink: doc/data-fixtures
 ---
