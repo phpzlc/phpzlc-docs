@@ -1,6 +1,6 @@
 ---
 title: Centos7 + Apache2.4 + 多版本PHP共存 服务器环境搭建
-permalink: blog/1.html
+permalink: /blog/1.html
 ---
 
 ## 参照链接

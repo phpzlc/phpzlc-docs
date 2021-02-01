@@ -20,7 +20,7 @@ column_title: 博客动态
                             <div class="post-1552 post type-post status-publish format-standard has-post-thumbnail hentry category-blog blog-list-div">
                                 <div class="content" style="border-bottom: 1px">
                                     <h4 class="post-title mb-3">
-                                        <a href="{{ post.url }}"> {{ post.title }}</a>
+                                        <a href="{{ post.url }}"> {{ post.title }} </a>
                                     </h4>
 
                                     <div class="entry post-entry post-excerpt blog-list-excerpt">
@@ -30,10 +30,11 @@ column_title: 博客动态
                             </div>
                         {% endfor %}
                     </div>
+
                     <div class="col-lg-3 col-md-6 mb-4" style="margin: 0 auto; padding: 0;">
-                        {% if total_pages.total_pages > 1 %}
+                        {% if paginator.total_pages > 1 %}
                         <ul class="pagination" style="width: 800px">
-                            {% if paginator.previous_page %}
+                            {% if paginator.previous_page != nil %}
                             <li class="page-item">
                                 {% if paginator.page != 2 %}
                                 <a href="/blog/page{{ paginator.previous_page }}" class="page-link">上一页</a>
