@@ -1,11 +1,16 @@
 # PHPZLC 技术支持
 
-## 文档网站
+## 官网文档网址
 
 [https://phpzlc.github.io/](https://phpzlc.github.io/)
 
-## 作者
+[更多信息](https://github.com/phpzlc/phpzlc)
 
-## 捐献名单
+## 版权
 
-## 开源协议
+该站点设计由 Xiaoying Riley 提供, 由 GitHub Pages 生成。Copyright © 2021 by 何俊杰Jayhe. All rights reserved.
+
+
+
+
+
