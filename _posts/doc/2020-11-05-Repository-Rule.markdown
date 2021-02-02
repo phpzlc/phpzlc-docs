@@ -287,16 +287,145 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
 5. RA_IS (is 查询)
 
+     1. 生效原则
+  
+         如果规则值真不为空，则生效。
+         
+     2. 写法
+     
+         ```php
+         $rules = [
+            'id' . Rule::RA_IS => "null"
+         ];
+         ```  
+        
+     3. 对应的sql资源
+      
+         ```sql
+         AND sql_pre.id is null
+         ```
+         
 6. RA_IN (in 查询)
 
+     1. 生效原则
+    
+         如果规则值真不为空，则生效。 
+         
+     2. 写法
+     
+         ```php
+         use PHPZlc\PHPZlc\Doctrine\ORM\Untils\SQL;
+        
+         $rules = [
+            'id' . Rule::RA_IN => SQL::in("1,2,3")
+         ];
+         ```  
+     
+     3. 对应的sql资源
+     
+        ```sql
+        AND sql_pre.id in ("1", "2", "3")
+        ```
+        
 7. RA_NOT_IN (not in 查询)
+
+     1. 生效原则
+    
+         如果规则值真不为空，则生效。 
+         
+     2. 写法
+     
+         ```php
+         use PHPZlc\PHPZlc\Doctrine\ORM\Untils\SQL;
+        
+         $rules = [
+            'id' . Rule::RA_NOT_IN => SQL::in("1,2,3")
+         ];
+         ```  
+     
+     3. 对应的sql资源
+     
+        ```sql
+        AND sql_pre.id not in ("1", "2", "3")
+        ```
 
 8. RA_JOIN (连表)
 
+    1. 生效原则
+    
+        如果规则值真不为空，则生效。 
+        
+    2. 写法
+        
+        ```php    
+        $rules = [
+           'user_id' . Rule::RA_JOIN => array(
+              'type' => 'LEFT JOIN',  // 可选参数， 默认值为 'LEFT JOIN'
+              'tableName' => 'user', //可选参数， 系统根据字段结构注释自动读取表名
+              'alias' => 'u', //必填参数 表别名
+              'no' => 'sql_pre.user_id = u.id' // 可选参数，系统根据字段结构注释自动读取关联
+            )   
+        ];
+        ```
+   
+    3. 对应的sql资源
+    
+        ```sql
+        LEFT JOIN user u on sql_pre.user_id = u.id
+        ```
+   
+   **注意**
+   
+   一般情况下， 系统会分析字段，自动完成关联表与实体的绑定关系。
+   
+   非正常自由度比较高的写法，可能会导致系统无法完成分析工作， 出现问题，可以通过`ResultSetMappingBuilder`参数手动绑定(不是必须)。
+        
+
 9. RA_ORDER_BY (排序)
 
-10. RA_SQL (sql重写)
+    1. 生效原则
+    
+        如果规则值真不为空，则生效。 
         
+    2. 写法
+    
+        ```php
+        $rules = [
+           'create_at' . Rule::RA_ORDER_BY => "ASC"
+        ];
+        ```
+       
+    3. 对应的sql资源
+    
+       ```sql
+       sql_pre.create_at ASC
+       ```   
+
+10. RA_SQL (sql重写)
+
+    1. 生效原则
+        
+        如果规则值真不为空，则生效。 
+        
+    2. 写法
+    
+        ```php
+        $rules = [
+           'id' . Rule::RA_SQL => "(1 + 1)"
+        ];
+        ```
+       
+    3. 对应的sql资源
+    
+       ```sql
+       SELECT (1 + 1) as id from table_name
+       ```
+        
+    4. 说明
+    
+       当我们需要字段不变，但查询的内容需要修饰的时候，就可以使用此规则对查询该字段的sql进行重写。
+    
+    
    
    
 
