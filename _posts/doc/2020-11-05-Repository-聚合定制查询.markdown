@@ -3,8 +3,6 @@ title: 聚合定制查询
 permalink: doc/repository/aggregate-custom-queries
 ---
 
-## 使用规则
+## 概述
 
-## 系统内置规则
-
-## 规则补充参数
+具体请详读[解析篇](http://127.0.0.1:4000/doc/repository/principle)。

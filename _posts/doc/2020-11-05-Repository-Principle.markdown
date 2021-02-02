@@ -1,5 +1,5 @@
 ---
-title: 原理解析
+title: 解析
 permalink: doc/repository/principle
 ---
 
