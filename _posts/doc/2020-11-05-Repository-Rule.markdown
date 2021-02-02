@@ -203,7 +203,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
 **注意：字段的属性名和字段名都可以识别**
 
-1. 字段名本身 (绝对查询)
+1. `字段名本身` (绝对查询)
 
    1. 生效原则:
   
@@ -223,7 +223,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
         AND sql_pre.id = '1'
        ```   
 
-2. RA_NOT_REAL_EMPTY （不为空查询）    
+2. `RA_NOT_REAL_EMPTY` （不为空查询）    
 
    1. 生效原则
 
@@ -243,7 +243,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
         AND sql_pre.id = '1'
        ```   
       
-3. RA_LIKE （LIKE模糊查询）
+3. `RA_LIKE` （LIKE模糊查询）
 
      1. 生效原则
   
@@ -263,7 +263,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
          AND sql_pre.id LIKE '%张三%'
         ```  
        
-4. RA_CONTRAST (比较查询)
+4. `RA_CONTRAST` (比较查询)
 
      1. 生效原则
   
@@ -285,7 +285,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
      
      如果需要两个比较，第二个比较可以使用`RA_CONTRAST_2`规则；使用方法同上。   
 
-5. RA_IS (is 查询)
+5. `RA_IS` (is 查询)
 
      1. 生效原则
   
@@ -305,7 +305,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
          AND sql_pre.id is null
          ```
          
-6. RA_IN (in 查询)
+6. `RA_IN` (in 查询)
 
      1. 生效原则
     
@@ -327,7 +327,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
         AND sql_pre.id in ("1", "2", "3")
         ```
         
-7. RA_NOT_IN (not in 查询)
+7. `RA_NOT_IN` (not in 查询)
 
      1. 生效原则
     
@@ -349,7 +349,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
         AND sql_pre.id not in ("1", "2", "3")
         ```
 
-8. RA_JOIN (连表)
+8. `RA_JOIN` (连表)
 
     1. 生效原则
     
@@ -381,7 +381,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
    非正常自由度比较高的写法，可能会导致系统无法完成分析工作， 出现问题，可以通过`ResultSetMappingBuilder`参数手动绑定(不是必须)。
         
 
-9. RA_ORDER_BY (排序)
+9. `RA_ORDER_BY` (排序)
 
     1. 生效原则
     
@@ -401,7 +401,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
        sql_pre.create_at ASC
        ```   
 
-10. RA_SQL (sql重写)
+10. `RA_SQL` (sql重写)
 
     1. 生效原则
         
