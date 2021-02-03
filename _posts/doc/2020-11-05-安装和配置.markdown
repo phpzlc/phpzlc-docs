@@ -13,7 +13,7 @@ permalink: doc/install
 
 Symfony对于相同技术提供了多种使用途径，在教程中，所呈现的是PhpZlc认为比较合理的Symfony使用方式，有自己想法的小伙伴不必拘泥于此。
 
-## 推荐PHP版本
+## 推荐版本
 
 **php 7.3**
 
