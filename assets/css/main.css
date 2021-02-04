@@ -66,8 +66,11 @@
     text-align: center;
 }
 .blog-list-div{
-    border-bottom: 2px solid #5ebeee;
+    height: 120px;
     margin-bottom: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow:0px 0px  5px #58bbee;
 }
 .blog-list-excerpt{
     display: none;

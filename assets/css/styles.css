@@ -853,6 +853,46 @@ select {
   color: #2aa8e9;
 }
 
+.post-title {
+  overflow: hidden;
+}
+
+.blog-list .post-title .content {
+  display: block;
+  font-size: 24px;
+  line-height: 40px;
+  text-decoration: none;
+  margin: 20px;
+}
+
+.post-details {
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.post-details span {
+  display: block;
+  float: left;
+  margin-right: 20px;
+  font-size: 14px;
+  line-height: 38px;
+  color: gray;
+}
+
+.post-details .last-span {
+  display: block;
+  float: right;
+  font-size: 14px;
+  line-height: 38px;
+  color: gray;
+  margin: 0;
+  text-decoration: none;
+}
+
+.pagination {
+  width: 800px;
+}
+
 .body-orange .header {
   border-color: #F88C30;
 }
@@ -1493,5 +1533,37 @@ select {
   }
   .branding {
     margin-top: 10px;
+  }
+
+  /* 博客 */
+  .post-details .author {
+    display: none;
+  }
+  .post-details .number {
+    display: none;
+  }
+  .post-details .release-time {
+    width: 45%;
+  }
+  .post-details .last-span {
+    width: auto;
+  }
+  .blog-list .post-title .content {
+    display: block;
+    height: 60px;
+    font-size: 16px;
+    line-height: 30px;
+    margin: 10px 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .pagination {
+    width: 100%;
+  }
+  .pagination .page-link {
+    font-size: 12px;
   }
 }
