@@ -82,6 +82,9 @@ interface UserInterface
 [AuthTag](#) 授权标记类，属于该业务的基本类，用来操作管理系统的session
 
 1.设置Session标记
+
+该方法可以根据实际使用场景进行改写，具体改写形式：添加switch 的 case 判断条件可以给多类型平台登录进行设置session的操作
+
 ```php
 public static function set(ContainerInterface $container, UserAuth $userAuth)
     {
@@ -101,6 +104,9 @@ public static function set(ContainerInterface $container, UserAuth $userAuth)
 ```
 
 2.获取Session标记内容
+
+该方法可以根据实际使用场景进行改写，具体改写形式：添加switch 的 case 判断条件可以给多类型平台进行获取session的操作，在本组件中，我们统一获取的返回值为对象
+
 ```php
 public static function get(ContainerInterface $container)
     {
@@ -128,6 +134,9 @@ public static function get(ContainerInterface $container)
 ```
 
 3.移除Session标记
+
+该方法可以根据实际使用场景进行改写，具体改写形式：添加switch 的 case 判断条件可以给多类型平台进行删除session的操作
+
 ```php
 public static function remove(ContainerInterface $container)
     {
@@ -141,3 +150,72 @@ public static function remove(ContainerInterface $container)
         }
     }
 ```
+
+[UserAuthBusiness](#) 用户登录业务类，属于该业务的基本核心类，是整个授权登录组件的业务层，用来对管理系统中的登录业务的操作
+
+1.新建用户授权信息
+
+```php
+public function create(UserAuth $userAuth, $is_flush = true)
+    {
+        $userAuth->setCreateAt(new \DateTime());
+        
+        if(!$this->validator($userAuth)){
+            return false;
+        }
+
+        try {
+            $this->em->persist($userAuth);
+            
+            if($is_flush){
+                $this->em->flush();
+                $this->em->clear();
+            }
+            
+            return true;
+            
+        }catch (\Exception $exception){
+            $this->networkError($exception);
+            return false;
+        }
+    }
+```
+
+2.获取指定平台端方法
+
+```php
+private function getUserAuthService($subject_type)
+    {
+        if(!array_key_exists($subject_type, $this->subjectAuthCaches)){
+            switch ($subject_type){
+                case $this->getParameter('subject_admin'):
+                    $this->subjectAuthCaches[$subject_type] = new AdminAuth($this->container);
+                    break;
+                    
+                default:
+                    throw new \Exception('授权登录权限不存在');
+            }
+        }
+        
+        return $this->subjectAuthCaches[$subject_type];
+    }
+```
+
+4.账号登录方法
+
+```php
+public function accountLogin()
+```
+
+5.修改密码方法
+
+```php
+public function changePassword()
+```
+
+6.检查登录状态方法
+
+```php
+public function isLogin()
+```
+
