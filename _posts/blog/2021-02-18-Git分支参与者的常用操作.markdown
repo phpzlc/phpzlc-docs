@@ -3,40 +3,40 @@ title: GIT分支参与者的常用操作
 permalink: /blog/2.html
 ---
 
-## 查看分支
+1. 查看分支
 
-```shell
+   ```shell script
+    
+    git branch -a
+    
+   ```
 
-git branch -a
+2. 切换分支
 
-```
+   ```shell script
+    
+    git checkout beta
+    
+    git checkout develop
+    
+   ```
 
-## 切换分支
+3. 合并分支
 
-```shell script
+   ```shell script
+    
+    git merge --no-ff develop
+    
+    git merge --no-ff beta
+    
+   ```
 
-git checkout beta
+4. 强制更新分支到本地
 
-git checkout develop
-
-```
-
-## 合并分支
-
-```shell script
-
-git merge --no-ff develop
-
-git merge --no-ff beta
-
-```
-
-## 强制更新分支到本地
-
-```shell script
-
-git fetch origin master
-
-git reset --hard origin/master
-
-```
+   ```shell script
+    
+    git fetch origin master
+    
+    git reset --hard origin/master
+    
+   ```
