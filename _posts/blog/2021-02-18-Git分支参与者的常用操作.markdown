@@ -1,0 +1,34 @@
+---
+title: 2021-02-18-Git分支参与者的常用操作
+permalink: /blog/2.html
+---
+
+## 查看分支
+
+```shell script
+git branch -a
+```
+
+## 切换分支
+
+```shell script
+git checkout beta
+
+git checkout develop
+```
+
+## 合并分支
+
+```shell script
+git merge --no-ff develop
+
+git merge --no-ff beta
+```
+
+## 强制更新分支到本地
+
+```shell script
+git fetch origin master
+
+git reset --hard origin/master
+```
