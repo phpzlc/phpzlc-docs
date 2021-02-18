@@ -5,7 +5,7 @@ permalink: /blog/2.html
 
 ## 查看分支
 
-```shell script
+```shell
 
 git branch -a
 
