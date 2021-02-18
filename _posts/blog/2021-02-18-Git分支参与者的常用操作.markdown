@@ -1,5 +1,5 @@
 ---
-title: 2021-02-18-Git分支参与者的常用操作
+title: GIT分支参与者的常用操作
 permalink: /blog/2.html
 ---
 
