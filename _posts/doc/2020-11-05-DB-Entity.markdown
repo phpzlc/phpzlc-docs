@@ -49,7 +49,7 @@ permalink: doc/db/entity
         
         /**
          * @ORM\Entity(repositoryClass=UserRepository::class)
-         * @ORM\Table(name="admin", options={"comment":"用户表"})
+         * @ORM\Table(name="user", options={"comment":"用户表"})
          */
         class User
         {
