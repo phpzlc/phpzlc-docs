@@ -846,8 +846,7 @@ select {
 }
 
 .body-blue a {
-  /* color: #58bbee; */
-  color: #222;
+  color: #58bbee;
 }
 
 .body-blue a:hover {
