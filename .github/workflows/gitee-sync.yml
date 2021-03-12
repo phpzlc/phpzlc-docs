@@ -1,4 +1,4 @@
-name: Mirror to Bitbucket Repo
+name: gitee-sync
 
 on: [ push, delete, create ]
 
