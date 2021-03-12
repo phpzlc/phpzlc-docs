@@ -75,15 +75,15 @@ symfony.lock symfony版本锁定文件
 
 README.md 项目说明
 
-## PhpZlc对目录的变更及架构意义
+## PHPZlc对目录的变更及架构意义
 
 1. [src/Business](/doc/business) 
 
-    这个目录是PhpZlc生成的目录,主要用于书写复杂的业务代码。
+    这个目录是PHPZlc生成的目录,主要用于书写复杂的业务代码。
     
 2. [src/Document]()
 
-    这个目录是PhpZlc生成的目录,主要用于书写API文档。
+    这个目录是PHPZlc生成的目录,主要用于书写API文档。
     
 3. [src/DataFixtures]()
 

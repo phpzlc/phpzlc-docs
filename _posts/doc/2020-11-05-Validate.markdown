@@ -9,7 +9,7 @@ PHPZLC的验证体系，主要由两种技术支撑。
 
 1. [Symfony-Validate](https://symfony.com/doc/4.4/validation.html) (自行阅读)
 
-2. [PhpZlc-Validate](https://github.com/phpzlc/validate) (下文介绍)
+2. [PHPZlc-Validate](https://github.com/phpzlc/validate) (下文介绍)
 
 说明:
 
@@ -17,11 +17,11 @@ PHPZLC的验证体系，主要由两种技术支撑。
 
 2. `Symfony-Validate`与框架的结合，可以参照[错误收集](/doc/errors)。
 
-## PhpZlc-Validate
+## PHPZlc-Validate
 
 `Symfony-Validate`是一种可以在class中为属性添加验证注释的快捷验证方法。 是symfony原生支持的验证技术。
 
-`PhpZlc-Validate`是一种简单补充措施，其简单直接。其主要提供两个功能，常量正则和返回`bool`的静态验证方法，可以在系统的任何位置简单调用，快捷验证。
+`PHPZlc-Validate`是一种简单补充措施，其简单直接。其主要提供两个功能，常量正则和返回`bool`的静态验证方法，可以在系统的任何位置简单调用，快捷验证。
 
 1. 语法(更多的方法和正则，请到对应的类中进行查看)
 

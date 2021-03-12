@@ -41,7 +41,7 @@ SymfonyFlex通过配置食谱，在程序包安装、更新、卸载完之后，
       
      阅读Symfony [食谱文档](https://github.com/symfony/recipes/blob/master/README.rst)，以了解有关如何为自己的包装创建食谱的所有信息。
 
-4. PhpZlc食谱仓库
+4. PHPZlc食谱仓库
    
    仓库地址: [phpzlc/contrib](https://github.com/phpzlc/contrib)
 
