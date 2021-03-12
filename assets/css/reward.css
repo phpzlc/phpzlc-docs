@@ -215,9 +215,11 @@ button.close {
 
 .rules {
   text-align: center;
+  color: red;
 }
 .hidden-xs {
   text-align: center;
+  color: red;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
