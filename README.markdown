@@ -2,6 +2,24 @@
 
 PHP知了虫。致力于在PHP及Symfony生态基础上深度运用Symfony4框架，以实现对于项目资源和代码结构统一而清晰的认知，从而实现知行合一的编码自信。为更庞大更精细的项目未来提供稳定的预期及更多的支持。
 
+# 发行申明
+
+MIT License。 在软件和软件的所有副本中都必须包含版权声明和许可声明。
+
+# 环境要求
+
+PHP 7.3
+
+mysql 5.7 以上 可支持8.0版本以上
+
+# 文档
+
+国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
+
+国内站: [https://phpzlc.gitee.io/](https://phpzlc.gitee.io/)
+
+GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
+
 # 使用建议
 
 框架提供了一整套在Symfony4上构建项目的经验和策略，可以帮助使用者快速构建良好结构的商业项目。
@@ -42,25 +60,8 @@ PHP知了虫。致力于在PHP及Symfony生态基础上深度运用Symfony4框�
 
 有一天，我们的工作可能会停止，那一天应该是我们走上正轨的时候，我们完全了解了symfony的世界，php的世界。我们拥抱到了更大的世界。
 
-我希望PHPZLC成为一个社区，一种文化。与他同行的人，可以得到知行合一的实践方案。
+我希望PHPZlc成为一个社区，一种文化。与他同行的人，可以得到知行合一的实践方案。
 
-# 发行申明
-
-MIT License。 在软件和软件的所有副本中都必须包含版权声明和许可声明。
-
-# 环境要求
-
-PHP 7.3
-
-mysql 5.7 以上 可支持8.0版本以上
-
-# 文档库
-
-国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
-
-国内站: [https://phpzlc.gitee.io/](https://phpzlc.gitee.io/)
-
-项目首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 # 团队名单
 
@@ -78,7 +79,7 @@ mysql 5.7 以上 可支持8.0版本以上
 
 公众号：知行实践（提供框架动态，Symfony动态，行业动态，商务合作，技术解答）
 
-## 版权
+# 版权
 
 该站点设计由 Xiaoying Riley 提供, 由 GitHub Pages 生成。Copyright © 2021 by CJayHe. All rights reserved.
 
