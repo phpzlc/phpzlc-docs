@@ -1,22 +1,6 @@
-# PHPZLC 技术支持
-
-## 官网文档网址
-
-国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
-
-国内站: [https://phpzlc.gitee.io/](https://phpzlc.gitee.io/)
-
-[更多信息](https://github.com/phpzlc/phpzlc)
-
-文档内容主要包含框架文档及PHP及Symfony的生态支持及框架的更多理念。
-
 # PHPZLC
 
-php知了虫:目前致力于在PHP及Symfony生态基础上深度运用Symfony4及以上版本框架；
-
-以实现对于项目资源和代码结构统一而清晰的认知；从而实现知行合一的编码自信；
-
-为更庞大更精细的项目未来提供稳定的预期及更多的支持；
+PHP知了虫。致力于在PHP及Symfony生态基础上深度运用Symfony4框架，以实现对于项目资源和代码结构统一而清晰的认知，从而实现知行合一的编码自信。为更庞大更精细的项目未来提供稳定的预期及更多的支持。
 
 (这是个长期的计划,这是个应用技术的最优化方案的集合，这是架构思想的不断升级)
 
@@ -55,6 +39,16 @@ mysql 5.7 以上 可支持8.0版本以上
 有一天，我们的工作可能会停止，那一天应该是我们走上正轨的时候，我们完全了解了symfony的世界，php的世界。我们拥抱到了更大的世界。
 
 我希望PHPZLC成为一个社区，一种文化。与他同行的人，可以得到知行合一的实践方案。
+
+# 官网文档网址
+
+国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
+
+国内站: [https://phpzlc.gitee.io/](https://phpzlc.gitee.io/)
+
+[更多信息](https://github.com/phpzlc/phpzlc)
+
+文档内容主要包含框架文档及PHP及Symfony的生态支持及框架的更多理念。
 
 # 团队名单
 
