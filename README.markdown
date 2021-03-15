@@ -2,7 +2,8 @@
 
 ## 官网文档网址
 
-[https://phpzlc.github.io/](https://phpzlc.github.io/)
+国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
+国内站: [https://phpzlc.gitee.io/](https://phpzlc.gitee.io/)
 
 [更多信息](https://github.com/phpzlc/phpzlc)
 
@@ -10,7 +11,7 @@
 
 该站点设计由 Xiaoying Riley 提供, 由 GitHub Pages 生成。Copyright © 2021 by 何俊杰Jayhe. All rights reserved.
 
-## 中文支持121111
+## 中文支持
 
 
 
