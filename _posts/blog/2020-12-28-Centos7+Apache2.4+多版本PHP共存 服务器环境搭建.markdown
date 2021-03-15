@@ -6,9 +6,15 @@ permalink: /blog/1.html
 ## 参照链接
 
 主要的：[centos7上配置apache不同域名多版本php共存](https://segmentfault.com/a/1190000023540385)
-安装多版本php参照：[CentOS 7上使用Apache的多个PHP版本(Multiple PHP version with Apache on CentOS 7)](https://www.it1352.com/1825609.html)
+
+安装多版本php参照：
+
+[CentOS 7上使用Apache的多个PHP版本(Multiple PHP version with Apache on CentOS 7)](https://www.it1352.com/1825609.html)
+
 [Apache fcgid 下载]: [http://httpd.apache.org/download.cgi#apache24]
+
 [Linux之Redhat Apache添加mod_fcgid模块](https://blog.csdn.net/baidu_28553605/article/details/106425528)
+
 [如何设置默认版本及替换他](https://blog.csdn.net/zhouzme/article/details/53995566)
 
 ## 配置文件
