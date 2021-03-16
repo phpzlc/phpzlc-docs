@@ -57,7 +57,7 @@ composer require phpzlc/phpzlc
 
 ## PHPZlc组件安装
 
-Phpzlc提供了很多好用的`vendor组件`和`业务组件`，你可以在根据实际情况进行自由组合。
+PHPZlc提供了很多好用的`vendor组件`和`业务组件`，你可以在根据实际情况进行自由组合。
 
 > 比较常用的组件有:
 
