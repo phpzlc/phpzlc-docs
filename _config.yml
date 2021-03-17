@@ -7,8 +7,8 @@ defaults:
     scope:
       path: "" # 一个空的字符串代表项目中所有的文件
     values:
-      title: "PHPZlc(知了虫)"
-      description: "在深度运用symfony的基础上，探究研发知行合一的最佳实践"
+      title: "PHPZlc & Symfony4+"
+      description: "在深度运用symfony4+的基础上，探究研发知行合一的最佳实践"
       tags: phpzlc,zlc,php,symfony,symfony5,symfony4,zhiliaochong
       author_no: 1
 
