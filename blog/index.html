@@ -23,9 +23,9 @@ column_title: 博客动态
                   <h4 class="post-title mb-3">
                     <a href="{{ post.url }}" class="content"> {{ post.title }} </a>
                     <p class="post-details">
-                      <span class="author">作者：xxx</span>
-                      <span class="release-time">时间：2021-01-01</span>
-                      <span class="number">文章来源：xx</span>
+                      <span class="author" data-id="{{ page.author_no }}"></span>
+                      <span class="release-time">时间：{{ post.date | date: "%Y-%m-%d" }}</span>
+                      <!--                      <span class="number">文章来源：{{ post.column_title }}</span>-->
                       <a href="{{ post.url }}" class="last-span">阅读全文</a>
                     </p>
                   </h4>
@@ -110,6 +110,14 @@ column_title: 博客动态
     </div>
     <!--//doc-wrapper-->
     {% include footer.html %}
+  </div>
 </body>
+
+<script>
+  $('.author').each(function () {
+    $(this).html('作者：' + getAuthor($(this).data('id')));
+  });
+</script>
+
 
 </html>
