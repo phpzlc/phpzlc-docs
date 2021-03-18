@@ -1,14 +1,88 @@
-# PHPZLC 技术支持
+# PHPZlc
 
-## 官网文档网址
+PHP知了虫。致力于在PHP及Symfony生态基础上深度运用Symfony4框架，以实现对于项目资源和代码结构统一而清晰的认知，从而实现知行合一的编码自信。为更庞大更精细的项目未来提供稳定的预期及更多的支持。
 
-[https://phpzlc.github.io/](https://phpzlc.github.io/)
+# 发行申明
 
-[更多信息](https://github.com/phpzlc/phpzlc)
+MIT License。 在软件和软件的所有副本中都必须包含版权声明和许可声明。
 
-## 版权
+# 环境要求
 
-该站点设计由 Xiaoying Riley 提供, 由 GitHub Pages 生成。Copyright © 2021 by 何俊杰Jayhe. All rights reserved.
+PHP 7.3
+
+mysql 5.7 +
+
+# 文档
+
+国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
+
+国内站: [https://phpzlc.gitee.io/](https://phpzlc.gitee.io/)
+
+GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
+
+# 使用建议
+
+框架提供了一整套在Symfony4上构建项目的经验和策略，可以帮助使用者快速构建良好结构的商业项目。
+
+框架本质上是Symfony的一种具像化应用场景，根据实践经验确定的最佳的技术组合。
+
+框架在写法上与Symfony官方的推荐写法有所差异，但这不影响你继续使用Symfony推荐写法和特性，两者并不互斥。
+
+框架属于早期阶段，性能和架构还不是十分的成熟，不建议复杂度高且对性能质量有较高要求的项目使用。
+
+我们认为适合以下人群使用。
+
+1. Symfony初学者。
+    
+    掌握了Symfony的基础知识，但不清楚如何组合所学，可以通过我们的实践方案，快速的了解Symfony的实践方式。
+
+2. Symfony交流者。
+
+    Symfony资深的开发者，可以在了解我们的技术策略后，对比参照，相互交流，共同促进。
+
+3. 个人开发者。
+
+    可以根据文档的直接指导，使用丰富的组件，快速低成本的构建项目。
+
+4. 团队开发。
+
+    PHPZlc本身就立足于商业开发，形成了一套利于维护的编码策略及规范，可以供团队很便捷的学习，使用。
+    
+    PHPZlc面向业务的组件策略，业务代码可以便捷复用，产生持续积累价值。
+
+# 关于我们
+
+我们不希望标新立异。所以我们的方向，是开放我们的想法，接纳更多的新想法。以让我们知道正确道路在哪！
+
+我们不认为可以对Symfony有什么改造，我们现阶段的任何举措都有可能是我们认识的浅薄造成的，所以是笑话的可能性更大一些。
+
+我们不认为存在被嘲笑的风险就可以不大声呐喊，因为困惑也存在合理性，勇于分享可能体验到挫折，但最终我们会解开所有的疙瘩。
+
+有一天，我们的工作可能会停止，那一天应该是我们走上正轨的时候，我们完全了解了Symfony的世界，PHP的世界。我们拥抱到了更大的世界。
+
+我希望PHPZlc成为一个社区，一种文化。与他同行的人，可以得到知行合一的实践方案。
+
+
+# 团队名单
+
+1. [CJayHe](https://github.com/CJayHe) 作者。
+
+2. [ExodusHT](https://github.com/ExodusHT) PHP工程师，核心维护者。
+
+3. [qiesunl](https://github.com/qiesunl) 前端工程师，核心维护者。
+
+# 联系方式
+
+技术交流QQ群：645891927 
+
+邮箱: 1044295598@qq.com
+
+公众号：知行实践（提供框架动态，Symfony动态，行业动态，商务合作，技术解答）
+
+# 版权
+
+该站点设计由 Xiaoying Riley 提供, 由 GitHub Pages 生成。Copyright © 2021 by CJayHe. All rights reserved.
+
 
 
 
