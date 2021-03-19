@@ -447,7 +447,7 @@ you can use the generic selector below, but it's slower:
 	content: "\e029";
 }
 .icon_refresh:before {
-	content: "\e02a";
+	content: "\e087";
 }
 .icon_link_alt:before {
 	content: "\e02b";
