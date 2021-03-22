@@ -1156,4 +1156,24 @@ text-shadow: none;
 		font-size: 2em;
 	}
 
-	
+.qun {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+}
+.qun a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+}
+.qun a img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 25px;
+}
