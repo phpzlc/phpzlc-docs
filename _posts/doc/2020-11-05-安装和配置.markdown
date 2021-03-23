@@ -91,20 +91,31 @@ PHPZlc提供了很多好用的`vendor组件`和`业务组件`，你可以在根�
 
     **Vendor入Git库的方法：** 
     
-        找到项目根目录的`.gitignore`文件将`vendor`所在行注释即可。
-        解决提交出现子模块需要删除`vendor`组件的`.git`目录，可以使用 'rm -rf vendor/**/.git' （在 ZSH 中） 或  'find vendor/ -type d -name ".git" -exec rm -rf {} \;'
+     A. 找到项目根目录的`.gitignore`文件将`vendor`所在行注释即可。
+     
+     B. 解决提交出现子模块需要删除`vendor`组件的`.git`目录，可以使用
+      
+     （在 ZSH 中）  
+     ```shell
+     rm -rf vendor/**/.git
+     ``` 
+     或 
+     
+     ```shell
+     find vendor/ -type d -name ".git" -exec rm -rf {} \;
+     ```
          
     **Vender入库注意** 需要开发固定开发版本，所有开发人员版本都需要固定为同一版本。
 
 4. 初始化Git仓库，添加远程地址, 提交到远程仓库
 
-```shell
-git init
-git remote add origin {远程仓库地址}
-git add .
-git commit -m "project init"
-git push --set-upstream origin master
-```
+    ```shell
+    git init
+    git remote add origin {远程仓库地址}
+    git add .
+    git commit -m "project init"
+    git push --set-upstream origin master
+    ```
 
 ## DEMO项目
 
