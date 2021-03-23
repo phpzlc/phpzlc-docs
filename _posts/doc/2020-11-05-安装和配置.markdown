@@ -89,10 +89,15 @@ PHPZlc提供了很多好用的`vendor组件`和`业务组件`，你可以在根�
 3. 多数情况下，我建议将`Vendor`入`Git`库，因为PHPZlc需要本地食谱服务器才能够正常的安装，这点导致在服务器上很难做到。其次就实践而言，服务器上可能会出现网络问题或其他问题导致Composer无法正常工作。
 当然就原则而言，这是一个短板，不符合Composer的技术特征。关于这点不足，我们会在未来想办法解决食谱服务器的问题。
 
-    **Vendor入Git库的方法：** 找到项目根目录的`.gitignore`文件将`vendor`所在行删除即可。
+    **Vendor入Git库的方法：** 
+    
+        找到项目根目录的`.gitignore`文件将`vendor`所在行注释即可。
+        解决提交出现子模块需要删除`vendor`组件的`.git`目录，可以使用 'rm -rf vendor/**/.git' （在 ZSH 中） 或  'find vendor/ -type d -name ".git" -exec rm -rf {} \;'
+         
     **Vender入库注意** 需要开发固定开发版本，所有开发人员版本都需要固定为同一版本。
 
 4. 初始化Git仓库，添加远程地址, 提交到远程仓库
+
 ```shell
 git init
 git remote add origin {远程仓库地址}
