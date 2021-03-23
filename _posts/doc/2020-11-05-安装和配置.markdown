@@ -97,7 +97,7 @@ PHPZlc提供了很多好用的`vendor组件`和`业务组件`，你可以在根�
 git init
 git remote add origin {远程仓库地址}
 git add .
-git commit -m "project create"
+git commit -m "project init"
 git push --set-upstream origin master
 ```
 
@@ -108,7 +108,7 @@ git push --set-upstream origin master
 ## 访问和启动项目
 
 将项目放置在apache开放目录下, 然后通过浏览器访问项目public/index.php文件即可。
-
+ 
 
 ## 开始
 
