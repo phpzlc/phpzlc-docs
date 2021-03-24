@@ -215,11 +215,11 @@ button.close {
 
 .rules {
   text-align: center;
-  color: red;
+  color: #f75252;
 }
 .hidden-xs {
   text-align: center;
-  color: red;
+  color: #f75252;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
