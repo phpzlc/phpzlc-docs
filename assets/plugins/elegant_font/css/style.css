@@ -1177,3 +1177,8 @@ text-shadow: none;
   box-sizing: border-box;
   border-radius: 25px;
 }
+
+/* 移动端适配 */
+@media screen and (max-width: 1199px) {
+  
+}
