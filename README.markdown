@@ -24,7 +24,7 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 [https://github.com/orgs/phpzlc/projects](https://github.com/orgs/phpzlc/projects)
 
-对开源有兴趣希望深入研究Symfony的小伙伴欢迎加入，在项目列表中选择自己感兴趣的方向，与我们联系。也可以在[issues](https://github.com/phpzlc/phpzlc.github.io/issues)提出想法。
+可以在项目列表中选择自己感兴趣的方向，与我们联系，共同工作。也可以在[issues](https://github.com/phpzlc/phpzlc.github.io/issues)提出想法。
 
 # 使用建议
 
