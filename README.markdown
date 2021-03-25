@@ -20,6 +20,12 @@ mysql 5.7 +
 
 GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
+# 开发计划
+
+[https://github.com/orgs/phpzlc/projects](https://github.com/orgs/phpzlc/projects)
+
+对开源有兴趣希望深入研究Symfony的小伙伴欢迎加入，在项目列表中选择自己感兴趣的方向，与我们联系。也可以在[issues](https://github.com/phpzlc/phpzlc.github.io/issues)提出想法。
+
 # 使用建议
 
 框架提供了一整套在Symfony4上构建项目的经验和策略，可以帮助使用者快速构建良好结构的商业项目。
