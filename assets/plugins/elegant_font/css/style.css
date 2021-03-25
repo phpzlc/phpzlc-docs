@@ -1159,21 +1159,35 @@ text-shadow: none;
 .qun {
   position: fixed;
   top: 50%;
-  right: 10px;
-  width: 40px;
-  height: 40px;
-  border-radius: 25px;
+  right: 60px;
+  width: 50px;
+  /* height: 50px; */
 }
 .qun a {
   display: block;
-  width: 40px;
-  height: 40px;
-  border-radius: 25px;
+  width: 50px;
+  /* height: 50px; */
 }
 .qun a img {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   box-sizing: border-box;
-  border-radius: 25px;
+}
+.qun a p {
+  padding-top: 5px;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 1199px) {
+  .qun {
+    right: 5px;
+  }
+
+  .qun a p {
+    display: none;
+  }
 }
