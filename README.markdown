@@ -9,7 +9,7 @@ MIT License。 在软件和软件的所有副本中都必须包含版权声明�
 
 # 环境要求
 
-PHP 7.3
+php >=7.1.3 (推荐PHP7.3)
 
 mysql 5.7 +
 
@@ -23,9 +23,15 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 # 开发计划
 
-[https://github.com/orgs/phpzlc/projects](https://github.com/orgs/phpzlc/projects)
+1. 项目列表中选择自己感兴趣的方向，与我们联系，共同工作。
 
-可以在项目列表中选择自己感兴趣的方向，与我们联系，共同工作。也可以在[issues](https://github.com/phpzlc/phpzlc.github.io/issues)提出想法。
+[https://github.com/orgs/phpzlc/projects](https://github.com/orgs/phpzlc/projects)
+    
+
+2. 建议与反馈。
+
+[issues](https://github.com/phpzlc/phpzlc.github.io/issues)。
+
 
 # 使用建议
 
