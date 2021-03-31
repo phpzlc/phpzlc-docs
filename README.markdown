@@ -3,17 +3,17 @@
 在Symfony4的基础上,为PHP开发者提供成熟的Web应用程序开发教程和业务组件。
 
 
-# 发行申明
+## 发行申明
 
 MIT License。 在软件和软件的所有副本中都必须包含版权声明和许可声明。
 
-# 环境要求
+## 环境要求
 
 php >=7.1.3 (推荐PHP7.3)
 
 mysql 5.7 +
 
-# 文档
+## 文档
 
 国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
 
@@ -21,19 +21,15 @@ mysql 5.7 +
 
 GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
-# 开发计划
-
-1. 项目列表中选择自己感兴趣的方向，与我们联系，共同工作。
+## 开发计划
 
 [https://github.com/orgs/phpzlc/projects](https://github.com/orgs/phpzlc/projects)
-    
 
-2. 建议与反馈。
+## 建议反馈  
 
-[issues](https://github.com/phpzlc/phpzlc.github.io/issues)。
+[https://github.com/phpzlc/phpzlc.github.io/issues](https://github.com/phpzlc/phpzlc.github.io/issues)。  
 
-
-# 使用建议
+## 使用建议
 
 框架提供了一整套在Symfony4上构建项目的经验和策略，可以帮助使用者快速构建良好结构的商业项目。
 
@@ -61,13 +57,10 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
     
     PHPZlc面向业务的组件策略，业务代码可以便捷复用，产生持续积累价值。
 
-# 团队名单
+## 团队名单
 
-1. [CJayHe](https://github.com/CJayHe) 作者。
+[团队名单](https://phpzlc.github.io/member/)
 
-2. [ExodusHT](https://github.com/ExodusHT) PHP工程师，核心维护者。
-
-3. [qiesunl](https://github.com/qiesunl) 前端工程师，核心维护者。
 
 # 联系方式
 
@@ -77,7 +70,7 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 公众号：知行实践（提供框架动态，Symfony动态，行业动态，商务合作，技术解答）
 
-# 版权
+# 网站版权
 
 该站点设计由 Xiaoying Riley 提供, 由 GitHub Pages 生成。Copyright © 2021 by CJayHe. All rights reserved.
 
