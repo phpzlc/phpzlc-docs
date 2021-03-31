@@ -69,10 +69,6 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 [记录每一分贡献](https://phpzlc.github.io/member/)
 
-## 网站版权
-
-站点设计由 Xiaoying Riley 提供, 由 GitHub Pages 生成。Copyright © 2021 by CJayHe. All rights reserved.
-
 
 
 
