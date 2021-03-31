@@ -37,6 +37,10 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 [https://github.com/phpzlc/phpzlc.github.io/issues](https://github.com/phpzlc/phpzlc.github.io/issues) 
 
+## 团队名单
+
+[记录每一分贡献](https://phpzlc.github.io/member/)
+
 ## 使用建议
 
 框架提供了一整套在Symfony4上构建项目的经验和策略，可以帮助使用者快速构建良好结构的商业项目。
@@ -64,10 +68,6 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
     PHPZlc本身就立足于商业开发，形成了一套利于维护的编码策略及规范，可以供团队很便捷的学习，使用。
     
     PHPZlc面向业务的组件策略，业务代码可以便捷复用，产生持续积累价值。
-
-## 团队名单
-
-[记录每一分贡献](https://phpzlc.github.io/member/)
 
 
 
