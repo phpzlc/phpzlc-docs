@@ -21,14 +21,6 @@ mysql 5.7 +
 
 GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
-## 联系我们
-
-技术交流QQ群：645891927 
-
-邮箱: 1044295598@qq.com
-
-公众号：知行实践（提供框架动态，Symfony动态，行业动态，商务合作，技术解答）
-
 ## 开发计划
 
 [https://github.com/orgs/phpzlc/projects](https://github.com/orgs/phpzlc/projects)
@@ -68,6 +60,24 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
     PHPZlc本身就立足于商业开发，形成了一套利于维护的编码策略及规范，可以供团队很便捷的学习，使用。
     
     PHPZlc面向业务的组件策略，业务代码可以便捷复用，产生持续积累价值。
+    
+## 联系我们
+ 
+技术QQ群(645891927)
+ 
+## 技术服务
+ 
+提供框架动态，Symfony动态，行业动态，商务合作，技术解答
+ 
+微信公众号(知行实践)
+
+头条号()
+ 
+## 资助
+ 
+1. 支付宝
+
+2. 微信 
 
 
 
