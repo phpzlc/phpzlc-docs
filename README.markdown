@@ -59,10 +59,10 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 ## 团队名单
 
-[团队名单](https://phpzlc.github.io/member/)
+[团队名](https://phpzlc.github.io/member/)
 
 
-# 联系方式
+## 联系我们
 
 技术交流QQ群：645891927 
 
@@ -70,9 +70,9 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 公众号：知行实践（提供框架动态，Symfony动态，行业动态，商务合作，技术解答）
 
-# 网站版权
+## 网站版权
 
-该站点设计由 Xiaoying Riley 提供, 由 GitHub Pages 生成。Copyright © 2021 by CJayHe. All rights reserved.
+站点设计由 Xiaoying Riley 提供, 由 GitHub Pages 生成。Copyright © 2021 by CJayHe. All rights reserved.
 
 
 
