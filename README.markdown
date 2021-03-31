@@ -27,7 +27,7 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 ## 建议反馈  
 
-[https://github.com/phpzlc/phpzlc.github.io/issues](https://github.com/phpzlc/phpzlc.github.io/issues)。  
+[https://github.com/phpzlc/phpzlc.github.io/issues](https://github.com/phpzlc/phpzlc.github.io/issues) 
 
 ## 使用建议
 
@@ -57,11 +57,6 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
     
     PHPZlc面向业务的组件策略，业务代码可以便捷复用，产生持续积累价值。
 
-## 团队名单
-
-[团队名](https://phpzlc.github.io/member/)
-
-
 ## 联系我们
 
 技术交流QQ群：645891927 
@@ -69,6 +64,10 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 邮箱: 1044295598@qq.com
 
 公众号：知行实践（提供框架动态，Symfony动态，行业动态，商务合作，技术解答）
+
+## 团队名单
+
+[记录每一分贡献](https://phpzlc.github.io/member/)
 
 ## 网站版权
 
