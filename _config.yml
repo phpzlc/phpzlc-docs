@@ -8,8 +8,8 @@ defaults:
       path: "" # 一个空的字符串代表项目中所有的文件
     values:
       title: "PHPZlc & Symfony4+"
-      description: "在深度运用symfony4+的基础上，探究研发知行合一的最佳实践"
-      tags: phpzlc,zlc,php,symfony,symfony5,symfony4,zhiliaochong
+      description: "在Symfony4的基础上,提供成熟的Web应用程序开发教程和业务组件。"
+      tags: phpzlc,网站, symfony,symfony5,symfony4,web,网站,后端,php后端
       author_no: 1
 
   - scope:
