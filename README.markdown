@@ -74,11 +74,17 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 头条号()
  
-## 资助
+## 开源不易，如果觉得我们的工作对你有帮助，希望慷慨解囊，帮助我们更好的工作。
+
+**请尽可能在付款备注中说明，以方便确定资金来源。**
  
 1. 支付宝
 
+![支付包付款码](/assets/images/pay/alipay-btn.png)
+
 2. 微信 
+
+![微信支付付款码](/assets/images/pay/wechat-btn.png)
 
 
 
