@@ -78,7 +78,7 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 > 公众号(知行实践)
 
-![-w70](/assets/images/zxsjgzh-2.png)
+![-w10](/assets/images/zxsjgzh-2.png)
  
 ## 赞赏
 
