@@ -68,17 +68,17 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
  
 ## 自媒体服务
  
-发布框架、Symfony动态。IT咨询，技术博客。
+发布框架、Symfony动态。IT资讯，技术博客。
 
 提供技术咨询服务。
  
 > 头条号(CJayHe)
 
-![](/assets/images/toutiao-jay.png)
+![](/assets/images/toutiao-jay.png =100x100)
 
 > 公众号(知行实践)
 
-![](/assets/images/zxsjgzh-2.png)
+![](/assets/images/zxsjgzh-2.png =100x100)
  
 ## 赞赏
 
