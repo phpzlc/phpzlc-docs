@@ -78,11 +78,11 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 **请尽可能在付款备注中说明，以方便确定资金来源。**
  
-1. 支付宝
+> 支付宝赞赏码
 
 ![支付包付款码](/assets/images/pay/alipay-1.png)
 
-2. 微信 
+> 微信赞赏码
 
 ![微信支付付款码](/assets/images/pay/wechat-1.png)
 
