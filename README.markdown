@@ -80,11 +80,11 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
  
 1. 支付宝
 
-![支付包付款码](/assets/images/pay/alipay-btn.png)
+![支付包付款码](/assets/images/pay/alipay-1.png)
 
 2. 微信 
 
-![微信支付付款码](/assets/images/pay/wechat-btn.png)
+![微信支付付款码](/assets/images/pay/wechat-1.png)
 
 
 
