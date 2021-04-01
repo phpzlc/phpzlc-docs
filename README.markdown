@@ -66,13 +66,19 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 技术QQ群(645891927)
 
  
-## 技术服务
+## 自媒体服务
  
-提供框架动态，Symfony动态，行业动态，商务合作，技术解答
- 
-微信公众号(知行实践)
+发布框架、Symfony动态。IT咨询，技术博客。
 
-头条号()
+提供技术咨询服务。
+ 
+> 头条号(CJayHe)
+
+![](/assets/images/toutiao-jay.png)
+
+> 公众号(知行实践)
+
+![](/assets/images/zxsjgzh-2.png)
  
 ## 赞赏
 
