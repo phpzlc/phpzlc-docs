@@ -74,11 +74,11 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
  
 > 头条号(CJayHe)
 
-![](/assets/images/toutiao-jay.png =100x100)
+![](/assets/images/toutiao-jay.png)
 
 > 公众号(知行实践)
 
-![cs -w10](/assets/images/zxsjgzh-2.png)
+![](/assets/images/zxsjgzh-2.png)
  
 ## 赞赏
 
