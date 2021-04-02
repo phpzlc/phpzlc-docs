@@ -13,7 +13,7 @@ php >=7.1.3 (推荐PHP7.3)
 
 mysql 5.7 +
 
-## 官方+文档
+## 官网+文档
 
 国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
 
