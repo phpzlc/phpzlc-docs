@@ -13,7 +13,7 @@ php >=7.1.3 (推荐PHP7.3)
 
 mysql 5.7 +
 
-## 技术文档
+## 官方网站
 
 国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
 
@@ -85,7 +85,7 @@ QQ群 ([645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG))
 
 ![](/assets/images/zxsjgzh-2.png)
  
-## 赞赏
+## 赞赏支持
 
 **感觉有帮助？对您有价值？一键投喂 牛奶/咖啡/冰阔乐！」**
 
