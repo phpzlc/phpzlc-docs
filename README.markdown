@@ -17,9 +17,11 @@ mysql 5.7 +
 
 国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
 
+GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
+
 国内站: [https://phpzlc.gitee.io/](https://phpzlc.gitee.io/)
 
-GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
+GitEe首页: [https://gitee.com/phpzlc/](https://gitee.com/phpzlc/)
 
 ## 开发计划
 
