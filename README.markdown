@@ -25,6 +25,8 @@ GitEe首页: [https://gitee.com/phpzlc/](https://gitee.com/phpzlc/)
 
 ## 开发计划
 
+*希望参与开源工作的小伙伴,可以在项目中选择,帮助我们更快的发布新版本。*
+
 [https://github.com/orgs/phpzlc/projects](https://github.com/orgs/phpzlc/projects)
 
 ## 建议反馈  
