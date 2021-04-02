@@ -63,8 +63,9 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
     
 ## 联系我们
  
-技术QQ群(645891927)
+技术QQ群([645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG))
 
+![](/assets/images/qq-qun.png)
  
 ## 自媒体服务
  
