@@ -63,13 +63,13 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
     
 ## 社区
  
-技术QQ群 ([645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG))
+QQ群 ([645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG))
 
 ![](/assets/images/qq-qun.png)
 
 ## 联系我们
 
-1044295598.com
+邮箱: 1044295598.com
  
 ## 自媒体服务
  
