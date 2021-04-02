@@ -25,17 +25,21 @@ GitEe首页: [https://gitee.com/phpzlc/](https://gitee.com/phpzlc/)
 
 ## 开发计划
 
-*希望参与开源工作的小伙伴,可以在项目中选择,帮助我们更快的发布新版本。*
+*希望参与开源工作的小伙伴,可以点击下方链接,在项目中选择,帮助我们更快的发布新版本。*
 
 [https://github.com/orgs/phpzlc/projects](https://github.com/orgs/phpzlc/projects)
 
-## 建议反馈  
+## 建议反馈
+
+*推荐的开源协作,反馈应当在issues中进行,这样方便追踪,讨论，查阅。*
 
 [https://github.com/phpzlc/phpzlc.github.io/issues](https://github.com/phpzlc/phpzlc.github.io/issues) 
 
 ## 团队名单
 
-[记录每一分贡献](https://phpzlc.github.io/member/)
+*记录每一分贡献,珍惜每一次相遇*
+
+[https://phpzlc.github.io/member/](https://phpzlc.github.io/member/)
 
 ## 使用建议
 
