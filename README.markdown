@@ -13,7 +13,7 @@ php >=7.1.3 (推荐PHP7.3)
 
 mysql 5.7 +
 
-## 官方网站
+## 官方+文档
 
 国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
 
@@ -37,7 +37,7 @@ GitEe首页: [https://gitee.com/phpzlc/](https://gitee.com/phpzlc/)
 
 ## 团队名单
 
-*记录每一分贡献,珍惜每一次相遇*
+*记录每一分贡献,珍惜每一次相遇。*
 
 [https://phpzlc.github.io/member/](https://phpzlc.github.io/member/)
 
