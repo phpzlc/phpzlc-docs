@@ -68,7 +68,7 @@ GitEe首页: [https://gitee.com/phpzlc/](https://gitee.com/phpzlc/)
 
 ## 建议反馈
 
-*推荐的开源协作,反馈应当在issues中进行,这样方便追踪,讨论，查阅。*
+*推荐的开源协作方式,应当是在issues中进行,这样方便追踪,讨论,查阅。*
 
 [https://github.com/phpzlc/phpzlc.github.io/issues](https://github.com/phpzlc/phpzlc.github.io/issues) 
 
