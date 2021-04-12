@@ -19,27 +19,76 @@ column_title: 常见问题
                                 <h2 class="section-title">学习须知</h2>
                                 <div class="section-block">
                                     <h3 class="question"> 必备的基础知识？</h3>
-                                    <div class="answer">PHP, Composer, Symfony4+, Mysql, Html, css, js, Git, Linux/Windows开发环境配置。</div>
+                                    <div class="answer">
+                                        <p>了解，掌握Composer基本指令。</p>
+                                        <p>了解，掌握Git基本指令。</p>
+                                        <p>了解，掌握PHP、Mysql、Symfony、Html、Css、Js语法知识。</p>
+                                        <p>能够按照教程自主搭建PHP运行环境。</p>
+                                    </div>
                                 </div><!--//section-block-->
                                 <div class="section-block">
                                     <h3 class="question"> 版本选择，为什么不选择在最新的Symfony5上开发框架？</h3>
-                                    <div class="answer"></div>
+                                    <div class="answer">
+                                        <p>通过下图，我们可以了解,Symfony采取的版本策略和各个版本的支持时间。</p>
+                                        <div style="max-width: 600px">
+                                            <img src="/assets/images/symfony/v.png" width="100%">
+                                            <img src="/assets/images/symfony/f.png" width="100%">
+                                        </div>
+                                        <p>
+                                            不难发现，长期支持的4.4版本支持时间可达2024年。最新稳定的5.2版本支持时间仅到2021年中。
+                                            这就意味着如果选择5.2版本的话，将会很快的失去官方支持，就不得不提前将代码迁移到新的版本中去，这将极大的增加成本。
+                                        </p>
+                                        <p>
+                                            从两个版本的发布时间上来看,5.2版本是在4.4版本一年之后发布的，也就是说5.2版本是在4.4版本已经趋于稳定之后进行打包发布的。
+                                            打包的原因就是要使4.4版本进入维护阶段。新的特性需要在新的分支下无负担开发。所以从性能和特性丰富度上来说，固然5.2版本优于4.4版本。但核心结构和性能并没有显著差别。
+                                        </p>
+                                        <p>
+                                            作为程序员的我及我的团队，最初都是希望在5.2版本上进行开发，但是后来我们放弃了，放弃的原因是4.4版本的生态更好，主版本的发布，其对应的组件才能够进行开发。相较而言，选择站在多数人的队伍里面是安全的。
+                                        </p>
+                                    </div>
                                 </div><!--//section-block-->
                                 <div class="section-block">
                                     <h3 class="question"> PHPZlc是否支持Symfony5？ </h3>
-                                    <div class="answer">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis. Vestibulum vitae justo quam. Nulla luctus nunc in neque suscipit dictum. Cras faucibus magna sem, non accumsan quam interdum elementum. Pellentesque sollicitudin orci mauris, sit amet mollis nisi vehicula ut. Fusce non accumsan massa, tempus dictum leo. Suspendisse ornare ex vel imperdiet cursus.</div>
+                                    <div class="answer">
+                                        <p>我们的团队在4.4版本下工作,在发行计划中暂时未打算对5.2版本进行匹配。</p>
+                                        <p>我们的版本发布计划将会和Symfony的长期支持版保持一致。</p>
+                                    </div>
                                 </div><!--//section-block-->
                                 <div class="section-block">
                                     <h3 class="question"> PHPZlc会对使用Symfony造成困扰么？他和Symfony之间的关系是什么？</h3>
-                                    <div class="answer">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.</div>
+                                    <div class="answer">
+                                        <p>PHPZlc是一个独立的品牌，他的定位是为实战开发提供一组行之有效的方法。</p>
+                                        <p>Symfony是PHPZlc当下选择的框架载体。</p>
+                                        <p>PHPZlc并不致力再构建一个如Symfony一样的框架。而是想很好的运用Symfony的资源为使用者提供实际的解决方案。所以在技术上，PHPZlc全力的融入到Symfony中，并且符合Symfony的编码要求。</p>
+                                    </div>
                                 </div><!--//section-block-->
                                 <div class="section-block">
-                                    <h3 class="question"> PHPZlc解决的核心痛点是什么？他对Symfony进行了哪些补充？</h3>
-                                    <div class="answer">Quisque rhoncus elit in ullamcorper finibus. Mauris diam ipsum, tristique id nibh at, sagittis suscipit odio. Donec lacinia consequat augue vulputate pellentesque. Donec sed vehicula purus. Aliquam ac enim non magna vulputate mattis. Proin non vulputate est, id aliquam tortor. </div>
+                                    <h3 class="question"> PHPZlc解决的核心痛点是什么？</h3>
+                                    <div class="answer">
+                                        <p>PHP是语言，提供了原子接口，你可以任意组合。实现功能。Symfony是框架，提供了写法机制，轮子。方便开发者开发。</p>
+                                        <p>无论是PHP还是Symfony都旨在提供可能性，面对具体的场景，都需要你去学习，组合，试错。</p>
+                                        <p>PHPZlc希望通过所学，将经验，技术固化下来，为开发者提供具体场景下的优雅代码。</p>
+                                    </div>
+                                </div><!--//section-block-->
+                                <div class="section-block">
+                                    <h3 class="question"> 面对复杂多样的业务场景，如何做到以不变应万变？</h3>
+                                    <div class="answer">
+                                        <p>世界上没有不变的东西，世界上也没有没有bug的程序。我们需要正确的理解变。变不可怕，可怕的变化带来的成本。</p>
+                                        <p>系统而言最重要的是数据，它是一切驱动的源头。所以PHPZlc强化了Symfony对数据库的管理，使其变得更加统一，方便，聪明。更具有控制性，复用性，层次性。</p>
+                                        <p>
+                                            维护程序持续迭代的保障是什么，是文档。普遍情况下，文档和代码是分离的的，他们往往保存在两个地方，这样文档形同虚设，因为他不可能始终是最新的版本。另外一种情况就是，当我们尝试将业务代码组件化的时候，文档和代码的割裂就更为严重。如果按照传统的方式进行管理，就会造成很大的负担。所以PHPZlc在研究Symfony组件的目录结构和策略之后，开发了一套文档系统，你可以在每个组件中按照要求书写。这样在安装的组件的时候，文档也会一起安装进来，通过简单的命令就能根据你当时的环境生成具有测试功能交付能力的优雅文档。
+                                        </p>
+                                        <p style="font-weight: bolder">(文档组件可以脱离PHPZlc使用, 详见<a href="/doc/api-document">phpzlc/document-bundle</a>)</p>
+                                    </div>
                                 </div><!--//section-block-->
                                 <div class="section-block">
                                     <h3 class="question"> 业务组件是什么？他如何面对复杂多样的需求变化？</h3>
-                                    <div class="answer">Curabitur convallis sapien eget porttitor tincidunt. Aenean vehicula congue tortor, in ullamcorper metus porta a. Sed congue condimentum turpis vel hendrerit. Nam dapibus nunc eu tellus accumsan, viverra posuere nibh dapibus. Nam nec condimentum elit. Aliquam erat volutpat. Proin dictum est a lacus semper porta. Pellentesque nec efficitur lectus, at tincidunt felis. Etiam ultrices malesuada nulla, sit amet luctus leo semper sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                                    <div class="answer">
+                                        <p>业务和组件是什么关系了？</p>
+                                        <p>我们首先需要了解组件。组件是将功能封装成可直接调用的代码模块。组件需要提供良好的接口和使用方法。使用者无需关注组件实现过程。</p>
+                                        <p>业务的一部分代码符合封装组件的要求，但是由于当组件代码执行更新时，本地修改的代码会被强制覆写，这就导致使用者没有办法根据多变且定制的业务场景调整组件内容。</p>
+                                        <p>PHPZlc使用业务组件的概念来解决这一个问题。业务组件首先会从远程组件仓库中拉取代码，之后将代码拷贝到合适的项目位置，使这部分代码自安装之后与远程组件仓库脱钩。这样做之后，既可以满足业务代码便捷安装，也可以满足业务需要定制化修改的问题。</p>
+                                    </div>
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
 
