@@ -1199,26 +1199,26 @@ text-shadow: none;
 }
 
 .wrapper-member {
-  width: 1200px;
+  width: 1000px;
   margin: 0 auto;
 }
 
 .header-title {
   padding-top: 20px;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1.5;
   text-align: center;
 }
 
 .header-content {
   margin: 20px 0;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 2;
   vertical-align: baseline;
 }
 
 .main-title {
-  font-size: 25px;
+  font-size: 24px;
   line-height: 2;
 }
 
@@ -1232,9 +1232,9 @@ text-shadow: none;
 
 .author {
   float: left;
-  width: 270px;
+  width: 240px;
   height: auto;
-  margin: 0 15px 40px 15px;
+  margin: 0 5px 10px 5px;
   border-radius: 8px;
   border: 1px solid #58bbee;
   box-sizing: border-box;
@@ -1244,9 +1244,9 @@ text-shadow: none;
 .author-img {
   display: block;
   float: left;
-  width: 80px;
-  height: 80px;
-  margin: 10px;
+  width: 70px;
+  height: 70px;
+  margin: 10px 4px 0 4px;
   border: 1px #58bbee solid;
   border-radius: 50%;
   box-sizing: border-box;
@@ -1255,13 +1255,14 @@ text-shadow: none;
 .author-right {
   float: right;
   width: 160px;
-  height: 100px;
+  height: 90px;
+  padding-top: 10px;
 }
 
 .author-right p {
   width: 150px;
-  font-size: 16px;
-  line-height: 2;
+  font-size: 14px;
+  line-height: 1.5;
   color: #333;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1270,18 +1271,18 @@ text-shadow: none;
 
 .author-right img {
   display: block;
-  margin-top: 8px;
+  margin-top: 5px;
 }
 
 .img-circle {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border: 1px #58bbee solid;
   border-radius: 50%;
   box-sizing: border-box;
   box-shadow: 0px 0px 5px #58bbee;
   background: url('/assets/images/logo-a4.png') no-repeat 0px 0px;
-  background-size: 80px auto;
+  background-size: 60px auto;
 }
 
 .main-content {
@@ -1291,13 +1292,13 @@ text-shadow: none;
 
 .main-left {
   float: left;
-  width: 40px;
+  width: 30px;
   height: 200px;
 }
 
 .main-right {
   float: left;
-  width: 1160px;
+  width: 970px;
   height: auto;
   border-left: 1px #58bbee solid;
   box-sizing: border-box;
@@ -1308,7 +1309,7 @@ text-shadow: none;
   display: block;
   width: auto;
   margin-left: -1px;
-  padding: 30px 20px 10px 40px;
+  padding: 20px 20px 5px 20px;
   font-size: 16px;
   line-height: 2;
   border-bottom: 1px #58bbee solid;
