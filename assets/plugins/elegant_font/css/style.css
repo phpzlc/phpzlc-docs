@@ -1223,11 +1223,8 @@ text-shadow: none;
 }
 
 .main {
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between; */
   width: 100%;
+  padding: 5px 0 0 0;
   height: auto;
   margin-top: 10px;
   overflow: hidden;
