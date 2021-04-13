@@ -73,6 +73,29 @@
     color: #f75252;
   }
 
+  .nav-bottom {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .nav-bottom .prev {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    text-decoration: underline;
+  }
+
+  .nav-bottom .next {
+    display: block;
+    float: right;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    text-decoration: underline;
+  }
+
   @media screen and (max-width: 1199px) {
     #md-content>ol {
       padding-left: 3%;
@@ -100,6 +123,10 @@
     </div>
     <div id="md-content">
       {{ content }}
+    </div>
+    <div class="nav-bottom">
+      <a class="prev" href="javascript:;">上一篇</a>
+      <a class="next" href="javascript:;">下一篇</a>
     </div>
     <div class="entry-shang text-center">
       <p>「感觉有帮助？对您有价值？一键投喂 牛奶/咖啡/冰阔乐！」</p>
