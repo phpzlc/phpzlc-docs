@@ -1254,7 +1254,7 @@ text-shadow: none;
 
 .author-right {
   float: right;
-  width: 160px;
+  width: 150px;
   height: 90px;
   padding-top: 10px;
 }
@@ -1337,15 +1337,33 @@ text-shadow: none;
   padding-top: 6px;
 }
 
-.main-right a span {
+.main-right a .span-p {
   float: left;
   display: block;
+  width: 100px;
+  margin-left: 20px;
   font-size: 16px;
   color: #333;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.span-p {
+.main-right a .span-con {
+  float: left;
+  display: block;
+  width: 420px;
   margin-left: 20px;
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.user-detail {
+  float: left;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1199px) {
@@ -1376,6 +1394,10 @@ text-shadow: none;
     border: none;
   }
 
+  .author-img {
+    margin-left: 15px;
+  }
+
   .main-right>a {
     margin: 0 0 5% 0;
     padding: 0;
@@ -1386,11 +1408,31 @@ text-shadow: none;
   }
 
   .img-p {
+    height: auto;
     margin: 5% 3% 0 3%;
   }
 
-  .span-p {
-    margin-left: 5%;
+  .user-detail {
+    width: 85%;
+  }
+
+  .user-detail>span {
+    width: 50%;
+    font-size: 12px;
+  }
+
+  .main-right a .span-p {
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .img-p-2 {
+    padding-top: 2px;
+  }
+
+  .main-right a .span-con {
+    width: 85%;
+    font-size: 12px;
   }
 
   .member-name {
