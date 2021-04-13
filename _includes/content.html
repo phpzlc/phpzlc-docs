@@ -125,8 +125,13 @@
       {{ content }}
     </div>
     <div class="nav-bottom">
-      <a class="prev" href="javascript:;">上一篇</a>
-      <a class="next" href="javascript:;">下一篇</a>
+      {% if page.prev_page | strip_html | strip_newline != '' %}
+      <a class="prev" href="{{ page.prev_page }}">上一篇</a>
+      {% endif %}
+
+      {% if page.next_page | strip_html | strip_newline != '' %}
+      <a class="next" href="{{ page.doc/skeleton }}">下一篇</a>
+      {% endif %}
     </div>
     <div class="entry-shang text-center">
       <p>「感觉有帮助？对您有价值？一键投喂 牛奶/咖啡/冰阔乐！」</p>

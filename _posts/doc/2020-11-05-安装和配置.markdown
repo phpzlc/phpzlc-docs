@@ -1,6 +1,8 @@
 ---
 title: 安装和配置
 permalink: doc/install
+// prev_page: doc/config/params
+// next_page: doc/skeleton
 ---
 
 ## 前言
