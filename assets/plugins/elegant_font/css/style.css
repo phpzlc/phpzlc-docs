@@ -1188,7 +1188,7 @@ text-shadow: none;
   }
 
   .qun a p {
-    display: none;
+    /*display: none;*/
   }
 }
 
