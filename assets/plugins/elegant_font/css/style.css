@@ -1378,7 +1378,7 @@ text-shadow: none;
   }
 
   .author-right {
-    width: 65%;
+    width: 70%;
   }
 
   .main-left {
@@ -1408,8 +1408,9 @@ text-shadow: none;
   }
 
   .img-p {
-    height: auto;
-    margin: 5% 3% 0 3%;
+    width: 40px;
+    height: 40px;
+    margin: 15px 0 15px 10px;
   }
 
   .user-detail {
