@@ -1,0 +1,79 @@
+---
+title: 运用Symfony路由组件定制化开发
+permalink: /blog/3.html
+description_auth: 0
+description: 运用Symfony路由组件定制化开发
+tags: symfony,route,路由,routing
+---
+
+## 如何获取路由类用于编程和写库
+
+```php
+$routeCollection = $this->get('router')->getRouteCollection();
+$routeCollection->all(); 
+```
+
+## 常用方法
+
+```php
+/**
+ * 生成url
+ * 
+ * @param string $name 路由名
+ * @param array $parameters  路由参数
+ * @param int $referenceType 返回类型 UrlGeneratorInterface::ABSOLUTE_PATH 相对路由 | UrlGeneratorInterface::ABSOLUTE_URL 绝对网址
+ * @return string
+ */
+function generateUrl(string $route, array $parameters = [], int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH)
+```
+
+## 如何定义自己的路由类
+
+> 定义
+    
+```php
+use use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\Route;
+
+$routeCollection = new RouteCollection();
+$name = 'index';
+$defaults = [];
+$path = '/';
+
+$route = new Route($path, $defaults, []);
+$routeCollection->add($name, $route);
+```
+
+> 匹配
+
+```php
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\RequestContext;
+
+public function urlMatcher($path_info)
+{
+    $matcher = new UrlMatcher($routeCollection, new RequestContext());
+
+    try {
+        return $matcher->match($path_info);
+    }catch (\Exception $exception){
+        return  array();
+    }
+}
+```
+
+> 生成url
+
+```php
+use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\Routing\Generator\UrlGenerator;
+
+public function generateUrl(string $name, array $parameters = [], int $referenceType = UrlGenerator::ABSOLUTE_PATH)
+{
+    $urlGenerator = new UrlGenerator($routeCollection, new RequestContext());
+
+    $path = $urlGenerator->generate($name, $parameters, $referenceType);
+
+    return CurSite::$baseUrl . $path;
+}
+```

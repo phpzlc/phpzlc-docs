@@ -7,7 +7,7 @@ next_page: /doc/config/route
 
 ## 官方文档
 
-[配置Symfony](https://symfony.com/doc/current/configuration.html#importing-configuration-files)
+[配置Symfony](https://symfony.com/doc/4.4/configuration.html#importing-configuration-files)
 
 ## 常量参数配置
 
