@@ -1,7 +1,7 @@
 ---
 title: Git分支参与者的常用操作
 permalink: /blog/2.html
-description_auth: 0
+description_auto: 0
 description: Git分支参与者的常用操作
 tags: git,分支
 ---

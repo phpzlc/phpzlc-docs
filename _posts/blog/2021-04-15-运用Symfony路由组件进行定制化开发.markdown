@@ -1,7 +1,7 @@
 ---
 title: 运用Symfony路由组件定制化开发
 permalink: /blog/3.html
-description_auth: 0
+description_auto: 0
 description: 运用Symfony路由组件定制化开发
 tags: symfony,route,路由,routing
 ---

@@ -3,6 +3,9 @@ title: 常量参数配置与环境变量
 permalink: doc/config/params
 prev_page: /doc/skeleton
 next_page: /doc/config/route
+description_auto: 0
+description:  Symfony常量参数配置与环境变量
+tags: symfony,phpzlc,参数,环境变量
 ---
 
 ## 官方文档

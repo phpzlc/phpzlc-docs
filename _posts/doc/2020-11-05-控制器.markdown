@@ -3,6 +3,9 @@ title: 控制器(Controller)
 permalink: doc/controller
 prev_page: /doc/config/route
 next_page: /doc/errors
+description_auto: 0
+description: Symfony控制器(Controller) 
+tags: symfony,phpzlc,controller
 ---
 
 ## 官方文档

@@ -1,7 +1,7 @@
 ---
 title: Centos7 + Apache2.4 + 多版本PHP共存 服务器环境搭建
 permalink: /blog/1.html
-description_auth: 0
+description_auto: 0
 description: Centos7 + Apache2.4 + 多版本PHP共存 服务器环境搭建
 tags: linux,Centos7,PHP,Apache,多版本
 ---

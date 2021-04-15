@@ -1,9 +1,12 @@
 ---
-title: 错误收集（Errors）
+title: 错误收集(Errors)
 permalink: doc/errors
+description_auto: 0
+description: 更加有条理的记录，读取错误信息，并对错误进行更多的描述
+tags: symfony,phpzlc,错误收集,errors
 ---
 
-## 前言
+## 架构定义
 
 这是一个自研的功能，很简单。作用就是更加有条理的记录，读取错误信息，并对错误进行更多的描述。
 
