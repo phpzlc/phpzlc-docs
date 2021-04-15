@@ -60,6 +60,8 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 GitEe首页: [https://gitee.com/phpzlc/](https://gitee.com/phpzlc/)
 
+演示项目: [https://github.com/phpzlc/demo-blog](https://github.com/phpzlc/demo-blog)
+
 ## 开发计划
 
 *希望参与开源工作的小伙伴,可以点击下方链接,在项目中选择,帮助我们更快的发布新版本。*

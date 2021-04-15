@@ -1,32 +1,52 @@
 ---
-title: 控制器（Controller）
+title: 控制器(Controller)
 permalink: doc/controller
+prev_page: /doc/config/route
+next_page: /doc/errors
 ---
 
-## 前言
+## 官方文档
 
-官方文档：[https://symfony.com/doc/4.4/controller.html](https://symfony.com/doc/4.4/controller.html)
+[Controller](https://symfony.com/doc/4.4/controller.html)
 
-Controller主要用于处理接收数据和处理数据。在这两者之间，可以执行逻辑代码。一般情况下，不建议在Controller书写逻辑代码。Controller只应该存在复用程度低，简单的业务逻辑或者业务代码的具体整合。
+## 架构定义
 
-## Controller继承基类(SystemBaseController)
+1. Controller主要用于处理接收数据和返回响应。
+2. 不建议在Controller中书写复杂的逻辑代码。他的合适用法应该是根据接口的要求组合底层的业务方法。
+3. 不要完全不在Controller中书写逻辑代码。这是错误的认知。我们要根据逻辑代码的复用度和复杂度来选择书写的位置。
 
-官方默认的集成基础类为```Symfony\Bundle\FrameworkBundle\Controller\AbstractController;```。
+## 继承父类
 
-PHPZLC在此基础上增加了新的特性，增加了新的基类```PHPZlc\PHPZlc\Bundle\Controller\SystemBaseController```，用于管理项目的写法。
+1. 继承父类
+    
+    官方继承父类: 
+    
+    ```php
+    Symfony\Bundle\FrameworkBundle\Controller\AbstractController
+    ```
+   
+    PHPZlc在继承`AbstractController`的基础上，增加了新的特性，用于确定项目代码的基本写法策略。
+    
+    ```php
+    PHPZlc\PHPZlc\Bundle\Controller\SystemBaseController
+    ```
+   
+2. 代码示例
 
-```php
-use PHPZlc\PHPZlc\Bundle\Controller\SystemBaseController;
+    ```php
+    use PHPZlc\PHPZlc\Bundle\Controller\SystemBaseController;
+    
+    class IndexController extends SystemBaseController
+    
+    public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, $isLogin = true)
+    {
+        return parent::inlet($returnType, $isLogin);
+    }
+    ```
 
-class IndexController extends SystemBaseController
+## 文档
 
-public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, $isLogin = true)
-{
-    return parent::inlet($returnType, $isLogin);
-}
-```
-
-1. function inlet
+1. function inlet()
 
     **定义**
     
@@ -36,7 +56,7 @@ public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, 
     
     用于每个接口的前置方法，用于鉴权，设置等等操作。
     
-    **接口中写法**
+    **Action中写法**
     
     ```php
     public function index()
@@ -49,38 +69,53 @@ public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, 
         return new Response('<h1>演示项目</h1>');
     }
     ```
-
-2. returnType
-
-    **定义**
-    
-    returnType 为接口响应类型，有两个选项`SystemBaseController::RETURN_HIDE_RESOURCE`(隐性的)`RETURN_SHOW_RESOURCE`(现形)。
-    
-    **作用**
-    
-    隐性的主要用于返回数据信息的接口，这类返回不直接呈现在客户面前，例如APP-API请求，或者网站AJAX请求。
-    
-    显性的主要用于返回页面信息的接口，这类返回直接渲染呈现在客户面前，例如返回资源流，页面等。
-    
-    _通过明确定义返回响应类型，可以在入口方法中或其他底层可以根据此值进行判断，从而返回正确的响应，以提高体验。常用在入口方法鉴权失败之后，如果是显示的可以让其返回登录授权等页面，如果是隐性的可以返回错误码_
-    
-    **要求**
-    
-    必须在每个接口中对其进行准确的指定。
-    
-    **可使用的方法**  
-    
-    ```php
-    SystemBaseController::setReturnType($returnType)
-    
-    SystemBaseController::getReturnType()
-    ```
-        
-3. isLogin
-
-   **定义**
-
-   是否强制要求登录。
+   
+   **参数注解**
+   
+   1. returnType
+   
+       **定义**
+       
+       returnType 为接口响应类型，有两个选项
+       
+       ```php
+       //隐性
+       SystemBaseController::RETURN_HIDE_RESOURCE
+       ````
+       ```php
+       //显性
+       SystemBaseController::RETURN_SHOW_RESOURCE
+       ```
+       
+       **作用**
+       
+       隐性的主要用于返回数据信息的接口，这类返回不直接呈现在客户面前，例如APP-API请求，或者网站AJAX请求。
+       
+       显性的主要用于返回页面信息的接口，这类返回直接渲染呈现在客户面前，例如返回资源流，页面等。
+       
+       通过明确定义返回响应类型，可以在入口方法中或其他底层可以根据此值进行判断，从而返回正确的响应，以提高体验。
+       
+       常用的场景在入口方法鉴权失败之后，如果显示的可以让其返回登录授权等页面，如果是隐性的可以返回错误码
+       
+       **要求**
+       
+       必须在每个接口中对其进行准确的指定。
+       
+       **可使用的方法**  
+       
+       ```php
+       SystemBaseController::setReturnType($returnType)
+       
+       SystemBaseController::getReturnType()
+       ```
+      
+   2. isLogin
+   
+       **定义**
+      
+       是否强制要求接口必须登录才可以访问。
+   
+  
 
 ## 请求(Request)
 
