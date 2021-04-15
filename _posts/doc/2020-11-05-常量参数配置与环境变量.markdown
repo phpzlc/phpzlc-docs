@@ -1,9 +1,11 @@
 ---
 title: 常量参数配置与环境变量
 permalink: doc/config/params
+prev_page: /doc/skeleton
+next_page: /doc/config/route
 ---
 
-## 原文链接
+## 官方文档
 
 [配置Symfony](https://symfony.com/doc/current/configuration.html#importing-configuration-files)
 
@@ -31,25 +33,38 @@ $this->getParameter('var_string');
 ## 环境变量
 
 配置文件位置
-_.env_
+
+```text
+.env
+```
+
+写法示例
+
 ```text
 ##字符串
 ENV_STRING=这是个字符串
 ```
-**.env文件配置项目默认环境变量，实际开发中，默认环境变量及其配置注释不可忽略，赋予的值可以是写法示例**
 
-本地环境变量位置
+## 本地环境变量
+
+配置文件位置
+
 ```text
 .env.local
 ```
-**.env.local文件不入git，属于本机环境独有的环境变量，需要手动创建。**
+_.env.local文件不入git，属于本机环境独有的环境变量，需要手动创建。_
+
+写法示例
+
 ```text
 ##字符串
 ENV_STRING=这是个字符串
 ```
-**.env.local文件配置的环境变量会对应覆盖.env文件中值**
+
+_.env.local文件配置的环境变量会对应覆盖.env文件中设置的值_
 
 调用方法
+
 ```php
 $_ENV['ENV_STRING'];
 ```
