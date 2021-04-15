@@ -118,7 +118,7 @@ git push --set-upstream origin master
 
 2. Demo(示例项目-个人博客系统)
 
-[https://github.com/phpzlc/demo-blog](https://github.com/phpzlc/demo-blog)。
+    [https://github.com/phpzlc/demo-blog](https://github.com/phpzlc/demo-blog)。
 
 
 
