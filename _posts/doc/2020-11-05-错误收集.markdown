@@ -3,12 +3,14 @@ title: 错误收集(Errors)
 permalink: doc/errors
 description_auto: 0
 description: 更加有条理的记录，读取错误信息，并对错误进行更多的描述
-tags: symfony,phpzlc,错误收集,errors
+tags: symfony,phpzlc,错误收集,errors,error
+prev_page: /doc/controller
+next_page: /doc/validate
 ---
 
 ## 架构定义
 
-这是一个自研的功能，很简单。作用就是更加有条理的记录，读取错误信息，并对错误进行更多的描述。
+这是一个自研的功能，很简单。作用就是对错误信息进行存储归纳，并将错误信息对象化，增加更多可编程属性。
 
 ## 语法
 
@@ -148,6 +150,5 @@ class Error
 }
 ```
 
-**巧妙的运用好后面的参数，可以极大的便利开发**
-**这些特性可以更好的将错误信息挖掘，并提供更丰富的体验**
+_方法后面参数的的作用，主要用于对错误进行分组，标记。合理巧妙的使用这些参数，就可以获得丰富的体验_
 
