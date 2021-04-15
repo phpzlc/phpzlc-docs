@@ -328,7 +328,7 @@ permalink: doc/db/entity
     
 ## 新特性-表外字段
 
-   _这是PHPZLC独有的特性,可以将子查询sql定义为字段，使其可以具有编程性，实现了Sql集中管理，提高了使用效率_
+   _这是PHPZlc独有的特性,可以将子查询sql定义为字段，使其可以具有编程性，实现了Sql集中管理，提高了使用效率_
    
    ```php
     /**
@@ -343,7 +343,7 @@ permalink: doc/db/entity
    
    2. 字段`options`参数的当前支持`comment`选项，其他选项可以使用，但应该是没有效果，例如`default`。
    
-   3. PHPZLC为使此特性完全融入到原有的机制上，不造成二次学习使用负担，做了很多的努力，所以该字段除了不具备写库能力，其作为查询，条件，排序都和正常字段无所差别。
+   3. PHPZlc为使此特性完全融入到原有的机制上，不造成二次学习使用负担，做了很多的努力，所以该字段除了不具备写库能力，其作为查询，条件，排序都和正常字段无所差别。
    
    4. 此字段还支持`@AddRule`注释，保证表外字段的sql需要的资源得到足够保证。具体请学习[高级查询-规则章节](/doc/repository/rule)
     
@@ -363,5 +363,5 @@ permalink: doc/db/entity
    
    关于基础知识的学习，可以访问 [Symfony-Validate](https://symfony.com/doc/4.4/validation.html) (自行阅读)
    
-   其如何和PHPZLC结合可以学习[验证](doc/validate)章节。
+   其如何和PHPZlc结合可以学习[验证](doc/validate)章节。
 

@@ -13,7 +13,7 @@ next_page: /doc/errors
 
 1. Controller主要用于处理接收数据和返回响应。
 2. 不建议在Controller中书写复杂的逻辑代码。他的合适用法应该是根据接口的要求组合底层的业务方法。
-3. 不要完全不在Controller中书写逻辑代码。这是错误的认知。我们要根据逻辑代码的复用度和复杂度来选择书写的位置。
+3. 不要认为完全不在Controller中书写逻辑代码是正确的。这是错误的认知。我们要根据逻辑代码的复用度和复杂度来选择书写的位置,不要给自己增加不必要的工作量。
 
 ## 继承父类
 
@@ -93,9 +93,9 @@ next_page: /doc/errors
        
        显性的主要用于返回页面信息的接口，这类返回直接渲染呈现在客户面前，例如返回资源流，页面等。
        
-       通过明确定义返回响应类型，可以在入口方法中或其他底层可以根据此值进行判断，从而返回正确的响应，以提高体验。
+       通过明确定义返回响应类型，可以在入口方法中或其他底层根据此值进行判断，从而返回正确的响应，以提高体验。
        
-       常用的场景在入口方法鉴权失败之后，如果显示的可以让其返回登录授权等页面，如果是隐性的可以返回错误码
+       常用的场景，在入口方法鉴权失败之后，如果显性的就返回登录授权等页面，如果是隐性就以返回错误码
        
        **要求**
        
@@ -119,9 +119,11 @@ next_page: /doc/errors
 
 ## 请求(Request)
 
-官方文档: [https://symfony.com/doc/4.4/components/http_foundation.html](https://symfony.com/doc/4.4/components/http_foundation.html)
+1. 官方文档
 
-1. 常用方法
+    [HttpFoundation](https://symfony.com/doc/4.4/components/http_foundation.html)
+
+2. 常用方法
 
     ```php
     use PHPZlc\PHPZlc\Bundle\Controller\SystemBaseController;
@@ -153,14 +155,15 @@ next_page: /doc/errors
         }
     }
     ```
-2. 从服务中获取Request对象
-```php
-$request = $this->get('request_stack')->getCurrentRequest();
-```
+3. 从服务中获取Request对象
 
-## 响应
+    ```php
+    $request = $this->get('request_stack')->getCurrentRequest();
+    ```
 
-PHPZLC在原有基础上集成了最常见的API接口响应,定义了返回的基本格式及code码。
+## 响应(Responses)
+
+PHPZlc在原有基础上集成了最常见的API接口响应,定义了返回的基本格式及code码。
 
 1. 调用
 
@@ -178,36 +181,43 @@ PHPZLC在原有基础上集成了最常见的API接口响应,定义了返回的�
     }
     ```
 
-2. 返回格式 (可以通过后面的参数进行选择)
-```json
-{"code":1,"msg":"\u64cd\u4f5c\u5931\u8d25","msgInfo":[],"data":[]}
-```
+2. 返回格式示例
 
-3. code默认规定
-```text
-0 成功
-1 常规错误
--1 鉴权失败
-```
+    ```json
+    {"code":1,"msg":"\u64cd\u4f5c\u5931\u8d25","msgInfo":[],"data":[]}
+    ```
 
-4. 自定义code码
+3. 参数注解
 
-    可以通过方法后面的参数进行设置
+   **code码说明**
 
-5. 替换默认code值和其他默认参数
+   ```text
+   0 成功
+   1 常规错误
+   -1 鉴权失败/登录失败
+   ```
 
-    可以在环境变量中通过设置环境变量进行变更
+   **自定义code码**
+
+   可以通过方法后面的参数进行设置
+
+   **替换默认code值和其他默认参数**
+  
+   可以在环境变量中通过设置环境变量进行变更
     
-    配置文件地址`.env`
+   配置文件地址`.env`
 
-    ```text
-    API_SUCCESS_CODE: 成功code码
-    API_ERROR_CODE: 错误code码
-    API_RESPONSE_TYPE: 响应数据类型
-    ```
-   
- 6. 第一个参数还支持传入Error对象；方法内部会自动的读取Error中的code和错误值进行填充。更多信息请了解[错误收集系统](/doc/errors)
+   ```text
+   API_SUCCESS_CODE: 成功code码
+   API_ERROR_CODE: 错误code码
+   API_RESPONSE_TYPE: 响应数据类型
+   ```
+
+   _支持传入Error对象,Error中的code和错误值会自动进行填充_
+  
+   _更多信息请了解[错误收集系统](/doc/errors)_
+  
+   ```php
+   return Responses::error(Errors::getError());
+   ```
  
-    ```php
-     return Responses::error(Errors::getError());
-    ```
