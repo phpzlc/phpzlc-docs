@@ -14,7 +14,7 @@ tags: symfony,phpzlc,entity
 
 2. Entity作为数据库表的实体类，承担着将数据库资源可编程化的任务，要多用面向对象思维，便捷灵活的操作数据。
 
-3. Entity结合Symfony-Validate,可以为字段添加注释，完成表最基础的，最普遍的验证规则。
+3. **Entity结合[Symfony-Validate](https://symfony.com/doc/4.4/validation.html),可以为字段添加注释，完成表最基础的，最普遍的验证规则。**
 
 4. **我们既要将Entity看作表，看到其物理属性。也应当将其看作类，将物理层抽象出来，大胆的在编程中使用。这种融合统一的方式将决定你的开发水准。**
 
@@ -94,29 +94,19 @@ tags: symfony,phpzlc,entity
 
 _使用命令创建Entity的时候，会自动生成这些。但如果是自己手动建立或者修改的话，就需要执行命令手动生成了。_
       
-   3. get-set,RepositoryClass
-      
-      1. 数据库增加新的实体和字段的时候,需要为新增的部分重新生成get-set方法，为新增的实体增加对应的RepositoryClass
-    
-      2. 数据库删除实体和字段的时候，需要手动移除get-set方法，和删除对应的RepositoryClass
-   
-      3. 要保证RepositoryClass和Entity保持一对一的关系
-   
-      4. 要保证get-set方法没有缺少和冗余
-   
-      **生成get-set,RepositoryClass**
-     
-      ```shell
-      php bin/console make:entity {entityClassName} --regenerate
-      ```
-     
-      **覆盖get-set,RepositoryClass**
-     
-      ```shell
-      php bin/console make:entity {entityClassName} --regenerate --overwrite
-      ```
-      
-      `{entityClassName}` _选填_ 未指定的话则对话式询问，询问不指定则对所有实体生效
+**生成get-set,RepositoryClass**
+
+```shell
+php bin/console make:entity {entityClassName} --regenerate
+```
+
+**覆盖get-set,RepositoryClass**
+
+```shell
+php bin/console make:entity {entityClassName} --regenerate --overwrite
+```
+
+`{entityClassName}` _选填_ 未指定的话则对话式询问，询问不指定则对所有实体生效
 
 ## 常用字段写法示例
 
@@ -218,25 +208,19 @@ _使用命令创建Entity的时候，会自动生成这些。但如果是自己�
 6. smallint
 
     ```php
-    //在表的头部定义，一者作为备注说明含义，二者设为常量活静态方法，方便其他模块调用。
-    const STATUS_RESERVATION = 1;
+   
+    const STATUS_COMPLETE = 1;
 
-    const STATUS_RECORD = 2;
+    const STATUS_CANCEL = 2;
 
-    const STATUS_COMPLETE = 3;
+    const STATUS_REFUND = 3;
 
-    const STATUS_CANCEL = 4;
-
-    const STATUS_REFUND = 5;
-
-    const STATUS_PAYMENT = 6;
+    const STATUS_PAYMENT = 4;
 
 
     public static function getStatusArray()
     {
         return [
-            self::STATUS_RESERVATION => '已预约',
-            self::STATUS_RECORD => '已录制',
             self::STATUS_COMPLETE => '已完成',
             self::STATUS_CANCEL => '已取消',
             self::STATUS_REFUND => '已退款',
@@ -251,6 +235,8 @@ _使用命令创建Entity的时候，会自动生成这些。但如果是自己�
      */
     private $status;
     ```
+   
+   _简单选项在表的头部定义成常量，并且设置读取全部的静态方法。_
 
 7. simple_array(简单数组)
 
@@ -286,14 +272,14 @@ _使用命令创建Entity的时候，会自动生成这些。但如果是自己�
      *
      * @ORM\Column(name="lng", type="decimal", precision=10, scale=6, options={"comment":"经度"})
      */
-    protected $lng;
+    private $lng;
 
     /**
      * @var string
      *
      * @ORM\Column(name="lat", type="decimal", precision=10, scale=6, options={"comment":"纬度"})
      */
-    protected $lat;
+    private $lat;
     
     /**
      * @var string
@@ -329,40 +315,51 @@ _使用命令创建Entity的时候，会自动生成这些。但如果是自己�
     
 ## 新特性-表外字段
 
-   _这是PHPZlc独有的特性,可以将子查询sql定义为字段，使其可以具有编程性，实现了Sql集中管理，提高了使用效率_
+   _这是PHPZlc独有的特性,可以将子查询Sql定义为字段，使其可以具有编程性，实现了Sql集中管理，提高了使用效率。_
+   
+   _该字段在数据库中不对应具体的实际字段，所以称为**表外字段**。在实际使用中，除了不能进行写相关的操作，其他部分和表内其他字段基本无差别。_
    
    ```php
     /**
      * @OuterColumn(name="site_domains", type="simple_array", sql="(SELECT GROUP_CONCAT(sd.site_domain) FROM site_domain sd WHERE sd.site_id = sql_pre.id),  options={"comment":"站点域名"}")
      */
-    private $siteDomains;
+    public $siteDomains;
    ```
    
-   使用此字段，我们需要知道以下知识：
+1. 语法注解
    
-   1. 字段的type，支持原生的大多数类型，未来会考虑支持对象类型，但目前不支持。
+   type: 字段类型。支持原生的大多数类型，未来会考虑支持对象类型，但目前不支持。
    
-   2. 字段`options`参数的当前支持`comment`选项，其他选项可以使用，但应该是没有效果，例如`default`。
+   options: 选项。 
    
-   3. PHPZlc为使此特性完全融入到原有的机制上，不造成二次学习使用负担，做了很多的努力，所以该字段除了不具备写库能力，其作为查询，条件，排序都和正常字段无所差别。
+   ```text
+   comment: "描述"
+   ```
    
-   4. 此字段还支持`@AddRule`注释，保证表外字段的sql需要的资源得到足够保证。具体请学习[高级查询-规则章节](/doc/repository/rule)
-    
-      ```php
-         @AddRule(name="id", value="1")
-      ```    
+   sql: 子查询sql。
+   
+2. 高级用法
 
-   5. 当子查询中需要根据业务加入变量的时候，可以通过学习[高级查询-重新规则章节](/doc/repository/rule-rewriting)
-   
-## 字段发生变更后需要更新结构重新生成get-set方法
+   **支持`@AddRule`注释，利用规则注释可以为其成功执行提供必要的保证。**
 
-请阅读[创建使用数据库](/doc/db/start)章节。
+   ```php
+   @AddRule(name="id", value="1")
+   ```    
 
-## 添加验证约束
+   _具体更多的知识，可以通过学习[高级查询-规则章节](/doc/repository/rule)来了解。_
 
-   在编程定义中我们聊到了**最普遍的验证**，其中一个重要的手段就是添加验证注释。这是symfony原生的功能。
+    **Sql重写**
+
+   正常情况下，子查询的sql是固定不变的。但是有些情况下，子查询的Sql需要传入变量才可以正常的工作。这时候我们可以通过Sql重写解决。
    
-   关于基础知识的学习，可以访问 [Symfony-Validate](https://symfony.com/doc/4.4/validation.html) (自行阅读)
-   
-   其如何和PHPZlc结合可以学习[验证](doc/validate)章节。
+   ```php
+   /**
+    * @OuterColumn(name="distance", type="string", sql="repository内重写", options={"comment":"距离"})
+    */
+   public $distance;
+   ```
+
+
+   _具体更多的知识，可以通过学习[高级查询-重新规则章节](/doc/repository/rule-rewriting)来了解。_
+
 
