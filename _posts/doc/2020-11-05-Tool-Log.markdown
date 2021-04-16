@@ -1,9 +1,18 @@
 ---
-title: 日志
+title: 工具类-Log
 permalink: doc/tool/log
+prev_page: /doc/tool/sql
+next_page: /doc/exception
+description_auto: 0
+description:  日志工具类
+tags: symfony,phpzlc,log,tool
 ---
 
-## 语法
+## 架构定义
+
+便捷记录各类日志。
+
+## 文档
 
 ```php
 use PHPZlc\PHPZlc\Bundle\Service\Log\Log;
