@@ -30,8 +30,9 @@ tags: symfony,phpzlc,entity
    
 2. **通常不建议使用命令行创建实体,直接创建类文件会比较便捷**
     
-   _下面提供了两组模版可以用于实体的创建_
-   
+   _下面提供了两组模版可以用于实体的创建。_
+   _使用时请将模版中user和User部分替换。并且修改表的描述。_
+      
    **UUID 代码模版(推荐方式)**
    
    ```php
@@ -61,74 +62,37 @@ tags: symfony,phpzlc,entity
    
     _UUID更加方便系统向分布式系统转化。_
     
-    _代码示例中请将user和User部分替换。_
-    
     _PHPZlc对UUID进行了改造，其在保持唯一性的同时，增加了如自增ID一样的排序性，缺点在于最终生成的ID较长，（如果有更好的算法，希望与我们联系）。_
     
-
-   
-   
-
-   **实体创建说明(通常不建议使用命令行创建实体,直接创建类文件会比较便捷)**
-   
-   1. 通常不建议使用命令行创建实体,直接创建类文件会比较便捷
-   
-   2. 实体指定id的生成模式时，如果项目现在或将来有分布式的需求，应该使用uuid的形式，否则可以使用自增ID的形式
-   
-        **UUID 代码模版(推荐方式，便于向分布式系统发展)**
-        
-        ```php
-        <?php        
-        namespace App\Entity;
-        
-        use App\Repository\UserRepository;
-        use Doctrine\ORM\Mapping as ORM;
-        
+    **自增ID代码模版**
+            
+    ```php
+    <?php        
+    namespace App\Entity;
+    
+    use App\Repository\UserRepository;
+    use Doctrine\ORM\Mapping as ORM;
+    
+    /**
+     * @ORM\Entity(repositoryClass=UserRepository::class)
+     * @ORM\Table(name="admin", options={"comment":"用户表"})
+     */
+    class User
+    {
         /**
-         * @ORM\Entity(repositoryClass=UserRepository::class)
-         * @ORM\Table(name="user", options={"comment":"用户表"})
+         * @var string
+         *
+         * @ORM\Column(name="id", type="string")
+         * @ORM\Id()
+         * @ORM\GeneratedValue(strategy="AUTO")
          */
-        class User
-        {
-            /**
-             * @var string
-             *
-             * @ORM\Column(name="id", type="string")
-             * @ORM\Id()
-             * @ORM\GeneratedValue(strategy="CUSTOM")
-             * @ORM\CustomIdGenerator(class="PHPZlc\PHPZlc\Doctrine\SortIdGenerator")
-             */
-            private $id;
-        }
-        ```
-        
-        _PHPZlc对UUID进行了改造，其在保持唯一性的同时，增加了如自增ID一样的排序性，缺点在于最终生成的ID较长，（如果有更好的算法，希望与我们联系）_
-        
-        **自增ID代码模版**
-        
-        ```php
-        <?php        
-        namespace App\Entity;
-        
-        use App\Repository\UserRepository;
-        use Doctrine\ORM\Mapping as ORM;
-        
-        /**
-         * @ORM\Entity(repositoryClass=UserRepository::class)
-         * @ORM\Table(name="admin", options={"comment":"用户表"})
-         */
-        class User
-        {
-            /**
-             * @var string
-             *
-             * @ORM\Column(name="id", type="string")
-             * @ORM\Id()
-             * @ORM\GeneratedValue(strategy="AUTO")
-             */
-            private $id;
-        }
-        ```
+        private $id;
+    }
+    ```
+   
+## 生成GetSet方法，生成RepositoryClass类
+
+_使用命令创建Entity的时候，会自动生成这些。但如果是自己手动建立或者修改的话，就需要执行命令手动生成了。_
       
    3. get-set,RepositoryClass
       
