@@ -361,5 +361,11 @@ php bin/console make:entity {entityClassName} --regenerate --overwrite
 
 
    _具体更多的知识，可以通过学习[高级查询-重新规则章节](/doc/repository/rule-rewriting)来了解。_
+   
+## 表加索引
+
+```php
+@ORM\Table(name="sms_record", options={"comment"="短信动态码"}, indexes={@ORM\Index(name="phone", columns={"phone"})})
+```
 
 
