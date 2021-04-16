@@ -1211,8 +1211,8 @@ text-shadow: none;
 }
 
 .header-content {
-  margin: 20px 0;
-  font-size: 14px;
+  margin: 15px 0;
+  font-size: 16px;
   line-height: 2;
   vertical-align: baseline;
 }
@@ -1453,8 +1453,8 @@ text-shadow: none;
 }
 
 .header-content-2 {
-  margin: 20px 0;
-  font-size: 14px;
+  margin: 15px 0;
+  font-size: 16px;
   line-height: 2;
   vertical-align: baseline;
   text-align: center;
@@ -1462,7 +1462,7 @@ text-shadow: none;
 
 .title-detail {
   margin: 10px 0;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   color: #333;
 }
@@ -1494,7 +1494,7 @@ text-shadow: none;
   display: block;
   width: 210px;
   margin: 5px 10px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 40px;
   color: #58bbee;
   text-decoration: none;
@@ -1571,7 +1571,7 @@ text-shadow: none;
 .a-code {
   float: right;
   display: block;
-  margin-right: 20px;
+  margin-right: 12px;
   font-weight: bold;
   text-decoration: underline;
 }
