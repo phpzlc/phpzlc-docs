@@ -1218,7 +1218,7 @@ text-shadow: none;
 }
 
 .main-title {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 2;
   color: #000;
 }
@@ -1452,6 +1452,14 @@ text-shadow: none;
   margin: 0 auto;
 }
 
+.header-content-2 {
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 2;
+  vertical-align: baseline;
+  text-align: center;
+}
+
 .title-detail {
   margin: 10px 0;
   font-size: 14px;
@@ -1474,8 +1482,8 @@ text-shadow: none;
 }
 
 .main-content-2 {
-  width: 320px;
-  margin: 0 6px 20px 7px;
+  width: 230px;
+  margin: 0 10px 20px 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px #58bbee;
   background-color: #fff;
@@ -1484,8 +1492,8 @@ text-shadow: none;
 
 .module-name {
   display: block;
-  width: 280px;
-  margin: 10px 20px;
+  width: 210px;
+  margin: 5px 10px;
   font-size: 20px;
   line-height: 40px;
   color: #58bbee;
@@ -1497,21 +1505,21 @@ text-shadow: none;
 
 .module-describe {
   display: block;
-  height: 66px;
-  margin: 10px 20px;
+  height: 44px;
+  margin: 5px 10px;
   font-size: 14px;
   line-height: 22px;
   color: gray;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
 .content-detail {
-  width: 280px;
-  margin: 0 20px 10px 20px;
+  width: 210px;
+  margin: 0 10px 5px 10px;
   overflow: hidden;
 }
 
