@@ -1,11 +1,16 @@
 ---
 title: 简单查询
 permalink: doc/db/query
+prev_page: /doc/db/edit
+next_page: /doc/db/gjtz
+description_auto: 0
+description:  phpzlc简单查询
+tags: symfony,phpzlc,查询,select
 ---
 
-## 前言
+## 架构定义
 
-PHPZlc在Symfony原有的查询支持上，封装了一套传入简单规则即可查询的方法。
+这是个全新的内容,PHPZlc在Symfony原有的ORM查询支持上，封装了一套传入简单规则即可查询的方法。你会迅速降低学习成本，并且喜欢上他。
 
 ## 语法
 
@@ -48,25 +53,8 @@ $userRepository->findAssoc(['name' => '测试']);
 $userRepository->findAssoc(['name' . Rule::RA_LIKE => '%'. $request->get('name') . '%',]);
 ```
 
-**关于规则和更多的使用方法，见[高级查询](/doc/repository)**
+_关于规则和更多的使用方法，见[高级查询](/doc/repository)。_
 
-**这组查询会超出你的想象，也是我们发布的原因，相信你会喜欢**
+## 拓展链接
 
-## 如何写sql操作数据库
-
-上述 orm 写法是Symfony推荐的写法，只有那样写才能最大限度的发挥融入Symfony。但实际情况中，也有可能需要直接用sql来完成。
-
-在此记录
-
-```php
-/**
- * @var Connection $conn
- */
-$conn = $this->getDoctrine()->getConnection();
-```
-
-在Business中可通过
-```
-$this->conn
-```
-调用
+[Symfony4如何通过直接书写SQL控制数据库](/blog/4.html)
