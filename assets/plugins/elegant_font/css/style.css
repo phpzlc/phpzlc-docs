@@ -1220,6 +1220,7 @@ text-shadow: none;
 .main-title {
   font-size: 24px;
   line-height: 2;
+  color: #000;
 }
 
 .main {
@@ -1442,5 +1443,158 @@ text-shadow: none;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+}
+
+/* 2021-4-13 修改组件中心页面 */
+.wrapper-module {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.title-detail {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.main-v {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.main-b {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.main-content-2 {
+  width: 320px;
+  margin: 0 6px 20px 7px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #58bbee;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.module-name {
+  display: block;
+  width: 280px;
+  margin: 10px 20px;
+  font-size: 20px;
+  line-height: 40px;
+  color: #58bbee;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.module-describe {
+  display: block;
+  height: 66px;
+  margin: 10px 20px;
+  font-size: 14px;
+  line-height: 22px;
+  color: gray;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.content-detail {
+  width: 280px;
+  margin: 0 20px 10px 20px;
+  overflow: hidden;
+}
+
+.detail-left {
+  float: left;
+  display: block;
+  width: 55%;
+  margin: 5px 5% 5px 0;
+  font-size: 12px;
+  line-height: 22px;
+  color: #333;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detail-p img {
+  display: block;
+  padding-top: 2px;
+}
+
+.body-blue .detail-left , .body-blue .detail-right , .body-blue .a-doc , .body-blue .a-code {
+  color: #333;
+}
+
+.detail-right {
+  float: left;
+  display: block;
+  width: 40%;
+  margin: 5px 0;
+  font-size: 12px;
+  line-height: 22px;
+  color: #333;
+  text-align: right;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.a-doc {
+  float: right;
+  display: block;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.a-code {
+  float: right;
+  display: block;
+  margin-right: 30px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.success {
+  color: #1ce41c;
+}
+
+.error {
+  color: #f00;
+}
+
+/* 2021-4-16 新增 */
+@media screen and (max-width: 1199px) {
+  .wrapper-module {
+    width: 94%;
+    padding: 0 3%;
+  }
+
+  .main-content-2 {
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+
+  .module-name {
+    width: 94%;
+    margin: 10px 3%;
+  }
+
+  .content-detail {
+    width: 94%;
+    margin: 0 3% 10px 3%;
   }
 }
