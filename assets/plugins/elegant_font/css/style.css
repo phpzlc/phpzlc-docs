@@ -1205,7 +1205,7 @@ text-shadow: none;
 
 .header-title {
   padding-top: 20px;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 1.5;
   text-align: center;
 }
@@ -1218,7 +1218,7 @@ text-shadow: none;
 }
 
 .main-title {
-  font-size: 20px;
+  font-size: 24px;
   line-height: 2;
   color: #000;
 }
@@ -1571,7 +1571,7 @@ text-shadow: none;
 .a-code {
   float: right;
   display: block;
-  margin-right: 30px;
+  margin-right: 20px;
   font-weight: bold;
   text-decoration: underline;
 }
