@@ -4,7 +4,7 @@ permalink: doc/db/start
 prev_page: /doc/validate
 next_page: /doc/db/entity
 description_auto: 0
-description:  Symfony创建配置使用数据库
+description: Symfony创建配置使用数据库
 tags: symfony,phpzlc,数据库
 ---
 

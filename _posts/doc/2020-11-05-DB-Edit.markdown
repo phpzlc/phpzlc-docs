@@ -4,7 +4,7 @@ permalink: doc/db/edit
 prev_page: /doc/db/entity
 next_page: /doc/db/query
 description_auto: 0
-description:  Symfony表的插入、更新、删除
+description: Symfony表的插入、更新、删除
 tags: symfony,phpzlc,表,插入,更新,删除
 ---
 

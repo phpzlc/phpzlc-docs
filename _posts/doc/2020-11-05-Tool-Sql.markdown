@@ -4,7 +4,7 @@ permalink: doc/tool/sql
 prev_page: /doc/business
 next_page: /doc/tool/log
 description_auto: 0
-description:  SQL工具类
+description: SQL工具类
 tags: symfony,phpzlc,sql,tool
 ---
 

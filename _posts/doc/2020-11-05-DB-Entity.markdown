@@ -4,7 +4,7 @@ permalink: doc/db/entity
 prev_page: /doc/db/start
 next_page: /doc/db/edit
 description_auto: 0
-description:  Symfony设计Entity
+description: Symfony设计Entity
 tags: symfony,phpzlc,entity
 ---
 

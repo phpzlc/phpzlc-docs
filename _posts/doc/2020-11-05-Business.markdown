@@ -4,7 +4,7 @@ permalink: doc/business
 prev_page: /doc/db/query
 next_page: /doc/tool/sql
 description_auto: 0
-description:  PHPZlc业务层
+description: PHPZlc业务层
 tags: symfony,phpzlc,业务,业务层,business
 ---
 

@@ -4,7 +4,7 @@ permalink: doc/exception
 prev_page: /doc/tool/log
 next_page: /doc/repository
 description_auto: 0
-description:  异常(Exception)
+description: 异常(Exception)
 tags: symfony,phpzlc,exception,异常监听
 ---
 

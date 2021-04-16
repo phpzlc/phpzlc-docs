@@ -4,7 +4,7 @@ permalink: doc/config/route
 prev_page: /doc/config/params
 next_page: /doc/controller
 description_auto: 0
-description:  Symfony路由
+description: Symfony路由
 tags: symfony,phpzlc,路由
 ---
 
