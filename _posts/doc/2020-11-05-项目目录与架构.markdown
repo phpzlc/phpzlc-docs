@@ -1,11 +1,20 @@
 ---
 title: 目录与架构
 permalink: doc/skeleton
+prev_page: /doc/install
+next_page: /doc/config/params
+description_auto: 0
+description: Symfony4+目录与架构
+tags: symfony,phpzlc,目录
 ---
 
 ## 目录文件作用介绍
 
-/bin/console  控制台命令入口  用法 *php bin/console*
+/bin/console  控制台命令入口  用法 
+
+```shell
+php bin/console {command}
+```
 
 /config 配置文件
 

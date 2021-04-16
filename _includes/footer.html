@@ -99,5 +99,9 @@
     })
 
     $('#author').text(getAuthor('{{ page.author_no }}'));
+
+    $('.author').each(function () {
+      $(this).html('作者：' + getAuthor($(this).data('id')));
+    });
   })
 </script>

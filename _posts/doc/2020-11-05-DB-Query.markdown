@@ -5,7 +5,7 @@ permalink: doc/db/query
 
 ## 前言
 
-PHPZLC在Symfony原有的查询支持上，封装了一套传入简单规则即可查询的方法。
+PHPZlc在Symfony原有的查询支持上，封装了一套传入简单规则即可查询的方法。
 
 ## 语法
 

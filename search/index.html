@@ -16,26 +16,6 @@ column_title: 搜索
           <div class="doc-content col-12 order-1">
             <div class="blog-list single-col-max mx-auto" style="min-height: 500px">
               <ul id="results-container" class="results-container"></ul>
-              <!-- 遍历分页后的文章 -->
-              <!--                        {% for post in paginator.posts %}-->
-              <!--                        <div class="post-1552 post type-post status-publish format-standard has-post-thumbnail hentry category-blog">-->
-              <!--                            <div class="content">-->
-              <!--                                <h4 class="post-title mb-3">-->
-              <!--                                    <a href="{{ post.url }}" target="_blank"> {{ post.title }}</a>-->
-              <!-- <p class="post-details">
-                <span>作者：xxx</span>
-                <span>时间：2021-01-01</span>
-                <span>阅读次数：xx</span>
-                <span class="last-span">阅读全文</span>
-              </p> -->
-              <!--                                </h4>-->
-
-              <!--                                <div class="entry post-entry post-excerpt">-->
-              <!--                                    {{ post.excerpt }}-->
-              <!--                                </div>-->
-              <!--                            </div>-->
-              <!--                        </div>-->
-              <!--                        {% endfor %}-->
             </div>
           </div>
         </div>
@@ -48,6 +28,7 @@ column_title: 搜索
 
     <script type="text/javascript" src="/assets/js/simple-jekyll-search.min.js?v=20201101"></script>
     <script type="text/javascript">
+
       var searchInputObject = document.getElementById('search-input');
       searchInputObject.value = GetQueryString('search');
       var sjs = SimpleJekyllSearch({
