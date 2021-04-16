@@ -117,7 +117,7 @@ git push --set-upstream origin master
 
 1. 开始
 
-    一切准备就绪之后，你就可以在正式开始吧，[项目目录与架构](/doc/skeleton)。
+    一切准备就绪之后，让我们可以正式开始吧，[项目目录与架构](/doc/skeleton)。
 
 2. Demo(示例项目-个人博客系统)
 
