@@ -1,4 +1,4 @@
 ---
 title: API文档(ApiDocument)
-permalink: doc/api-document
+permalink: doc/document-bundle
 ---

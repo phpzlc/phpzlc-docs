@@ -1505,10 +1505,10 @@ text-shadow: none;
 
 .module-describe {
   display: block;
-  height: 44px;
+  height: 36px;
   margin: 5px 10px;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 12px;
+  line-height: 18px;
   color: gray;
   overflow: hidden;
   text-overflow: ellipsis;
