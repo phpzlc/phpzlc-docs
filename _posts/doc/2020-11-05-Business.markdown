@@ -1,9 +1,14 @@
 ---
 title: 业务层(Business)
 permalink: doc/business
+prev_page: /doc/db/query
+next_page: /doc/tool/sql
+description_auto: 0
+description:  PHPZlc业务层
+tags: symfony,phpzlc,业务,业务层,business
 ---
 
-## 说明
+## 架构定义
 
 简单的功能我们在Controller中可以很轻松的实现，但遇到复杂公共的业务代码，这时候我们就需要额外的目录存放这些代码，在PHPZlc中，Business承担了这个任务。
 

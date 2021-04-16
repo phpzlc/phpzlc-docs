@@ -1,5 +1,5 @@
 ---
-title: 安装和配置
+title: 安装与运行
 permalink: doc/install
 next_page: /doc/skeleton
 description_auto: 0

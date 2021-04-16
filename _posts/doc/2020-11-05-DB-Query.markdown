@@ -4,7 +4,7 @@ permalink: doc/db/query
 prev_page: /doc/db/edit
 next_page: /doc/business
 description_auto: 0
-description:  phpzlc简单查询
+description:  PHPZlc简单查询
 tags: symfony,phpzlc,查询,select
 ---
 
