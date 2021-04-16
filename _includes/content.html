@@ -1,7 +1,7 @@
 <style type="text/css">
   #md-content {
     /* padding-top: 20px; */
-    min-height: 1000px;
+    /*min-height: 1000px;*/
     /* font-family: Consolas, "Liberation Mono", Courier, monospace; */
     font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   }
@@ -123,15 +123,15 @@
     </div>
     <div id="md-content">
       {{ content }}
-    </div>
-    <div class="nav-bottom">
-      {% if page.prev_page | strip_html | strip_newline != '' %}
-      <a class="prev" href="{{ page.prev_page }}">上一篇</a>
-      {% endif %}
+      <div class="nav-bottom">
+        {% if page.prev_page | strip_html | strip_newline != '' %}
+        <a class="prev" href="{{ page.prev_page }}">上一篇</a>
+        {% endif %}
 
-      {% if page.next_page | strip_html | strip_newline != '' %}
-      <a class="next" href="{{ page.next_page }}">下一篇</a>
-      {% endif %}
+        {% if page.next_page | strip_html | strip_newline != '' %}
+        <a class="next" href="{{ page.next_page }}">下一篇</a>
+        {% endif %}
+      </div>
     </div>
     <div class="entry-shang text-center">
       <p>「感觉有帮助？对您有价值？一键投喂 牛奶/咖啡/冰阔乐！」</p>

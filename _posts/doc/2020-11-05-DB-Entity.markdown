@@ -1,44 +1,81 @@
 ---
 title: 设计Entity
 permalink: doc/db/entity
+prev_page: /doc/db/start
+next_page: /doc/db/edit
+description_auto: 0
+description:  Symfony设计Entity
+tags: symfony,phpzlc,entity
 ---
 
-## 编程定义
+## 架构定义
 
-1. Entity中应当定义最基本的定义，最普遍的验证。
-   
-   **最基本的定义：**
+1. Entity定义了数据库结构,定义数据库的时候需要选择合适的类型，长度，约束，索引。
+
+2. Entity作为数据库表的实体类，承担着将数据库资源可编程化的任务，要多用面向对象思维，便捷灵活的操作数据。
+
+3. Entity结合Symfony-Validate,可以为字段添加注释，完成表最基础的，最普遍的验证规则。
+
+4. **我们既要将Entity看作表，看到其物理属性。也应当将其看作类，将物理层抽象出来，大胆的在编程中使用。这种融合统一的方式将决定你的开发水准。**
+
+## 创建Entity
   
-      人们可以在这个表的实体类中，找到关于这张表的全部定义，注释。
-        
-   **最普遍的验证：**     
-        
-      通过验证等一系列的手段，保证数据表最普遍，最基础的数据完整，数据可用。
-
-2. Entity是面向对象写法的核心，要在使其不臃肿的情况下巧妙使用。
-
-3. Entity是数据的最底层，可以有效的管理控制数据。
-
-4. 保证数据完整性，可用性是Entity的第一要务。
-
-## 创建实体及相关资源生成命令
-  
-1. 创建实体
+1. 命令
   
    ```php
    php bin/console make:entity {entityClassName}
    ```
 
    `{entityClassName}` _选填_ 未指定的话则对话式询问，询问不指定则对所有实体生效
+   
+2. **通常不建议使用命令行创建实体,直接创建类文件会比较便捷**
+    
+   _下面提供了两组模版可以用于实体的创建_
+   
+   **UUID 代码模版(推荐方式)**
+   
+   ```php
+   <?php        
+   namespace App\Entity;
+   
+   use App\Repository\UserRepository;
+   use Doctrine\ORM\Mapping as ORM;
+   
+   /**
+    * @ORM\Entity(repositoryClass=UserRepository::class)
+    * @ORM\Table(name="user", options={"comment":"用户表"})
+    */
+   class User
+   {
+       /**
+        * @var string
+        *
+        * @ORM\Column(name="id", type="string")
+        * @ORM\Id()
+        * @ORM\GeneratedValue(strategy="CUSTOM")
+        * @ORM\CustomIdGenerator(class="PHPZlc\PHPZlc\Doctrine\SortIdGenerator")
+        */
+       private $id;
+   }
+   ```
+   
+    _UUID更加方便系统向分布式系统转化。_
+    
+    _代码示例中请将user和User部分替换。_
+    
+    _PHPZlc对UUID进行了改造，其在保持唯一性的同时，增加了如自增ID一样的排序性，缺点在于最终生成的ID较长，（如果有更好的算法，希望与我们联系）。_
+    
 
+   
+   
 
-   **实体创建说明**
+   **实体创建说明(通常不建议使用命令行创建实体,直接创建类文件会比较便捷)**
    
    1. 通常不建议使用命令行创建实体,直接创建类文件会比较便捷
    
    2. 实体指定id的生成模式时，如果项目现在或将来有分布式的需求，应该使用uuid的形式，否则可以使用自增ID的形式
    
-        **UUID 代码模版(推荐方式)**
+        **UUID 代码模版(推荐方式，便于向分布式系统发展)**
         
         ```php
         <?php        
