@@ -1218,7 +1218,7 @@ text-shadow: none;
 }
 
 .main-title {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 2;
   color: #000;
 }
@@ -1494,8 +1494,8 @@ text-shadow: none;
   display: block;
   width: 210px;
   margin: 5px 10px;
-  font-size: 18px;
-  line-height: 40px;
+  font-size: 16px;
+  line-height: 32px;
   color: #58bbee;
   text-decoration: none;
   overflow: hidden;
@@ -1571,7 +1571,7 @@ text-shadow: none;
 .a-code {
   float: right;
   display: block;
-  margin-right: 12px;
+  margin-right: 6px;
   font-weight: bold;
   text-decoration: underline;
 }
