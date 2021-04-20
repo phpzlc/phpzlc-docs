@@ -8,24 +8,43 @@ description: 高级查询
 tags: symfony,phpzlc,查询
 ---
 
-
 ## 概述
 
 高级查询的核心就是规则系统。
 
-规则即查询规则,传入规则,查询系统就会根据规则自动的生成需要的查询Sql,返回查询结果。
+规则即查询规则,传入规则,查询系统就会根据规则自动的生成需要的查询`Sql`,返回查询结果。
 
-这个理念,不是什么高级的想法,对于Symfony本身而言,其本身的查询系统,也支持这样去做,并且还有辅助的IDE提示。
+这个理念,不是什么高级的想法,对于`Symfony`本身而言,其本身的查询系统,也支持这样去做,并且还有辅助的`IDE`提示。
 
-但我还是要说,PHPZlc的查询系统在Symfony原有的查询系统上做了一次较大的革新,会给你带来的全新的体验。
+但我还是要说,`PHPZlc`的查询系统在`Symfony`原有的查询系统上做了一次较大的革新,会给你带来的全新的体验。
 
 ## 架构定义
 
-`Symfony`,`Doctrine`提供了许多的手段来完成`SQL`的构建。在通常情况下,其足够简单安全。但在构建较为复杂的查询的时候,就需要了解更多的额外知识,手动的完成表、字段和类、属性的绑定。
+1. 易用性
 
-这个过程不是复杂的,但是却很繁琐和机械。试想,我们面对的是已知的表结构,为什么不能让工作变得更简单了,将这些低效重复的工作交给底层了。
+   `Symfony`,`Doctrine`提供了许多的手段来完成`SQL`的构建。在单表查询中,其表现的是十分便捷良好的。 
 
-我一直认为`SQL`是系统重要的资源,有些业务逻辑就是`SQL`本身。我们有将其复用的需要,实际中也有人将其复用。但是我们一直缺乏一套完整的体系,对其进行定义,使得`SQL`可以像使用代码一样轻松灵活的拆分,组合。并且最终可以在认知执行层面可以明确其存在。
+   需要进行连表查询等高级查询的时候，需要学习使用[Doctrine Native SQL](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/native-sql.html)。
+ 
+   这个知识主要内容就是将表,字段和类,属性进行绑定,完成查询结果对象化的工作。
+ 
+    `PHPZlc`认为这个过程是机械繁琐的，这种方式不是未来的方向。并且当下我们已经可以通过`Entity`得到了数据库全部的结构，应该可以尝试分析表结构来自动完成这部分工作。
+
+2. 资源性
+    
+   `SQL`是系统重要的资源,有些业务逻辑就是`SQL`本身。在某种程度上来说，后端的主要工作就是在写`SQL`。
+   
+    但是现在的情况是，这些重要复杂的资源在系统中却是零散的。零散不是说重要的`SQL`没有被复用。而是定义和复用的时候都没有系统的体系，书写者几乎都是在各自为战。
+    
+    各自为战是因为架构师的问题么？是规范制定的问题么？我想不是的，主要原因是`SQL`作为资源却没有上升到定义的层次。如果一个概念无法简单清晰的被使用者认知，那么任何个体，任何规范都是虚无的。
+
+3. 串连性
+
+   实现`SQL`资源性，定义的位置好确定，但是易用性却很难解决，要解决易用性的问题，就需要一个体系来完成。
+   
+   举个例子，在`User`表中定义个`where`条件`SQL`,那么我在`join user`的时候，可以直接使用定义的`where`条件么？
+   
+   这是个资源通达的问题，解决了这个问题，定义资源才有实质的使用意义。
 
 ## 父类继承
 
@@ -112,6 +131,28 @@ Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository
     ```
            
     _代码中消失的`finalOrderBy`会在运用过程中拼接到`orderBy`的最后。_
+    
+## 当前表别名,关键词sql_pre 
+
+   表名不会重复，但别名是会重复的。比如 `admin` 和 `article`,如果将这个独立来看,那么别名都是`a`。
+ 
+   这就产生了问题，因为我们在定义`SQL`资源的时候，只能知道当前的别名，但是却无法保证别名不会重复。
+ 
+   **处理方法**
+ 
+   我们规定在定义书写`SQL`的时候,定义关键词`sql_pre`作为当前表别名的描述词。系统底层演算的时候会自主安排。
+   
+   **实际sql:**
+   
+   ```sql
+   select u.id from user u
+   ```
+   
+   **编码时应该为:**
+   
+   ```sql
+   select sql_pre.id from user sql_pre 
+   ``` 
    
 ## 具体如何干预SQL
 
@@ -139,113 +180,77 @@ Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository
    $users = $this->getDoctrine()->getConnection()->fetchAll($sql);
    ```
 
-## 特性介绍与高级用法
-          
-1. 通过分析SQL自动调用底层绑定,自动化工作减少学习成本,工作压力。
+## 手动弥补自动化工作的缺陷
 
-   **原理**
-   
-   对`SQL`进行结构分析,结合`Entity`结构,自动调用[Doctrine Native SQL](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/native-sql.html)方法。
+自动化的绑定工作，是基于`SQL`的分析。但是当分析的素材不足的时候，有些绑定工作无法正常完成。这时候需要手动补充。
 
-   `Native SQL`并不复杂,学习难度不高,他是用一组方法将表,字段和类,属性进行绑定,完成查询结果对象化的工作。
+我们可以使用查询方法中的参数:
+
+```php
+ResultSetMappingBuilder $resultSetMappingBuilder = null;
+```
+
+使用这个参数,需要学习[Doctrine Native SQL](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/native-sql.html)。
    
-   **特性弊端与解决方法**
+## 解决别名的冲突
+
+当我们将子查询定义为`SQL`资源的时候，那么就无法避免`子查询`中`join`其他表。这样不同表中定义的`SQL`除了本表的别名被关键词锁定之外，其他连接表的别名就无法避免出现冲突的问题。
+
+**处理方法**
+
+```php
+string $aliasChain = ''
+```
+
+**传参格式**
+  
+```text
+sql_pre:a=>c,b=>a;at:a=>c,b=>a;
+```
+
+**格式解析:**
+
+```text
+表别名1: 目标别名1=>修正别名1;目标别名2=>修正别名2;
+```
    
-   我们希望这个过程足够的聪明,事实上现在绝大多数他都会让你满意,但是在一些高度自定义的场景中,机器的选择往往不能满足需要。所以我们在查询方法中增加参数。
+## 查询结果对象转数组
    
+1. toArray()
+
    ```php
-   ResultSetMappingBuilder $resultSetMappingBuilder = null;
+   final public function toArray($entity, $params = ['level' => 0]): array
    ```
 
+   **方法解析**
    
-   使用这个参数,你可以参照上文链接,学习`Native SQL`的工作原理。
+   支持一个实体对象传入,对其进行递归,自动调取每个字段属性的`get`方法。
    
-3. 横纵向SQL资源的打通。
+   `$params` 控制参数,可自定义。
+   
+   `level` 递归的层数
+   
+   如果对数组格式有特定要求的可以自定义方法,自定义方法要求参数名,参数个数,参数含义和此方法一致。
+    
+   例如
+   
+   ```php
+   public function toApiArray($entity, $params = []);
+   ```
 
-   什么是纵向SQL资源了,简单点说就是关于这张表定义的条件,排序,子查询。
-   
-   什么是横向SQL资源了,就是你可以在在连表查询时可以使用目标表中全部所定义的SQL资源。
-   
-   我认为这两个方向的打通,可以使得定义SQL资源成为一个有意义的事情。
-   
-   本来这个功能是很难实现的,但是现在与symfony底层相结合,借助其生成的结构网络,让其变成可能。
-   
-   在使用中,希望你多多的定义sql资源,合理的定义和设置,不光使得你的sql变得更好管理,也将增加系统的功能储备。
+2. `arraySerialization` 数据序列化方法
 
-4. 别名的负担和冲突。 
+   ```php
+   final public function arraySerialization($result, $decoratorMethodParams = ['level' => 0], $decoratorMethodName = 'toArray') : array
+   ```
 
-   表名不会重复,但别名会不会重复了,是会的。比如 `admin` 和 `article`,如果将这个独立来看,那么别名都是`a`。这时候就很尴尬了,因为我们在定义sql资源的时候,是以当前表入手的,所以不可能知道其他地方有没有使用过这个别名。
- 
-   这个问题,可能在传统写法中,不是很突出,但是要让所有的定义的sql资源可以串联使用,那么冲突问题就会变得不得不考虑了。
+   **方法解析**
+     
+   支持一个对象或者对象集合传入,底层使用调用`toArray`。
+     
+   `$decoratorMethodParams`：序列化方法的参数,参照`toArray`的`$params`参数。
    
-   我们希望的做法是什么样的了,最起码保证我们在定义的时候足够简单,当出现冲突的时候,我们可以通过指令对别名进行修正。
-  
-   所以我们可以通过在查询方法中增加 `string $aliasChain = ''` 参加来实现此策略,并且定义关键词`sql_pre`作为当前表别名的描述词。
-   
-   `$aliasChain`传参格式为
-   
-    ```text
-    sql_pre:a=>c,b=>a;at:a=>c,b=>a;
-    ```
-    
-    **格式解析:**
-    
-    表别名1: 目标别名1=>修正别名1;目标别名2=>修正别名2;
-    
-    **用法解析:**
-    
-    在定义资源的时候,我们定义当前表的别名为`sql_pre`,在进行查询的时候,本表的别名就是`sql_pre`。
-    
-    在进行连表查询的时候,主表的别名还是`sql_pre`, 连接的表本身别名和定义的SQL资源别名都将被指定的别名替换。
-    
-    这时候,就会出现别名冲突的问题,这时候,我们需要局部修正。所以按照格式,我们需要找到是哪张表里面的资源出现了问题,这张表就是`表别名1`,需要替换的别名就是`目标别名`,正确的别名就是`修正别名`。
-   
-  
-5. 查询出来的数据为实体或实体集合,可以通过系统`to_array()`方法将其自动转为数组,也可以通过定义数据解析方法,实现针对性差异化。
-
-   我们为什么痴迷于实体转为对象,是因为对象可以提供更便捷的体验,更多的可能,更完整的概念。他很好。那么为什么我们需要将对象转为数组了,因为我们需要数据在各个系统之间交换。
-   
-   很好的体验是,在`twig`中可以使用对象。所以我们的集中需求是在API中。
- 
-   将实体对象自动转为数组,这很难么？以前我觉得其很难,但我后来知道了symfony序列化的方案,感觉应该不会很难。
-   
-   但我还是坚持保留下这个策略,因为他更直观,更方便。
-   
-   1. toArray()
-   
-       ```php
-       final public function toArray($entity, $params = ['level' => 0]): array
-       ```
-   
-       **方法解析**
-       
-       支持一个实体对象传入,对其进行递归,自动调取每个字段属性的get方法。
-       
-       `$params` 控制参数,可自定义。
-       
-       `level` 递归的层数
-       
-       如果对数组格式有特定要求的可以自定义方法,自定义方法要求参数名,参数个数,参数含义和此方法一致。
-        
-       例如
-       
-       ```php
-       public function toApiArray($entity, $params = []);
-       ```
-   
-   2. arraySerialization 数据序列化方法
-   
-       ```php
-       final public function arraySerialization($result, $decoratorMethodParams = ['level' => 0], $decoratorMethodName = 'toArray') : array
-       ```
-   
-       **方法解析**
-         
-       支持一个对象或者对象集合传入,底层使用调用`toArray`。
-         
-       `$decoratorMethodParams`：序列化方法的参数,参照`toArray`的`$params`参数。
-       
-       `$decoratorMethodName`: 序列化方法的名称。
+   `$decoratorMethodName`: 序列化方法的名称。
 
 ## 规则执行顺序
 
@@ -253,33 +258,13 @@ Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository
 
 2. 进行规则演算,加入必要规则和连带规则,且获得实体类和表的关系。
 
-3. 运行规则,拼接sql。
+3. 运行规则,拼接`Sql`。
 
-4. 解析sql,和实体对照,对查询表,字段进行一一绑定,建立联系,保证查询出来的结构落入的位置是正确的。
+4. 解析`Sql`,和实体对照,对查询表,字段进行一一绑定,建立联系,保证查询出来的结果落入的位置是正确的。
 
-5. 对sql进行最终整理,优化查询速度。
+5. 对`Sql`进行最终整理,优化查询速度。
 
-6. 执行sql返回实体结果。
-
-## 使用小贴士
-
-1. sql_pre是什么？ 
-
-   当前表的别名是不确定的,所以使用sql_pre指代当前表的别名。这个指代是很重要的,他可以保证你可以集中经历思考如何以当前表构建查询。
-   
-   如
-   
-   实际sql：
-   
-   ```sql
-   select u.id from user u
-   ```
-   
-   编码时应该为：
-   
-   ```sql
-   select sql_pre.id from user sql_pre 
-   ``` 
+6. 执行`Sql`返回实体结果。
    
    
    
