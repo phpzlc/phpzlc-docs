@@ -30,7 +30,7 @@ tags: linux,Centos7,PHP,Apache,多版本
 
     #添加映射 
     AddHandler fcgid-script .fcgi .php
-    # 设置PHP\_FCGI\_MAX\_REQUESTS大于或等于FcgidMaxRequestsPerProcess，防止php-cgi进程在处理完所有请求前退出 
+    # 设置PHP\_FCGI\_MAX\_REQUESTS大于或等于FcgidMaxRequestsPerProcess,防止php-cgi进程在处理完所有请求前退出 
     #FcgidInitialEnv PHP\_FCGI\_MAX\_REQUESTS 1000 
     #php-cgi每个进程的最大请求数 
     #FcgidMaxRequestsPerProcess 1000 #php-cgi最大的进程数 

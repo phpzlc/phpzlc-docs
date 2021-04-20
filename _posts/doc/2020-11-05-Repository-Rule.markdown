@@ -5,7 +5,7 @@ permalink: doc/repository/rule
 
 ## 前言
 
-规则本身实质上用数组进行驱动。传入一组键值对，如果满足规则且满足条件，则会将执行代码对sql进行修改。
+规则本身实质上用数组进行驱动。传入一组键值对,如果满足规则且满足条件,则会将执行代码对sql进行修改。
 
 ## 使用
 
@@ -39,11 +39,11 @@ permalink: doc/repository/rule
 
 规则碰撞所面对的业务场景是这样的。
 
-我们在编程中代码是分层的，我们喜欢将公共部分集成到方法，复杂公共性强的查询也不例外。
+我们在编程中代码是分层的,我们喜欢将公共部分集成到方法,复杂公共性强的查询也不例外。
 
-集成不代表万事大吉了，我们通常需要通过传参进行调整执行策略。回过头看查询，我们认为规则作为一个指令集合，他应该有资质很好的完成这个工作。
+集成不代表万事大吉了,我们通常需要通过传参进行调整执行策略。回过头看查询,我们认为规则作为一个指令集合,他应该有资质很好的完成这个工作。
 
-但经过实现，简单的数组是不胜任这份工作的。因为如果出现传入方法中已使用的规则，那么底层的规则会直接覆盖传入的规则。所以我们为了解决这个问题，
+但经过实现,简单的数组是不胜任这份工作的。因为如果出现传入方法中已使用的规则,那么底层的规则会直接覆盖传入的规则。所以我们为了解决这个问题,
 
 必须增加更多的标识进行判断。这就是增加对象写法的直接原因。
 
@@ -87,20 +87,20 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
     碰撞规则
 
     ```php
-    Rule::REPLACE 取代  //如果底层出现相同规则，则忽略底层规则
+    Rule::REPLACE 取代  //如果底层出现相同规则,则忽略底层规则
     
-    Rule::FORGO 放弃  //如果底层出现相同规则，则使用底层规则
+    Rule::FORGO 放弃  //如果底层出现相同规则,则使用底层规则
     
-    Rule::JOINT 联合  //如果底层出现相同规则，则将规则值拼接或连结
+    Rule::JOINT 联合  //如果底层出现相同规则,则将规则值拼接或连结
     ```
    
     默认值：
     
-    全局规则默认联合，排序顺序为`Rule::ASC`。其他规则默认取代。
+    全局规则默认联合,排序顺序为`Rule::ASC`。其他规则默认取代。
 
 4. `jointClass`
 
-   联合执行策略类，当碰撞规则为`Rule::JOINT`时有效。
+   联合执行策略类,当碰撞规则为`Rule::JOINT`时有效。
    
    默认值：`new \PHPZlc\PHPZlc\Doctrine\ORM\Rule\Joint\StringJoint()`; 对字符串进行拼接。
    
@@ -110,7 +110,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
    
 5. `jointSort`
 
-   联合执行优先顺序，当碰撞规则为`Rule::JOINT`时有效。
+   联合执行优先顺序,当碰撞规则为`Rule::JOINT`时有效。
    
    默认值: `Rule::ASC`
 
@@ -124,11 +124,11 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
 全局规则可以对SQL各部分进行大段的干预。这些规则不允许重写。
 
-**注意：全局规则在所有规则之前执行，对初始结构进行丰富，所以其他的规则依然会执行**
+**注意：全局规则在所有规则之前执行,对初始结构进行丰富,所以其他的规则依然会执行**
 
 1. `Rule::R_SELECT`
 
-    对select部分进行修改，指定查询字段。
+    对select部分进行修改,指定查询字段。
     
     ```php
     $rules = [
@@ -143,7 +143,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
 2. `Rule::R_JOIN`
 
-    对join部分进行修改，指定连表查询。
+    对join部分进行修改,指定连表查询。
    
     ```php
     $rules = [
@@ -151,9 +151,9 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
     ];
     ```
    
-    **注意： 运用此规则直接定义联结的表，此表将无法被底层识别**
+    **注意： 运用此规则直接定义联结的表,此表将无法被底层识别**
     
-    出现问题，可以通过`ResultSetMappingBuilder`参数手动绑定(不是必须)。
+    出现问题,可以通过`ResultSetMappingBuilder`参数手动绑定(不是必须)。
     
 3. `Rule::R_WHERE `
 
@@ -177,7 +177,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
 5. `R_HIDE_SELECT`
     
-    对最终查询的一些字段进行隐藏，在所有规则运行之后运行。
+    对最终查询的一些字段进行隐藏,在所有规则运行之后运行。
     
    ```php
    $rules = [
@@ -199,7 +199,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
 字段规则指的是为表中的每个字段提供的一组规则。
 
-规则由两部分组成，`别名.规则名`;当前表别名为`sql_pre`，可以忽略不写;
+规则由两部分组成,`别名.规则名`;当前表别名为`sql_pre`,可以忽略不写;
 
 **注意：字段的属性名和字段名都可以识别**
 
@@ -227,7 +227,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
    1. 生效原则
 
-        如果规则值真不为空，则生效。
+        如果规则值真不为空,则生效。
         
    2. 写法:
    
@@ -247,7 +247,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
      1. 生效原则
   
-         如果规则值真不为空，则生效。
+         如果规则值真不为空,则生效。
           
      2. 写法
    
@@ -267,7 +267,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
      1. 生效原则
   
-         如果规则值真不为空，则生效。
+         如果规则值真不为空,则生效。
          
      2. 写法
 
@@ -283,13 +283,13 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
             AND sql_pre.id > '1'
         ```
      
-     如果需要两个比较，第二个比较可以使用`RA_CONTRAST_2`规则；使用方法同上。   
+     如果需要两个比较,第二个比较可以使用`RA_CONTRAST_2`规则；使用方法同上。   
 
 5. `RA_IS` (is 查询)
 
      1. 生效原则
   
-         如果规则值真不为空，则生效。
+         如果规则值真不为空,则生效。
          
      2. 写法
      
@@ -309,7 +309,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
      1. 生效原则
     
-         如果规则值真不为空，则生效。 
+         如果规则值真不为空,则生效。 
          
      2. 写法
      
@@ -331,7 +331,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
      1. 生效原则
     
-         如果规则值真不为空，则生效。 
+         如果规则值真不为空,则生效。 
          
      2. 写法
      
@@ -353,17 +353,17 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
     1. 生效原则
     
-        如果规则值真不为空，则生效。 
+        如果规则值真不为空,则生效。 
         
     2. 写法
         
         ```php    
         $rules = [
            'user_id' . Rule::RA_JOIN => array(
-              'type' => 'LEFT JOIN',  // 可选参数， 默认值为 'LEFT JOIN'
-              'tableName' => 'user', //可选参数， 系统根据字段结构注释自动读取表名
+              'type' => 'LEFT JOIN',  // 可选参数, 默认值为 'LEFT JOIN'
+              'tableName' => 'user', //可选参数, 系统根据字段结构注释自动读取表名
               'alias' => 'u', //必填参数 表别名
-              'no' => 'sql_pre.user_id = u.id' // 可选参数，系统根据字段结构注释自动读取关联
+              'no' => 'sql_pre.user_id = u.id' // 可选参数,系统根据字段结构注释自动读取关联
             )   
         ];
         ```
@@ -376,16 +376,16 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
    
    **注意**
    
-   一般情况下， 系统会分析字段，自动完成关联表与实体的绑定关系。
+   一般情况下, 系统会分析字段,自动完成关联表与实体的绑定关系。
    
-   非正常自由度比较高的写法，可能会导致系统无法完成分析工作， 出现问题，可以通过`ResultSetMappingBuilder`参数手动绑定(不是必须)。
+   非正常自由度比较高的写法,可能会导致系统无法完成分析工作, 出现问题,可以通过`ResultSetMappingBuilder`参数手动绑定(不是必须)。
         
 
 9. `RA_ORDER_BY` (排序)
 
     1. 生效原则
     
-        如果规则值真不为空，则生效。 
+        如果规则值真不为空,则生效。 
         
     2. 写法
     
@@ -405,7 +405,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
 
     1. 生效原则
         
-        如果规则值真不为空，则生效。 
+        如果规则值真不为空,则生效。 
         
     2. 写法
     
@@ -423,7 +423,7 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
         
     4. 说明
     
-       当我们需要字段不变，但查询的内容需要修饰的时候，就可以使用此规则对查询该字段的sql进行重写。
+       当我们需要字段不变,但查询的内容需要修饰的时候,就可以使用此规则对查询该字段的sql进行重写。
     
     
    

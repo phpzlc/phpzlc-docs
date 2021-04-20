@@ -8,7 +8,7 @@ tags: symfony,sql,symfony4
 
 ## 前言
 
-ORM写法是Symfony推荐的写法，只有那样写才能最大限度的发挥融入Symfony。但实际情况中，也有可能需要直接用sql来完成。
+ORM写法是Symfony推荐的写法,只有那样写才能最大限度的发挥融入Symfony。但实际情况中,也有可能需要直接用sql来完成。
 
 ## 数据库连接
 
@@ -40,7 +40,7 @@ $this->conn->fetchAssoc('select 1 from table where id = ?', array('12'));
 $this->conn->fetchColumn('select count(id) as count from table where id = ?', array('12'));
 ```
 
-## 插入,更新，删除
+## 插入,更新,删除
 
 1. 插入
 

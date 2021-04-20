@@ -55,7 +55,7 @@ ENV_STRING=这是个字符串
 ```text
 .env.local
 ```
-_.env.local文件不入git，属于本机环境独有的环境变量，需要手动创建。_
+_.env.local文件不入git,属于本机环境独有的环境变量,需要手动创建。_
 
 写法示例
 
