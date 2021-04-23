@@ -65,9 +65,7 @@ composer install
    
    ![compsoer2-error.png](/assets/posts/composer2-error.png)
   
-   `composer 1`程序包下载的地址:[https://getcomposer.org/download/1.10.17/composer.phar](https://getcomposer.org/download/1.10.17/composer.phar)
-    
-   更多请访问:[https://getcomposer.org/download/](https://getcomposer.org/download/)
+   需要切换到`Composer 1`, 教程[composer 更换版本](https://www.kancloud.cn/leizhenxing/composer/2129546)。
 
 3. 配置私有食谱仓库地址
    打开`.env`文件,找到`FLEX_RECIPE_REPO_PRIVATE`

@@ -1,6 +1,11 @@
 ---
-title: 规则
-permalink: doc/repository/rule
+title: 高级查询
+permalink: doc/repository
+prev_page: /doc/exception
+next_page: /doc/repository/rule
+description_auto: 0
+description: 高级查询
+tags: symfony,phpzlc,查询
 ---
 
 ## 前言
