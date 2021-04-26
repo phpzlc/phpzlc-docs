@@ -359,8 +359,7 @@ php bin/console make:entity {entityClassName} --regenerate --overwrite
    public $distance;
    ```
 
-
-   _具体更多的知识,可以通过学习[高级查询-重新规则章节](/doc/repository/rule-rewriting)来了解。_
+   _具体更多的知识,可以通过学习[规则-高级用法](/doc/repository/rule-advanced-usage)来了解。_
    
 ## 表加索引
 

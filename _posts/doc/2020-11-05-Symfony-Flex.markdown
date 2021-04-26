@@ -1,7 +1,7 @@
 ---
 title: 自托管的 Symfony Flex 服务器
 permalink: doc/symfony-flex
-prev_page: /doc/repository/aggregate-custom-queries
+prev_page: /doc/repository/rule-advanced-usage
 next_page: /doc/document-bundle
 description_auto: 0
 description: 自托管的 Symfony Flex 服务器
@@ -120,7 +120,7 @@ SymfonyFlex通过配置食谱,在程序包安装、更新、卸载完之后,自�
    
 6. 安装静态资源(非必须)
 
-   _不安装页面无法出现。但不影响食谱使用。_   
+   _不安装页面无法正常工作。但不影响项目启动,食谱使用。_   
    
    ```shell
    npm install

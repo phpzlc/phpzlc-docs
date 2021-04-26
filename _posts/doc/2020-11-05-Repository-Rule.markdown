@@ -2,7 +2,7 @@
 title: 规则
 permalink: doc/repository/rule
 prev_page: /doc/repository
-next_page: /doc/repository/rule-rewriting
+next_page: /doc/repository/rule-advanced-usage
 description_auto: 0
 description: 规则
 tags: symfony,phpzlc,rule,规则
@@ -339,91 +339,7 @@ _字段的属性名和字段名都可以识别。_
     ```
       
     _当我们需要字段不变,但查询的内容需要编化的时候,就可以使用此规则对查询该字段的字段`Sql`进行重写。_
-       
-## 规则碰撞
 
-规则碰撞所面对的业务场景是这样的。
-
-我们在编程中代码是分层的,我们喜欢将公共部分集成到方法,复杂公共性强的查询也不例外。
-
-集成不代表万事大吉了,我们通常需要通过传参进行调整执行策略。回过头看查询,我们认为规则作为一个指令集合,他应该有资质很好的完成这个工作。
-
-但经过实现,简单的数组是不胜任这份工作的。因为如果出现传入方法中已使用的规则,那么底层的规则会直接覆盖传入的规则。所以我们为了解决这个问题,
-
-必须增加更多的标识进行判断。这就是增加对象写法的直接原因。
-
-**使用**
-
-```php
-use PHPZlc\PHPZlc\Doctrine\ORM\Rule\Rules;
-use PHPZlc\PHPZlc\Doctrine\ORM\Rule\Rule;
-
-$rules = new Rules(
-    [
-        new Rule(new Rule('id', $id))
-    ]
-);
-
-$rules
-    ->addRule(new Rule('id', $id))
-    ->addRule(new Rule('name', $name));
-```
-
-上面的代码中我们将原来简单的数组转换为对象。规则碰撞的控制是由`Rule`对象的其他属性进行控制的。
-
-下面我们将详细说明`Rule`的初始化方法。
-
-```php
-public function __construct($name, $value ,$collision = null, $jointClass = null, $jointSort = null)
-```
-
-**解析:**
-
-1. `name`
-
-    规则名
-
-2. `value`
-
-    规则值
-
-3. `collision` 
-
-    碰撞规则
-
-    ```php
-    Rule::REPLACE 取代  //如果底层出现相同规则,则忽略底层规则
-    
-    Rule::FORGO 放弃  //如果底层出现相同规则,则使用底层规则
-    
-    Rule::JOINT 联合  //如果底层出现相同规则,则将规则值拼接或连结
-    ```
-   
-    默认值：
-    
-    全局规则默认联合,排序顺序为`Rule::ASC`。其他规则默认取代。
-
-4. `jointClass`
-
-   联合执行策略类,当碰撞规则为`Rule::JOINT`时有效。
-   
-   默认值：`new \PHPZlc\PHPZlc\Doctrine\ORM\Rule\Joint\StringJoint()`; 对字符串进行拼接。
-   
-   **如何自定义拼接执行类？**
-   
-   可以通过实现接口`PHPZlc\PHPZlc\Doctrine\ORM\Rule\InterfaceJoint`来完成。
-   
-5. `jointSort`
-
-   联合执行优先顺序,当碰撞规则为`Rule::JOINT`时有效。
-   
-   默认值: `Rule::ASC`
-
-   ```php
-   Rule::ASC // 正序  （上一级排在前面）
-    
-   Rule::DESC// 倒序   （当前级排在前面）
-   ```
     
     
    
