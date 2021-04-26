@@ -118,8 +118,17 @@ SymfonyFlex通过配置食谱,在程序包安装、更新、卸载完之后,自�
    
    清除缓存
    
+6. 安装静态资源(非必须)
+
+   _不安装页面无法出现。但不影响食谱使用。_   
    
-6. 运行启动项目
+   ```shell
+   npm install
+   npm run build
+   ```
+   
+   
+7. 运行启动项目
 
    ```shell
    sudo chmod -R 777 var
@@ -130,7 +139,7 @@ SymfonyFlex通过配置食谱,在程序包安装、更新、卸载完之后,自�
    
    ![server_run.png](/assets/posts/server_run.png)
   
-7. 在项目中中配置本地食谱服务器地址
+8. 在项目中中配置本地食谱服务器地址
 
    打开项目中`composer.json`文件,将
    
