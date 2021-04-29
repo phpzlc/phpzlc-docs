@@ -13,6 +13,7 @@ jobs:
       - name: Submit the sitemap to baidu
         run: |
           pwd
+          ls
           chmod +x ./siteMapGenerate.sh
           sh ./siteMapGenerate.sh
           curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.github.io&token=HvZcn9CwVs2MMMVe"
