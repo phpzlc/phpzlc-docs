@@ -6,13 +6,13 @@ function sitemap()
 
     echo $2 >> $1
 
-    echo $2/module/ >> $1
+    echo $2/module >> $1
 
-    echo $2/about/ >> $1
+    echo $2/about >> $1
 
-    echo $2/member/ >> $1
+    echo $2/member >> $1
 
-    echo $2/faqs/ >> $1
+    echo $2/faqs >> $1
 
     find _site/blog -name '*.html' -type f -print0 | while IFS= read -r -d $'\0' file;
         do echo ${file/_site/$2} >> $1
