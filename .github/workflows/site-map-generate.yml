@@ -18,6 +18,7 @@ jobs:
 
       - name: site-map-generate
           run: |
+            cd _site
             python siteMapGenerate.py
 
 
