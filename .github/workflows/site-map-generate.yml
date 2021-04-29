@@ -12,4 +12,4 @@ jobs:
 
     steps:
       - name: Submit the sitemap to baidu
-        run: bash sh siteMapGenerate.sh
+        run: bash siteMapGenerate.sh
