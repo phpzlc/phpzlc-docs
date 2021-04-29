@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function saveSitemap()
+function sitemap()
 {
     rm -f $1
 
@@ -15,7 +15,7 @@ function saveSitemap()
     done
 }
 
-saveSitemap sitemap.txt https://phpzlc.github.io
+sitemap sitemap.txt https://phpzlc.github.io
 
-saveSitemap gitee-sitemap.txt https://phpzlc.gitee.io
+sitemap gitee-sitemap.txt https://phpzlc.gitee.io
 
