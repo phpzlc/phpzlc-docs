@@ -1,4 +1,8 @@
 https://phpzlc.github.io
+https://phpzlc.github.io/module/
+https://phpzlc.github.io/about/
+https://phpzlc.github.io/member/
+https://phpzlc.github.io/faqs/
 https://phpzlc.github.io/blog/index.html
 https://phpzlc.github.io/blog/4.html
 https://phpzlc.github.io/blog/3.html
