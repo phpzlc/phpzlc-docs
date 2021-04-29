@@ -11,11 +11,7 @@ jobs:
 
     steps:
       - name: Submit the sitemap to baidu
-          run: |
-            sh siteMapGenerate.sh
-            curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.github.io&token=HvZcn9CwVs2MMMVe"
-            curl -H 'Content-Type:text/plain' --data-binary @gitee-sitemap.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.gitee.io&token=HvZcn9CwVs2MMMVe"
-
-
-
-
+        run: |
+          sh siteMapGenerate.sh
+          curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.github.io&token=HvZcn9CwVs2MMMVe"
+          curl -H 'Content-Type:text/plain' --data-binary @gitee-sitemap.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.gitee.io&token=HvZcn9CwVs2MMMVe"
