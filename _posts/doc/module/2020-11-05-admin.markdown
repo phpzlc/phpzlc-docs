@@ -1,5 +1,5 @@
 ---
-title: 后台内核组件(admin)
+title: 后台内核组件(Admin)
 permalink: doc/module/admin
 author_no: 2
 ---
