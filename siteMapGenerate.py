@@ -3,7 +3,6 @@ layout: null
 ---
 #!/usr/bin/python
 
-
 hosts = ["github-site-map.txt", "https://phpzlc.github.io"], ['gitee-site-map.txt', "https://phpzlc.gitee.io"]
 
 urls = [
