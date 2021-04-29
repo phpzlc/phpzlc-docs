@@ -1,0 +1,22 @@
+---
+layout: null
+---
+<html lang="en">
+<body>
+<script type="text/javascript" src="/assets/js/jquery-1.8.3.min.js"></script>
+<script>
+    var host = window.location.host;
+
+    var urls = [
+        "{{ site.baseurl }}",
+        {% for post in site.posts %}
+        "{{ site.baseurl }}{{ post.url }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ];
+
+    alert(host);
+
+
+</script>
+</body>
+</html>
