@@ -17,5 +17,5 @@ function sitemap()
 
 sitemap sitemap.txt https://phpzlc.github.io
 
-sitemap gitee-sitemap.txt https://phpzlc.gitee.io
+sitemap sitemap-gitee.txt https://phpzlc.gitee.io
 
