@@ -1,0 +1,15 @@
+name: site-map-generate
+
+on: [ push, delete, create ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [15.x]
+
+    steps:
+      - name: Submit the sitemap to baidu
+        run: bash sh siteMapGenerate.sh
