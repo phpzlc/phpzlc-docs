@@ -28,7 +28,7 @@ use PHPZlc\PHPZlc\Bundle\EventListener\ApiExceptionListener\ApiException;
 throw new ApiException('接口错误');
 ```
 
-**系统会监听此异常类，直接中止程序，抛出Api响应。**
+**系统会监听此异常类,直接中止程序,抛出Api响应。**
 
 ```json
 {"code":1,"msg":"\u63a5\u53e3\u9519\u8bef","msgInfo":[],"data":[]}
