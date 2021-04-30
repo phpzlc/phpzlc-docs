@@ -1623,17 +1623,6 @@ text-shadow: none;
   background: url("/assets/images/github.gif") no-repeat scroll 0 4px transparent;
 }
 
-@media screen and (max-width: 1199px) {
-  .entry-shang .fork_update {
-    width: 100%;
-    font-size: 12px;
-  }
-
-  #a_local_url {
-    word-break: break-all;
-  }
-}
-
 .a_link {
   margin: 30px 0 0 0;
 }
@@ -1651,6 +1640,13 @@ text-shadow: none;
   color: #333333;
 }
 
-/* .a_link>a:first-child {
-  display: none;
-} */
+@media screen and (max-width: 1199px) {
+  .entry-shang .fork_update {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  #a_local_url {
+    word-break: break-all;
+  }
+}
