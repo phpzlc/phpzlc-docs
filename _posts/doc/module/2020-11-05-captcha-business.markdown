@@ -30,7 +30,7 @@ composer require phpzlc/captcha-business
 
 ## 项目中引用
 
-文件位置:_config/routes.yaml_
+在项目根路由中`config/routes.yaml`引入
 
 ```yaml
 captcha:

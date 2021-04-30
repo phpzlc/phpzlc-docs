@@ -13,7 +13,7 @@ tags: upload,上传,phpzlc/upload
 
 ## 源码地址
 
-[phpzlc/captcha-business](https://github.com/phpzlc/captcha-business)
+[phpzlc/upload](https://github.com/phpzlc/upload)
 
 ## 安装
 
