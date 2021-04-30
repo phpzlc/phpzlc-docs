@@ -6,5 +6,5 @@ prev_page: /doc/module/vendor
 next_page: /doc/module/upload
 description_auto: 0
 description: 后台内核(Admin)
-tags: symfony,phpzlc,package,vender,功能组件,admin
+tags: admin,phpzlc/admin,后台
 ---

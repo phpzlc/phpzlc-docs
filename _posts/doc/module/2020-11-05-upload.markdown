@@ -4,5 +4,5 @@ permalink: doc/module/upload
 prev_page: /doc/module/admin
 description_auto: 0
 description: 上传组件(Upload)
-tags: symfony,phpzlc,package,vender,upload
+tags: upload,上传,phpzlc/upload
 ---
