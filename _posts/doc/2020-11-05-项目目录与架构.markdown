@@ -13,7 +13,7 @@ tags: symfony,phpzlc,目录
 ```text
 |--project
 |----bin
-|------console 控制台命令入口,用法php bin/console {command}
+|------console 控制台命令入口,用法`php bin/console {command}`
 |----config  配置文件目录
 |------bundles.php 注册Bundle
 |------routes.yaml  根路由配置文件
