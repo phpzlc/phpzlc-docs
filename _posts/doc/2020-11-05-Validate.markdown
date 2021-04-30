@@ -20,7 +20,7 @@ tags: symfony,phpzlc,验证,validate
 
 1. 两种组件,都可以直接使用。
 
-2. Symfony-Validate与框架的具体结合,可以前往[错误收集](/doc/errors)了解。
+2. Symfony-Validate与框架的具体结合,可以前往[错误收集](/doc/errors#文档)了解。
 
 3. Symfony-Validate是一种通过在类中为属性添加验证注释的方法实现快捷验证。 是symfony原生支持的验证技术。
 
