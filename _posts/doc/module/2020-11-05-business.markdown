@@ -1,4 +1,9 @@
 ---
-title: Business组件概述
+title: 业务组件(Business Package)
 permalink: doc/module/business
+prev_page: /doc/data-fixtures
+next_page: /doc/module/admin-business
+description_auto: 0
+description: 业务组件(Business Package)
+tags: phpzlc,business,业务
 ---

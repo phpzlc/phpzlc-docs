@@ -1,4 +1,8 @@
 ---
 title: 上传组件(Upload)
 permalink: doc/module/upload
+prev_page: /doc/module/admin
+description_auto: 0
+description: 上传组件(Upload)
+tags: upload,上传,phpzlc/upload
 ---
