@@ -2,7 +2,7 @@
 title: 内置数据(DataFixtures)
 permalink: doc/data-fixtures
 prev_page: /doc/document-bundle
-next_page: /doc/module/vendor
+next_page: /doc/module/business
 description_auto: 0
 description: Symfony内置数据(DataFixtures)
 tags: symfony,phpzlc,data-fixtures,内置数据

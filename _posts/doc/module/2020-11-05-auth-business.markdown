@@ -1,7 +1,12 @@
 ---
-title: 授权登录业务（auth-business）
+title: 登录授权(auth-business)
 permalink: doc/module/auth-business
 author_no: 2
+prev_page: /doc/module/RBAC-business
+next_page: /doc/module/platform-business
+description_auto: 0
+description: 登录授权(auth-business)
+tags: symfony,phpzlc,package,business,业务,auth,auth-business
 ---
 ## 业务简介
 

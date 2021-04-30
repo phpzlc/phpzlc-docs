@@ -1,8 +1,8 @@
 ---
 title: 功能组件(Vendor Package)
 permalink: doc/module/vendor
-prev_page: /doc/document-bundle
-next_page: /doc/module/vendor
+prev_page: /doc/module/upload-business
+next_page: /doc/module/admin
 description_auto: 0
 description: 功能组件(Vendor Package)
 tags: symfony,phpzlc,package,vender,功能组件
