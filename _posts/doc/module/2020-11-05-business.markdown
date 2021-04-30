@@ -21,33 +21,32 @@ tags: phpzlc,business,业务
 1. 组件内部目录格式
 
 ```text
-admin-business
-    Business
-        AdminBusiness
-    Controller
-        Admin
-            AdminController.php
-    DataFixtures
-        AdminFixtures.php
-    Document
-        Admin
-            AdminBusiness.php
-    Entity
-        Admin.php
-    Repository
-        AdminRepository.php
-    routing
-        admin
-            admin.yaml
-   
-            
-src
-.gitignore
-templates
-admin
-.gitignore
-composer.json
-LICENSE
-README.md
+|--admin-business
+|----Business
+|------AdminBusiness
+|----Controller
+|------Admin
+|--------AdminController.php
+|----DataFixtures
+|------AdminFixtures.php
+|----Document
+|------Admin
+|--------AdminBusiness.php
+|----Entity
+|------Admin.php
+|----Repository
+|------AdminRepository.php
+|----routing
+|------admin
+|--------admin.yaml
+|----src
+|------.gitignore
+|----templates
+|------admin
+|--------index.html.twig
+|----.gitignore
+|----composer.json
+|----LICENSE
+|----README.md
 ```
 
