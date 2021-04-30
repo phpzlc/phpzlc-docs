@@ -7,3 +7,47 @@ description_auto: 0
 description: 业务组件(Business Package)
 tags: phpzlc,business,业务
 ---
+
+## 架构定义
+
+业务组件,将具体的业务场景通用的代码集成为组件。每次项目启动的时候,快速安装。
+
+## 技术原理
+
+基于 [Composer](https://getcomposer.org/) + [Symfony Flex](/doc/symfony-flex),在安装包的时候将包内的代码复制到项目相应位置。
+
+## 组件开发
+
+1. 组件内部目录格式
+
+```text
+admin-business
+    Business
+        AdminBusiness
+    Controller
+        Admin
+            AdminController.php
+    DataFixtures
+        AdminFixtures.php
+    Document
+        Admin
+            AdminBusiness.php
+    Entity
+        Admin.php
+    Repository
+        AdminRepository.php
+    routing
+        admin
+            admin.yaml
+   
+            
+src
+.gitignore
+templates
+admin
+.gitignore
+composer.json
+LICENSE
+README.md
+```
+
