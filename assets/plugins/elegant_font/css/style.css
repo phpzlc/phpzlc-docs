@@ -1610,3 +1610,47 @@ text-shadow: none;
     margin: 0 3% 10px 3%;
   }
 }
+
+/* 2021-4-30 新增 */
+.entry-shang .fork_update {
+  width: 410px;
+  height: 40px;
+  margin: 0 auto 5px auto;
+  padding-left: 32px;
+  font-size: 16px;
+  line-height: 40px;
+  font-style: italic;
+  background: url("/assets/images/github.gif") no-repeat scroll 0 4px transparent;
+}
+
+@media screen and (max-width: 1199px) {
+  .entry-shang .fork_update {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  #a_local_url {
+    word-break: break-all;
+  }
+}
+
+.a_link {
+  margin: 30px 0 0 0;
+}
+
+.body-blue .a_link>a{  
+  display: block;
+  width: auto;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1;
+  color: #333333;
+}
+
+.body-blue .a_link>a:hover {
+  color: #333333;
+}
+
+/* .a_link>a:first-child {
+  display: none;
+} */
