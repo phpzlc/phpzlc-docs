@@ -34,7 +34,7 @@ php bin/console {command}
 
 /config/packages/dev 测试环境下配置文件
 
-/migrations 数据库迁移记录，执行`migrations`相关的命令时会记录每次数据库变更的具体sql;
+/migrations 数据库迁移记录,执行`migrations`相关的命令时会记录每次数据库变更的具体sql;
 
 /public  对外开放目录
 
@@ -42,11 +42,11 @@ php bin/console {command}
 
 /src 开发目录
 
-/src/Kernel.php 内核，可以通过修改他，将不同的资源引入到项目中
+/src/Kernel.php 内核,可以通过修改他,将不同的资源引入到项目中
 
-/src/Entity 实体，定义数据库结构
+/src/Entity 实体,定义数据库结构
 
-/src/Repository 实体操作类，相当于model层
+/src/Repository 实体操作类,相当于model层
 
 /src/DataFixtures 内置数据类目录
 

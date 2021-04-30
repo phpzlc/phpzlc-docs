@@ -28,7 +28,7 @@ tags: symfony,phpzlc,controller
     Symfony\Bundle\FrameworkBundle\Controller\AbstractController
     ```
    
-    PHPZlc在继承`AbstractController`的基础上，增加了新的特性，用于确定项目代码的基本写法策略。
+    PHPZlc在继承`AbstractController`的基础上,增加了新的特性,用于确定项目代码的基本写法策略。
     
     ```php
     PHPZlc\PHPZlc\Bundle\Controller\SystemBaseController
@@ -53,11 +53,11 @@ tags: symfony,phpzlc,controller
 
     **定义**
     
-    接口入口方法，需要在每个接口中主动调用，成功则返回`true`,失败则直接返回http响应。
+    接口入口方法,需要在每个接口中主动调用,成功则返回`true`,失败则直接返回http响应。
     
     **作用**
     
-    用于每个接口的前置方法，用于鉴权，设置等等操作。
+    用于每个接口的前置方法,用于鉴权,设置等等操作。
     
     **Action中写法**
     
@@ -79,7 +79,7 @@ tags: symfony,phpzlc,controller
    
        **定义**
        
-       returnType 为接口响应类型，有两个选项
+       returnType 为接口响应类型,有两个选项
        
        ```php
        //隐性
@@ -92,13 +92,13 @@ tags: symfony,phpzlc,controller
        
        **作用**
        
-       隐性的主要用于返回数据信息的接口，这类返回不直接呈现在客户面前，例如APP-API请求，或者网站AJAX请求。
+       隐性的主要用于返回数据信息的接口,这类返回不直接呈现在客户面前,例如APP-API请求,或者网站AJAX请求。
        
-       显性的主要用于返回页面信息的接口，这类返回直接渲染呈现在客户面前，例如返回资源流，页面等。
+       显性的主要用于返回页面信息的接口,这类返回直接渲染呈现在客户面前,例如返回资源流,页面等。
        
-       通过明确定义返回响应类型，可以在入口方法中或其他底层根据此值进行判断，从而返回正确的响应，以提高体验。
+       通过明确定义返回响应类型,可以在入口方法中或其他底层根据此值进行判断,从而返回正确的响应,以提高体验。
        
-       常用的场景，在入口方法鉴权失败之后，如果显性的就返回登录授权等页面，如果是隐性就以返回错误码
+       常用的场景,在入口方法鉴权失败之后,如果显性的就返回登录授权等页面,如果是隐性就以返回错误码
        
        **要求**
        

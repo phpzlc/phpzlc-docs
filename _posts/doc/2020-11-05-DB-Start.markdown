@@ -4,7 +4,7 @@ permalink: doc/db/start
 prev_page: /doc/validate
 next_page: /doc/db/entity
 description_auto: 0
-description:  Symfony创建配置使用数据库
+description: Symfony创建配置使用数据库
 tags: symfony,phpzlc,数据库
 ---
 
@@ -14,7 +14,7 @@ tags: symfony,phpzlc,数据库
 
 [Doctrine](https://www.doctrine-project.org/)
 
-如果你对数据库有更多的需要，应该详细的阅读 [doctrine 文档](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html)
+如果你对数据库有更多的需要,应该详细的阅读 [doctrine 文档](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html)
 
 ## 配置
 

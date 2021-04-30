@@ -4,7 +4,7 @@ permalink: doc/db/edit
 prev_page: /doc/db/entity
 next_page: /doc/db/query
 description_auto: 0
-description:  Symfony表的插入、更新、删除
+description: Symfony表的插入、更新、删除
 tags: symfony,phpzlc,表,插入,更新,删除
 ---
 
@@ -16,9 +16,9 @@ tags: symfony,phpzlc,表,插入,更新,删除
 
 1. 代码可以在Controller书写。前提是他足够的简单和用途单一。如果不符合应当在Business完成。
 
-2. 普遍适用的验证的代码应当集中在一起，方便写库的代码便捷的调用。
+2. 普遍适用的验证的代码应当集中在一起,方便写库的代码便捷的调用。
 
-3. 验证的逻辑通常情况下使用注释验证即可，如果出现注释验证不能满足的情况下，应该在Business中对验证方法进行重写。
+3. 验证的逻辑通常情况下使用注释验证即可,如果出现注释验证不能满足的情况下,应该在Business中对验证方法进行重写。
 
 ## 可能需要的类依赖
 
@@ -164,7 +164,7 @@ tags: symfony,phpzlc,表,插入,更新,删除
 
 1. Controller 写法
 
-    _复杂的校验，应该在Business中完成。_
+    _复杂的校验,应该在Business中完成。_
 
 2. Business 写法
 
