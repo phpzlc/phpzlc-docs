@@ -91,7 +91,7 @@ $this->adminStrategy = new AdminStrategy($this->container);
 
 继承基础页面
 
-```twig
+```text
 {% extends '@PHPZlcAdmin/page/index.html.twig' %}
 ```
 
@@ -99,7 +99,7 @@ $this->adminStrategy = new AdminStrategy($this->container);
 
 重写main_content 最外层包一层div
 
-```twig
+```text
 {% block main_content %}
 <div class="search-page clearfix" ></div>
 {% endblock %}
@@ -170,7 +170,7 @@ $this->adminStrategy = new AdminStrategy($this->container);
 
 Vue代码模块 重写main_content_vue
 
-```twig
+```text
 {% block main_content_vue %}
 <script>
     new Vue({
@@ -235,7 +235,7 @@ Vue代码模块 重写main_content_vue
 
 重写main_content 最外层包一层div
 
-```twig
+```text
 {% block main_content %}
     <div class="add-page clearfix"></div>
 {% endblock %}
@@ -263,7 +263,7 @@ form表单
 
 Vue代码模块 重写main_content_vue
 
-```twig
+```text
 {% block main_content_vue %}
     <script>
         new Vue({
