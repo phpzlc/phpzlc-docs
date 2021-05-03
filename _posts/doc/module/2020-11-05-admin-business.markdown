@@ -69,7 +69,7 @@ admin:
 [菜单](/assets/posts/admin-business/menu.png)
 
 2.设置管理端基本信息(名称,页面标记，菜单......)
-```php
+```text
 $menus = [];
 $this->adminStrategy = new AdminStrategy($this->container);
 
