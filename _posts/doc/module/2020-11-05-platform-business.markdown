@@ -8,19 +8,59 @@ description_auto: 0
 description: 平台标识(platform-business)
 tags: platform,platform-business,平台,phpzlc/platform-business
 ---
-## 业务简介
+## 业务介绍
 
-平台标识业务简介(platform-business),是我们开发的一系列第三方业务组件之一。
-其中平台标识业务组件基础组件之一，该组件是用来对管理系统底层的标识进行统一管理，做到较高的耦合性，安装完该基础组件之后，我们可以对多管理平台进行统一管理，统一开发，达到快速，标准的开发。
+提供多平台管理的基础功能
 
-## 如何安装？
+## 源码地址
 
-[phpzlc/platform-business](https://packagist.org/packages/phpzlc/platform-business) 平台标识业务组件
-在Composer中查看是否满足安装的要求(安装phpzlc/platform-business 需要满足安装phpzlc/phpzlc:1.*的要求)
+[phpzlc/platform-business](https://github.com/phpzlc/platform-business) 
+
+## 安装
+
+部署本地食谱服务器(必要的步骤)
+
+部署方式详见: [自托管的 Symfony Flex 服务器](/doc/symfony-flex)
+
+部署他的原因是框架的组件食谱尚未成功合并到官方仓库,未部署配置的话组件无法正常工作。
 
 ```shell
 composer require phpzlc/platform-business
 ```
 
-## 如何使用?
-平台标识业务组件是一个比较基础类的组件，其在本框架中多次被使用，具体使用方法可以参考[登录授权](https://phpzlc.github.io/doc/module/auth-business) AuthTag 授权标记类
+## 提供功能
+
+多个平台基础功能
+
+```php
+/**
+     * 获取平台名称
+     * 
+     * @return string
+     */
+    public static function getPlatform()
+    {
+        return self::$platform;
+    }
+
+    /**
+     * 设置平台名称
+     * 
+     * @param $platform
+     */
+    public static function setPlatform($platform)
+    {
+        self::$platform = $platform;
+    }
+
+    /**
+     * 得到所有平台名称
+     *
+     * @param ContainerInterface $container
+     * @return array
+     */
+    public static function getPlatforms(ContainerInterface $container)
+    {
+        return array();
+    }
+```

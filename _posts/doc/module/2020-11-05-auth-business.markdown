@@ -8,17 +8,21 @@ description_auto: 0
 description: 登录授权(auth-business)
 tags: auth,auth-business,phpzlc/auth-business,登录,授权
 ---
-## 业务简介
+## 业务介绍
 
-授权登录业务(auth-business),是我们开发的一系列第三方业务组件之一。
+提供登录，修改密码等基础功能
 
-其中授权登录业务组件是比较重要的一环,该组件是用来对管理系统的登录授权进行统一管理的操作,安装完该组件后可以极大的减少在登录授权模块的开发时间,极大的提高开发的效率。
+## 源码地址
 
-## 如何安装？
+[phpzlc/auth-business](https://github.com/phpzlc/auth-business)
 
-[phpzlc/auth-business](https://packagist.org/packages/phpzlc/auth-business) 授权登录业务,用来对管理系统的登录授权进行统一管理的操作
+## 安装
 
-在Composer中查看是否满足安装的要求(安装phpzlc/auth-business 需要满足安装phpzlc/phpzlc:1.*的要求)
+部署本地食谱服务器(必要的步骤)
+
+部署方式详见: [自托管的 Symfony Flex 服务器](/doc/symfony-flex)
+
+部署他的原因是框架的组件食谱尚未成功合并到官方仓库,未部署配置的话组件无法正常工作。
 
 ```shell
 composer require phpzlc/auth-business
@@ -30,12 +34,7 @@ composer require phpzlc/auth-business
 php bin/console doctrine:schema:update --force
 ```
 
-## 如何使用？
-
-授权登录业务组件安装成功在项目的位置
-```text
-src/Business/AuthBusiness
-```
+## 提供功能
 
 [CurAuthSubject](#) 当前授权登录用户信息类,属于该业务的基本类,用来对管理系统当前登录用户信息的存储与操作
 
