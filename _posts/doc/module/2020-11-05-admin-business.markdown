@@ -92,7 +92,7 @@ $this->adminStrategy = new AdminStrategy($this->container);
 继承基础页面
 
 ```text
-{% extends '@PHPZlcAdmin/page/index.html.twig' %}
+@PHPZlcAdmin/page/index.html.twig
 ```
 
 1. 数据显示页面(后端管理系统常见页面)
