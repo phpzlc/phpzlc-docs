@@ -70,6 +70,7 @@ admin:
 
 2.设置管理端基本信息(名称,页面标记，菜单......)
 ```php
+$menus = [];
 $this->adminStrategy = new AdminStrategy($this->container);
 
         //设置管理端基本信息(名称,页面标记,菜单,登录页面，修改密码页面，退出登录......)
