@@ -69,7 +69,7 @@ admin:
 [菜单](/assets/posts/admin-business/menu.png)
 
 2.设置管理端基本信息(名称,页面标记，菜单......)
-```text
+```php
 $menus = [];
 $this->adminStrategy = new AdminStrategy($this->container);
 
@@ -91,7 +91,7 @@ $this->adminStrategy = new AdminStrategy($this->container);
 
 继承基础页面
 
-```text
+```twig
 @PHPZlcAdmin/page/index.html.twig
 ```
 
@@ -99,10 +99,8 @@ $this->adminStrategy = new AdminStrategy($this->container);
 
 重写main_content 最外层包一层div
 
-```text
-{% block main_content %}
+```twig
 <div class="search-page clearfix" ></div>
-{% endblock %}
 ```
 
 搜索模块
@@ -170,8 +168,7 @@ $this->adminStrategy = new AdminStrategy($this->container);
 
 Vue代码模块 重写main_content_vue
 
-```text
-{% block main_content_vue %}
+```twig
 <script>
     new Vue({
         el: '#main-content',
@@ -225,7 +222,6 @@ Vue代码模块 重写main_content_vue
 
     })
 </script>
-{% endblock %}
 ```
 
 效果
@@ -235,10 +231,8 @@ Vue代码模块 重写main_content_vue
 
 重写main_content 最外层包一层div
 
-```text
-{% block main_content %}
+```twig
     <div class="add-page clearfix"></div>
-{% endblock %}
 ```
 
 form表单
@@ -263,8 +257,7 @@ form表单
 
 Vue代码模块 重写main_content_vue
 
-```text
-{% block main_content_vue %}
+```twig
     <script>
         new Vue({
             el: '#main-content',
@@ -323,7 +316,6 @@ Vue代码模块 重写main_content_vue
             }
         })
     </script>
-{% endblock %}
 ```
 
 效果
