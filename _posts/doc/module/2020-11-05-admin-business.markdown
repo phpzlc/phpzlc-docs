@@ -287,19 +287,6 @@ Vue代码模块 重写main_content_vue
             },
             methods: {
                 submitForm(formName) {
-                    const that = this;
-                    {% if app.request.get('id') is not null %}
-                    var url = "{{ path('admin_blog_manage_label_edit') }}?id={{ app.request.get('id') }}";
-                    $.post(url, that.form, function (result) {
-                        resultPreprocess(that, result,"{{ admin_url_anchor() }}")
-                    });
-                    {% elseif app.request.get('id') is null %}
-                    var url = "{{ path('admin_blog_manage_label_create')}}";
-                    $.post(url, that.form, function (result) {
-                        resultPreprocess(that, result,"{{ admin_url_anchor() }}")
-                    });
-                    {% endif %}
-
                 },
                 resetForm() {
                     window.location.href ="{{ admin_url_anchor() }}";
