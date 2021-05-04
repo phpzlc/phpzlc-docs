@@ -1650,3 +1650,8 @@ text-shadow: none;
     word-break: break-all;
   }
 }
+
+.highlighter-rouge {
+  background: #f9f9fb;
+  color: #494d55;
+}
