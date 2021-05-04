@@ -8,3 +8,146 @@ description_auto: 0
 description: 后台内核(Admin)
 tags: admin,phpzlc/admin,后台
 ---
+
+## 业务介绍
+
+后台内核，为后台业务提供底层策略，写法支持。(导航菜单，基础页面)
+
+## 源码地址
+
+[phpzlc/admin](https://github.com/phpzlc/admin)
+
+## 安装
+
+部署本地食谱服务器(必要的步骤)
+
+部署方式详见: [自托管的 Symfony Flex 服务器](/doc/symfony-flex)
+
+部署他的原因是框架的组件食谱尚未成功合并到官方仓库,未部署配置的话组件无法正常工作。
+
+```shell 
+composer require phpzlc/admin
+```
+
+## 提供功能
+
+1. 后台继承基础类
+
+```php
+namespace PHPZlc\Admin\Bundle\Controller;
+
+use PHPZlc\Admin\Strategy\AdminStrategy;
+use PHPZlc\PHPZlc\Bundle\Controller\SystemBaseController;
+
+class AdminController extends SystemBaseController
+{
+    /**
+     * @var AdminStrategy
+     */
+    private $adminStrategy;
+
+    /**
+     * @var string
+     */
+    private $pageTag;
+    
+    public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, $isLogin = true)
+    {
+        $this->adminStrategy = new AdminStrategy($this->container);
+        $this->adminStrategy->setPageTag($this->pageTag);
+        
+        return parent::inlet($returnType, $isLogin);
+    }
+}
+```
+
+2. twig页面自制过滤器函数
+
+```php
+public function getFunctions()
+    {
+        return [
+            new TwigFunction('admin_title', [$this->adminStrategy, 'getTitle']),
+            new TwigFunction('admin_favicon_ico', [$this->adminStrategy, 'getFaviconIco']),
+            new TwigFunction('admin_entrance_url', [$this->adminStrategy, 'getEntranceUrl']),
+            new TwigFunction('admin_logo', [$this->adminStrategy, 'getLogo']),
+            new TwigFunction('admin_end_url', [$this->adminStrategy, 'getEndUrl']),
+            new TwigFunction('admin_page_tag', [$this->adminStrategy, 'getPageTag']),
+            new TwigFunction('admin_setting_pwd_url', [$this->adminStrategy, 'getSettingPwdUrl']),
+            new TwigFunction('admin_name', [$this->adminStrategy, 'getAdminName']),
+            new TwigFunction('admin_role_name', [$this->adminStrategy, 'getAdminRoleName']),
+            new TwigFunction('admin_avatar', [$this->adminStrategy, 'getAdminAvatar']),
+            new TwigFunction('admin_url_anchor', [$this->adminStrategy, 'getUrlAnchor']),
+            new TwigFunction('admin_env', [$this->adminStrategy, 'getAdminEnv']),
+            new TwigFunction('admin_menus', [$this->adminStrategy, 'getMenus']),
+            new TwigFunction('admin_top_menus', [$this->adminStrategy, 'getTopMenus']),
+            new TwigFunction('admin_menu_model', [$this->adminStrategy, 'getMenuModel']),
+            new TwigFunction('admin_login_lack_ground_img', [$this->adminStrategy, 'getLoginLackGroundImg']),
+            new TwigFunction('admin_navigations', [$this->adminStrategy, 'getNavigations']),
+            new TwigFunction('admin_asset', [$this, 'asset']),
+            new TwigFunction('admin_clear_cache_api_url', [$this->adminStrategy, 'getClearCacheApiUrl']),
+            new TwigFunction('admin_hend_code', [$this->adminStrategy, 'getHendCode']),
+        ];
+    }
+
+    public function getFilters()
+    {
+        return [
+            new TwigFilter('explode', [$this, 'explode']),
+            new TwigFilter('boolToString', [$this, 'boolToString']),
+            new TwigFilter('boolToInt', [$this, 'boolToInt'])
+        ];
+    }
+
+    public function boolToString($bool, $strings = ['是', '否'])
+    {
+        return $bool ? $strings[0] : $strings[1];
+    }
+
+    public function boolToInt($bool)
+    {
+        return $bool ? 1: 0;
+    }
+
+    public function explode($string, $delimiter = ',')
+    {
+        return explode($delimiter, $string);
+    }
+
+    public function asset($path)
+    {
+        if(Validate::isUrl($path)){
+            return $path;
+        }
+
+        if(!empty($this->adminStrategy->getAssetBaseUrl())){
+            return $this->adminStrategy->getAssetBaseUrl() . '/' . $path;
+        }else{
+            return $this->adminStrategy->getBaseUrl() . '/' . $path;
+        }
+    }
+```
+
+3. twig基础页面
+
+```text
+vendor/phpzlc/admin/Bundle/Resources/views
+```
+
+4. Excel导出功能
+
+```php
+ /**
+     * 导出
+     *
+     * @param string $title  标题
+     * @param array $head 表头 ["表头1", "表头2"]
+     * @param array $data 内容 [{"1", "1"}]
+     * @param bool $is_need 是否插入序号
+     * @param array $mergeCells 合并单元格 [{0,1,0,2})] 0,1 表示合并开始单元格数组坐标， 0,2 代表合并结束单元格数组坐标
+     * @param string $format
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     */
+    public function export($title, $head, $data, $is_need = false, $mergeCells = array(), $format = 'Xls')
+    {}
+```
