@@ -1651,7 +1651,7 @@ text-shadow: none;
   }
 }
 
-.highlighter-rouge {
+#md-content .highlighter-rouge {
   background: #f9f9fb;
   color: #494d55;
 }
