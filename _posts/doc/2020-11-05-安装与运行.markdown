@@ -43,13 +43,17 @@ composer create-project symfony/website-skeleton:"^4.4" my_project_name
 
 **部署配置完本地食谱服务器**之后,就可以进行PHPZlc的安装了。
 
-```shell
-composer require phpzlc/phpzlc
-```
+1. 下载安装包
 
-```shell
-php bin/console phpzlc:install
-```
+   ```shell
+   composer require phpzlc/phpzlc
+   ```
+
+2. 安装命令
+
+   ```shell
+   php bin/console phpzlc:install
+   ```
 
 ## IDE的选择和配置
 

@@ -64,28 +64,43 @@ sudo chmod -R 777 public/upload/
 
 ## 提供功能
 
-1. 验证码生成接口
-
+1. 上传接口
+  
    ```yaml
-   # 验证码生成
-   captcha_generate:
-     path: /generate
-     controller: App\Controller\Captcha\CaptchaController:generate
+    # 上传接口
+    upload_file:
+      path: /
+      controller: App\Controller\Upload\UploadController:upload
    ```
 
     _如果使用，可以生成查看API文档。[文档知识](/doc/document-bundle)_
+    
+2. 上传方法
 
-2. 验证图像码
-
-    ```php
-    use App\Business\CaptchaBusiness\CaptchaBusiness;
-
-    $captcha = new CaptchaBusiness($this->container);
+   ```php
+    use  App\Business\UploadBusiness\UploadFile;
    
-    if (!$captcha->isCaptcha('admin_auth_login', $request->get('imgCode'))) {
-        return Responses::error(Errors::getError());
-    }
-    ```
+       /**
+        * 上传方法
+        *
+        * @param string $inputName 文件上传name
+        * @param null $relatively_path 文件存储相对路径,以public目录为根,不穿默认upload
+        * @param int $fileType 文件类型
+        * @param null $save_name 文件存储名称，不传系统随机命名
+        * @return array|bool 失败返回false,成功返回文件信息
+        */
+       public function upload($inputName, $relatively_path = null, $fileType = self::TYPE_IMAGE, $save_name = null)
+    
+   ```
+3. 根据相对地址获得文件的网络地址
+
+   ```php
+   use  App\Business\UploadBusiness\UploadFile;
+   
+   UploadFile::getFileNetworkPath(ContainerInterface $container, $path);
+   ```
 
 ## 底层技术
+
+   [phpzlc/upload](/doc/module/upload)
 
