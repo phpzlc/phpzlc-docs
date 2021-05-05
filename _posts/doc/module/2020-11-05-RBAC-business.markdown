@@ -18,6 +18,12 @@ tags: rbac,rbac-business,权限,phpzlc/rbac-business
 
 ## 安装
 
+部署本地食谱服务器(必要的步骤)
+
+部署方式详见: [自托管的 Symfony Flex 服务器](/doc/symfony-flex)
+
+部署他的原因是框架的组件食谱尚未成功合并到官方仓库,未部署配置的话组件无法正常工作。
+
 ```shell
 composer require phpzlc/rbac-business
 ```
@@ -140,6 +146,12 @@ _以下效果来自`admin-business`_
    
    ```php
    use App\Business\RBACBusiness\RBACBusiness; 
+   ```
+   
+   **初始化**
+   
+   ```php
+   new RBACBusiness($this->container, PlatformClass::getPlatform());
    ```
 
 2. 设置是否为超级管理员
