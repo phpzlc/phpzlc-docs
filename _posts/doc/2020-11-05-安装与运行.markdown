@@ -23,6 +23,8 @@ Symfony对于相同技术提供了多种使用途径,在教程中,所呈现的�
 
 **mysql 5.7 +**
 
+**composer 2 (推荐)**
+
 ## 安装Symfony4.4
 
 ```shell
