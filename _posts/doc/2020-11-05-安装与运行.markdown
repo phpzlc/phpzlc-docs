@@ -47,6 +47,10 @@ composer create-project symfony/website-skeleton:"^4.4" my_project_name
 composer require phpzlc/phpzlc
 ```
 
+```shell
+php bin/console phpzlc:install
+```
+
 ## IDE的选择和配置
 
 1. 安装配置完毕有代码提示
