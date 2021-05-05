@@ -4,7 +4,7 @@ permalink: doc/data-fixtures
 prev_page: /doc/document-bundle
 next_page: /doc/module/business
 description_auto: 0
-description: Symfony内置数据(DataFixtures)
+description: 用于项目部署之后内置一些初始数据到数据库中。
 tags: symfony,phpzlc,data-fixtures,内置数据
 ---
 

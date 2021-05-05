@@ -4,7 +4,7 @@ permalink: doc/module/upload-business
 prev_page: /doc/module/captcha-business
 next_page: /doc/module/vendor
 description_auto: 0
-description: 上传业务(upload-business)
+description: 提供上传文件的接口，文档。
 tags: 上传,upload,upload-business,phpzlc/upload-business
 ---
 

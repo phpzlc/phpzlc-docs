@@ -4,7 +4,7 @@ permalink: doc/symfony-flex
 prev_page: /doc/repository/rule-advanced-usage
 next_page: /doc/document-bundle
 description_auto: 0
-description: 自托管的 Symfony Flex 服务器
+description: SymfonyFlex是Symfony4的重要新功能。
 tags: symfony,phpzlc,symfony flex,flex
 ---
 

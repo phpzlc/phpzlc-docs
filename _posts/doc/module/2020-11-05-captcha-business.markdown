@@ -4,7 +4,7 @@ permalink: doc/module/captcha-business
 prev_page: /doc/module/platform-business
 next_page: /doc/module/upload-business
 description_auto: 0
-description: 图形验证码(captcha-business)
+description: 提供生成图形验证码接口,文档。
 tags: captcha,captcha-business,phpzlc/captcha-business,图形验证码
 ---
 

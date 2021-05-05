@@ -5,7 +5,7 @@ author_no: 2
 prev_page: /doc/module/auth-business
 next_page: /doc/module/captcha-business
 description_auto: 0
-description: 平台标识(platform-business)
+description: 提供多平台管理的基础功能
 tags: platform,platform-business,平台,phpzlc/platform-business
 ---
 ## 业务介绍
