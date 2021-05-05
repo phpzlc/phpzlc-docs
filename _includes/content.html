@@ -204,7 +204,7 @@
       var text = $(this)[0].innerText;
       var id = $(this).eq(0).attr("id");
       console.log(text, id)
-      html += `<a href="#${id}">${text}</a>`
+      html += `<li><a href="#${id}">${text}</a></li>`
     })
     $(".a_link").append(html)
   })
