@@ -1,6 +1,6 @@
 .promo-block-inner-bottom{
     padding: 30px;
-    padding-left: 100px;
+    /* padding-left: 100px; */
     color: #fff;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -137,13 +137,16 @@
     padding-bottom: 20px;
   }
   .promo-block-inner-bottom .li-community ul .li-code {
-    width: 30%;
+    width: 40%;
     padding: 0;
     float: none;
-    margin-right: 5%;
+    margin: 0 5% 5% 5%;
   }
   .promo-block-inner-bottom .li-community ul .li-code:nth-last-of-type(1) {
-    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .promo-block-inner-bottom .li-community ul .li-code:nth-last-of-type(2) {
+    margin-bottom: 0;
   }
   .promo-block-inner-bottom .li-1 p font {
     color: #fff;
