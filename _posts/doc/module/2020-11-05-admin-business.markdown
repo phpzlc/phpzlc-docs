@@ -10,7 +10,7 @@ tags: admin-business,phpzlc/admin-business,admin,后台
 ---
 ## 功能介绍
 
-提供管理系统基础功能(首页，登录，退出登录，修改密码等管理系统基础功能)
+提供管理系统基础功能(首页，登录，退出登录，修改密码, 创建角色分配权限等管理系统基础功能)
 
 
 ## 源码地址
@@ -34,280 +34,244 @@ composer require phpzlc/admin-business
 php bin/console doctrine:schema:update --force
 ```
 
-## 项目中引用
+## 后台超级管理员账号密码
+
+```text
+aitime 123456
+```
+
+## 配置
 
 在项目根路由中config/routes.yaml引入
 ```yaml
 admin:
   resource: "routing/admin/admin.yaml"
   prefix:   /admin
+  options:
+    platform: admin
+
+upload:
+  resource: "routing/upload/upload.yaml"
+  prefix:   /upload
+
+captcha:
+  resource: "routing/captcha/captcha.yaml"
+  prefix:   /captcha
+```
+
+## README.md 补充
+
+> php.ini
+
+```apacheconfig
+upload_max_filesize = 1024M
+post_max_size = 1024M
+```
+
+> nginx
+
+```apacheconfig
+client_max_body_size     1024M;
+proxy_connect_timeout    9000s;
+proxy_read_timeout       9000s;
+proxy_send_timeout       9000s;
+```
+
+> 文件夹权限
+
+```shell
+sudo chmod -R 777 public/upload/
+```
+
+## 代码配置
+
+> 平台注册
+
+文件位置: `config/packages/phpzlc-platform-business.yaml`
+
+```yaml
+  # 平台 - 后台
+  platform_admin: admin
+
+  # 全部平台
+  platform_array:
+    '%platform_admin%': 后台
 ```
 
 
-## 提供功能
+> 操作主体注册
 
-1.生成多级菜单目录
+文件位置: `config/packages/phpzlc-auth-business.yaml`
+
+```yaml
+  # 操作主体- 管理员
+  subject_admin: admin
+
+  # 全部操作主体
+  subject_array:
+    '%subject_admin%': 管理员
+```
+
+> 登录标记代码注入 
+
+文件位置: `src/Business/AuthBusiness/AuthTag.php`
 
 ```php
- // 以我们的demo-blog为例
- // 菜单
-        $menus = [
-            new Menu('博客管理系统', null, null, null, null, [
-                new Menu('统计台', null, 'admin_statistical_station_index', $this->generateUrl('admin_manage_statistical_station_index'), null),
-                new Menu('用户管理', null, 'admin_blog_user', $this->generateUrl('admin_users_index'), null),
-                new Menu('分类管理', null, 'admin_sort_index', $this->generateUrl('admin_manage_sort_index'), null),
-                new Menu('博客管理', null, null, null, null, [
-                    new Menu('文章管理', null, 'admin_article_index', $this->generateUrl('admin_blog_manage_article_index'), null),
-                    new Menu('评论管理', null, 'admin_commentary_index', $this->generateUrl('admin_blog_manage_commentary_index'), null),
-                    new Menu('标签管理', null, 'admin_label_index', $this->generateUrl('admin_blog_manage_label_index'), null),
-                    new Menu('收藏管理', null, 'admin_collection_index', $this->generateUrl('admin_blog_manage_collection_index'), null)
-                ])
-            ])
-        ];
-```
-效果
-[菜单](/assets/posts/admin-business/menu.png)
+    /**
+     * 设置Session标记
+     * 
+     * @param ContainerInterface $container
+     * @param UserAuth $userAuth
+     * @return string
+     * @throws Exception
+     */
+    public static function set(ContainerInterface $container, UserAuth $userAuth)
+    {
+        $tag = '';
 
-2.设置管理端基本信息(名称,页面标记，菜单......)
-```php
-$menus = [];
-$this->adminStrategy = new AdminStrategy($this->container);
-
-        //设置管理端基本信息(名称,页面标记,菜单,登录页面，修改密码页面，退出登录......)
-        $this->adminStrategy
-            ->setTitle('Admin')
-            ->setEntranceUrl($this->generateUrl('admin_manage_index'))
-            ->setEndUrl($this->generateUrl('admin_manage_logout'))
-            ->setSettingPwdUrl($this->generateUrl('admin_manage_edit_password'))
-            ->setMenuModel(AdminStrategy::menu_model_simple)
-            ->setPageTag($this->page_tag)
-            ->setLogo($this->adminStrategy->getBaseUrl() . '/asset/logo.png')
-            ->setMenus($menus);
-```
-
-## 页面编写(以demo-blog为例)
-
-#### 基础
-
-继承基础页面
-
-```twig
-@PHPZlcAdmin/page/index.html.twig
-```
-
-1. 数据显示页面(后端管理系统常见页面)
-
-重写main_content 最外层包一层div
-
-```twig
-<div class="search-page clearfix" ></div>
-```
-
-搜索模块
-
-```twig
-<!-- 搜索框 start -->
-    <el-row class="page-search">
-        <el-form ref="searchForm" :inline="true" :model="searchForm" label-width="90px" style="margin-left: 10px">
-
-            <el-form-item label="用户名:" prop="user_name">
-                <el-input v-model="searchForm.user_name" size="mini" clearable placeholder="请输入">
-                </el-input>
-            </el-form-item>
-
-            <el-form-item label="登录时间" prop="login_at" class="search-item-time">
-                <el-date-picker v-model="searchForm.login_at" size="mini" clearable type="daterange"
-                                range-separator="-" start-placeholder="开始日期" end-placeholder="结束日期">
-                </el-date-picker>
-            </el-form-item>
-
-            <el-form-item>
-                <el-button type="primary" size="mini" @click="searchBtn()"> 搜索 </el-button>
-                <el-button size="mini" @click="resetForm('searchForm')"> 重置 </el-button>
-            </el-form-item>
-
-        </el-form>
-
-    </el-row>
-    <!-- 搜索框 end -->
-```
-
-数据显示模块
-
-```twig
-  <!-- 数据显示 start-->
-     <el-table :data="listData" style="width: 100%" border class="mt-10">
- 
-         <el-table-column prop="user_name" label="用户名"></el-table-column>
- 
-         <el-table-column prop="create_at" label="注册时间"></el-table-column>
- 
-         <el-table-column prop="login_at" label="最后登录时间"></el-table-column>
- 
-         <!-- 添加操作行 start -->
-         <el-table-column prop="date" label="操作" width="200">
-             <template slot-scope="scope">
-                 <el-button size="mini" @click="handleDisable(scope.$index, scope.row)" type="danger"> 禁用 </el-button>
-                 <el-button size="mini" @click="handleEnable(scope.$index, scope.row)" type="success"> 启用 </el-button>
-             </template>
-         </el-table-column>
-         <!-- 添加操作行 end -->
- 
-     </el-table>
-     <!-- 分页 start -->
-     <el-col class="mt-20 clearfix">
-         <el-pagination class="page" @current-change="handleCurrentChange" @size-change="handleSizeChange"
-                        :page-sizes="[20, 60, 100, 200]" :page-size="{{ rows }}" :hide-on-single-page="true" :current-page="{{ page }}"
-                        layout="total, sizes, prev, pager, next, jumper" :total="{{ count }}">
-         </el-pagination>
-     </el-col>
-     <!-- 分页 end -->
- 
-     <!-- 数据显示 end -->
-```
-
-Vue代码模块 重写main_content_vue
-
-```twig
-<script>
-    new Vue({
-        el: '#main-content',
-        //用于替换vue数据调用符号
-        // delimiters: ['${', '}$'],
-        data: function () {
-            return {
-                searchForm: {
-                    user_name: '',
-                    mailbox: '',
-                    login_at: ''
-                },
-
-                listData: [
-                    {
-                        id: '',
-                        user_name: '',
-                        create_at: '',
-                        login_at : '',
-                    },
-                ],
-            }
-        },
-
-        created(){
-            //页面初始化勾子
-        },
-
-        methods: {
-                handleCurrentChange(val) {
-                    window.location.href = urlParamWrite(getSelfUrl(), 'page', val);
-                },
-
-                handleSizeChange(val) {
-                    window.location.href = urlParamWrite(getSelfUrl(), 'rows', val);
-                },
-
-                // 搜索按钮
-                searchBtn() {},
-
-                // 重置按钮
-                resetForm(formName){
-                    this.$refs[formName].resetFields();
-                },
-
-                handleDisable(index, row){},
-
-                handleEnable(index, row){},
-
+        switch (PlatformClass::getPlatform()){
+            case $container->get('parameter_bag')->get('platform_admin'):
+                $container->get('session')->set(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'), $userAuth->getId());
+                break;
+            default:
+                throw new \Exception('来源溢出');
         }
 
-    })
-</script>
+        return $tag;
+    }
+
+    /**
+     * 获取Session标记内容
+     * 
+     * @param ContainerInterface $container
+     * @return UserAuth|false|object
+     * @throws Exception
+     */
+    public static function get(ContainerInterface $container)
+    {
+        $userAuth = null;
+
+        /**
+         * @var ManagerRegistry $doctrine
+         */
+        $doctrine = $container->get('doctrine');
+
+        switch (PlatformClass::getPlatform()){
+            case $container->get('parameter_bag')->get('platform_admin'):
+                $user_auth_id = $container->get('session')->get(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
+                $userAuth = $doctrine->getRepository('App:UserAuth')->find($user_auth_id);
+                break;
+            default:
+                throw new \Exception('来源溢出');
+        }
+
+        return $userAuth;
+    }
+
+    /**
+     * 移除Session标记
+     * 
+     * @param ContainerInterface $container
+     * @throws Exception
+     */
+    public static function remove(ContainerInterface $container)
+    {
+        switch (PlatformClass::getPlatform()){
+            case $container->get('parameter_bag')->get('platform_admin'):
+                $container->get('session')->remove(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
+                break;
+            default:
+                throw new \Exception('来源溢出');
+        }
+    }
 ```
 
-效果
-[数据显示页](/assets/posts/admin-business/index.png)
+> 登录类引入
 
-2. 新建/编辑页面
+文件位置: `src/Business/AuthBusiness/UserAuthBusiness.php`
 
-重写main_content 最外层包一层div
-
-```twig
-    <div class="add-page clearfix"></div>
-```
-
-form表单
-
-```twig
- <el-form :model="form" :rules="rules" ref="form" label-width="100px" label-position="left" class="form-content">
-            <el-form-item label="标签名称:" prop="name" size="mini" class="el-form-width-all" label-width="100px">
-                <el-input v-model="form.name" placeholder="请输入" style="width: 150px"></el-input>
-            </el-form-item>
-
-            <el-form-item label="标签描述:" prop="describe" size="mini" class="el-form-width-all" label-width="100px">
-                <el-input type="textarea" v-model="form.describe" style="width: 200px"></el-input>
-            </el-form-item>
-
-            <el-form-item size="mini">
-            <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-            <el-button @click="resetForm()">取消</el-button>
-            </el-form-item>
-
-        </el-form>
-```
-
-Vue代码模块 重写main_content_vue
-
-```twig
-    <script>
-        new Vue({
-            el: '#main-content',
-            data: function () {
-                return {
-                    id: '',
-                    form: {
-                        id: '{{ info.id | default }}',
-                        name: '{{ info.name | default }}',
-                        describe: '{{ info.illustrate | default }}',
-                    },
-                    rules: {
-                        name: [
-                            { required: true, message: '请输入标签名称', trigger: 'blur' },
-                        ],
-
-                        describe: [
-                            { required: true, message: '请输入标签描述', trigger: 'blur' },
-                        ],
-                    },
-
-                }
-            },
-            created() {
-                // // 页面初始化使用
-                // console.log(1);
-            },
-            methods: {
-                submitForm(formName) {
-                },
-                resetForm() {
-                    window.location.href ="{{ admin_url_anchor() }}";
-                },
-                handleChange(value) {
-                    console.log(value);
-                },
-                handleRemove(file, fileList) {
-                    console.log(file, fileList);
-                },
-                handlePreview(file) {
-                    console.log(file);
-                },
+```php
+    /**
+     * 获取指定平台端方法
+     *
+     * @param $subject_type
+     * @return AdminAuth|mixed
+     * @throws Exception
+     */
+    private function getUserAuthService($subject_type)
+    {
+        if(!array_key_exists($subject_type, $this->subjectAuthCaches)){
+            switch ($subject_type){
+                case $this->getParameter('subject_admin'):
+                    $this->subjectAuthCaches[$subject_type] = new AdminAuth($this->container);
+                    break;
+                    
+                default:
+                    throw new \Exception('授权登录权限不存在');
             }
-        })
-    </script>
+        }
+        
+        return $this->subjectAuthCaches[$subject_type];
+    }
 ```
+1. 管理端首页
 
-效果
-[新建/编辑页面](/assets/posts/admin-business/edit.png)
+   ```php
+   public function index()
+   ```
+   
+2. 时间选择控件筛选
+   
+   ```php
+   private function atSearch($at, $field)
+   ```
+   
+3. 管理端登录
+   
+   ```php
+   public function login(Request $request)
+   ```
+   
+4. 管理端退出登录
 
+   ```php
+   public function logout()
+   ```
+   
+5. 修改密码
+
+   ```php
+   public function editPassword(Request $request)
+   ```
+   
+6. 权限功能
+
+   本框架提供一套标准化的权限功能[RBAC](/doc/module/RBAC-business)
+
+   **页面鉴权**
+   
+   需要在AdminController层中调用此方法
+   ```php
+   //对路由进行权限校验
+   if(!$this->rbac->canRoute($this->get('request_stack')->getCurrentRequest()->get('_route'))){
+       if(self::getReturnType() == SystemBaseController::RETURN_HIDE_RESOURCE){
+            return Responses::error('权限不足');
+       }else{
+            return $this->render('@PHPZlcAdmin/page/no_permission.html.twig');
+       }
+   }
+   
+   //对菜单进行权限筛选
+   $this->adminStrategy->setMenus($this->rbac->menusFilter($this->adminStrategy->getMenus()));
+    ```
+   
+   **控制器鉴权**
+   
+   ```php
+   $rbac = new RBACBusiness(ContainerInterface $container, $platform = null);
+   $rbac->setIsSuper($isSuper);
+   $rbac->can($permissions, $model = 'and', UserAuth $userAuth = null)
+   ```   
 
 
 

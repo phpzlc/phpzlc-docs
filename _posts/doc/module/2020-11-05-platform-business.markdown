@@ -32,35 +32,17 @@ composer require phpzlc/platform-business
 
 多个平台基础功能
 
-```php
-/**
-     * 获取平台名称
-     * 
-     * @return string
-     */
+1. 获取平台名称
+
+   ```php
     public static function getPlatform()
-    {
-        return self::$platform;
-    }
-
-    /**
-     * 设置平台名称
-     * 
-     * @param $platform
-     */
+   ```
+2. 设置平台名称
+    
+    ```php
     public static function setPlatform($platform)
-    {
-        self::$platform = $platform;
-    }
-
-    /**
-     * 得到所有平台名称
-     *
-     * @param ContainerInterface $container
-     * @return array
-     */
+    ```
+3. 得到所有平台名称
+   ```php
     public static function getPlatforms(ContainerInterface $container)
-    {
-        return array();
-    }
-```
+   ```

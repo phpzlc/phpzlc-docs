@@ -38,59 +38,47 @@ php bin/console doctrine:schema:update --force
 
 [CurAuthSubject](#) 当前授权登录用户信息类,属于该业务的基本类,用来对管理系统当前登录用户信息的存储与操作
 
-1.设置当前管理员授权信息（get方法：getCurUserAuth）
-```php
-public static function setCurUserAuth(UserAuth $userAuth)
-    {
-        self::$cur_user_auth = $userAuth;
-    }
-```
+1. 设置当前管理员授权信息（get方法：getCurUserAuth）
+   ```php
+   public static function setCurUserAuth(UserAuth $userAuth)
+   ```
+   
+2. 设置当前可跳转路由（get方法：getCurAuthSuccessGoUrl）
+   ```php
+   public static function setCurAuthSuccessGoUrl($cur_auth_success_go_url)
+   ```
 
-2.设置当前可跳转路由（get方法：getCurAuthSuccessGoUrl）
-```php
-public static function setCurAuthSuccessGoUrl($cur_auth_success_go_url)
-    {
-        self::$cur_auth_success_go_url = $cur_auth_success_go_url;
-    }
-```
-
-3.设置当前登录用户信息（get方法： getCurUser）
-```php
- public static function setCurUser(UserInterface $user)
-    {
-        self::$cur_user = $user;
-    }
-```
+3. 设置当前登录用户信息（get方法： getCurUser）
+   ```php
+   public static function setCurUser(UserInterface $user)
+   ```
 
 [SubjectAuthInterface](#) 登录组件接口类,属于该业务的基本类,用来规定多用户类型多平台类型的基本方法,该基本类可以根据多用户类型多平台类型进行改写
 
-1.检查用户状态
-```php
-public function checkStatus($user)
-```
+1. 检查用户状态
+   ```php
+   public function checkStatus($user)
+   ```
 
-2.获取用户信息
-```php
-public function user($rules)
-```
+2. 获取用户信息
+   ```php
+   public function user($rules)
+   ```
 
 [UserInterface](#) 授权接口类,属于该业务的基本类,当管理系统设置多平台多用户类型继承该类
 
-```php
-interface UserInterface
-{
-
-}
-```
+   ```php
+   interface UserInterface
+   ```
 
 [AuthTag](#) 授权标记类,属于该业务的基本类,用来操作管理系统的session
 
-1.设置Session标记
+1. 设置Session标记
 
-该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台登录进行设置session的操作
+   该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台登录进行设置session的操作
 
-```php
-public static function set(ContainerInterface $container, UserAuth $userAuth)
+   ```php
+   public static function set(ContainerInterface $container, UserAuth $userAuth)
     {
         $tag = '';
 
@@ -105,14 +93,14 @@ public static function set(ContainerInterface $container, UserAuth $userAuth)
 
         return $tag;
     }
-```
+   ```
 
-2.获取Session标记内容
+2. 获取Session标记内容
 
-该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台进行获取session的操作,在本组件中,我们统一获取的返回值为对象
+   该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台进行获取session的操作,在本组件中,我们统一获取的返回值为对象
 
-```php
-public static function get(ContainerInterface $container)
+   ```php
+   public static function get(ContainerInterface $container)
     {
         /**
          * @var ManagerRegistry $doctrine
@@ -135,14 +123,14 @@ public static function get(ContainerInterface $container)
 
         return $userAuth;
     }
-```
+   ```
 
-3.移除Session标记
+3. 移除Session标记
 
-该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台进行删除session的操作
+   该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台进行删除session的操作
 
-```php
-public static function remove(ContainerInterface $container)
+   ```php
+   public static function remove(ContainerInterface $container)
     {
         switch (PlatformClass::getPlatform()){
             case $container->get('parameter_bag')->get('platform_admin'):
@@ -153,14 +141,14 @@ public static function remove(ContainerInterface $container)
                 throw new \Exception('来源溢出');
         }
     }
-```
+   ```
 
 [UserAuthBusiness](#) 用户登录业务类,属于该业务的基本核心类,是整个授权登录组件的业务层,用来对管理系统中的登录业务的操作
 
-1.新建用户授权信息
+1. 新建用户授权信息
 
-```php
-public function create(UserAuth $userAuth, $is_flush = true)
+   ```php
+   public function create(UserAuth $userAuth, $is_flush = true)
     {
         $userAuth->setCreateAt(new \DateTime());
         
@@ -183,12 +171,12 @@ public function create(UserAuth $userAuth, $is_flush = true)
             return false;
         }
     }
-```
+   ```
 
-2.获取指定平台端方法
+2. 获取指定平台端方法
 
-```php
-private function getUserAuthService($subject_type)
+   ```php
+   private function getUserAuthService($subject_type)
     {
         if(!array_key_exists($subject_type, $this->subjectAuthCaches)){
             switch ($subject_type){
@@ -203,23 +191,23 @@ private function getUserAuthService($subject_type)
         
         return $this->subjectAuthCaches[$subject_type];
     }
-```
+   ```
 
-4.账号登录方法
+3. 账号登录方法
 
-```php
-public function accountLogin()
-```
+   ```php
+   public function accountLogin()
+   ```
 
-5.修改密码方法
+5. 修改密码方法
 
-```php
-public function changePassword()
-```
+   ```php
+   public function changePassword()
+   ```
 
-6.检查登录状态方法
+6. 检查登录状态方法
 
-```php
-public function isLogin()
-```
+   ```php
+   public function isLogin()
+   ```
 
