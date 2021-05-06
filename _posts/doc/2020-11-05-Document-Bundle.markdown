@@ -4,7 +4,7 @@ permalink: doc/document-bundle
 prev_page: /doc/symfony-flex
 next_page: /doc/data-fixtures
 description_auto: 0
-description: PHP文档书写组件
+description: 用于编写接口文档,通过命令生成,在线的,可测试,可交付的技术文档。
 tags: symfony,phpzlc,php,document,api,文档
 ---
 

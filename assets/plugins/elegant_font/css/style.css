@@ -1627,20 +1627,28 @@ text-shadow: none;
   margin: 30px 0 0 0;
 }
 
+.a_link li {
+  list-style: disc;
+}
+
 .body-blue .a_link>a{  
   display: block;
   width: auto;
   margin-bottom: 10px;
   font-size: 14px;
   line-height: 1;
-  color: #333333;
+  /* color: #333333; */
 }
 
-.body-blue .a_link>a:hover {
+/* .body-blue .a_link>a:hover {
   color: #333333;
-}
+} */
 
 @media screen and (max-width: 1199px) {
+  .a_link {
+    padding-left: 0;
+  }
+
   .entry-shang .fork_update {
     width: 100%;
     font-size: 12px;
@@ -1649,4 +1657,9 @@ text-shadow: none;
   #a_local_url {
     word-break: break-all;
   }
+}
+
+#md-content .highlighter-rouge {
+  background: #f9f9fb;
+  color: #494d55;
 }

@@ -22,12 +22,16 @@ https://phpzlc.gitee.io/doc/exception.html
 https://phpzlc.gitee.io/doc/config/route.html
 https://phpzlc.gitee.io/doc/config/params.html
 https://phpzlc.gitee.io/doc/skeleton.html
+https://phpzlc.gitee.io/doc/module/upload-business.html
 https://phpzlc.gitee.io/doc/module/admin.html
 https://phpzlc.gitee.io/doc/module/platform-business.html
+https://phpzlc.gitee.io/doc/module/captcha-business.html
 https://phpzlc.gitee.io/doc/module/admin-business.html
+https://phpzlc.gitee.io/doc/module/RBAC-business.html
 https://phpzlc.gitee.io/doc/module/vendor.html
 https://phpzlc.gitee.io/doc/module/business.html
 https://phpzlc.gitee.io/doc/module/auth-business.html
+https://phpzlc.gitee.io/doc/module/upload.html
 https://phpzlc.gitee.io/doc/document-bundle.html
 https://phpzlc.gitee.io/doc/data-fixtures.html
 https://phpzlc.gitee.io/doc/controller.html

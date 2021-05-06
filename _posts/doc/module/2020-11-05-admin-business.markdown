@@ -5,7 +5,7 @@ author_no: 2
 prev_page: /doc/module/business
 next_page: /doc/module/RBAC-business
 description_auto: 0
-description: 后台开发(admin-business)
+description: 后台开发,提供管理系统基础功能(首页,登录,退出登录,修改密码等管理系统基础功能)
 tags: admin-business,phpzlc/admin-business,admin,后台
 ---
 ## 功能介绍

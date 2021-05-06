@@ -5,7 +5,7 @@ author_no: 2
 prev_page: /doc/module/vendor
 next_page: /doc/module/upload
 description_auto: 0
-description: 后台内核(Admin)
+description: 后台内核，为后台业务提供底层策略，写法支持。(导航菜单，基础页面)
 tags: admin,phpzlc/admin,后台
 ---
 

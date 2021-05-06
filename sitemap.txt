@@ -22,12 +22,16 @@ https://phpzlc.github.io/doc/exception.html
 https://phpzlc.github.io/doc/config/route.html
 https://phpzlc.github.io/doc/config/params.html
 https://phpzlc.github.io/doc/skeleton.html
+https://phpzlc.github.io/doc/module/upload-business.html
 https://phpzlc.github.io/doc/module/admin.html
 https://phpzlc.github.io/doc/module/platform-business.html
+https://phpzlc.github.io/doc/module/captcha-business.html
 https://phpzlc.github.io/doc/module/admin-business.html
+https://phpzlc.github.io/doc/module/RBAC-business.html
 https://phpzlc.github.io/doc/module/vendor.html
 https://phpzlc.github.io/doc/module/business.html
 https://phpzlc.github.io/doc/module/auth-business.html
+https://phpzlc.github.io/doc/module/upload.html
 https://phpzlc.github.io/doc/document-bundle.html
 https://phpzlc.github.io/doc/data-fixtures.html
 https://phpzlc.github.io/doc/controller.html
