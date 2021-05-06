@@ -29,6 +29,8 @@ tags: admin,phpzlc/admin,后台
 composer require phpzlc/admin
 ```
 
+## 内核基本方法
+
 1. 后台初始化类
 
    本框架内的控制类层需要继承该后台初始化类
