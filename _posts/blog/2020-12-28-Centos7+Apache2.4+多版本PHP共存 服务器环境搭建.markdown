@@ -4,9 +4,8 @@ permalink: /blog/1.html
 description_auto: 0
 description: Centos7 + Apache2.4 + 多版本PHP共存 服务器环境搭建
 tags: linux,Centos7,PHP,Apache,多版本
+author_no: 1
 ---
-
-## 参照链接
 
 主要的：[centos7上配置apache不同域名多版本php共存](https://segmentfault.com/a/1190000023540385)
 

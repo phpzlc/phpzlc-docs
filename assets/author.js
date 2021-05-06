@@ -6,6 +6,10 @@ var authors = {
     2: {
         "no": 2,
         "name" : "ExodusHT"
+    },
+    3: {
+        "no": 3,
+        "name" : "Noir"
     }
 };
 
