@@ -5,13 +5,13 @@ author_no: 2
 prev_page: /doc/module/vendor
 next_page: /doc/module/upload
 description_auto: 0
-description: 后台内核，为后台业务提供底层策略，写法支持。(导航菜单，基础页面)
+description: 后台内核,为后台业务提供底层策略,写法支持.(导航菜单,基础页面)
 tags: admin,phpzlc/admin,后台
 ---
 
 ## 业务介绍
 
-后台内核，为后台业务提供底层策略，写法支持。(导航菜单，基础页面)
+后台内核,为后台业务提供底层策略,写法支持.(导航菜单,基础页面,导入,导出等功能)
 
 ## 源码地址
 
@@ -23,12 +23,11 @@ tags: admin,phpzlc/admin,后台
 
 部署方式详见: [自托管的 Symfony Flex 服务器](/doc/symfony-flex)
 
-部署他的原因是框架的组件食谱尚未成功合并到官方仓库,未部署配置的话组件无法正常工作。
+部署他的原因是框架的组件食谱尚未成功合并到官方仓库,未部署配置的话组件无法正常工作.
 
 ```shell 
 composer require phpzlc/admin
 ```
-
 
 1. 后台初始化类
 
@@ -36,78 +35,111 @@ composer require phpzlc/admin
 
    ```php
    class AdminController extends SystemBaseController
+   {
+       /**
+        * @var AdminStrategy
+        */
+       private $adminStrategy;
+   
+       /**
+        * @var string
+        */
+       private $pageTag;
+       
+       public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, $isLogin = true)
+       {
+           $this->adminStrategy = new AdminStrategy($this->container);
+           $this->adminStrategy->setPageTag($this->pageTag);
+           
+           return parent::inlet($returnType, $isLogin);
+       }
+   }
    ```
 
 
 2. AdminStrategy类
 
-   该类用于处理后台管理系统页面上呈现的基础数据，例如：导航菜单，登录，退出登录，背景图等
+   该类用于处理后台管理系统页面上呈现的基础数据,例如：导航菜单,登录,退出登录,背景图等
 
    设置锚点url
+   
+   **场景**
+   
+   用于设置表单提交,取消等需要返回到某个控制器层的action中时,我们可以使用该方法,将action设为锚点.
+   
    ```php
    public function setUrlAnchor()
    ```
-
-   后台页面模式切换
-   ```php
-   public function setMenuModel(int $menu_model)
-   ```
-
+   
    设置页面标记
+   
+   $tag 需要在每个控制器层去定义一个string类型的标记标记名称,并且在设置导航菜单的tag参数中写入设置的标记名称,这样
+   在生成导航菜单的时候,设置的页面标记就会标记在该导航菜单上.
+   
    ```php
    public function setPageTag($tag)
    ```
 
    设置后台标题
+   
    ```php
    public function setTitle($title)
    ```
 
    设置后台favicon_ico图标
+   
+   $favicon_ico 地址为图片的相对位置
+   
    ```php
    public function setFaviconIco($favicon_ico)
    ```
 
    设置后台logo
+   
+   $logo 地址为图片的相对位置
+   
    ```php
    public function setLogo($logo)
    ```
 
    设置后台入口url
+   
+   $end_url 可以使用$this->generateUrl(string $route)方法进行生成,$route是在yaml中设置的路由名称
+   
    ```php
    public function setEndUrl($end_url)
    ```
 
-   设置设置密码url
+   设置密码登录页面url
+   
+   $setting_pwd_url 可以使用$this->generateUrl(string $route)方法进行生成,$route是在yaml中设置的路由名称
+
    ```php
    public function setSettingPwdUrl($setting_pwd_url)
    ```
 
    设置清除缓存API地址url
+   
+   $clear_cache_api_url 可以使用$this->generateUrl(string $route)方法进行生成,$route是在yaml中设置的路由名称
+
    ```php
    public function setClearCacheApiUrl(string $clear_cache_api_url)
    ```
 
    设置管理员角色名称
+   
    ```php
    public function setAdminRoleName($admin_role_name)
    ```
-
-   设置导航菜单
-   ```php
-   public function setMenus(array $menus)
-   ```
-
+   
    设置登陆页面背景图片
+   
+   $login_lack_ground_img 地址为图片的相对位置
+   
    ```php
    public function setLoginLackGroundImg(string $login_lack_ground_img)
    ```
-
-   设置导航面包线
-   ```php
-   public function setNavigations(array $navigations)
-   ```
-
+   
    设置管理员登录头像
    ```php
    public function setAdminAvatar(string $admin_avatar)
@@ -120,36 +152,68 @@ composer require phpzlc/admin
 
 3. 设置面包线
 
-   在需要设置面包线的页面调用此方法
-
+   在需要设置面包线的页面调用此方法,我们提供了两种不同模式的面包线的设置方法
+   
+   第一种
+   
    ```php
    $this->adminStrategy->addNavigation(new Navigation($title, $url = ''));
    ```
    
+   第二种
+   
+   ```php
+   $this->adminStrategy->setNavigations(array $navigations)
+   ```
+   
 4. 模式切换
 
-   本框架提供两种不同地后台管理显示类型
-   
-   设置模式
+   本框架提供两种后台页面模式,这两种模式可以进行切换,简单模式的导航菜单最多三级菜单的显示效果,比较简单,复杂模式的导航菜单能够显示三级以上的菜单,能够处理比较
+   复杂的后台页面.
+      
+   复杂模式 menu_model_all = 1 
+   简单模式 menu_model_simple = 2
+      
+   **场景**
+      
+   复杂模式和简单模式切换
+      
    ```php
-    $this->adminStrategy = new AdminStrategy(ContainerInterface $container);
-    $this->adminStrategy->setMenuModel(int $menu_model)
+   $this->adminStrategy = new AdminStrategy(ContainerInterface $container);
+   $this->adminStrategy->setMenuModel(int $menu_model)
    ```
    
-   复杂模式
-   ```php
-    const menu_model_all = 1;
-   ```
+   复杂模式效果
+  
    ![复杂模式](/assets/posts/admin/model_all.png)
    
-   简单模式
-   ```php
-    const menu_model_simple = 2;
-   ```
+   简单模式效果
+   
    ![简单模式](/assets/posts/admin/model_simple.png)
+   
+5. 设置导航菜单   
+   
+   我们将要显示的导航菜单根据它的层级设置一个多维数组$menus,然后调用
+   
+   ```php
+   $this->adminStrategy->setMenus(array $menus);
+   ```
+   
+   **场景**
+   
+   比较常用的三级层级的导航菜单
+   
+   ```php
+     new Menu('博客管理系统', null, null, null, null, [
+            new Menu('博客管理', 'fa fa-clone', null, null, null, [
+                new Menu('文章管理', null, 'admin_article_index', $this->generateUrl('admin_blog_manage_article_index'), null),
+            ]),
+      
+     ]);
+   ```
 
 
-5. 页面资源
+6. 页面技术栈
 
     [Vue.js](https://cn.vuejs.org/)
     
@@ -217,7 +281,7 @@ composer require phpzlc/admin
    ```
    ```vue
    setTimeout(function(){
-               // 基于准备好的dom，初始化echarts实例
+               // 基于准备好的dom,初始化echarts实例
                var myChart1 = echarts.init(document.getElementById('main1'), "macarons");
                option1 = {
                    xAxis: {
@@ -234,7 +298,7 @@ composer require phpzlc/admin
                        areaStyle: {}
                    }]
                };
-               // 使用刚指定的配置项和数据显示图表。
+               // 使用刚指定的配置项和数据显示图表.
                myChart1.setOption(option1);
 
    ```
@@ -354,7 +418,7 @@ composer require phpzlc/admin
    
    **页面层**
    
-   输入框(文本输入，密码输入等多种类型)
+   输入框(文本输入,密码输入等多种类型)
    ```twig
      <el-input v-model="" size="mini" clearable placeholder="请输入"></el-input>
    ```
@@ -415,7 +479,7 @@ composer require phpzlc/admin
       :on-exceed="handleExceed"
       :file-list="fileList">
       <el-button size="small" type="primary">点击上传</el-button>
-      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件,且不超过500kb</div>
     </el-upload>
    
     <script>
@@ -433,7 +497,7 @@ composer require phpzlc/admin
             console.log(file);
           },
           handleExceed(files, fileList) {
-            this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+            this.$message.warning(`当前限制选择 3 个文件,本次选择了 ${files.length} 个文件,共选择了 ${files.length + fileList.length} 个文件`);
           },
           beforeRemove(file, fileList) {
             return this.$confirm(`确定移除 ${ file.name }？`);
@@ -639,7 +703,7 @@ composer require phpzlc/admin
         * @param array $head 表头 ["表头1", "表头2"]
         * @param array $data 内容 [{"1", "1"}]
         * @param bool $is_need 是否插入序号
-        * @param array $mergeCells 合并单元格 [{0,1,0,2})] 0,1 表示合并开始单元格数组坐标， 0,2 代表合并结束单元格数组坐标
+        * @param array $mergeCells 合并单元格 [{0,1,0,2})] 0,1 表示合并开始单元格数组坐标, 0,2 代表合并结束单元格数组坐标
         * @param string $format
         * @throws \PhpOffice\PhpSpreadsheet\Exception
     */
