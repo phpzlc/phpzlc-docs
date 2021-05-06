@@ -199,12 +199,12 @@
 <script>
   $(function () {
     var title = $("#md-content h2");
-    console.log(title);
+    // console.log(title);
     html = '';
     title.each(function () {
       var text = $(this)[0].innerText;
       var id = $(this).eq(0).attr("id");
-      console.log(text, id)
+      // console.log(text, id)
       html += `<li><a href="#${id}">${text}</a></li>`
     })
     $(".a_link").append(html)

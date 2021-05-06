@@ -106,7 +106,7 @@ QQ群 ([645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG))
 
 ![](/assets/images/zxsjgzh-2.png)
 
-> 知乎号
+> 知乎号(PHP知了虫)
 
 ![](/assets/images/zhihu-1.png)
  
