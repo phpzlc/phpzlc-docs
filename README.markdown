@@ -105,6 +105,8 @@ QQ群 ([645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG))
 > 公众号(知行实践)
 
 ![](/assets/images/zxsjgzh-2.png)
+
+> 知乎号(PHP知了虫)
  
 ## 赞赏支持
 
