@@ -29,125 +29,621 @@ tags: admin,phpzlc/admin,后台
 composer require phpzlc/admin
 ```
 
-## 提供功能
 
-1. 后台继承基础类
+1. 后台初始化类
 
-```php
-namespace PHPZlc\Admin\Bundle\Controller;
+   本框架内的控制类层需要继承该后台初始化类
 
-use PHPZlc\Admin\Strategy\AdminStrategy;
-use PHPZlc\PHPZlc\Bundle\Controller\SystemBaseController;
+   ```php
+   class AdminController extends SystemBaseController
+   ```
 
-class AdminController extends SystemBaseController
-{
-    /**
-     * @var AdminStrategy
-     */
-    private $adminStrategy;
 
-    /**
-     * @var string
-     */
-    private $pageTag;
+2. AdminStrategy类
+
+   该类用于处理后台管理系统页面上呈现的基础数据，例如：导航菜单，登录，退出登录，背景图等
+
+   设置锚点url
+   ```php
+   public function setUrlAnchor()
+   ```
+
+   后台页面模式切换
+   ```php
+   public function setMenuModel(int $menu_model)
+   ```
+
+   设置页面标记
+   ```php
+   public function setPageTag($tag)
+   ```
+
+   设置后台标题
+   ```php
+   public function setTitle($title)
+   ```
+
+   设置后台favicon_ico图标
+   ```php
+   public function setFaviconIco($favicon_ico)
+   ```
+
+   设置后台logo
+   ```php
+   public function setLogo($logo)
+   ```
+
+   设置后台入口url
+   ```php
+   public function setEndUrl($end_url)
+   ```
+
+   设置设置密码url
+   ```php
+   public function setSettingPwdUrl($setting_pwd_url)
+   ```
+
+   设置清除缓存API地址url
+   ```php
+   public function setClearCacheApiUrl(string $clear_cache_api_url)
+   ```
+
+   设置管理员角色名称
+   ```php
+   public function setAdminRoleName($admin_role_name)
+   ```
+
+   设置导航菜单
+   ```php
+   public function setMenus(array $menus)
+   ```
+
+   设置登陆页面背景图片
+   ```php
+   public function setLoginLackGroundImg(string $login_lack_ground_img)
+   ```
+
+   设置导航面包线
+   ```php
+   public function setNavigations(array $navigations)
+   ```
+
+   设置管理员登录头像
+   ```php
+   public function setAdminAvatar(string $admin_avatar)
+   ```
+
+   设置定制页面head
+   ```php
+   public function setHendCode(string $hend_code)
+   ```
+
+3. 设置面包线
+
+   在需要设置面包线的页面调用此方法
+
+   ```php
+   $this->adminStrategy->addNavigation(new Navigation($title, $url = ''));
+   ```
+   
+4. 模式切换
+
+   本框架提供两种不同地后台管理显示类型
+   
+   设置模式
+   ```php
+    $this->adminStrategy = new AdminStrategy(ContainerInterface $container);
+    $this->adminStrategy->setMenuModel(int $menu_model)
+   ```
+   
+   复杂模式
+   ```php
+    const menu_model_all = 1;
+   ```
+   ![复杂模式](/assets/posts/admin/model_all.png)
+   
+   简单模式
+   ```php
+    const menu_model_simple = 2;
+   ```
+   ![简单模式](/assets/posts/admin/model_simple.png)
+
+
+5. 页面资源
+
+    [Vue.js](https://cn.vuejs.org/)
     
-    public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, $isLogin = true)
-    {
-        $this->adminStrategy = new AdminStrategy($this->container);
-        $this->adminStrategy->setPageTag($this->pageTag);
-        
-        return parent::inlet($returnType, $isLogin);
-    }
-}
-```
+    [ElementUI](https://element.eleme.io/#/zh-CN/component/installation)
+    
+    [Twig](https://www.kancloud.cn/yunye/twig-cn/159454)
+    
+    [Font图表库](https://fontawesome.dashgame.com/)
+    
+6. 仪表盘基本写法
 
-2. twig页面自制过滤器函数
+   **页面层**
+   
+   页面要先引用
+   ```twig
+    <script type="application/javascript" src="{{ admin_asset('bundles/phpzlcadmin/echarts/echarts.min.js') }}"></script>
+    <script type="application/javascript" src="{{ admin_asset('bundles/phpzlcadmin/echarts/theme/macarons.js') }}"></script>
+   ```
+   
+   数据统计框
+   ```twig
+   <div class="console-small-statistics clearfix">
+       <a :class="'console-small-statistics-bg'+(index+1)"
+           v-for="(item, index) in consoleSmall" :key="index" :href= "item.src" style="margin-left: 40px">
+            <p class="console-statistics-name">${item.name}$:</p>
+             <p class="console-statistics-value">${item.value}$</p>
+        </a>
+   </div>
+   ```
+   ```vue
+    data: function () {
+             return {
+                  consoleSmall: [
+                     {
+                         id: '',
+                         name: '',
+                         value: '',
+                         src: ''
+                     },
+                       
+                  ],
+             }
+    },
+   ```
+   ![数据统计框](/assets/posts/admin/data_box.png)
+   
+   数据统计表
+   ```twig
+   <div class="echarts-content clearfix">
+            <el-col>
+                <el-col :span="12">
+                    <div id="main1" style="width: 100%;height:400px;">
+                    </div>
+                    <span style="position: absolute; margin-left: 365px; margin-top: -30px; z-index: 100; font-size: 16px">最近七日博客数增长图</span>
+                </el-col>
 
-```php
-public function getFunctions()
-    {
-        return [
-            new TwigFunction('admin_title', [$this->adminStrategy, 'getTitle']),
-            new TwigFunction('admin_favicon_ico', [$this->adminStrategy, 'getFaviconIco']),
-            new TwigFunction('admin_entrance_url', [$this->adminStrategy, 'getEntranceUrl']),
-            new TwigFunction('admin_logo', [$this->adminStrategy, 'getLogo']),
-            new TwigFunction('admin_end_url', [$this->adminStrategy, 'getEndUrl']),
-            new TwigFunction('admin_page_tag', [$this->adminStrategy, 'getPageTag']),
-            new TwigFunction('admin_setting_pwd_url', [$this->adminStrategy, 'getSettingPwdUrl']),
-            new TwigFunction('admin_name', [$this->adminStrategy, 'getAdminName']),
-            new TwigFunction('admin_role_name', [$this->adminStrategy, 'getAdminRoleName']),
-            new TwigFunction('admin_avatar', [$this->adminStrategy, 'getAdminAvatar']),
-            new TwigFunction('admin_url_anchor', [$this->adminStrategy, 'getUrlAnchor']),
-            new TwigFunction('admin_env', [$this->adminStrategy, 'getAdminEnv']),
-            new TwigFunction('admin_menus', [$this->adminStrategy, 'getMenus']),
-            new TwigFunction('admin_top_menus', [$this->adminStrategy, 'getTopMenus']),
-            new TwigFunction('admin_menu_model', [$this->adminStrategy, 'getMenuModel']),
-            new TwigFunction('admin_login_lack_ground_img', [$this->adminStrategy, 'getLoginLackGroundImg']),
-            new TwigFunction('admin_navigations', [$this->adminStrategy, 'getNavigations']),
-            new TwigFunction('admin_asset', [$this, 'asset']),
-            new TwigFunction('admin_clear_cache_api_url', [$this->adminStrategy, 'getClearCacheApiUrl']),
-            new TwigFunction('admin_hend_code', [$this->adminStrategy, 'getHendCode']),
-        ];
-    }
+                <el-col :span="12">
+                    <div id="main2" style="width: 100%;height:400px;"></div>
+                    <span style="position: absolute; margin-left: 365px; margin-top: -30px; z-index: 100; font-size: 16px">最近七日用户数增长图</span>
 
-    public function getFilters()
-    {
-        return [
-            new TwigFilter('explode', [$this, 'explode']),
-            new TwigFilter('boolToString', [$this, 'boolToString']),
-            new TwigFilter('boolToInt', [$this, 'boolToInt'])
-        ];
-    }
+                </el-col>
+            </el-col>
 
-    public function boolToString($bool, $strings = ['是', '否'])
-    {
-        return $bool ? $strings[0] : $strings[1];
-    }
+   </div>
+   ```
+   ```vue
+   setTimeout(function(){
+               // 基于准备好的dom，初始化echarts实例
+               var myChart1 = echarts.init(document.getElementById('main1'), "macarons");
+               option1 = {
+                   xAxis: {
+                       type: 'category',
+                       boundaryGap: false,
+                       data: [],
+                   },
+                   yAxis: {
+                       type: 'value'
+                   },
+                   series: [{
+                       data: [],
+                       type: 'line',
+                       areaStyle: {}
+                   }]
+               };
+               // 使用刚指定的配置项和数据显示图表。
+               myChart1.setOption(option1);
 
-    public function boolToInt($bool)
-    {
-        return $bool ? 1: 0;
-    }
-
-    public function explode($string, $delimiter = ',')
-    {
-        return explode($delimiter, $string);
-    }
-
-    public function asset($path)
-    {
-        if(Validate::isUrl($path)){
-            return $path;
+   ```
+   ![数据统计表](/assets/posts/admin/data_cart.png)
+   
+7. 列表页面基本写法
+   
+   **页面层**
+   
+   搜索框
+   
+   ```twig
+   <!-- 搜索框 start -->
+       <el-row class="page-search">
+           <el-form ref="searchForm" :inline="true" :model="searchForm" label-width="90px" style="margin-left: 10px">
+   
+               <el-form-item label="input输入框" prop="user_name">
+                   <el-input v-model="searchForm.user_name" size="mini" clearable placeholder="请输入">
+                   </el-input>
+               </el-form-item>
+   
+               <el-form-item label="时间选择框" prop="login_at" class="search-item-time">
+                   <el-date-picker v-model="searchForm.login_at" size="mini" clearable type="daterange"
+                                   range-separator="-" start-placeholder="开始日期" end-placeholder="结束日期">
+                   </el-date-picker>
+               </el-form-item>
+   
+               <el-form-item>
+                   <el-button type="primary" size="mini" @click="searchBtn()"> 搜索 </el-button>
+                   <el-button size="mini" @click="resetForm('searchForm')"> 重置 </el-button>
+               </el-form-item>
+   
+           </el-form>
+   
+       </el-row>
+       <!-- 搜索框 end -->
+   ```
+   数据显示
+   
+   ```twig
+     <!-- 数据显示 start-->
+        <el-table :data="listData" style="width: 100%" border class="mt-10">
+    
+            <el-table-column prop="数据" label="数据"></el-table-column>
+   
+            <!-- 添加操作行 start -->
+            <el-table-column prop="date" label="操作" width="200">
+                <template slot-scope="scope">
+                    <el-button size="mini" @click="handleEdit(scope.$index, scope.row)" type="primary"> 编辑 </el-button>
+                    <el-button size="mini" @click="handleDelete(scope.$index, scope.row)" type="danger"> 删除 </el-button>
+                    <el-button size="mini" @click="handleDisable(scope.$index, scope.row)" type="danger"> 禁用 </el-button>
+                    <el-button size="mini" @click="handleEnable(scope.$index, scope.row)" type="success"> 启用 </el-button>
+                </template>
+            </el-table-column>
+            <!-- 添加操作行 end -->
+    
+        </el-table>
+        <!-- 分页 start -->
+        <el-col class="mt-20 clearfix">
+            <el-pagination class="page" @current-change="handleCurrentChange" @size-change="handleSizeChange"
+                           :page-sizes="[20, 60, 100, 200]" :page-size="{{ rows }}" :hide-on-single-page="true" :current-page="{{ page }}"
+                           layout="total, sizes, prev, pager, next, jumper" :total="{{ count }}">
+            </el-pagination>
+        </el-col>
+        <!-- 分页 end -->
+    
+        <!-- 数据显示 end -->
+   ```
+   
+   Vue代码模块
+   ```twig
+   <script>
+       new Vue({
+           el: '#main-content',
+           //用于替换vue数据调用符号
+           // delimiters: ['${', '}$'],
+           data: function () {
+               return {
+                   searchForm: {},
+                   listData: [],
+               }
+           },
+   
+           created(){
+               //页面初始化勾子
+           },
+   
+           methods: {
+                   handleCurrentChange(val) {
+                       window.location.href = urlParamWrite(getSelfUrl(), 'page', val);
+                   },
+   
+                   handleSizeChange(val) {
+                       window.location.href = urlParamWrite(getSelfUrl(), 'rows', val);
+                   },
+   
+                   // 搜索按钮
+                   searchBtn() {},
+   
+                   // 重置按钮
+                   resetForm(formName){
+                       this.$refs[formName].resetFields();
+                   },
+   
+                   handleDisable(index, row){},
+   
+                   handleEnable(index, row){},
+   
+           }
+   
+       })
+   </script>
+   ```
+   ![效果](/assets/posts/admin/index.png)
+   
+8. 编辑页面基本写法
+   
+   **页面层**
+   
+   输入框(文本输入，密码输入等多种类型)
+   ```twig
+     <el-input v-model="" size="mini" clearable placeholder="请输入"></el-input>
+   ```
+   下拉单选框
+   ```twig
+    <el-select v-model="value" placeholder="请选择">
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value">
+        </el-option>
+      </el-select>
+   
+    <script>
+      export default {
+        data() {
+          return {
+            options: [],
+          }
         }
-
-        if(!empty($this->adminStrategy->getAssetBaseUrl())){
-            return $this->adminStrategy->getAssetBaseUrl() . '/' . $path;
-        }else{
-            return $this->adminStrategy->getBaseUrl() . '/' . $path;
+      }
+    </script>
+   ```
+   
+   下拉多选框
+   ```twig
+    <el-select v-model="value" multiple placeholder="请选择">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+       
+        <script>
+          export default {
+            data() {
+              return {
+                options: [],
+              }
+            }
+          }
+        </script>
+   ```
+   上传控件
+   
+   ```twig
+    <el-upload
+      class="upload-demo"
+      action=""
+      :on-preview="handlePreview"
+      :on-remove="handleRemove"
+      :before-remove="beforeRemove"
+      multiple
+      :limit="3"
+      :on-exceed="handleExceed"
+      :file-list="fileList">
+      <el-button size="small" type="primary">点击上传</el-button>
+      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+    </el-upload>
+   
+    <script>
+      export default {
+        data() {
+          return {
+            fileList: []
+          };
+        },
+        methods: {
+          handleRemove(file, fileList) {
+            console.log(file, fileList);
+          },
+          handlePreview(file) {
+            console.log(file);
+          },
+          handleExceed(files, fileList) {
+            this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+          },
+          beforeRemove(file, fileList) {
+            return this.$confirm(`确定移除 ${ file.name }？`);
+          }
         }
+      }
+    </script>
+   ```
+   日期选择器
+   ```twig
+   <el-date-picker
+         v-model="value1"
+         type="daterange"
+         range-separator="至"
+         start-placeholder="开始日期"
+         end-placeholder="结束日期">
+   </el-date-picker>
+   <script>
+     export default {
+       data() {
+         return {
+           value1: ''
+         };
+       }
+     };
+   ```
+   
+   单选框
+   ```twig
+   <el-radio v-model="radio" label="1">备选项</el-radio>
+     
+   <script>
+     export default {
+       data () {
+         return {
+           radio: ''
+         };
+       }
+     }
+   </script>
+   ```   
+   多选框
+   ```twig
+    <!-- `checked` 为 true 或 false -->
+    <el-checkbox v-model="checked">备选项</el-checkbox>
+   
+   <script>
+     export default {
+       data() {
+         return {
+           checked: true
+         };
+       }
+     };
+   </script>
+   ```
+   更多控件请点击[ElementUI](https://element.eleme.io/#/zh-CN/component/installation)
+   
+
+9. 导入功能基本写法
+
+   导入导出功能需要[phpoffice/phpspreadsheet](https://packagist.org/packages/phpoffice/phpspreadsheet)
+   
+   ```text
+   composer require phpoffice/phpspreadsheet
+   ```
+   
+   **页面层**
+   
+   ```twig
+     <el-upload
+          class="upload-demo"
+          action="导入地址"
+          :limit="1"
+          :on-success="handleImport"
+          :on-error = "handleImport"
+          :file-list="fileList">
+          <el-button size="small" type="primary">点击上传</el-button>
+          <div slot="tip" class="el-upload__tip">只能上传xls/xlsx文件</div>
+    </el-upload>
+    
+    <script>
+          export default {
+            methods: {
+              handleImport(result){
+                  const that = this;
+                  resultPreprocess(that, result, "{{ admin_url_anchor() }}");
+              },
+            }
+          }
+    </script>
+   ```
+
+   **控制器层**
+   
+   下载导入模板
+   ```php
+    // Business层
+    public function importTemplateFilePath()
+    {
+            return '模板名称.xlsx';
     }
-```
+    
+    public function downloadImportTemplate(Request $request)
+    {
+       $this->goUrl($request->getSchemeAndHttpHost() . $request->getBasePath() . '/存放导入文件的文件夹/' . $this->importTemplateFilePath());
+    }
 
-3. twig基础页面
+    // Controller层
+    $Business  = new Business($this->container);
+    $Business->goUrl($Business->downloadImportTemplate(Request $request));
+   ```
+   
+   导入模板
+   ```php
+   // Business层
+   public function format($data)
+       {
+           if(empty($data)){
+               throw new PhpZlcApiException('导入数据不能为空');
+           }
+   
+           $info = [];
+         
+           foreach ($data as $index => $value){
+               $name = $this->getValue($value, 0);
+            
+               $info[] = array(
+                   'name' => $name
+               );
+  
+           }
+           return $info;
+       }
+   // Controller层
+   set_time_limit(0);
+   ob_start();
+   
+   $Business  = new Business($this->container);
+   
+   /**
+      * @var Connection $conn
+   */
+   $conn = $this->getDoctrine()->getConnection();
+   $conn->beginTransaction();
+   
+   try {
+        $data = $Business->importData();
+   
+        foreach ($data as $k => $v) {
+           // 将$data的数据循环插入
+           $conn->commit();
+        }
+   
+        return Responses::success('导入成功');
+   
+   }catch (PhpZlcApiException $exception){
+        $conn->rollBack();
+        return Responses::error($exception->getMessage());
+   }
+   ```
+   
+10. 导出功能基本写法
 
-```text
-vendor/phpzlc/admin/Bundle/Resources/views
-```
+   **页面层**
+   ```twig
+   <el-button size="mini" type="success" @click="export_data()">导出</el-button>
 
-4. Excel导出功能
+    <script>
+       export default {
+          methods: {
+            export_data(){
+              window.location.href = urlParamWrite(getSelfUrl(), 'ex', '1');
+           },
+          }
+       }
+       </script>
+   ```
+   **控制器层**
+   
+   ```php
+    use PHPZlc\Admin\Strategy\Excel\Export;
 
-```php
- /**
-     * 导出
-     *
-     * @param string $title  标题
-     * @param array $head 表头 ["表头1", "表头2"]
-     * @param array $data 内容 [{"1", "1"}]
-     * @param bool $is_need 是否插入序号
-     * @param array $mergeCells 合并单元格 [{0,1,0,2})] 0,1 表示合并开始单元格数组坐标， 0,2 代表合并结束单元格数组坐标
-     * @param string $format
-     * @throws \PhpOffice\PhpSpreadsheet\Exception
-     */
-    public function export($title, $head, $data, $is_need = false, $mergeCells = array(), $format = 'Xls')
-    {}
-```
+    $ex = new Export();
+
+    // 表格第一行
+    $head = [];
+    // 数据库数据
+    $list = array();
+
+    $data = [];
+    
+    foreach ($list as $value){
+         $data[] = array(
+          // 循环的数据
+        );
+    }
+    
+    /**
+        * 导出
+        *
+        * @param string $title  标题
+        * @param array $head 表头 ["表头1", "表头2"]
+        * @param array $data 内容 [{"1", "1"}]
+        * @param bool $is_need 是否插入序号
+        * @param array $mergeCells 合并单元格 [{0,1,0,2})] 0,1 表示合并开始单元格数组坐标， 0,2 代表合并结束单元格数组坐标
+        * @param string $format
+        * @throws \PhpOffice\PhpSpreadsheet\Exception
+    */
+   $ex->export($title, $head, $data, $is_need = false, $mergeCells = array(), $format = 'Xls');
+   ```
+
+    
