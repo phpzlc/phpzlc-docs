@@ -234,6 +234,7 @@ composer require phpzlc/admin
    ![引用](/assets/posts/admin/echart.png)
    
    数据统计框
+   
    ```twig
    <div class="console-small-statistics clearfix">
        <a :class="'console-small-statistics-bg'+(index+1)"
@@ -243,6 +244,7 @@ composer require phpzlc/admin
         </a>
    </div>
    ```
+   
    ```vue
     data: function () {
              return {
@@ -258,9 +260,11 @@ composer require phpzlc/admin
              }
     },
    ```
+   
    ![数据统计框](/assets/posts/admin/data_box.png)
    
    数据统计表
+   
    ```twig
    <div class="echarts-content clearfix">
             <el-col>
@@ -279,6 +283,7 @@ composer require phpzlc/admin
 
    </div>
    ```
+   
    ```vue
    setTimeout(function(){
                // 基于准备好的dom,初始化echarts实例
@@ -369,6 +374,7 @@ composer require phpzlc/admin
    ```
    
    Vue代码模块
+   
    ```twig
    <script>
        new Vue({
@@ -412,6 +418,7 @@ composer require phpzlc/admin
        })
    </script>
    ```
+   
    ![效果](/assets/posts/admin/index.png)
    
 8. 编辑页面基本写法
@@ -419,10 +426,13 @@ composer require phpzlc/admin
    **页面层**
    
    输入框(文本输入,密码输入等多种类型)
+   
    ```twig
      <el-input v-model="" size="mini" clearable placeholder="请输入"></el-input>
    ```
+   
    下拉单选框
+   
    ```twig
     <el-select v-model="value" placeholder="请选择">
         <el-option
@@ -445,6 +455,7 @@ composer require phpzlc/admin
    ```
    
    下拉多选框
+   
    ```twig
     <el-select v-model="value" multiple placeholder="请选择">
             <el-option
@@ -507,6 +518,7 @@ composer require phpzlc/admin
     </script>
    ```
    日期选择器
+   
    ```twig
    <el-date-picker
          v-model="value1"
@@ -526,6 +538,7 @@ composer require phpzlc/admin
    ```
    
    单选框
+   
    ```twig
    <el-radio v-model="radio" label="1">备选项</el-radio>
      
@@ -539,7 +552,9 @@ composer require phpzlc/admin
      }
    </script>
    ```   
+   
    多选框
+   
    ```twig
     <!-- `checked` 为 true 或 false -->
     <el-checkbox v-model="checked">备选项</el-checkbox>
@@ -554,9 +569,10 @@ composer require phpzlc/admin
      };
    </script>
    ```
+   
    更多控件请点击[ElementUI](https://element.eleme.io/#/zh-CN/component/installation)
    
-
+   
 9. 导入功能基本写法
 
    导入导出功能需要[phpoffice/phpspreadsheet](https://packagist.org/packages/phpoffice/phpspreadsheet)
@@ -594,6 +610,7 @@ composer require phpzlc/admin
    **控制器层**
    
    下载导入模板
+   
    ```php
     // Business层
     public function importTemplateFilePath()
@@ -612,6 +629,7 @@ composer require phpzlc/admin
    ```
    
    导入模板
+   
    ```php
    // Business层
    public function format($data)
@@ -663,6 +681,7 @@ composer require phpzlc/admin
 10. 导出功能基本写法
 
    **页面层**
+   
    ```twig
    <el-button size="mini" type="success" @click="export_data()">导出</el-button>
 
