@@ -230,10 +230,8 @@ composer require phpzlc/admin
    **页面层**
    
    页面要先引用
-   ```twig
-    <script type="application/javascript" src="{{ admin_asset('bundles/phpzlcadmin/echarts/echarts.min.js') }}"></script>
-    <script type="application/javascript" src="{{ admin_asset('bundles/phpzlcadmin/echarts/theme/macarons.js') }}"></script>
-   ```
+   
+   ![引用](/assets/posts/admin/echart.png)
    
    数据统计框
    ```twig
@@ -586,7 +584,7 @@ composer require phpzlc/admin
             methods: {
               handleImport(result){
                   const that = this;
-                  resultPreprocess(that, result, "{{ admin_url_anchor() }}");
+                  resultPreprocess(that, result, "admin_url_anchor()");
               },
             }
           }
