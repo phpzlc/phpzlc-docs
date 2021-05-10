@@ -34,12 +34,6 @@ composer require phpzlc/admin-business
 php bin/console doctrine:schema:update --force
 ```
 
-## 后台超级管理员账号密码
-
-```text
-aitime 123456
-```
-
 ## 配置
 
 在项目根路由中config/routes.yaml引入
@@ -59,29 +53,6 @@ captcha:
   prefix:   /captcha
 ```
 
-## README.md 补充
-
-> php.ini
-
-```apacheconfig
-upload_max_filesize = 1024M
-post_max_size = 1024M
-```
-
-> nginx
-
-```apacheconfig
-client_max_body_size     1024M;
-proxy_connect_timeout    9000s;
-proxy_read_timeout       9000s;
-proxy_send_timeout       9000s;
-```
-
-> 文件夹权限
-
-```shell
-sudo chmod -R 777 public/upload/
-```
 
 ## 代码配置
 
@@ -214,11 +185,45 @@ sudo chmod -R 777 public/upload/
         return $this->subjectAuthCaches[$subject_type];
     }
 ```
+
+## README.md 补充
+
+> php.ini
+
+```apacheconfig
+upload_max_filesize = 1024M
+post_max_size = 1024M
+```
+
+> nginx
+
+```apacheconfig
+client_max_body_size     1024M;
+proxy_connect_timeout    9000s;
+proxy_read_timeout       9000s;
+proxy_send_timeout       9000s;
+```
+
+> 文件夹权限
+
+```shell
+sudo chmod -R 777 public/upload/
+```
+
+## 后台超级管理员账号密码
+
+```text
+aitime 123456
+```
+
+
 1. 管理端首页
 
    ```php
    public function index()
    ```
+   
+   ![首页](/assets/posts/admin-business/index.png)
    
 2. 时间选择控件筛选
    
@@ -232,17 +237,24 @@ sudo chmod -R 777 public/upload/
    public function login(Request $request)
    ```
    
+   ![登录](/assets/posts/admin-business/login.png)
+   
 4. 管理端退出登录
 
    ```php
    public function logout()
    ```
    
+   ![退出登录](/assets/posts/admin-business/logout.png)
+   
 5. 修改密码
 
    ```php
    public function editPassword(Request $request)
    ```
+   
+   ![修改密码](/assets/posts/admin-business/changePassword.png)
+   
    
 6. 权限功能
 
