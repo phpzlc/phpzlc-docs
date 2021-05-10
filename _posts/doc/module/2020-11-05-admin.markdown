@@ -380,7 +380,7 @@ composer require phpzlc/admin
        new Vue({
            el: '#main-content',
            //用于替换vue数据调用符号
-           // delimiters: ['${', '}$'],
+           delimiters: ['${', '}$'],
            data: function () {
                return {
                    searchForm: {},
