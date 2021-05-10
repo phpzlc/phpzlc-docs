@@ -5,7 +5,7 @@ description_auto: 0
 description: PHP生成全景图(krpano)
 tags: 全景图,krpano,PHP
 author_no: 1
-imgAll: 0
+img_all: 0
 ---
 
 ## 技术背景
