@@ -3,6 +3,7 @@ https://phpzlc.gitee.io/module
 https://phpzlc.gitee.io/about
 https://phpzlc.gitee.io/member
 https://phpzlc.gitee.io/faqs
+https://phpzlc.gitee.io/blog/5.html
 https://phpzlc.gitee.io/blog/index.html
 https://phpzlc.gitee.io/blog/4.html
 https://phpzlc.gitee.io/blog/3.html
@@ -12,6 +13,7 @@ https://phpzlc.gitee.io/blog/page3/index.html
 https://phpzlc.gitee.io/blog/2.html
 https://phpzlc.gitee.io/blog/page4/index.html
 https://phpzlc.gitee.io/blog/1.html
+https://phpzlc.gitee.io/blog/page8/index.html
 https://phpzlc.gitee.io/blog/page6/index.html
 https://phpzlc.gitee.io/blog/page7/index.html
 https://phpzlc.gitee.io/doc/install.html
