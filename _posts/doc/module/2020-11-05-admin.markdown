@@ -347,8 +347,7 @@ composer require phpzlc/admin
         <el-table :data="listData" style="width: 100%" border class="mt-10">
     
             <el-table-column prop="数据" label="数据"></el-table-column>
-   
-            <!-- 添加操作行 start -->
+            // 操作行
             <el-table-column prop="date" label="操作" width="200">
                 <template slot-scope="scope">
                     <el-button size="mini" @click="handleEdit(scope.$index, scope.row)" type="primary"> 编辑 </el-button>
@@ -357,8 +356,7 @@ composer require phpzlc/admin
                     <el-button size="mini" @click="handleEnable(scope.$index, scope.row)" type="success"> 启用 </el-button>
                 </template>
             </el-table-column>
-            <!-- 添加操作行 end -->
-    
+          
         </el-table>
    
         // 分页
