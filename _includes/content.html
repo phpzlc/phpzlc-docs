@@ -29,12 +29,18 @@
     background-color: #f9f9fb;
   }
 
-  {% if page.img_all == 1 %}
+    {
+    % if page.img_all==1 %
+  }
+
   #md-content img {
     width: 100%;
     /* max-width: 600px; */
   }
-  {% endif %}
+
+    {
+    % endif %
+  }
 
   pre[class*="language-"] {
     padding: 0;
@@ -109,11 +115,12 @@
     }
 
     .doc-section .title {
-      width: 50%;
+      width: 100%;
     }
 
     .time {
-      width: 50%;
+      width: 100%;
+      text-align: left;
     }
   }
 </style>
