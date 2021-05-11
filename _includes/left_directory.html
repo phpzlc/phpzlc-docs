@@ -192,7 +192,7 @@
           <li class="nav-li-two"><a href="/doc/module/RBAC-business">RBAC权限</a></li>
           <li class="nav-li-two"><a href="/doc/module/auth-business">登录授权</a></li>
           <li class="nav-li-two"><a href="/doc/module/platform-business">平台标识</a></li>
-<!--          <li class="nav-li-two"><a href="/doc/module/sms-business">短信(SMS)</a></li>-->
+          <!--          <li class="nav-li-two"><a href="/doc/module/sms-business">短信(SMS)</a></li>-->
           <li class="nav-li-two"><a href="/doc/module/captcha-business">图形验证码</a></li>
           <li class="nav-li-two"><a href="/doc/module/upload-business">上传业务</a></li>
         </ul>
@@ -219,5 +219,12 @@
   $(".nav-back").click(function () {
     $(".nav").css({ right: "100%" })
     $(".nav").css({ opacity: "0" })
+  })
+
+  $(".nav").click(function (e) {
+    if (e.target.className == "nav") {
+      $(".nav").css({ right: "100%" })
+      $(".nav").css({ opacity: "0" })
+    }
   })
 </script>
