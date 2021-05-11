@@ -316,7 +316,6 @@ composer require phpzlc/admin
    搜索框
    
    ```twig
-   <!-- 搜索框 start -->
        <el-row class="page-search">
            <el-form ref="searchForm" :inline="true" :model="searchForm" label-width="90px" style="margin-left: 10px">
    
@@ -339,12 +338,12 @@ composer require phpzlc/admin
            </el-form>
    
        </el-row>
-       <!-- 搜索框 end -->
+       
    ```
+   
    数据显示
    
    ```twig
-     <!-- 数据显示 start-->
         <el-table :data="listData" style="width: 100%" border class="mt-10">
     
             <el-table-column prop="数据" label="数据"></el-table-column>
@@ -361,16 +360,14 @@ composer require phpzlc/admin
             <!-- 添加操作行 end -->
     
         </el-table>
-        <!-- 分页 start -->
+   
+        // 分页
         <el-col class="mt-20 clearfix">
             <el-pagination class="page" @current-change="handleCurrentChange" @size-change="handleSizeChange"
                            :page-sizes="[20, 60, 100, 200]" :page-size="{{ rows }}" :hide-on-single-page="true" :current-page="{{ page }}"
                            layout="total, sizes, prev, pager, next, jumper" :total="{{ count }}">
             </el-pagination>
         </el-col>
-        <!-- 分页 end -->
-    
-        <!-- 数据显示 end -->
    ```
    
    Vue代码模块
