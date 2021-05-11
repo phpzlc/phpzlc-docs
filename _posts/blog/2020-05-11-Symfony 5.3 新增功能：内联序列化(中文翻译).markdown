@@ -8,7 +8,9 @@ author_no: 1
 img_all: 0
 ---
 
-## 原来博客地址
+## 官方博客原文地址
+
+[New in Symfony 5.3: Inlined Serialization Context](https://symfony.com/blog/new-in-symfony-5-3-inlined-serialization-context)
 
 ## 翻译正文
 
@@ -50,5 +52,3 @@ public \DateTime $date;
 )]
 public \DateTime $date;
 ```
-
-官方博客翻译，如有瑕疵，请评论中指正。
