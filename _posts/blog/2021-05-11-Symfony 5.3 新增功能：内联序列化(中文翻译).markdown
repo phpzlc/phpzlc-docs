@@ -8,7 +8,7 @@ author_no: 1
 img_all: 0
 ---
 
-## 官方博客原文地址
+## 原文地址
 
 [New in Symfony 5.3: Inlined Serialization Context](https://symfony.com/blog/new-in-symfony-5-3-inlined-serialization-context)
 
