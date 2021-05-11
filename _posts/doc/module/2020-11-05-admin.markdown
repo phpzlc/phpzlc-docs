@@ -362,8 +362,8 @@ composer require phpzlc/admin
         // 分页
         <el-col class="mt-20 clearfix">
             <el-pagination class="page" @current-change="handleCurrentChange" @size-change="handleSizeChange"
-                           :page-sizes="[20, 60, 100, 200]" :page-size="{{ rows }}" :hide-on-single-page="true" :current-page="{{ page }}"
-                           layout="total, sizes, prev, pager, next, jumper" :total="{{ count }}">
+                           :page-sizes="[20, 60, 100, 200]" :page-size="" :hide-on-single-page="true" :current-page=""
+                           layout="total, sizes, prev, pager, next, jumper" :total="">
             </el-pagination>
         </el-col>
    ```
