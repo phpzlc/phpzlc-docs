@@ -4,13 +4,13 @@ permalink: doc/module/upload-business
 prev_page: /doc/module/captcha-business
 next_page: /doc/module/vendor
 description_auto: 0
-description: 提供上传文件的接口，文档。
+description: 提供上传文件的接口,文档。
 tags: 上传,upload,upload-business,phpzlc/upload-business
 ---
 
 ## 业务介绍
 
-提供上传文件的接口，文档。
+提供上传文件的接口,文档。
 
 ## 源码地址
 
@@ -73,7 +73,7 @@ sudo chmod -R 777 public/upload/
       controller: App\Controller\Upload\UploadController:upload
    ```
 
-    _如果使用，可以生成查看API文档。[文档知识](/doc/document-bundle)_
+    _如果使用,可以生成查看API文档。[文档知识](/doc/document-bundle)_
     
 2. 上传方法
 
@@ -86,7 +86,7 @@ sudo chmod -R 777 public/upload/
         * @param string $inputName 文件上传name
         * @param null $relatively_path 文件存储相对路径,以public目录为根,不穿默认upload
         * @param int $fileType 文件类型
-        * @param null $save_name 文件存储名称，不传系统随机命名
+        * @param null $save_name 文件存储名称,不传系统随机命名
         * @return array|bool 失败返回false,成功返回文件信息
         */
        public function upload($inputName, $relatively_path = null, $fileType = self::TYPE_IMAGE, $save_name = null)

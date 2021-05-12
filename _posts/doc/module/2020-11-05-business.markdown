@@ -4,13 +4,13 @@ permalink: doc/module/business
 prev_page: /doc/data-fixtures
 next_page: /doc/module/admin-business
 description_auto: 0
-description: 将常用的业务场景打包成可以组件。安装即用，业务代码可以根据需要任意编辑。
+description: 将常用的业务场景打包成可以组件。安装即用,业务代码可以根据需要任意编辑。
 tags: phpzlc,business,业务
 ---
 
 ## 架构定义
 
-将常用的业务场景打包成可以组件。安装即用，业务代码可以根据需要任意编辑。
+将常用的业务场景打包成可以组件。安装即用,业务代码可以根据需要任意编辑。
 
 ## 技术原理
 

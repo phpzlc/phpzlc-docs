@@ -5,12 +5,12 @@ author_no: 2
 prev_page: /doc/module/RBAC-business
 next_page: /doc/module/platform-business
 description_auto: 0
-description: 提供登录，修改密码等基础功能
+description: 提供登录,修改密码等基础功能
 tags: auth,auth-business,phpzlc/auth-business,登录,授权
 ---
 ## 业务介绍
 
-提供登录，修改密码等基础功能
+提供登录,修改密码等基础功能
 
 ## 源码地址
 
