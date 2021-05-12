@@ -49,7 +49,7 @@ captcha:
      controller: App\Controller\Captcha\CaptchaController:generate
    ```
 
-    _如果使用，可以生成查看API文档。[文档知识](/doc/document-bundle)_
+    _如果使用,可以生成查看API文档。[文档知识](/doc/document-bundle)_
 
 2. 验证图像码
 
