@@ -1,3 +1,13 @@
+---
+title: 与SymfonyWorld 2021的首批演讲者会面(中文翻译)
+permalink: /blog/7.html
+description_auto: 0
+description: SymfonyWorld 2021即将推出！我们非常高兴欢迎您参加6月15日至6月18日为期一周的Symfony会议
+tags: symfony,中文翻译
+author_no: 1
+img_all: 0
+---
+
 ## 原文地址
 
 [Meet the first selected speakers of SymfonyWorld 2021](https://symfony.com/blog/meet-the-first-selected-speakers-of-symfonyworld-2021)
