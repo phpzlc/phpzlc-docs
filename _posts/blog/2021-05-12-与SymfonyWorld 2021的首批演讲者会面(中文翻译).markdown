@@ -1,5 +1,5 @@
 ---
-title: 与SymfonyWorld 2021的首批演讲者会面(中文翻译)
+title: SymfonyWorld 2021的首批演讲者会面(中文翻译)
 permalink: /blog/7.html
 description_auto: 0
 description: SymfonyWorld 2021即将推出！我们非常高兴欢迎您参加6月15日至6月18日为期一周的Symfony会议
