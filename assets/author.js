@@ -4,7 +4,8 @@ var authors = {
         "name": "CJayHe",
         "gitHub": "https://github.com/CJayHe",
         "qq": "1044295598",
-        "mailbox": "1044295598@qq.com"
+        "mailbox": "1044295598@qq.com",
+        "avatar": ""
     },
     2: {
         "no": 2,
@@ -18,14 +19,16 @@ var authors = {
         "name" : "Noir",
         "gitHub": "https://github.com/qiesunl",
         "qq": "",
-        "mailbox": ""
+        "mailbox": "",
+        "avatar": ""
     },
     4: {
         "no": 4,
         "name" : "匿名",
         "gitHub": "",
         "qq": "",
-        "mailbox": ""
+        "mailbox": "",
+        "avatar": ""
     }
 };
 
