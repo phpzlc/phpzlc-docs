@@ -1,15 +1,31 @@
 var authors = {
     1: {
         "no": 1,
-        "name": "JayHe"
+        "name": "JayHe",
+        "gitHub": "",
+        "qq": "",
+        "mailbox": ""
     },
     2: {
         "no": 2,
-        "name" : "ExodusHT"
+        "name" : "ExodusHT",
+        "gitHub": "",
+        "qq": "",
+        "mailbox": ""
     },
     3: {
         "no": 3,
-        "name" : "Noir"
+        "name" : "Noir",
+        "gitHub": "",
+        "qq": "",
+        "mailbox": ""
+    },
+    4: {
+        "no": 4,
+        "name" : "匿名",
+        "gitHub": "",
+        "qq": "",
+        "mailbox": ""
     }
 };
 
