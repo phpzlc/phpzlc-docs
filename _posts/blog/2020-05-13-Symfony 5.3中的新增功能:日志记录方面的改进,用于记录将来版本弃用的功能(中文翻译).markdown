@@ -1,0 +1,25 @@
+---
+title: 5.3中的新增功能:日志记录方面的改进,用于记录将来版本弃用的功能(中文翻译)
+permalink: /blog/8.html
+description_auto: 0
+description: 5.3中的新增功能:日志记录方面的改进,用于记录将来版本弃用的功能
+tags: symfony,中文翻译
+author_no: 1
+img_all: 0
+---
+
+## 将弃用记录到单独的文件中
+
+[Symfony的向后兼容性](https://symfony.com/doc/current/contributing/code/bc.html)保证确保您可以在Symfony的次要版本和补丁版本之间更新应用程序，而无需更改代码以使其与新的或更改的Symfony功能一起使用。
+
+该策略的关键是弃用，即过早发出的消息，警告您有关Symfony未来主要版本中将更改/消失的功能。使用[Symfony PHPUnit](https://symfony.com/doc/current/components/phpunit_bridge.html)运行测试时，您会在控制台输出中看到弃用列表。但是，在复杂的应用程序中，此列表太长了，不切实际。
+
+这就是为什么在Symfony 5.3中可以选择在运行测试时将弃用记录到单独的文件中。为此，请使用环境变量的`newlogFile`选项`SYMFONY_DEPRECATIONS_HELPER`：
+
+```text
+SYMFONY_DEPRECATIONS_HELPER='logFile=/path/to/deprecations.log' ./vendor/bin/simple-phpunit
+```
+
+## 原文地址
+
+[New in Symfony 5.3: Logging Improvements](https://symfony.com/blog/new-in-symfony-5-3-logging-improvements)
