@@ -1,8 +1,8 @@
 ---
-title: 5.3中的新增功能:日志记录方面的改进,用于记录将来版本弃用的功能(中文翻译)
+title: Symfony 5.3中的新增功能:日志记录方面的改进,用于记录将来版本弃用的功能(中文翻译)
 permalink: /blog/8.html
 description_auto: 0
-description: 5.3中的新增功能:日志记录方面的改进,用于记录将来版本弃用的功能
+description: Symfony 5.3中的新增功能:日志记录方面的改进,用于记录将来版本弃用的功能
 tags: symfony,中文翻译
 author_no: 1
 img_all: 0
