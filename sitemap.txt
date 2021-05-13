@@ -13,7 +13,9 @@ https://phpzlc.github.io/blog/page3/index.html
 https://phpzlc.github.io/blog/2.html
 https://phpzlc.github.io/blog/page4/index.html
 https://phpzlc.github.io/blog/1.html
+https://phpzlc.github.io/blog/7.html
 https://phpzlc.github.io/blog/page8/index.html
+https://phpzlc.github.io/blog/6.html
 https://phpzlc.github.io/blog/page6/index.html
 https://phpzlc.github.io/blog/page7/index.html
 https://phpzlc.github.io/doc/install.html

@@ -25,10 +25,10 @@ function sitemap()
 
 sitemap sitemap.txt https://phpzlc.github.io
 
-sitemap sitemap-gitee.txt https://phpzlc.gitee.io
+#sitemap sitemap-gitee.txt https://phpzlc.gitee.io
 
 curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.github.io&token=HvZcn9CwVs2MMMVe"
 
-curl -H 'Content-Type:text/plain' --data-binary @sitemap-gitee.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.gitee.io&token=HvZcn9CwVs2MMMVe"
+#curl -H 'Content-Type:text/plain' --data-binary @sitemap-gitee.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.gitee.io&token=HvZcn9CwVs2MMMVe"
 
 
