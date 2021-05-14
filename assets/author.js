@@ -66,7 +66,7 @@ var authors = {
         "qq": "",
         "mailbox": "",
         "avatar": "/assets/images/member/ShiveringPan.jpeg",
-        "description": "内核功能改进",
+        "description": "贡献：内核UUID算法改进",
         "date": "2021-05-14",
         "show": "1",
     }
