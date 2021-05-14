@@ -1,3 +1,9 @@
+// 核心开发者
+var kernelAuthors = [
+    1, 2, 3
+];
+
+// 历史维护者
 var authors = {
     1: {
         "no": 1,
@@ -62,7 +68,7 @@ var authors = {
         "avatar": "/assets/images/member/ShiveringPan.jpeg",
         "description": "内核功能改进",
         "date": "2021-05-14",
-        "show": "1",
+        "show": "0",
     }
 };
 
