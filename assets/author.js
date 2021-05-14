@@ -68,7 +68,7 @@ var authors = {
         "avatar": "/assets/images/member/ShiveringPan.jpeg",
         "description": "内核功能改进",
         "date": "2021-05-14",
-        "show": "0",
+        "show": "1",
     }
 };
 
