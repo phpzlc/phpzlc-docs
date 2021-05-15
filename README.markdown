@@ -8,10 +8,6 @@
 
 MIT License。 
 
-## 使用说明
-
-在Symfony4的基础上构建，用于快速开发Web应用程序。
-
 ### 框架提供
 
 > Symfony开发手册，教程。 
