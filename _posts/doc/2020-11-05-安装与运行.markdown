@@ -47,7 +47,7 @@ composer create-project symfony/website-skeleton:"^4.4" my_project_name
    php bin/console phpzlc:install
    ```
    
-   _由于phpzlc覆盖了一部分symfony内核代码,当之后的composer更新之后导致程序报错，可以优先使用本命令进行修复。_
+   _由于 phpzlc 覆盖了一部分 symfony 内核代码,当使用过程之中由于 composer安装更新包 导致的程序报错，可以优先使用本命令进行修复。_
 
 ## IDE的选择和配置
 
