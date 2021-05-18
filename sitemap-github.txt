@@ -10,8 +10,10 @@ https://phpzlc.github.io/blog/4.html
 https://phpzlc.github.io/blog/8.html
 https://phpzlc.github.io/blog/3.html
 https://phpzlc.github.io/blog/2.html
+https://phpzlc.github.io/blog/11.html
 https://phpzlc.github.io/blog/1.html
 https://phpzlc.github.io/blog/add/index.html
+https://phpzlc.github.io/blog/10.html
 https://phpzlc.github.io/blog/7.html
 https://phpzlc.github.io/blog/6.html
 https://phpzlc.github.io/doc/install.html

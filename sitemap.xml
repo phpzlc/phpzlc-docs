@@ -73,6 +73,12 @@
 <priority>1.0</priority>
 </url>
 <url>
+<loc>https://phpzlc.github.io/blog/11.html</loc>
+<lastmod>2021-05-18</lastmod>
+<changefreq>always</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
 <loc>https://phpzlc.github.io/blog/1.html</loc>
 <lastmod>2021-05-18</lastmod>
 <changefreq>always</changefreq>
@@ -80,6 +86,12 @@
 </url>
 <url>
 <loc>https://phpzlc.github.io/blog/add/index.html</loc>
+<lastmod>2021-05-18</lastmod>
+<changefreq>always</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://phpzlc.github.io/blog/10.html</loc>
 <lastmod>2021-05-18</lastmod>
 <changefreq>always</changefreq>
 <priority>1.0</priority>
