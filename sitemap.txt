@@ -3,6 +3,7 @@ https://phpzlc.github.io/module
 https://phpzlc.github.io/about
 https://phpzlc.github.io/member
 https://phpzlc.github.io/faqs
+https://phpzlc.github.io/blog/9.html
 https://phpzlc.github.io/blog/5.html
 https://phpzlc.github.io/blog/index.html
 https://phpzlc.github.io/blog/4.html
