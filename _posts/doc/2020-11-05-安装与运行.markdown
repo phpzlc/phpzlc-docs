@@ -35,7 +35,9 @@ composer create-project symfony/website-skeleton:"^4.4" my_project_name
 
 ## PHPZlc内核安装
 
-1. 打开项目中`composer.json`文件,将
+1. 启用社区食谱
+
+   打开项目中`composer.json`文件,将
    
    ```js
    "extra": {
@@ -57,13 +59,13 @@ composer create-project symfony/website-skeleton:"^4.4" my_project_name
    }
    ```
 
-2. 下载安装包
+2. 安装phpzlc
 
    ```shell
    composer require phpzlc/phpzlc
    ```
 
-3. 安装命令
+3. 执行安装命令
 
    ```shell
    php bin/console phpzlc:install
