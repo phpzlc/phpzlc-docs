@@ -10,19 +10,13 @@ tags: rbac,rbac-business,权限,phpzlc/rbac-business
 
 ## 业务介绍
 
-简易RBAC 权限业务组件，支持角色，权限，用户。和Symfony路由绑定关系，支持多平台,各个位置皆可使用。
+简易RBAC 权限业务组件,支持角色,权限,用户。和Symfony路由绑定关系,支持多平台,各个位置皆可使用。
 
 ## 源码地址
 
 [phpzlc/rbac-business](https://github.com/phpzlc/RBAC-business)
 
 ## 安装
-
-部署本地食谱服务器(必要的步骤)
-
-部署方式详见: [自托管的 Symfony Flex 服务器](/doc/symfony-flex)
-
-部署他的原因是框架的组件食谱尚未成功合并到官方仓库,未部署配置的话组件无法正常工作。
 
 ```shell
 composer require phpzlc/rbac-business
@@ -51,11 +45,11 @@ composer require phpzlc/rbac-business
    
    _路由配置的时候,上层的`options`设置的参数会在下层的所有路由中生效。_
    
-   _如果两个路由共用一个权限,只要将`permission_tag`设置为一样即可。系统以第一次出现的配置参数为准，后面相同的权限其他参数可忽略。_
+   _如果两个路由共用一个权限,只要将`permission_tag`设置为一样即可。系统以第一次出现的配置参数为准,后面相同的权限其他参数可忽略。_
    
    **场景**
    
-   可以在入口方法处验证路由是否有访问权限，便捷鉴权。
+   可以在入口方法处验证路由是否有访问权限,便捷鉴权。
    
    ```php
    
@@ -160,7 +154,7 @@ _以下效果来自`admin-business`_
    public function setIsSuper($isSuper)
    ```
    
-   _如果是超级管理员，则拥有全部权限。_
+   _如果是超级管理员,则拥有全部权限。_
 
 3. 判断是否有权限
 

@@ -18,12 +18,6 @@ tags: captcha,captcha-business,phpzlc/captcha-business,图形验证码
 
 ## 安装
 
-部署本地食谱服务器(必要的步骤)
-
-部署方式详见: [自托管的 Symfony Flex 服务器](/doc/symfony-flex)
-
-部署他的原因是框架的组件食谱尚未成功合并到官方仓库,未部署配置的话组件无法正常工作。
-
 ```shell
 composer require phpzlc/captcha-business
 ```
@@ -49,7 +43,7 @@ captcha:
      controller: App\Controller\Captcha\CaptchaController:generate
    ```
 
-    _如果使用，可以生成查看API文档。[文档知识](/doc/document-bundle)_
+    _如果使用,可以生成查看API文档。[文档知识](/doc/document-bundle)_
 
 2. 验证图像码
 

@@ -29,9 +29,17 @@
     background-color: #f9f9fb;
   }
 
+    {
+    % if page.img_all==1 %
+  }
+
   #md-content img {
     width: 100%;
     /* max-width: 600px; */
+  }
+
+    {
+    % endif %
   }
 
   pre[class*="language-"] {
@@ -50,6 +58,7 @@
     font-size: 28px;
     line-height: 1.2;
     text-align: left;
+    word-break: break-all;
   }
 
   .time {
@@ -107,11 +116,12 @@
     }
 
     .doc-section .title {
-      width: 50%;
+      width: 100%;
     }
 
     .time {
-      width: 50%;
+      width: 100%;
+      text-align: left;
     }
   }
 </style>

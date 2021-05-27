@@ -1,34 +1,77 @@
 #!/bin/bash
 
-function sitemap()
+urls=();
+
+function setUrls()
+{
+  urls=();
+
+  urls+=("$1" "$1/module" "$1/about"  "$1/member" "$1/faqs")
+
+  for file in `find _site/blog -name '*.html'`
+  do
+    url=${file/_site/$1}
+
+    if !([[ $url =~ 'page' ]])
+    then
+       urls+=($url)
+    fi
+  done
+
+  for file in `find _site/doc -name '*.html'`
+  do
+    urls+=(${file/_site/$1})
+  done
+}
+
+function siteMapBaiduApi()
 {
     rm -f $1
 
-    echo $2 >> $1
+    setUrls $2
 
-    echo $2/module >> $1
-
-    echo $2/about >> $1
-
-    echo $2/member >> $1
-
-    echo $2/faqs >> $1
-
-    find _site/blog -name '*.html' -type f -print0 | while IFS= read -r -d $'\0' file;
-        do echo ${file/_site/$2} >> $1
-    done
-
-    find _site/doc -name '*.html' -type f -print0 | while IFS= read -r -d $'\0' file;
-        do echo ${file/_site/$2} >> $1
+    for url in ${urls[@]}
+    do
+      echo $url >> $1
     done
 }
 
-sitemap sitemap.txt https://phpzlc.github.io
+function siteMap()
+{
+  cur_date="`date +%Y-%m-%d`"
 
-sitemap sitemap-gitee.txt https://phpzlc.gitee.io
+  rm -f $1
 
-curl -H 'Content-Type:text/plain' --data-binary @sitemap.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.github.io&token=HvZcn9CwVs2MMMVe"
+  setUrls $2
 
-curl -H 'Content-Type:text/plain' --data-binary @sitemap-gitee.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.gitee.io&token=HvZcn9CwVs2MMMVe"
+  echo '<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> $1
 
+  for url in ${urls[@]}
+  do
+    echo '<url>
+<loc>'$url'</loc>
+<lastmod>'$cur_date'</lastmod>
+<changefreq>always</changefreq>
+<priority>1.0</priority>
+</url>' >> $1
+  done
 
+  echo '</urlset>' >> $1
+}
+
+# siteMap
+
+siteMap sitemap.xml https://phpzlc.github.io
+
+## github
+
+siteMapBaiduApi sitemap-github.txt https://phpzlc.github.io
+
+curl -H 'Content-Type:text/plain' --data-binary @sitemap-github.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.github.io&token=HvZcn9CwVs2MMMVe"
+
+## gitee
+
+#siteMapBaiduApi sitemap-gitee.txt https://phpzlc.gitee.io
+
+#curl -H 'Content-Type:text/plain' --data-binary @sitemap-gitee.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.gitee.io&token=HvZcn9CwVs2MMMVe"

@@ -1,0 +1,54 @@
+---
+title: Symfony 5.3 新增功能：内联序列化(中文翻译)
+permalink: /blog/6.html
+description_auto: 0
+description: Symfony 5.3 新增功能：内联序列化(中文翻译)
+tags: symfony,serializer,内联序列化,中文翻译
+author_no: 1
+img_all: 0
+---
+
+## 原文地址
+
+[New in Symfony 5.3: Inlined Serialization Context](https://symfony.com/blog/new-in-symfony-5-3-inlined-serialization-context)
+
+## 翻译正文
+
+为 Serializer 组件提供了一种新的机制,用于配置数据在 serialize(序列化)/deserialize(反序列化) 过程中的执行方式。
+
+在 Symfony5.3 中,我们改进了序列化程序,增加了新的注释 Serializer\Context。您可以通过在属性上定义注释的形式,将配置信息传递到程序中。
+
+例如,要定义某些日期时间属性的格式,请使用以下代码：
+
+```php
+use Symfony\Component\Serializer\Annotation as Serializer;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+
+class SomeClass
+{
+    /**
+     * @Serializer\Context({ DateTimeNormalizer::FORMAT_KEY = 'Y-m-d' })
+     */
+    public \DateTime $date;
+
+    // In PHP 8 applications you can use PHP attributes instead:
+    #[Serializer\Context([DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'])]
+    public \DateTime $date;
+}
+```
+
+annotation/attribute 支持 normalization(标准化)/denormalization(非标准化) 的形式来定义,并且还可以定义序列化组：
+
+```php
+#[Serializer\Context(
+    normalizationContext: [DateTimeNormalizer::FORMAT_KEY => 'Y-m-d'],
+    denormalizationContext: [DateTimeNormalizer::FORMAT_KEY => \DateTime::COOKIE]
+)]
+public \DateTime $date;
+
+#[Serializer\Context(
+    normalizationContext: [DateTimeNormalizer::FORMAT_KEY => \DateTime::RFC3339],
+    groups: ['extended']
+)]
+public \DateTime $date;
+```

@@ -5,24 +5,18 @@ author_no: 2
 prev_page: /doc/module/RBAC-business
 next_page: /doc/module/platform-business
 description_auto: 0
-description: 提供登录，修改密码等基础功能
+description: 提供登录,修改密码等基础功能
 tags: auth,auth-business,phpzlc/auth-business,登录,授权
 ---
 ## 业务介绍
 
-提供登录，修改密码等基础功能
+提供登录,修改密码等基础功能
 
 ## 源码地址
 
 [phpzlc/auth-business](https://github.com/phpzlc/auth-business)
 
 ## 安装
-
-部署本地食谱服务器(必要的步骤)
-
-部署方式详见: [自托管的 Symfony Flex 服务器](/doc/symfony-flex)
-
-部署他的原因是框架的组件食谱尚未成功合并到官方仓库,未部署配置的话组件无法正常工作。
 
 ```shell
 composer require phpzlc/auth-business

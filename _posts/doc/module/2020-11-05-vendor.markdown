@@ -4,13 +4,13 @@ permalink: doc/module/vendor
 prev_page: /doc/module/upload-business
 next_page: /doc/module/admin
 description_auto: 0
-description: 正常的Composer包，其代码安装之后不允许修改。提供高度封装的原子性功能。
+description: 正常的Composer包,其代码安装之后不允许修改。提供高度封装的原子性功能。
 tags: symfony,phpzlc,vender,功能
 ---
 
 ## 架构定义
 
-正常的Composer包，其代码安装之后不允许修改。提供高度封装的原子性功能。
+正常的Composer包,其代码安装之后不允许修改。提供高度封装的原子性功能。
 
 ## 技术原理
 
