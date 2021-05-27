@@ -83,34 +83,50 @@ function getAuthor(no, key) {
 function setAuthor() {
   var no;
   var name;
+  var role;
   var github;
+  var starUrl;
   var qq;
   var mailbox;
   var avatar;
+  var description;
+  var date;
+  var show;
 
   var html = '';
 
   for (let key in authors) {
-    no = authors[key].no;
-    name = authors[key].name;
-    github = authors[key].github;
-    qq = authors[key].qq;
-    mailbox = authors[key].mailbox;
-    avatar = authors[key].avatar;
+    if (authors[key].show == 0) {
 
-    html += `
-    <a href="${github}">
-      <img class="img-p" src="/assets/images/member/CJayHe.jpeg" alt="">
-      <div class="user-detail">
-        <span class="span-p">${name}</span>
-        <span class="span-p">作者</span>
-        <span class="span-p">2019-11-12</span>
-        <img class="img-p-2" src="https://img.shields.io/github/stars/CJayHe?style=social" alt="" />
-        <span class="span-con">贡献：框架作者、发起者、推动者</span>
-      </div>
-    </a>
-    `
+    } else {
+      no = authors[key].no;
+      name = authors[key].name;
+      role = authors[key].role;
+      github = authors[key].gitHub;
+      starUrl = authors[key].starUrl;
+      qq = authors[key].qq;
+      mailbox = authors[key].mailbox;
+      avatar = authors[key].avatar;
+      description = authors[key].description;
+      date = authors[key].date;
+      show = authors[key].show;
+      html = `
+      <a href="${github}">
+        <img class="img-p" src="${avatar}" alt="">
+        <div class="user-detail">
+          <span class="span-p">${name}</span>
+          <span class="span-p">${role}</span>
+          <span class="span-p">${date}</span>
+          <img class="img-p-2" src="${starUrl}" alt="" />
+          <span class="span-con">${description}</span>
+        </div>
+      </a>` + html
+    }
   }
+
+  $("#authors").append(html);
 }
 
-setAuthor();
+$(function () {
+  setAuthor();
+})
