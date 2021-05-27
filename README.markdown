@@ -8,10 +8,6 @@
 
 MIT License。 
 
-## 使用说明
-
-在Symfony4的基础上构建，用于快速开发Web应用程序。
-
 ### 框架提供
 
 > Symfony开发手册，教程。 
@@ -123,8 +119,6 @@ QQ群 ([645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG))
 > 微信赞赏码
 
 ![微信支付付款码](/assets/images/pay/wechat-1.png)
-
-
 
 
 

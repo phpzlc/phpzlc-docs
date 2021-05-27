@@ -1518,6 +1518,10 @@ select {
 }
 
 @media (max-width: 1199px) {
+  /*.qun {*/
+  /*  display: none;*/
+  /*}*/
+
   /* 文档页面 */
 
   /* 头部 */
