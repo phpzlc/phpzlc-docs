@@ -80,6 +80,7 @@ function getAuthor(no, key) {
   return authors[no][key];
 }
 
+// 渲染历史贡献者
 function setAuthor() {
   var no;
   var name;
@@ -92,13 +93,9 @@ function setAuthor() {
   var description;
   var date;
   var show;
-
   var html = '';
-
   for (let key in authors) {
-    if (authors[key].show == 0) {
-
-    } else {
+    if (authors[key].show == 0) { } else {
       no = authors[key].no;
       name = authors[key].name;
       role = authors[key].role;
@@ -123,10 +120,32 @@ function setAuthor() {
       </a>` + html
     }
   }
-
   $("#authors").append(html);
 }
 
+// 渲染核心维护者成员
+function setCore() {
+  var html2 = '';
+  for (let i = 1; i <= kernelAuthors.length; i++) {
+    var github2 = authors[i].gitHub;
+    var avatar2 = authors[i].avatar;
+    var name2 = authors[i].name;
+    var role2 = authors[i].role;
+    var starUrl2 = authors[i].starUrl;
+    html2 += `
+    <a href="${github2}" class="author-2">
+          <img class="author-img" src="${avatar2}" alt="">
+          <div class="author-right">
+            <p>名称：<span>${name2}</span></p>
+            <p>角色：<span>${role2}</span></p>
+            <img src="${starUrl2}" alt="" />
+          </div>
+        </a>`
+  }
+  $("#core").append(html2);
+}
+
 $(function () {
+  setCore();
   setAuthor();
 })
