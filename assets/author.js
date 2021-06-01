@@ -72,11 +72,7 @@ var authors = {
   }
 };
 
-function getAuthor(no, key) {
-  if (key == undefined) {
-    key = 'name';
-  }
-
+function getAuthor(no) {
   return authors[no]?.name;
 }
 
