@@ -77,7 +77,7 @@ function getAuthor(no, key) {
     key = 'name';
   }
 
-  return authors[no][key];
+  return authors[no]?.name;
 }
 
 // 渲染历史贡献者
