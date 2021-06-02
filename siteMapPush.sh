@@ -66,7 +66,7 @@ siteMap sitemap.xml https://phpzlc.github.io
 
 ## github
 
-siteMapBaiduApi sitemap-github.txt https://phpzlc.github.io
+siteMapBaiduApi sitemap-github.txt https://phpzlc.com
 
 curl -H 'Content-Type:text/plain' --data-binary @sitemap-github.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.github.io&token=HvZcn9CwVs2MMMVe"
 
