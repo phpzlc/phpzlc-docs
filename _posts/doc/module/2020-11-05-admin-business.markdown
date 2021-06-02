@@ -211,47 +211,19 @@ sudo chmod -R 777 public/upload/
 aitime 123456
 ```
 
-## 组件基础功能
 
-1. 管理端首页
-
-   ```php
-   public function index()
-   ```
+ ## 仪表盘
    
    ![首页](/assets/posts/admin-business/index.png)
    
-2. 时间选择控件筛选
+ ## 列表页 
+ 
+   ![列表页](/assets/posts/admin-business/list.png) 
    
-   ```php
-   private function atSearch($at, $field)
-   ```
-   
-3. 管理端登录
-   
-   ```php
-   public function login(Request $request)
-   ```
-   
-   ![登录](/assets/posts/admin-business/login.png)
-   
-4. 管理端退出登录
+ ## 新增/编辑页面
 
-   ```php
-   public function logout()
-   ```
-   
-   ![退出登录](/assets/posts/admin-business/logout.png)
-   
-5. 修改密码
-
-   ```php
-   public function editPassword(Request $request)
-   ```
-   
-   ![修改密码](/assets/posts/admin-business/changePassword.png)
-   
-   
+   ![新建/编辑页](/assets/posts/admin-business/page.png)
+    
 ## 权限功能
 
    本框架提供一套标准化的权限功能[RBAC](/doc/module/RBAC-business)
