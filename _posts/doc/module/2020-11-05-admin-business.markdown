@@ -30,7 +30,10 @@ php bin/console doctrine:schema:update --force
 
 ## 配置
 
+> 路由配置
+
 在项目根路由中config/routes.yaml引入
+
 ```yaml
 admin:
   resource: "routing/admin/admin.yaml"
@@ -47,12 +50,11 @@ captcha:
   prefix:   /captcha
 ```
 
+> 代码配置
 
-## 代码配置
+   **平台注册**
 
-> 平台注册
-
-文件位置: `config/packages/phpzlc-platform-business.yaml`
+   文件位置: `config/packages/phpzlc-platform-business.yaml`
 
 ```yaml
   # 平台 - 后台
@@ -63,10 +65,9 @@ captcha:
     '%platform_admin%': 后台
 ```
 
+   **操作主体注册**
 
-> 操作主体注册
-
-文件位置: `config/packages/phpzlc-auth-business.yaml`
+   文件位置: `config/packages/phpzlc-auth-business.yaml`
 
 ```yaml
   # 操作主体- 管理员
@@ -77,9 +78,9 @@ captcha:
     '%subject_admin%': 管理员
 ```
 
-> 登录标记代码注入 
+   **登录标记代码注入**
 
-文件位置: `src/Business/AuthBusiness/AuthTag.php`
+   文件位置: `src/Business/AuthBusiness/AuthTag.php`
 
 ```php
     /**
@@ -151,9 +152,9 @@ captcha:
     }
 ```
 
-> 登录类引入
+   **登录类引入**
 
-文件位置: `src/Business/AuthBusiness/UserAuthBusiness.php`
+   文件位置: `src/Business/AuthBusiness/UserAuthBusiness.php`
 
 ```php
     /**
@@ -180,16 +181,16 @@ captcha:
     }
 ```
 
-## README.md 补充
+> README.md 补充
 
-> php.ini
+   **php.ini**
 
 ```apacheconfig
 upload_max_filesize = 1024M
 post_max_size = 1024M
 ```
 
-> nginx
+   **nginx**
 
 ```apacheconfig
 client_max_body_size     1024M;
@@ -198,18 +199,19 @@ proxy_read_timeout       9000s;
 proxy_send_timeout       9000s;
 ```
 
-> 文件夹权限
+   **文件夹权限**
 
 ```shell
 sudo chmod -R 777 public/upload/
 ```
 
-## 后台超级管理员账号密码
+> 后台超级管理员账号密码
 
 ```text
 aitime 123456
 ```
 
+## 组件基础功能
 
 1. 管理端首页
 
@@ -250,13 +252,14 @@ aitime 123456
    ![修改密码](/assets/posts/admin-business/changePassword.png)
    
    
-6. 权限功能
+## 权限功能
 
    本框架提供一套标准化的权限功能[RBAC](/doc/module/RBAC-business)
 
-   **页面鉴权**
+1. 对路由进行权限校验   
    
    需要在AdminController层中调用此方法
+   
    ```php
    //对路由进行权限校验
    if(!$this->rbac->canRoute($this->get('request_stack')->getCurrentRequest()->get('_route'))){
@@ -266,13 +269,15 @@ aitime 123456
             return $this->render('@PHPZlcAdmin/page/no_permission.html.twig');
        }
    }
+   ```
+2. 对菜单进行权限筛选
    
+   ```php
    //对菜单进行权限筛选
    $this->adminStrategy->setMenus($this->rbac->menusFilter($this->adminStrategy->getMenus()));
     ```
-   
-   **控制器鉴权**
-   
+3. 判断是否拥有权限 
+
    ```php
    $rbac = new RBACBusiness(ContainerInterface $container, $platform = null);
    $rbac->setIsSuper($isSuper);
