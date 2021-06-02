@@ -1158,21 +1158,24 @@ text-shadow: none;
 
 .qun {
   position: fixed;
-  top: 50%;
+  top: 40%;
   right: 60px;
-  width: 50px;
+  width: 40px;
   /* height: 50px; */
 }
 .qun a {
   display: block;
-  width: 50px;
+  width: 40px;
   /* height: 50px; */
 }
 .qun a img {
   display: block;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   box-sizing: border-box;
+}
+.qun .a-2 {
+  margin-top: 10px;
 }
 .qun a p {
   padding-top: 5px;
