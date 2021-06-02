@@ -212,15 +212,15 @@ aitime 123456
 ```
 
 
- ## 仪表盘
+## 仪表盘
    
    ![首页](/assets/posts/admin-business/index.png)
    
- ## 列表页 
+## 列表页 
  
    ![列表页](/assets/posts/admin-business/list.png) 
    
- ## 新增/编辑页面
+## 新增/编辑页面
 
    ![新建/编辑页](/assets/posts/admin-business/page.png)
     
