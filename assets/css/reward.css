@@ -120,20 +120,20 @@ button.close {
   line-height: 30px;
 }
 
-.zs-modal-head .author {
+.zs-modal-head .author_zs {
   padding-top: 15px;
   display: block;
 }
-.zs-modal-head .author a {
+.zs-modal-head .author_zs a {
   color: #333;
   text-decoration: none;
 }
 
-.zs-modal-head .author a:hover {
+.zs-modal-head .author_zs a:hover {
   text-decoration: none;
 }
 
-.zs-modal-head .author img {
+.zs-modal-head .author_zs img {
   margin-right: 5px;
   display: inline;
 }
