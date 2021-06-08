@@ -190,7 +190,7 @@ composer require phpzlc/admin
    public function setHendCode(string $hend_code)
    ```
 
-   ##设置面包线
+   ## 设置面包线
 
    在需要设置面包线的页面调用此方法,我们提供了两种不同模式的面包线的设置方法
    
@@ -206,7 +206,7 @@ composer require phpzlc/admin
    $this->adminStrategy->setNavigations(array $navigations)
    ```
    
-   ##模式切换
+   ## 模式切换
 
    本框架提供两种后台页面模式,这两种模式可以进行切换,简单模式的导航菜单最多三级菜单的显示效果,比较简单,复杂模式的导航菜单能够显示三级以上的菜单,能够处理比较
    复杂的后台页面.
@@ -231,7 +231,7 @@ composer require phpzlc/admin
    
    ![简单模式](/assets/posts/admin/model_simple.png)
    
-   ##设置导航菜单##   
+   ## 设置导航菜单   
    
    我们将要显示的导航菜单根据它的层级设置一个多维数组$menus,然后调用
    
@@ -253,7 +253,7 @@ composer require phpzlc/admin
    ```
 
 
-    ##页面技术栈
+    ## 页面技术栈
 
     [Vue.js](https://cn.vuejs.org/)
     
@@ -263,7 +263,7 @@ composer require phpzlc/admin
     
     [Font图表库](https://fontawesome.dashgame.com/)
     
-   ##仪表盘基本写法
+   ## 仪表盘基本写法
 
    **页面层**
    
@@ -347,7 +347,7 @@ composer require phpzlc/admin
    ```
    ![数据统计表](/assets/posts/admin/data_cart.png)
    
-  ##列表页面基本写法
+  ## 列表页面基本写法
    
    **页面层**
    
@@ -454,7 +454,7 @@ composer require phpzlc/admin
    
    ![效果](/assets/posts/admin/index.png)
    
-   ##编辑页面基本写法
+   ## 编辑页面基本写法
    
    **页面层**
    
@@ -606,7 +606,7 @@ composer require phpzlc/admin
    更多控件请点击[ElementUI](https://element.eleme.io/#/zh-CN/component/installation)
    
    
-   ##导入功能基本写法
+   ## 导入功能基本写法
 
    导入导出功能需要[phpoffice/phpspreadsheet](https://packagist.org/packages/phpoffice/phpspreadsheet)
    
@@ -711,7 +711,7 @@ composer require phpzlc/admin
    }
    ```
    
-   ##导出功能基本写法
+   ## 导出功能基本写法
 
    **页面层**
    
