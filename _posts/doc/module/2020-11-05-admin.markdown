@@ -252,8 +252,7 @@ composer require phpzlc/admin
      ]);
    ```
 
-
-  ## 页面技术栈
+   ## 页面技术栈
 
     [Vue.js](https://cn.vuejs.org/)
     
@@ -347,7 +346,7 @@ composer require phpzlc/admin
    ```
    ![数据统计表](/assets/posts/admin/data_cart.png)
    
-  ## 列表页面基本写法
+   ## 列表页面基本写法
    
    **页面层**
    
