@@ -103,8 +103,10 @@
 <script type="text/javascript" src="/assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>
 <script type="text/javascript">
   $(function () {
-    $("#a_local_url").text(window.location.href);
-    $("#a_local_url").attr({ href: window.location.href });
+    $("#a_local_url").text(localBaseUrl());
+    $("#a_local_url").attr({ href: localBaseUrl() });
+
+
     var date = new Date();
     var year = date.getFullYear();
     $('#copyright-year').text(year);
@@ -122,5 +124,10 @@
     $('.author').each(function () {
       $(this).html('作者：' + getAuthor($(this).data('id')));
     });
+
+    function localBaseUrl()
+    {
+        return location.protocol + '//' + location.host + location.pathname
+    }
   })
 </script>
