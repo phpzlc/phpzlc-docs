@@ -253,7 +253,7 @@ composer require phpzlc/admin
    ```
 
 
-    ## 页面技术栈
+  ## 页面技术栈
 
     [Vue.js](https://cn.vuejs.org/)
     
