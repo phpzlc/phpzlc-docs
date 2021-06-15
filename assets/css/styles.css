@@ -1571,4 +1571,17 @@ select {
   .pagination .page-link {
     font-size: 12px;
   }
+
+  .community-slack {
+    line-height: 21px;
+  }
+}
+
+.community-slack {
+  display: block;
+  padding-left: 12px;
+}
+
+.community-ul {
+  overflow: hidden;
 }
