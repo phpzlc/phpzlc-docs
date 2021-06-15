@@ -214,14 +214,20 @@ aitime 123456
 
 ## 仪表盘
    
+   [如何编写仪表盘页面](https://phpzlc.com/doc/module/admin#%E4%BB%AA%E8%A1%A8%E7%9B%98%E5%9F%BA%E6%9C%AC%E5%86%99%E6%B3%95)
+   
    ![首页](/assets/posts/admin-business/index.png)
    
 ## 列表页 
- 
+   
+   [如何编写列表页](https://phpzlc.com/doc/module/admin#%E5%88%97%E8%A1%A8%E9%A1%B5%E9%9D%A2%E5%9F%BA%E6%9C%AC%E5%86%99%E6%B3%95)
+   
    ![列表页](/assets/posts/admin-business/list.png) 
    
 ## 新增/编辑页面
-
+   
+   [如何编写新建/编辑页](https://phpzlc.com/doc/module/admin#%E7%BC%96%E8%BE%91%E9%A1%B5%E9%9D%A2%E5%9F%BA%E6%9C%AC%E5%86%99%E6%B3%95)
+   
    ![新建/编辑页](/assets/posts/admin-business/page.png)
     
 ## 权限功能
