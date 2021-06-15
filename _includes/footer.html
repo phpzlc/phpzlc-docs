@@ -25,7 +25,9 @@
         </li>
         <li class="li-1 li-community">
           <p>社区支持</p>
-          <ul>
+          <span class="community-slack"><a
+              href="https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g">点击加入Slack社区</a></span>
+          <ul class="community-ul">
             <li class="li-code">
               <div>
                 <img src="/assets/images/qq-qun.png">
@@ -125,9 +127,8 @@
       $(this).html('作者：' + getAuthor($(this).data('id')));
     });
 
-    function localBaseUrl()
-    {
-        return location.protocol + '//' + location.host + location.pathname;
+    function localBaseUrl() {
+      return location.protocol + '//' + location.host + location.pathname;
     }
   })
 </script>
