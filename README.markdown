@@ -84,6 +84,8 @@ QQ群 ([645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG))
 
 ![](/assets/images/qq-qun.png)
 
+Slack社区 ([加入我们](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g))
+
 ## 联系我们
 
 邮箱: 1044295598.qq.com
