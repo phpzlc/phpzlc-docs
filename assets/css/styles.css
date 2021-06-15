@@ -1573,12 +1573,12 @@ select {
   }
 
   .community-slack {
+    display: block;
     line-height: 21px;
   }
 }
 
 .community-slack {
-  display: block;
   padding-left: 12px;
 }
 
