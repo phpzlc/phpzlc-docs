@@ -1,7 +1,7 @@
 !/bin/bash
 
 cd ../
-echo -e "\ngit pull"
+echo -e "\ngit pull\n"
 /usr/bin/git pull 2>&1
-echo -e "\njekyll build"
+echo -e "\nJekyll build\n"
 /usr/local/bin/jekyll build --trace
