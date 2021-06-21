@@ -3,3 +3,6 @@
 cd ../
 echo -e "\ngit pull\n"
 /usr/bin/git pull 2>&1
+echo -e "\nJekyll build --trace\n"
+/usr/local/bin/jekyll build --trace
+echo -e "\nOK\n"
