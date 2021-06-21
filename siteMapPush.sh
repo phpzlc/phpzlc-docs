@@ -62,16 +62,10 @@ function siteMap()
 
 # siteMap
 
-siteMap sitemap.xml https://phpzlc.github.io
+siteMap sitemap.xml https://phpzlc.com
 
 ## github
 
 siteMapBaiduApi sitemap-github.txt https://phpzlc.com
 
 curl -H 'Content-Type:text/plain' --data-binary @sitemap-github.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.github.io&token=HvZcn9CwVs2MMMVe"
-
-## gitee
-
-#siteMapBaiduApi sitemap-gitee.txt https://phpzlc.gitee.io
-
-#curl -H 'Content-Type:text/plain' --data-binary @sitemap-gitee.txt "http://data.zz.baidu.com/urls?site=https://phpzlc.gitee.io&token=HvZcn9CwVs2MMMVe"
