@@ -6,4 +6,9 @@
  */
 echo '<pre>';
 
-echo shell_exec('sudo -u zlc bash ../deploy.sh');
+$res = null;
+$put = null;
+
+echo exec('sudo -u zlc bash ../deploy.sh', $put, $res);
+
+print_r($put);
