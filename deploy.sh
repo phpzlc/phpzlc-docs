@@ -6,4 +6,5 @@ echo -e "git pull"
 echo -e "\njekyll build"
 jekyll build
 echo -e "\n执行权限"
-chmod +x ./deploy.sh
+pwd
+chmod 777 ./deploy.sh
