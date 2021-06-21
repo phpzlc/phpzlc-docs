@@ -50,13 +50,9 @@ composer 2 (推荐)
 
 ## 官网+文档
 
-国际站: [https://phpzlc.github.io/](https://phpzlc.github.io/)
+官网: [https://phpzlc.com](https://phpzlc.com)
 
 GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
-
-国内站: [https://phpzlc.gitee.io/](https://phpzlc.gitee.io/)
-
-GitEe首页: [https://gitee.com/phpzlc/](https://gitee.com/phpzlc/)
 
 演示项目: [https://github.com/phpzlc/demo-blog](https://github.com/phpzlc/demo-blog)
 
