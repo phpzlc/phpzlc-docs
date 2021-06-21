@@ -1,7 +1,9 @@
 !/bin/bash
+
 cd ../
 echo -e "git pull"
 /usr/bin/git pull 2>&1
-echo -e "\n\代码生成"
+echo -e "\njekyll build"
 jekyll build
-echo -e "\n\build ok"
+echo -e "\n执行权限"
+chmod +x ./deploy.sh
