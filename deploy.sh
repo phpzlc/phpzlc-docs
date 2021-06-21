@@ -1,6 +1,6 @@
 !/bin/bash
 
-cd ./
+cd ../
 echo -e "pwd"
 pwd
 echo -e "\ngit pull"
