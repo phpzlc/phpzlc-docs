@@ -8,4 +8,4 @@ echo '<pre>';
 
 echo shell_exec('sudo -u zlc bash ../deploy.sh');
 
-sleep(20);
+sleep(10);
