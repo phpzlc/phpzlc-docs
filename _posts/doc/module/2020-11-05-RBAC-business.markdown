@@ -170,7 +170,7 @@ _以下效果来自`admin-business`_
    public function can($permissions, $model = 'and', UserAuth $userAuth = null)
    ```
 
-3. 判断是否有访问路遇的权限
+3. 判断是否有访问路由的权限
 
    ```php
    /**

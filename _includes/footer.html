@@ -24,8 +24,9 @@
           </ul>
         </li>
         <li class="li-1 li-community">
-          <p>社区支持</p>
-          <ul>
+          <p>社区支持<span class="community-slack"><a href="/blog/13.html">建立集中高效的开源社区，PHPZlc 核心活动场所 Slack</a></span></p>
+          <!-- <span class="community-slack"><a href="/blog/13.html">建立集中高效的开源社区，PHPZlc 核心活动场所 Slack</a></span> -->
+          <ul class="community-ul">
             <li class="li-code">
               <div>
                 <img src="/assets/images/qq-qun.png">
@@ -125,9 +126,8 @@
       $(this).html('作者：' + getAuthor($(this).data('id')));
     });
 
-    function localBaseUrl()
-    {
-        return location.protocol + '//' + location.host + location.pathname;
+    function localBaseUrl() {
+      return location.protocol + '//' + location.host + location.pathname;
     }
   })
 </script>
