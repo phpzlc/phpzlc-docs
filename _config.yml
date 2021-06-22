@@ -1,4 +1,4 @@
-destination: ./_site
+destination: ./build
 
 plugins: [jekyll-paginate]
 paginate: 5
