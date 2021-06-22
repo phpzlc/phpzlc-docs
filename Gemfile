@@ -9,4 +9,5 @@ gem "jekyll"
 group :jekyll_plugins do
   gem 'hawkins'
   gem 'jekyll-paginate'
+  gem 'kramdown-parser-gfm'
 end
