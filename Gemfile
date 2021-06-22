@@ -8,6 +8,8 @@ gem "jekyll"
 # gem "github-pages", "~> 209", group: :jekyll_plugins
 group :jekyll_plugins do
   gem 'hawkins'
+  gem 'gulp'
+  gem 'gulp-postcss'
   gem 'jekyll-postcss'
   gem 'jekyll-paginate'
 end
