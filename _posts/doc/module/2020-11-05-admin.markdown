@@ -181,11 +181,13 @@ composer require phpzlc/admin
    ```
    
 12. 设置管理员登录头像
+
    ```php
    public function setAdminAvatar(string $admin_avatar)
    ```
 
 13. 设置定制页面head
+
    ```php
    public function setHendCode(string $hend_code)
    ```
