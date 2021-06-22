@@ -53,15 +53,15 @@ composer require phpzlc/admin
    ```
 
 
-2. AdminStrategy类
+## AdminStrategy类
 
    该类用于处理后台管理系统页面上呈现的基础数据,例如：导航菜单,登录,退出登录,背景图等
    
     ```php
     //菜单
             $menus = [
-                new Menu('首页', null, null, null, null, [
-                    new Menu('首页', null, null, null, null)
+                new Menu($title, $ico, $tag, $url, $url_target, [
+                    new Menu($title, $ico, $tag, $url, $url_target, $childs = array())
                 ])
             ];
     
@@ -93,7 +93,7 @@ composer require phpzlc/admin
                         ->setLoginLackGroundImg('public/image/200.png');
     ```
 
-   设置锚点url
+1. 设置锚点url
    
    **场景**
    
@@ -103,7 +103,7 @@ composer require phpzlc/admin
    public function setUrlAnchor()
    ```
    
-   设置页面标记
+2. 设置页面标记
    
    $tag 需要在每个控制器层去定义一个string类型的标记标记名称,并且在设置导航菜单的tag参数中写入设置的标记名称,这样
    在生成导航菜单的时候,设置的页面标记就会标记在该导航菜单上.
@@ -112,13 +112,13 @@ composer require phpzlc/admin
    public function setPageTag($tag)
    ```
 
-   设置后台标题
+3. 设置后台标题
    
    ```php
    public function setTitle($title)
    ```
 
-   设置后台favicon_ico图标
+4. 设置后台favicon_ico图标
    
    $favicon_ico 地址为图片的相对位置
    
@@ -126,7 +126,7 @@ composer require phpzlc/admin
    public function setFaviconIco($favicon_ico)
    ```
 
-   设置后台logo
+5. 设置后台logo
    
    $logo 地址为图片的相对位置
    
@@ -134,7 +134,7 @@ composer require phpzlc/admin
    public function setLogo($logo)
    ```
 
-   设置后台入口URL
+6. 设置后台入口URL
    
    $entrance_url 可以使用$this->generateUrl(string $route)方法进行生成,$route是在yaml中设置的路由名称
 
@@ -142,7 +142,7 @@ composer require phpzlc/admin
    public function setEntranceUrl($entrance_url)
    ```
    
-   设置后台出口URL
+7. 设置后台出口URL
    
    $end_url 可以使用$this->generateUrl(string $route)方法进行生成,$route是在yaml中设置的路由名称
    
@@ -150,7 +150,7 @@ composer require phpzlc/admin
    public function setEndUrl($end_url)
    ```
 
-   设置密码修改页面url
+8. 设置密码修改页面url
    
    $setting_pwd_url 可以使用$this->generateUrl(string $route)方法进行生成,$route是在yaml中设置的路由名称
 
@@ -158,7 +158,7 @@ composer require phpzlc/admin
    public function setSettingPwdUrl($setting_pwd_url)
    ```
 
-   设置清除缓存API地址url
+9. 设置清除缓存API地址url
    
    $clear_cache_api_url 可以使用$this->generateUrl(string $route)方法进行生成,$route是在yaml中设置的路由名称
 
@@ -166,13 +166,13 @@ composer require phpzlc/admin
    public function setClearCacheApiUrl(string $clear_cache_api_url)
    ```
 
-   设置管理员角色名称
+10. 设置管理员角色名称
    
    ```php
    public function setAdminRoleName($admin_role_name)
    ```
    
-   设置登陆页面背景图片
+11. 设置登陆页面背景图片
    
    $login_lack_ground_img 地址为图片的相对位置
    
@@ -180,12 +180,12 @@ composer require phpzlc/admin
    public function setLoginLackGroundImg(string $login_lack_ground_img)
    ```
    
-   设置管理员登录头像
+12. 设置管理员登录头像
    ```php
    public function setAdminAvatar(string $admin_avatar)
    ```
 
-   设置定制页面head
+13. 设置定制页面head
    ```php
    public function setHendCode(string $hend_code)
    ```
@@ -194,13 +194,13 @@ composer require phpzlc/admin
 
    在需要设置面包线的页面调用此方法,我们提供了两种不同模式的面包线的设置方法
    
-   第一种
+   第一种 在原有的面包线上添加面包线
    
    ```php
    $this->adminStrategy->addNavigation(new Navigation($title, $url = ''));
    ```
    
-   第二种
+   第二种 初始化面包线
    
    ```php
    $this->adminStrategy->setNavigations(array $navigations)
@@ -208,19 +208,17 @@ composer require phpzlc/admin
    
    ## 模式切换
 
-   本框架提供两种后台页面模式,这两种模式可以进行切换,简单模式的导航菜单最多三级菜单的显示效果,比较简单,复杂模式的导航菜单能够显示三级以上的菜单,能够处理比较
-   复杂的后台页面.
-      
-   复杂模式 menu_model_all = 1 
-   简单模式 menu_model_simple = 2
-      
+   本框架提供两种后台页面模式.这两种模式可以进行切换,适合不同量级的后台.
+   简单模式是传统的侧边栏.
+   复杂模式精细划分各个模块,设置头部导航功能.
+            
    **场景**
       
    复杂模式和简单模式切换
       
    ```php
    $this->adminStrategy = new AdminStrategy(ContainerInterface $container);
-   $this->adminStrategy->setMenuModel(int $menu_model)
+   $this->adminStrategy->setMenuModel(int $menu_model) // 复杂模式 menu_model_all = 1; 简单模式 menu_model_simple = 2
    ```
    
    复杂模式效果
@@ -241,7 +239,7 @@ composer require phpzlc/admin
    
    **场景**
    
-   比较常用的三级层级的导航菜单
+   比较常用三级层级的导航菜单
    
    ```php
      new Menu('博客管理系统', null, null, null, null, [
