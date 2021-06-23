@@ -206,27 +206,21 @@
   <!--//doc-section-->
 
   <!-- 评论系统 标题不能含英文冒号和英文逗号 -->
-  <script src="https://giteement.oss-cn-beijing.aliyuncs.com/oauthcallback.browser.js"></script>
+  <div id="container"></div>
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
   <script>
-    Oauthcallback();
-  </script>
-  <div id="giteementDiv"></div>
-  <link rel="stylesheet" href="https://giteement.oss-cn-beijing.aliyuncs.com/default.css">
-  <script src="https://giteement.oss-cn-beijing.aliyuncs.com/giteement.browser.js"></script>
-  <script>
-    var giteement = new Giteement({
-      id: '123',
-      owner: '{{site.giteement.giteeID}}',
-      repo: '{{site.giteement.repo}}',
-      backcall_uri: '{{site.giteement.redirect_uri}}',
-      oauth_uri: '{{site.giteement.oauth_uri}}',
+    var gitment = new Gitment({
+      id: '{{ page.permalink }}', // 可选。默认为 location.href
+      owner: 'phpzlc',
+      repo: 'phpzlc.github.io',
       oauth: {
-        client_id: '{{site.giteement.ClientID}}',
-        client_secret: '{{site.giteement.ClientSecret}}'
+        client_id: 'c92fa605c71b2d6807b3',
+        client_secret: '5738c72df80ea2bbff7555ec3b72dbd733ec7a8c',
       },
     })
-    giteement.render('giteementDiv')
-    </script>
+    gitment.render('container')
+  </script>
 </div>
 <!--//content-inner-->
 <script>
