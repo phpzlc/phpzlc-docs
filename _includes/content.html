@@ -204,6 +204,48 @@
     </div>
   </section>
   <!--//doc-section-->
+
+  <!-- 评论系统 标题不能含英文冒号和英文逗号 -->
+  <script src="https://giteement.oss-cn-beijing.aliyuncs.com/oauthcallback.browser.js"></script>
+  <script>
+    Oauthcallback();
+  </script>
+
+  {% if site.enable %}
+  <div id="giteementContainer"></div>
+  <link rel="stylesheet" href="{{ '/styles/css/gitment.css' | prepend: site.baseurl }}">
+  <script src="{{ '/styles/js/gitment.js' | prepend: site.baseurl }}"></script>
+  <script>
+    var title_length ='{{ page.title }}'.length
+    if (title_length < 50 && '{{ page.title }}'.indexOf(",")== -1 && '{{ page.title }}'.indexOf(":")== -1){
+      var giteement = new Giteement({
+        id: '{{ page.title }}',
+        owner: '{{site.gitee_username}}',
+        repo: '{{site.repo}}',
+        backcall_uri: '{{site.redirect_uri}}',
+        oauth_uri:'{{site.oauth_uri}}',
+        oauth: {
+          client_id: '{{site.comment_gitment_clientId}}',
+          client_secret: '{{site.comment_gitment_clientSecret}}',
+        },
+      });}
+    else
+    {
+      var giteement = new Giteement({
+        id: '{{ page.date }}',
+        title: '{{ page.title }}',
+        owner: '{{site.gitee_username}}',
+        repo: '{{site.repo}}',
+        backcall_uri: '{{site.redirect_uri}}',
+        oauth_uri:'{{site.oauth_uri}}',
+        oauth: {
+          client_id: '{{site.comment_gitment_clientId}}',
+          client_secret: '{{site.comment_gitment_clientSecret}}',
+        },
+      });}
+    giteement.render('giteementContainer')
+  </script>
+  {% endif %}
 </div>
 <!--//content-inner-->
 <script>
