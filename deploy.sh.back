@@ -1,5 +1,6 @@
 !/bin/bash
 
-cd ../
+cd ./
+pwd
 echo -e "\ngit pull\n"
 /usr/bin/git pull 2>&1

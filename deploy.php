@@ -6,4 +6,4 @@
  */
 echo '<pre>';
 
-echo shell_exec('sudo -u zlc bash ../deploy.sh');
+echo shell_exec('sudo -u zlc bash ./deploy.sh');
