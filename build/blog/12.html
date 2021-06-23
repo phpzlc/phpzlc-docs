@@ -1,0 +1,467 @@
+<html lang="en">
+
+<head>
+  <title>PHPZlc & Symfony4+ Symfony5.3 的新功能：表单字段排序</title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="baidu-site-verification" content="code-OoCu9VCIRn" />
+  <meta name="baidu-site-verification" content="code-h0wILViqaf" />
+  <meta name="baidu-site-verification" content="code-6w6tR8FnFh" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Symfony5.3 的新功能：表单字段排序">
+  <meta name="keywords" content="phpzlc,symfony,form,Form,Field,Sorting">
+  <meta name="author" content="CJayHe">
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link
+    href='/assets/css/fonts.googleapis.com.css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+
+  <!-- <script type="text/javascript" src="/assets/plugins/jquery-3.4.1.min.js"></script> -->
+  <script src="/assets/plugins/jquery.js"></script>
+  <!-- FontAwesome JS -->
+  <script defer src="/assets/fontawesome/js/all.js"></script>
+  <script src="/assets/author.js"></script>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="/assets/plugins/prism/prism.css">
+  <link rel="stylesheet" href="/assets/plugins/elegant_font/css/style.css">
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/main.css?v=2020">
+  <link rel="stylesheet" href="/assets/css/reward.css">
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4d26e6c3f68c2a83660fb0f8968e60c3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+<body class="body-blue">
+<div class="page-wrapper">
+    <header id="header" class="header">
+  <div class="container">
+    <div class="branding">
+      <h1 class="logo">
+        <a href="/">
+          <span aria-hidden="true" class="icon_documents_alt icon"></span>
+          <span class="text-highlight">PHPZLC</span><span class="text-bold">Docs</span>
+        </a>
+      </h1>
+    </div>
+    <!--//branding-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">首页</a></li>
+      <li class="breadcrumb-item active">博客动态</li>
+    </ol>
+    <div class="top-search-box">
+      <form class="form-inline search-form justify-content-center" action="/search" method="get">
+
+        <input type="text" placeholder="搜索..." name="search" class="form-control search-input" id="search-input">
+        <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+  <!--//container-->
+</header>
+<!--//header-->
+    <div class="doc-wrapper">
+        <div class="container">
+            <div class="doc-body row">
+                <div class="doc-content col-12 order-1">
+                    <style type="text/css">
+  #md-content {
+    /* padding-top: 20px; */
+    min-height: 500px;
+    /* font-family: Consolas, "Liberation Mono", Courier, monospace; */
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  }
+
+  #md-content h2 {
+    /* padding-top: 20px; */
+    margin: 30px 0 10px 0;
+  }
+
+  #md-content code {
+    background: #494d55;
+    /* padding: 5px; */
+  }
+
+  #md-content .language-plaintext {
+    /* padding: 0;
+    border-radius: 1em; */
+    background: #f9f9fb;
+    color: #494d55;
+    /* color: #00adef;
+    font-weight: normal; */
+  }
+
+  #md-content .language-plaintext code {
+    background-color: #f9f9fb;
+  }
+
+    {
+    % if page.img_all==1 %
+  }
+
+  #md-content img {
+    width: 100%;
+    /* max-width: 600px; */
+  }
+
+    {
+    % endif %
+  }
+
+  pre[class*="language-"] {
+    padding: 0;
+    background: #494d55;
+  }
+
+  .update {
+    overflow: hidden;
+  }
+
+  .doc-section .title {
+    float: left;
+    width: 70%;
+    margin-bottom: 0;
+    font-size: 28px;
+    line-height: 1.2;
+    text-align: left;
+    word-break: break-all;
+  }
+
+  .time {
+    float: right;
+    width: 30%;
+    padding-top: 14px;
+    font-size: 14px;
+    line-height: 1;
+    text-align: right;
+  }
+
+  #a_local_url {
+    /* color: #58bbee; */
+    color: #f75252;
+  }
+
+  .body-blue .a-xy {
+    color: #f75252;
+  }
+
+  .body-blue .a-xy:hover {
+    color: #f75252;
+  }
+
+  .nav-bottom {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .nav-bottom .prev {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    text-decoration: underline;
+  }
+
+  .nav-bottom .next {
+    display: block;
+    float: right;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 1199px) {
+    #md-content>ol {
+      padding-left: 3%;
+    }
+
+    #md-content>ol>li>ol {
+      padding-left: 6%;
+    }
+
+    .doc-section .title {
+      width: 100%;
+    }
+
+    .time {
+      width: 100%;
+      text-align: left;
+    }
+  }
+</style>
+<div class="content-inner">
+  <section class="doc-section">
+    <div class="update">
+      <h2 class="title">Symfony5.3 的新功能：表单字段排序</h2>
+      <p class="time"><span>2021-05-25&nbsp;&nbsp;by&nbsp;&nbsp;</span><span id="author"></span>
+      </p>
+    </div>
+    <ul class="a_link"></ul>
+    <div id="md-content">
+      <h2 id="正文">正文</h2>
+
+<p><a href="https://symfony.com/doc/current/forms.html">Symfony表单</a>是按照字段定义的顺序来渲染页面的。这导致在复杂表单中动态添加/删除字段时，可能会引起问题（例如，通过<a href="https://symfony.com/doc/current/form/events.html">表单事件</a>添加的字段最终可能会在提交表单按钮后呈现出来）。</p>
+
+<p>这就是为什么在Symfony 5.3中可以<strong>对表单字段进行排序以控制它们呈现的顺序</strong>。为此，请使用新<code class="language-plaintext highlighter-rouge">priority</code>选项，该选项是默认值为的正整数或负整数或0。具有较高优先级的字段将首先呈现（具有相同优先级的字段将以其原始顺序呈现):</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// src/Form/Type/TaskType.php</span>
+<span class="kn">namespace</span> <span class="nn">App\Form\Type</span><span class="p">;</span>
+
+<span class="kn">use</span> <span class="nc">Symfony\Component\Form\AbstractType</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nc">Symfony\Component\Form\Extension\Core\Type\DateType</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nc">Symfony\Component\Form\Extension\Core\Type\SubmitType</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nc">Symfony\Component\Form\Extension\Core\Type\TextType</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nc">Symfony\Component\Form\FormBuilderInterface</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">TaskType</span> <span class="kd">extends</span> <span class="nc">AbstractType</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="n">buildForm</span><span class="p">(</span><span class="kt">FormBuilderInterface</span> <span class="nv">$builder</span><span class="p">,</span> <span class="kt">array</span> <span class="nv">$options</span><span class="p">):</span> <span class="kt">void</span>
+    <span class="p">{</span>
+        <span class="nv">$builder</span>
+            <span class="o">-&gt;</span><span class="nf">add</span><span class="p">(</span><span class="s1">'task'</span><span class="p">,</span> <span class="nc">TextType</span><span class="o">::</span><span class="n">class</span><span class="p">,</span> <span class="p">[</span><span class="s1">'priority'</span> <span class="o">=&gt;</span> <span class="mi">150</span><span class="p">])</span>
+            <span class="o">-&gt;</span><span class="nf">add</span><span class="p">(</span><span class="s1">'dueDate'</span><span class="p">,</span> <span class="nc">DateType</span><span class="o">::</span><span class="n">class</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="nf">add</span><span class="p">(</span><span class="s1">'save'</span><span class="p">,</span> <span class="nc">SubmitType</span><span class="o">::</span><span class="n">class</span><span class="p">,</span> <span class="p">[</span>
+                <span class="s1">'priority'</span> <span class="o">=&gt;</span> <span class="nv">$options</span><span class="p">[</span><span class="s1">'show_first'</span><span class="p">]</span> <span class="o">?</span> <span class="mi">1000</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span>
+            <span class="p">])</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="原文地址">原文地址</h2>
+
+<p><a href="https://symfony.com/blog/new-in-symfony-5-3-form-field-sorting">New in Symfony 5.3: Form Field Sorting</a></p>
+
+      <div class="nav-bottom">
+        
+
+        
+      </div>
+    </div>
+    <div class="entry-shang text-center">
+      <p class="fork_update">找到错别字了？本文档有什么问题么？<a
+          href="https://github.com/phpzlc/phpzlc.github.io/edit/master/_posts/blog/2021-05-25-Symfony 5.3中的新功能：表单字段排序.md" target="_blank">分叉并编辑</a> 它&nbsp;！
+      </p>
+      <button class="zs show-zs btn btn-bred">赞赏</button>
+      <!-- <p>「感觉有帮助？对您有价值？开源不易, 一键投喂 牛奶/咖啡/冰阔乐！」</p> -->
+    </div>
+
+    <div class="zs-modal-bg"></div>
+    <div class="zs-modal-box">
+      <div class="zs-modal-head">
+        <!-- 关闭按钮 -->
+        <button type="button" class="close">×</button>
+        <!-- 左上角logo和文字 -->
+        <span class="author_zs"> <img src="/assets/images/jay.jpeg" />CJayhe </span>
+        <p class="tip"><i></i><span>谢谢您的赞赏~</span></p>
+      </div>
+      <div class="zs-modal-body">
+        <div class="zs-modal-btns">
+          <button class="btn btn-blink" data-num="2">2元</button>
+          <button class="btn btn-blink" data-num="5">5元</button>
+          <button class="btn btn-blink" data-num="10">10元</button>
+          <button class="btn btn-blink" data-num="50">50元</button>
+          <button class="btn btn-blink" data-num="100">100元</button>
+          <button class="btn btn-blink" data-num="1">任意金额</button>
+        </div>
+        <div class="zs-modal-pay">
+          <button class="btn btn-bred" id="pay-text">2元</button>
+          <p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+          <img src="/assets/images/pay/wechat-btn.png" id="pay-image" />
+        </div>
+      </div>
+      <div class="zs-modal-footer">
+        <!-- 赞赏模式，你可以全部打开，也可以选择留一个你喜欢的
+                             只需注释掉你想关闭的赞赏模式对应的代码就行，然后再相应的微调一下样式
+                        -->
+        <!-- 支付宝控件 -->
+        <label>
+          <input type="radio" name="zs-type" value="alipay" class="zs-type" checked="checked" />
+          <span class="zs-alipay"><img src="/assets/images/pay/alipay-btn.png" /></span>
+        </label>
+        <!-- 微信控件 -->
+        <label>
+          <input type="radio" name="zs-type" value="wechat" class="zs-type" />
+          <span class="zs-wechat"><img src="/assets/images/pay/wechat-btn.png" /></span>
+        </label>
+        <!-- 清除浮动 -->
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div style="font-size: 12px">
+      <div>
+        <p class="rules">非特殊说明，本站所有文章均为原创，并遵循<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+            target="_blank" class="a-xy">CC BY-NC-SA 4.0 协议</a>许可。</p>
+        <p class="hidden-xs">转载前请务必署名，本文链接：<a href="" id="a_local_url"></a>。</p>
+      </div>
+    </div>
+  </section>
+  <!--//doc-section-->
+</div>
+<!--//content-inner-->
+<script>
+  $(function () {
+    var title = $("#md-content h2");
+    // console.log(title);
+    html = '';
+    title.each(function () {
+      var text = $(this)[0].innerText;
+      var id = $(this).eq(0).attr("id");
+      // console.log(text, id)
+      html += `<li><a href="#${id}">${text}</a></li>`
+    })
+    $(".a_link").append(html)
+  })
+</script>
+                </div>
+            </div><!--//doc-body-->
+        </div><!--//container-->
+    </div><!--//doc-wrapper-->
+    <div id="promo-block" class="promo-block">
+  <div class="container">
+    <div class="promo-block-inner-bottom">
+      <ul class="ul-1">
+        <li class="li-1 li-link">
+          <p>关联站</p>
+          <ul>
+            <li><a href="https://github.com/phpzlc/" target="_blank">GitHub 主页</a></li>
+            <li><a href="http://symfony.com/" target="_blank">Symfony 官网</a></li>
+            <li><a href="http://www.symfonychina.com/" target="_blank">Symfony 中文文档</a></li>
+            <li><a href="https://getcomposer.org/" target="_blank">Composer 官网</a></li>
+            <li><a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html"
+                target="_blank">Doctrine 官网</a></li>
+          </ul>
+        </li>
+        <li class="li-1 li-link">
+          <p>热门Blog</p>
+          <ul>
+            <li><a href="/doc/symfony-flex" target="_blank">Symfony Flex</a></li>
+            <li><a href="/doc/db/entity" target="_blank">设计Entity</a></li>
+            <li><a href="/blog/9.html" target="_blank">更好的防御BREACH攻击</a></li>
+            <li><a href="/blog/5.html" target="_blank">PHP生成全景图(krpano)</a></li>
+            <li><a href="/blog/2.html" target="_blank">Git分支参与者的常用操作</a></li>
+          </ul>
+        </li>
+        <li class="li-1 li-community">
+          <p>社区支持<span class="community-slack"><a href="/blog/13.html">建立集中高效的开源社区，PHPZlc 核心活动场所 Slack</a></span></p>
+          <!-- <span class="community-slack"><a href="/blog/13.html">建立集中高效的开源社区，PHPZlc 核心活动场所 Slack</a></span> -->
+          <ul class="community-ul">
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/qq-qun.png">
+                <p>扫码加入QQ交流群</p>
+              </div>
+            </li>
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/zxsjgzh-2.png">
+                <p>扫码关注公众号</p>
+              </div>
+            </li>
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/toutiao-jay.png">
+                <p>扫码关注作者头条号</p>
+              </div>
+            </li>
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/zhihu-1.png">
+                <p>扫码关注作者知乎号</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p style="clear: both">
+    </div>
+    <!--//promo-block-inner-->
+  </div>
+  <!--//container-->
+</div>
+<!--//promo-block-->
+</div>
+<!--//page-wrapper-->
+
+<footer class="footer text-center">
+  <div class="container">
+    <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+    <small class="copyright">该站点设计由 <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> 提供, 由
+      <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> 生成。Copyright © <span
+        id="copyright-year"></span> by CJayhe. All rights reserved.</small>
+
+  </div>
+  <div class="qun">
+    <a target="_blank" href="https://jq.qq.com/?_wv=1027&k=ZpwdagVG">
+      <img border="0" src="/assets/images/qq.png?v=20210324" alt="一键加群" title="一键加群">
+      <!-- <p>关注我们</p>
+      <p>点击入群</p> -->
+      <p>QQ群</p>
+    </a>
+    <a class="a-2" target="_blank"
+      href="https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g">
+      <img src="/assets/images/slack.png?v=1" alt="一键加群" title="一键加群">
+      <!-- <p>关注我们</p>
+      <p>点击入群</p> -->
+      <p>Slack</p>
+    </a>
+  </div>
+  <!--//container-->
+</footer>
+<!--//footer-->
+
+
+<!-- Main Javascript -->
+<!-- <script type="text/javascript" src="/assets/plugins/jquery-3.4.1.min.js"></script> -->
+<script type="text/javascript" src="/assets/plugins/jquery.js"></script>
+<script TYPE="text/javascript" src="/assets/js/reward.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/plugins/prism/prism.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    $("#a_local_url").text(localBaseUrl());
+    $("#a_local_url").attr({ href: localBaseUrl() });
+
+
+    var date = new Date();
+    var year = date.getFullYear();
+    $('#copyright-year').text(year);
+
+
+    $('#left-div a').each(function () {
+      var path = window.location.pathname;
+      if ($(this).attr("href") == path || $(this).attr("href") == path.substring(0, path.length - 1)) {
+        $(this).addClass('a-active');
+      }
+    })
+
+    $('#author').text(getAuthor('1'));
+
+    $('.author').each(function () {
+      $(this).html('作者：' + getAuthor($(this).data('id')));
+    });
+
+    function localBaseUrl() {
+      return location.protocol + '//' + location.host + location.pathname;
+    }
+  })
+</script>
+</body>
+</html>

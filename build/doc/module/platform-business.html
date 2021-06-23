@@ -1,0 +1,705 @@
+<html lang="en">
+
+<head>
+  <title>PHPZlc & Symfony4+ 平台标识(platform-business)</title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="baidu-site-verification" content="code-OoCu9VCIRn" />
+  <meta name="baidu-site-verification" content="code-h0wILViqaf" />
+  <meta name="baidu-site-verification" content="code-6w6tR8FnFh" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="提供多平台管理的基础功能">
+  <meta name="keywords" content="platform,platform-business,平台,phpzlc/platform-business">
+  <meta name="author" content="CJayHe">
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link
+    href='/assets/css/fonts.googleapis.com.css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+
+  <!-- <script type="text/javascript" src="/assets/plugins/jquery-3.4.1.min.js"></script> -->
+  <script src="/assets/plugins/jquery.js"></script>
+  <!-- FontAwesome JS -->
+  <script defer src="/assets/fontawesome/js/all.js"></script>
+  <script src="/assets/author.js"></script>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="/assets/plugins/prism/prism.css">
+  <link rel="stylesheet" href="/assets/plugins/elegant_font/css/style.css">
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/main.css?v=2020">
+  <link rel="stylesheet" href="/assets/css/reward.css">
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4d26e6c3f68c2a83660fb0f8968e60c3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+<body class="body-blue">
+<div class="page-wrapper">
+    <header id="header" class="header">
+  <div class="container">
+    <div class="branding">
+      <h1 class="logo">
+        <a href="/">
+          <span aria-hidden="true" class="icon_documents_alt icon"></span>
+          <span class="text-highlight">PHPZLC</span><span class="text-bold">Docs</span>
+        </a>
+      </h1>
+    </div>
+    <!--//branding-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">首页</a></li>
+      <li class="breadcrumb-item active">文档支持</li>
+    </ol>
+    <div class="top-search-box">
+      <form class="form-inline search-form justify-content-center" action="/search" method="get">
+
+        <input type="text" placeholder="搜索..." name="search" class="form-control search-input" id="search-input">
+        <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+  <!--//container-->
+</header>
+<!--//header-->
+    <div class="doc-wrapper">
+        <div class="container">
+            <div class="doc-body row">
+                <style type="text/css">
+  html {
+    font-size: 62.5%;
+  }
+
+  #left-div {
+    border-width: 2px;
+    width: 250px;
+    float: left;
+    margin-right: 20px;
+    /* font-family: Georgia, serif; */
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  }
+
+  /* 导航 */
+  .nav {
+    margin-top: 15px;
+  }
+
+  .nav-back {
+    display: none;
+  }
+
+  .nav-ul-one .nav-li-one {
+    list-style: none;
+  }
+
+  .nav-ul-one .nav-li-one a {
+    display: block;
+    font-size: 16px;
+    line-height: 30px;
+    color: #494d55;
+    text-decoration: none;
+  }
+
+  .nav-ul-one .nav-li-one a:hover {
+    color: #00adef;
+  }
+
+  .nav-ul-two {
+    padding-left: 20px;
+  }
+
+  .nav-ul-two .nav-li-two {
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-ul-two .nav-li-two a {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
+    /* color: #2d8284; */
+    color: #494d55;
+    opacity: 0.75;
+  }
+
+  .nav-ul-two .nav-li-two a:hover {
+    color: #00adef;
+  }
+
+  .nav-hidden {
+    display: none;
+  }
+
+  .nav-ul-one .nav-li-one .a-active {
+    color: #00adef;
+  }
+
+  /* 移动端样式 */
+  @media (max-width: 1199px) {
+    .nav {
+      position: fixed;
+      top: 0;
+      right: 100%;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      /* background-color: #494d55ab; */
+      background-color: rgba(0, 0, 0, 0.5);
+      overflow-y: auto;
+      transition: 0.2s linear;
+    }
+
+    .nav-back {
+      display: block;
+      width: 70%;
+      padding-left: 2%;
+      background: #494d55;
+    }
+
+    .nav-back a {
+      display: block;
+      padding-left: 20px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 4rem;
+      color: #fff;
+      background: url("/assets/images/pro-2.png") no-repeat left center;
+    }
+
+    .nav-ul-one {
+      padding-top: 1rem;
+      padding-left: 3%;
+      margin: 0;
+      width: 70%;
+      background: #f9f9fb;
+    }
+
+    .nav-ul-one .nav-li-one a {
+      margin-left: 6%;
+    }
+
+    .nav-hidden {
+      position: fixed;
+      left: -1.5rem;
+      top: 17rem;
+      z-index: 5;
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      opacity: 0.5;
+      border-radius: 10%;
+      padding-left: 1.5rem;
+      background: #000 url("/assets/images/pro.png") no-repeat 90% center;
+    }
+  }
+</style>
+<div id="left-div">
+  <div class="nav-hidden"></div>
+  <!-- 导航 -->
+  <div class="nav">
+    <div class="nav-back"><a href="javascript:;">返回</a></div>
+    <ul class="nav-ul-one">
+      <li class="nav-li-one"><a href="/doc/install">安装与运行</a></li>
+      <li class="nav-li-one"><a href="/doc/skeleton">目录与结构</a></li>
+      <li class="nav-li-one">
+        <a href="/doc/config/params#">配置</a>
+        <ul class="nav-ul-two">
+          <li class="nav-li-two"><a href="/doc/config/params">常量参数配置与环境配置</a></li>
+          <li class="nav-li-two"><a href="/doc/config/route">路由(Router)</a></li>
+        </ul>
+      </li>
+      <li class="nav-li-one">
+        <a href="/doc/controller#">控制器</a>
+        <ul class="nav-ul-two">
+          <li class="nav-li-two"><a href="/doc/controller">控制器(Controller)</a></li>
+          <li class="nav-li-two"><a href="/doc/errors">错误收集(Errors)</a></li>
+          <li class="nav-li-two"><a href="/doc/validate">验证(Validate)</a></li>
+        </ul>
+      </li>
+      <li class="nav-li-one">
+        <a href="/doc/db/start#">数据库</a>
+        <ul class="nav-ul-two">
+          <li class="nav-li-two"><a href="/doc/db/start">创建使用数据库</a></li>
+          <li class="nav-li-two"><a href="/doc/db/entity">设计Entity</a></li>
+          <li class="nav-li-two"><a href="/doc/db/edit">插入、更新、删除</a></li>
+          <li class="nav-li-two"><a href="/doc/db/query">简单查询</a></li>
+        </ul>
+      </li>
+      <li class="nav-li-one">
+        <a href="/doc/business#">业务层</a>
+        <ul class="nav-ul-two">
+          <li class="nav-li-two"><a href="/doc/business">业务层(Business)</a></li>
+          <li class="nav-li-two"><a href="/doc/tool/sql">工具类-SQL</a></li>
+          <li class="nav-li-two"><a href="/doc/tool/log">工具类-Log</a></a></li>
+          <li class="nav-li-two"><a href="/doc/exception">异常(Exception)</a></li>
+        </ul>
+      </li>
+      <li class="nav-li-one">
+        <a href="/doc/repository#">高级查询(Repository)</a>
+        <ul class="nav-ul-two">
+          <li class="nav-li-two"><a href="/doc/repository">概述</a></li>
+          <li class="nav-li-two"><a href="/doc/repository/rule">规则</a></li>
+          <li class="nav-li-two"><a href="/doc/repository/rule-advanced-usage">规则-高级用法</a></li>
+        </ul>
+      </li>
+      <li class="nav-li-one">
+        <a href="/doc/symfony-flex#">支持配套</a>
+        <ul class="nav-ul-two">
+          <li class="nav-li-two"><a href="/doc/symfony-flex">Symfony Flex</a></li>
+          <li class="nav-li-two"><a href="/doc/document-bundle">文档书写(Document)</a></li>
+          <li class="nav-li-two"><a href="/doc/data-fixtures">内置数据(DataFixtures)</a></li>
+        </ul>
+      </li>
+      <li class="nav-li-one">
+        <a href="/doc/module/business#">业务组件(Business Package)</a>
+        <ul class="nav-ul-two">
+          <li class="nav-li-two"><a href="/doc/module/business">概述</a></li>
+          <li class="nav-li-two"><a href="/doc/module/admin-business">后台开发</a></li>
+          <li class="nav-li-two"><a href="/doc/module/RBAC-business">RBAC权限</a></li>
+          <li class="nav-li-two"><a href="/doc/module/auth-business">登录授权</a></li>
+          <li class="nav-li-two"><a href="/doc/module/platform-business">平台标识</a></li>
+          <!--          <li class="nav-li-two"><a href="/doc/module/sms-business">短信(SMS)</a></li>-->
+          <li class="nav-li-two"><a href="/doc/module/captcha-business">图形验证码</a></li>
+          <li class="nav-li-two"><a href="/doc/module/upload-business">上传业务</a></li>
+        </ul>
+      </li>
+      <li class="nav-li-one">
+        <a href="/doc/module/vendor#">功能组件(Vendor Package)</a>
+        <ul class="nav-ul-two">
+          <li class="nav-li-two"><a href="/doc/module/vendor">概述</a></li>
+          <li class="nav-li-two"><a href="/doc/module/admin">后台内核(Admin)</a></li>
+          <li class="nav-li-two"><a href="/doc/module/upload">上传(Upload)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- <script type="text/javascript" src="/assets/plugins/jquery-3.4.1.min.js"></script> -->
+<script type="text/javascript" src="/assets/plugins/jquery.js"></script>
+<script>
+  // 打开菜单
+  $(".nav-hidden").click(function () {
+    $(".nav").css({ right: "0" })
+    $(".nav").css({ opacity: "1" })
+  })
+  // 隐藏菜单
+  $(".nav-back").click(function () {
+    $(".nav").css({ right: "100%" })
+    $(".nav").css({ opacity: "0" })
+  })
+
+  $(".nav").click(function (e) {
+    if (e.target.className == "nav") {
+      $(".nav").css({ right: "100%" })
+      $(".nav").css({ opacity: "0" })
+    }
+  })
+</script>
+                <div class="doc-content col-md-9 col-12 order-1" style="float: left">
+                    <style type="text/css">
+  #md-content {
+    /* padding-top: 20px; */
+    min-height: 500px;
+    /* font-family: Consolas, "Liberation Mono", Courier, monospace; */
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  }
+
+  #md-content h2 {
+    /* padding-top: 20px; */
+    margin: 30px 0 10px 0;
+  }
+
+  #md-content code {
+    background: #494d55;
+    /* padding: 5px; */
+  }
+
+  #md-content .language-plaintext {
+    /* padding: 0;
+    border-radius: 1em; */
+    background: #f9f9fb;
+    color: #494d55;
+    /* color: #00adef;
+    font-weight: normal; */
+  }
+
+  #md-content .language-plaintext code {
+    background-color: #f9f9fb;
+  }
+
+    {
+    % if page.img_all==1 %
+  }
+
+  #md-content img {
+    width: 100%;
+    /* max-width: 600px; */
+  }
+
+    {
+    % endif %
+  }
+
+  pre[class*="language-"] {
+    padding: 0;
+    background: #494d55;
+  }
+
+  .update {
+    overflow: hidden;
+  }
+
+  .doc-section .title {
+    float: left;
+    width: 70%;
+    margin-bottom: 0;
+    font-size: 28px;
+    line-height: 1.2;
+    text-align: left;
+    word-break: break-all;
+  }
+
+  .time {
+    float: right;
+    width: 30%;
+    padding-top: 14px;
+    font-size: 14px;
+    line-height: 1;
+    text-align: right;
+  }
+
+  #a_local_url {
+    /* color: #58bbee; */
+    color: #f75252;
+  }
+
+  .body-blue .a-xy {
+    color: #f75252;
+  }
+
+  .body-blue .a-xy:hover {
+    color: #f75252;
+  }
+
+  .nav-bottom {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .nav-bottom .prev {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    text-decoration: underline;
+  }
+
+  .nav-bottom .next {
+    display: block;
+    float: right;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 1199px) {
+    #md-content>ol {
+      padding-left: 3%;
+    }
+
+    #md-content>ol>li>ol {
+      padding-left: 6%;
+    }
+
+    .doc-section .title {
+      width: 100%;
+    }
+
+    .time {
+      width: 100%;
+      text-align: left;
+    }
+  }
+</style>
+<div class="content-inner">
+  <section class="doc-section">
+    <div class="update">
+      <h2 class="title">平台标识(platform-business)</h2>
+      <p class="time"><span>2020-11-05&nbsp;&nbsp;by&nbsp;&nbsp;</span><span id="author"></span>
+      </p>
+    </div>
+    <ul class="a_link"></ul>
+    <div id="md-content">
+      <h2 id="业务介绍">业务介绍</h2>
+
+<p>提供多平台管理的基础功能</p>
+
+<h2 id="源码地址">源码地址</h2>
+
+<p><a href="https://github.com/phpzlc/platform-business">phpzlc/platform-business</a></p>
+
+<h2 id="安装">安装</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require phpzlc/platform-business
+</code></pre></div></div>
+
+<h2 id="提供功能">提供功能</h2>
+
+<p>多个平台基础功能</p>
+
+<ol>
+  <li>
+    <p>获取平台名称</p>
+
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="n">getPlatform</span><span class="p">()</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>设置平台名称</p>
+
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="n">setPlatform</span><span class="p">(</span><span class="nv">$platform</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>得到所有平台名称</p>
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="n">getPlatforms</span><span class="p">(</span><span class="kt">ContainerInterface</span> <span class="nv">$container</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+      <div class="nav-bottom">
+        
+        <a class="prev" href="/doc/module/auth-business">上一篇</a>
+        
+
+        
+        <a class="next" href="/doc/module/captcha-business">下一篇</a>
+        
+      </div>
+    </div>
+    <div class="entry-shang text-center">
+      <p class="fork_update">找到错别字了？本文档有什么问题么？<a
+          href="https://github.com/phpzlc/phpzlc.github.io/edit/master/_posts/doc/module/2020-11-05-platform-business.markdown" target="_blank">分叉并编辑</a> 它&nbsp;！
+      </p>
+      <button class="zs show-zs btn btn-bred">赞赏</button>
+      <!-- <p>「感觉有帮助？对您有价值？开源不易, 一键投喂 牛奶/咖啡/冰阔乐！」</p> -->
+    </div>
+
+    <div class="zs-modal-bg"></div>
+    <div class="zs-modal-box">
+      <div class="zs-modal-head">
+        <!-- 关闭按钮 -->
+        <button type="button" class="close">×</button>
+        <!-- 左上角logo和文字 -->
+        <span class="author_zs"> <img src="/assets/images/jay.jpeg" />CJayhe </span>
+        <p class="tip"><i></i><span>谢谢您的赞赏~</span></p>
+      </div>
+      <div class="zs-modal-body">
+        <div class="zs-modal-btns">
+          <button class="btn btn-blink" data-num="2">2元</button>
+          <button class="btn btn-blink" data-num="5">5元</button>
+          <button class="btn btn-blink" data-num="10">10元</button>
+          <button class="btn btn-blink" data-num="50">50元</button>
+          <button class="btn btn-blink" data-num="100">100元</button>
+          <button class="btn btn-blink" data-num="1">任意金额</button>
+        </div>
+        <div class="zs-modal-pay">
+          <button class="btn btn-bred" id="pay-text">2元</button>
+          <p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+          <img src="/assets/images/pay/wechat-btn.png" id="pay-image" />
+        </div>
+      </div>
+      <div class="zs-modal-footer">
+        <!-- 赞赏模式，你可以全部打开，也可以选择留一个你喜欢的
+                             只需注释掉你想关闭的赞赏模式对应的代码就行，然后再相应的微调一下样式
+                        -->
+        <!-- 支付宝控件 -->
+        <label>
+          <input type="radio" name="zs-type" value="alipay" class="zs-type" checked="checked" />
+          <span class="zs-alipay"><img src="/assets/images/pay/alipay-btn.png" /></span>
+        </label>
+        <!-- 微信控件 -->
+        <label>
+          <input type="radio" name="zs-type" value="wechat" class="zs-type" />
+          <span class="zs-wechat"><img src="/assets/images/pay/wechat-btn.png" /></span>
+        </label>
+        <!-- 清除浮动 -->
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div style="font-size: 12px">
+      <div>
+        <p class="rules">非特殊说明，本站所有文章均为原创，并遵循<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+            target="_blank" class="a-xy">CC BY-NC-SA 4.0 协议</a>许可。</p>
+        <p class="hidden-xs">转载前请务必署名，本文链接：<a href="" id="a_local_url"></a>。</p>
+      </div>
+    </div>
+  </section>
+  <!--//doc-section-->
+</div>
+<!--//content-inner-->
+<script>
+  $(function () {
+    var title = $("#md-content h2");
+    // console.log(title);
+    html = '';
+    title.each(function () {
+      var text = $(this)[0].innerText;
+      var id = $(this).eq(0).attr("id");
+      // console.log(text, id)
+      html += `<li><a href="#${id}">${text}</a></li>`
+    })
+    $(".a_link").append(html)
+  })
+</script>
+                </div>
+            </div><!--//doc-body-->
+        </div><!--//container-->
+    </div><!--//doc-wrapper-->
+    <div id="promo-block" class="promo-block">
+  <div class="container">
+    <div class="promo-block-inner-bottom">
+      <ul class="ul-1">
+        <li class="li-1 li-link">
+          <p>关联站</p>
+          <ul>
+            <li><a href="https://github.com/phpzlc/" target="_blank">GitHub 主页</a></li>
+            <li><a href="http://symfony.com/" target="_blank">Symfony 官网</a></li>
+            <li><a href="http://www.symfonychina.com/" target="_blank">Symfony 中文文档</a></li>
+            <li><a href="https://getcomposer.org/" target="_blank">Composer 官网</a></li>
+            <li><a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html"
+                target="_blank">Doctrine 官网</a></li>
+          </ul>
+        </li>
+        <li class="li-1 li-link">
+          <p>热门Blog</p>
+          <ul>
+            <li><a href="/doc/symfony-flex" target="_blank">Symfony Flex</a></li>
+            <li><a href="/doc/db/entity" target="_blank">设计Entity</a></li>
+            <li><a href="/blog/9.html" target="_blank">更好的防御BREACH攻击</a></li>
+            <li><a href="/blog/5.html" target="_blank">PHP生成全景图(krpano)</a></li>
+            <li><a href="/blog/2.html" target="_blank">Git分支参与者的常用操作</a></li>
+          </ul>
+        </li>
+        <li class="li-1 li-community">
+          <p>社区支持<span class="community-slack"><a href="/blog/13.html">建立集中高效的开源社区，PHPZlc 核心活动场所 Slack</a></span></p>
+          <!-- <span class="community-slack"><a href="/blog/13.html">建立集中高效的开源社区，PHPZlc 核心活动场所 Slack</a></span> -->
+          <ul class="community-ul">
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/qq-qun.png">
+                <p>扫码加入QQ交流群</p>
+              </div>
+            </li>
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/zxsjgzh-2.png">
+                <p>扫码关注公众号</p>
+              </div>
+            </li>
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/toutiao-jay.png">
+                <p>扫码关注作者头条号</p>
+              </div>
+            </li>
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/zhihu-1.png">
+                <p>扫码关注作者知乎号</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p style="clear: both">
+    </div>
+    <!--//promo-block-inner-->
+  </div>
+  <!--//container-->
+</div>
+<!--//promo-block-->
+</div>
+<!--//page-wrapper-->
+
+<footer class="footer text-center">
+  <div class="container">
+    <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+    <small class="copyright">该站点设计由 <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> 提供, 由
+      <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> 生成。Copyright © <span
+        id="copyright-year"></span> by CJayhe. All rights reserved.</small>
+
+  </div>
+  <div class="qun">
+    <a target="_blank" href="https://jq.qq.com/?_wv=1027&k=ZpwdagVG">
+      <img border="0" src="/assets/images/qq.png?v=20210324" alt="一键加群" title="一键加群">
+      <!-- <p>关注我们</p>
+      <p>点击入群</p> -->
+      <p>QQ群</p>
+    </a>
+    <a class="a-2" target="_blank"
+      href="https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g">
+      <img src="/assets/images/slack.png?v=1" alt="一键加群" title="一键加群">
+      <!-- <p>关注我们</p>
+      <p>点击入群</p> -->
+      <p>Slack</p>
+    </a>
+  </div>
+  <!--//container-->
+</footer>
+<!--//footer-->
+
+
+<!-- Main Javascript -->
+<!-- <script type="text/javascript" src="/assets/plugins/jquery-3.4.1.min.js"></script> -->
+<script type="text/javascript" src="/assets/plugins/jquery.js"></script>
+<script TYPE="text/javascript" src="/assets/js/reward.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/plugins/prism/prism.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    $("#a_local_url").text(localBaseUrl());
+    $("#a_local_url").attr({ href: localBaseUrl() });
+
+
+    var date = new Date();
+    var year = date.getFullYear();
+    $('#copyright-year').text(year);
+
+
+    $('#left-div a').each(function () {
+      var path = window.location.pathname;
+      if ($(this).attr("href") == path || $(this).attr("href") == path.substring(0, path.length - 1)) {
+        $(this).addClass('a-active');
+      }
+    })
+
+    $('#author').text(getAuthor('2'));
+
+    $('.author').each(function () {
+      $(this).html('作者：' + getAuthor($(this).data('id')));
+    });
+
+    function localBaseUrl() {
+      return location.protocol + '//' + location.host + location.pathname;
+    }
+  })
+</script>
+</body>
+</html>

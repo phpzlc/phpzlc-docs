@@ -1,0 +1,453 @@
+<html lang="en">
+
+<head>
+  <title>PHPZlc & Symfony4+ </title>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="baidu-site-verification" content="code-OoCu9VCIRn" />
+  <meta name="baidu-site-verification" content="code-h0wILViqaf" />
+  <meta name="baidu-site-verification" content="code-6w6tR8FnFh" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="在Symfony4的基础上,提供成熟的Web应用程序开发教程和业务组件。">
+  <meta name="keywords" content="phpzlc,symfony,symfony4,web开发,后端,php">
+  <meta name="author" content="CJayHe">
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link
+    href='/assets/css/fonts.googleapis.com.css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+
+  <!-- <script type="text/javascript" src="/assets/plugins/jquery-3.4.1.min.js"></script> -->
+  <script src="/assets/plugins/jquery.js"></script>
+  <!-- FontAwesome JS -->
+  <script defer src="/assets/fontawesome/js/all.js"></script>
+  <script src="/assets/author.js"></script>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="/assets/plugins/prism/prism.css">
+  <link rel="stylesheet" href="/assets/plugins/elegant_font/css/style.css">
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/main.css?v=2020">
+  <link rel="stylesheet" href="/assets/css/reward.css">
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4d26e6c3f68c2a83660fb0f8968e60c3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+<body class="body-blue">
+  <div class="page-wrapper">
+
+    <header id="header" class="header">
+  <div class="container">
+    <div class="branding">
+      <h1 class="logo">
+        <a href="/">
+          <span aria-hidden="true" class="icon_documents_alt icon"></span>
+          <span class="text-highlight">PHPZLC</span><span class="text-bold">Docs</span>
+        </a>
+      </h1>
+    </div>
+    <!--//branding-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">首页</a></li>
+      <li class="breadcrumb-item active">常见问题</li>
+    </ol>
+    <div class="top-search-box">
+      <form class="form-inline search-form justify-content-center" action="/search" method="get">
+
+        <input type="text" placeholder="搜索..." name="search" class="form-control search-input" id="search-input">
+        <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+  <!--//container-->
+</header>
+<!--//header-->
+
+    <div class="doc-wrapper">
+      <div class="container">
+        <div class="doc-body row">
+          <div class="doc-content col-md-9 col-12 order-1">
+            <div class="content-inner">
+              <section id="learn" class="doc-section">
+                <h2 class="section-title">学习须知</h2>
+                <div class="section-block">
+                  <h3 class="question"> 必备的基础知识？</h3>
+                  <div class="answer">
+                    <p>了解，掌握Composer基本指令。</p>
+                    <p>了解，掌握Git基本指令。</p>
+                    <p>了解，掌握PHP、Mysql、Symfony、Html、Css、Js语法知识。</p>
+                    <p>能够按照教程自主搭建PHP运行环境。</p>
+                  </div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> 版本选择，为什么不选择在最新的Symfony5上开发框架？</h3>
+                  <div class="answer">
+                    <p>通过下图，我们可以了解,Symfony采取的版本策略和各个版本的支持时间。</p>
+                    <div style="max-width: 600px">
+                      <img src="/assets/images/symfony/v.png" width="100%">
+                      <img src="/assets/images/symfony/f.png" width="100%">
+                    </div>
+                    <p>
+                      不难发现，长期支持的4.4版本支持时间可达2024年。最新稳定的5.2版本支持时间仅到2021年中。
+                      这就意味着如果选择5.2版本的话，将会很快的失去官方支持，就不得不提前将代码迁移到新的版本中去，这将极大的增加成本。
+                    </p>
+                    <p>
+                      从两个版本的发布时间上来看,5.2版本是在4.4版本一年之后发布的，也就是说5.2版本是在4.4版本已经趋于稳定之后进行打包发布的。
+                      打包的原因就是要使4.4版本进入维护阶段。新的特性需要在新的分支下无负担开发。所以从性能和特性丰富度上来说，固然5.2版本优于4.4版本。但核心结构和性能并没有显著差别。
+                    </p>
+                    <p>
+                      作为程序员的我及我的团队，最初都是希望在5.2版本上进行开发，但是后来我们放弃了，放弃的原因是4.4版本的生态更好，主版本的发布，其对应的组件才能够进行开发。相较而言，选择站在多数人的队伍里面是安全的。
+                    </p>
+                  </div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> PHPZlc是否支持Symfony5？ </h3>
+                  <div class="answer">
+                    <p>我们的团队在4.4版本下工作,在发行计划中暂时未打算对5.2版本进行匹配。</p>
+                    <p>我们的版本发布计划将会和Symfony的长期支持版保持一致。</p>
+                  </div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> PHPZlc会对使用Symfony造成困扰么？他和Symfony之间的关系是什么？</h3>
+                  <div class="answer">
+                    <p>PHPZlc是一个独立的品牌，他的定位是为实战开发提供一组行之有效的方法。</p>
+                    <p>Symfony是PHPZlc当下选择的框架载体。</p>
+                    <p>
+                      PHPZlc并不致力再构建一个如Symfony一样的框架。而是想很好的运用Symfony的资源为使用者提供实际的解决方案。所以在技术上，PHPZlc全力的融入到Symfony中，并且符合Symfony的编码要求。
+                    </p>
+                  </div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> PHPZlc解决的核心痛点是什么？</h3>
+                  <div class="answer">
+                    <p>PHP是语言，提供了原子接口，你可以任意组合。实现功能。Symfony是框架，提供了写法机制，轮子。方便开发者开发。</p>
+                    <p>无论是PHP还是Symfony都旨在提供可能性，面对具体的场景，都需要你去学习，组合，试错。</p>
+                    <p>PHPZlc希望通过所学，将经验，技术固化下来，为开发者提供具体场景下的优雅代码。</p>
+                  </div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> 面对复杂多样的业务场景，如何做到以不变应万变？</h3>
+                  <div class="answer">
+                    <p>世界上没有不变的东西，世界上也没有没有bug的程序。我们需要正确的理解变。变不可怕，可怕的变化带来的成本。</p>
+                    <p>系统而言最重要的是数据，它是一切驱动的源头。所以PHPZlc强化了Symfony对数据库的管理，使其变得更加统一，方便，聪明。更具有控制性，复用性，层次性。</p>
+                    <p>
+                      维护程序持续迭代的保障是什么，是文档。普遍情况下，文档和代码是分离的的，他们往往保存在两个地方，这样文档形同虚设，因为他不可能始终是最新的版本。另外一种情况就是，当我们尝试将业务代码组件化的时候，文档和代码的割裂就更为严重。如果按照传统的方式进行管理，就会造成很大的负担。所以PHPZlc在研究Symfony组件的目录结构和策略之后，开发了一套文档系统，你可以在每个组件中按照要求书写。这样在安装的组件的时候，文档也会一起安装进来，通过简单的命令就能根据你当时的环境生成具有测试功能交付能力的优雅文档。
+                    </p>
+                    <p style="font-weight: bolder">(文档组件可以脱离PHPZlc使用, 详见<a
+                        href="/doc/api-document">phpzlc/document-bundle</a>)</p>
+                  </div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> 业务组件是什么？他如何面对复杂多样的需求变化？</h3>
+                  <div class="answer">
+                    <p>业务和组件是什么关系了？</p>
+                    <p>我们首先需要了解组件。组件是将功能封装成可直接调用的代码模块。组件需要提供良好的接口和使用方法。使用者无需关注组件实现过程。</p>
+                    <p>业务的一部分代码符合封装组件的要求，但是由于当组件代码执行更新时，本地修改的代码会被强制覆写，这就导致使用者没有办法根据多变且定制的业务场景调整组件内容。</p>
+                    <p>
+                      PHPZlc使用业务组件的概念来解决这一个问题。业务组件首先会从远程组件仓库中拉取代码，之后将代码拷贝到合适的项目位置，使这部分代码自安装之后与远程组件仓库脱钩。这样做之后，既可以满足业务代码便捷安装，也可以满足业务需要定制化修改的问题。
+                    </p>
+                  </div>
+                </div>
+                <!--//section-block-->
+              </section>
+              <!--//doc-section-->
+
+              <section id="community" class="doc-section">
+                <h2 class="section-title">社区建设</h2>
+                <div class="section-block">
+                  <h3 class="question">开发计划</h3>
+                  <div class="answer">
+                    <p>希望参与开源工作的小伙伴,可以点击下方链接,在项目中选择,帮助我们更快的发布新版本。</p>
+                    <p> <a target="_blank" href="https://github.com/orgs/phpzlc/projects">
+                        https://github.com/orgs/phpzlc/projects</a></p>
+                  </div>
+                  <!--//anwser-->
+
+                  <div class="section-block">
+                    <h3 class="question">意见反馈</h3>
+                    <div class="answer">
+                      <p>推荐的开源协作方式,应当是在issues中进行,这样方便追踪,讨论,查阅。</p>
+                      <p> <a target="_blank" href="https://github.com/phpzlc/phpzlc.github.io/issues">
+                          https://github.com/phpzlc/phpzlc.github.io/issues</a></p>
+                    </div>
+                  </div>
+                  <!--//section-block-->
+
+
+                </div>
+                <!--//section-block-->
+              </section>
+              <!--//doc-section-->
+
+              <section id="crowd" class="doc-section">
+                <h2 class="section-title">适用人群</h2>
+                <div class="section-block">
+                  <h3 class="question"> Symfony初学者</h3>
+                  <div class="answer">掌握了Symfony的基础知识，但不清楚如何组合所学，可以通过我们的实践方案，快速的了解Symfony的实践方式。</div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> Symfony交流者</h3>
+                  <div class="answer">Symfony资深的开发者，可以在了解我们的技术策略后，对比参照，相互交流，共同促进。</div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> 个人开发者</h3>
+                  <div class="answer">可以根据文档的直接指导，使用丰富的组件，快速低成本的构建项目。</div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question">团队开发</h3>
+                  <div class="answer">
+                    <p>
+                      PHPZlc本身就立足于商业开发，形成了一套利于维护的编码架构及规范，便于在多人团队中建立标准。
+                    </p>
+                    <p>
+                      PHPZlc面向业务的组件策略，使业务模式精细化开发成为可能。既可以减少复用成本，也可以提升软件水准。
+                    </p>
+                  </div>
+                </div>
+                <!--//section-block-->
+              </section>
+              <!--//doc-section-->
+
+              <section id="business" class="doc-section">
+                <h2 class="section-title">商业服务</h2>
+                <div class="section-block">
+                  <h3 class="question"> 技术资讯服务</h3>
+                  <div class="answer"> 扫描站点下方二维码，关注头条号，微信公众号。获得框架、Symfony动态。IT资讯，精品博客。</div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> 技术咨询服务</h3>
+                  <div class="answer">
+                    <p>一般问题咨询：加入QQ群，讨论交流。</p>
+                    <p>解决方案咨询：加入QQ群，私聊群主或公众号内回复咨询内容。</p>
+                  </div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> 技术培训服务</h3>
+                  <div class="answer">
+                    <p>Symfony培训：加入QQ群，私聊群主或公众号内说明意图，可进行个人培训和团队培训。</p>
+                    <p>PHPZlc实战培训：加入QQ群，私聊群主或公众号内说明意图，可进行个人培训和团队培训。</p>
+                  </div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> 项目承接</h3>
+                  <div class="answer">
+                    <p>网站开发部署维护。</p>
+                    <p>小程序开发部署维护。</p>
+                    <p>公众号开发部署维护。</p>
+                    <p>个人博客开发部署维护。</p>
+                    <p>项目后端部分开发部署维护。</p>
+                  </div>
+                </div>
+                <!--//section-block-->
+                <div class="section-block">
+                  <h3 class="question"> 其他合作</h3>
+                  <div class="answer">
+                    更多合作形式请加入QQ群，私聊群主或公众号内说明意图。
+                  </div>
+                </div>
+                <!--//section-block-->
+              </section>
+              <!--//doc-section-->
+
+              <!--                            <section id="general" class="doc-section">-->
+              <!--                                <h2 class="section-title">常见问题</h2>-->
+              <!--                                <div class="section-block">-->
+              <!--                                    <h3 class="question"> Quisque consectetur iaculis odio</h3>-->
+              <!--                                    <div class="answer">Nulla a convallis augue, eget scelerisque sapien. Nulla ut purus lobortis nibh viverra auctor eget vitae sem. Quisque mi odio, eleifend ac mollis vel, laoreet a risus. Morbi ullamcorper luctus est, in mollis lorem ullamcorper vel. Phasellus et dolor purus. Mauris auctor ullamcorper mauris sollicitudin aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</div>-->
+              <!--                                </div>&lt;!&ndash;//section-block&ndash;&gt;-->
+              <!--                                <div class="section-block">-->
+              <!--                                    <h3 class="question"> Duis maximus mollis sit amet pharetra?</h3>-->
+              <!--                                    <div class="answer">Nulla a convallis augue, eget scelerisque sapien. Nulla ut purus lobortis nibh viverra auctor eget vitae sem. Quisque mi odio, eleifend ac mollis vel, laoreet a risus. Morbi ullamcorper luctus est, in mollis lorem ullamcorper vel. Phasellus et dolor purus. Mauris auctor ullamcorper mauris sollicitudin aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</div>-->
+              <!--                                </div>&lt;!&ndash;//section-block&ndash;&gt;-->
+              <!--                                <div class="section-block">-->
+              <!--                                    <h3 class="question"> Pellentesque habitant morbi tristique senectus?</h3>-->
+              <!--                                    <div class="answer">-->
+              <!--                                        <p>Nulla a convallis augue, eget scelerisque sapien. Nulla ut purus lobortis nibh viverra auctor eget vitae sem. Quisque mi odio, eleifend ac mollis vel, laoreet a risus. Morbi ullamcorper luctus est, in mollis lorem ullamcorper vel. Phasellus et dolor purus. Mauris auctor ullamcorper mauris sollicitudin aliquet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>-->
+              <!--                                        <p>Integer ornare tristique massa, et efficitur diam. Quisque consectetur iaculis odio, in aliquet magna suscipit eget. Sed sollicitudin facilisis risus vitae mattis. Vivamus facilisis, lacus eu rutrum gravida, ante sapien semper lectus, eget venenatis lorem massa porta sapien. Curabitur facilisis egestas erat, vel facilisis ipsum laoreet sit amet. Sed fermentum metus eget semper semper. Pellentesque imperdiet accumsan dolor eu convallis. Donec dictum justo a leo pellentesque placerat. Maecenas non diam ac elit tincidunt convallis ut nec eros.</p>-->
+
+              <!--                                    </div>-->
+              <!--                                </div>&lt;!&ndash;//section-block&ndash;&gt;-->
+              <!--                            </section>&lt;!&ndash;//doc-section&ndash;&gt;-->
+
+            </div>
+            <!--//content-inner-->
+          </div>
+          <!--//doc-content-->
+          <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+            <div id="doc-nav" class="doc-nav">
+              <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                <a class="nav-link scrollto" href="#learn">学习须知</a>
+                <a class="nav-link scrollto" href="#community">社区建设</a>
+                <a class="nav-link scrollto" href="#crowd">适用人群</a>
+                <a class="nav-link scrollto" href="#business">商业服务</a>
+                <!--                                <a class="nav-link scrollto" href="#general">常见问题</a>-->
+              </nav>
+              <!--//doc-menu-->
+            </div>
+          </div>
+          <!--//doc-sidebar-->
+        </div>
+        <!--//doc-body-->
+      </div>
+      <!--//container-->
+    </div>
+    <!--//doc-wrapper-->
+
+    <div id="promo-block" class="promo-block">
+  <div class="container">
+    <div class="promo-block-inner-bottom">
+      <ul class="ul-1">
+        <li class="li-1 li-link">
+          <p>关联站</p>
+          <ul>
+            <li><a href="https://github.com/phpzlc/" target="_blank">GitHub 主页</a></li>
+            <li><a href="http://symfony.com/" target="_blank">Symfony 官网</a></li>
+            <li><a href="http://www.symfonychina.com/" target="_blank">Symfony 中文文档</a></li>
+            <li><a href="https://getcomposer.org/" target="_blank">Composer 官网</a></li>
+            <li><a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html"
+                target="_blank">Doctrine 官网</a></li>
+          </ul>
+        </li>
+        <li class="li-1 li-link">
+          <p>热门Blog</p>
+          <ul>
+            <li><a href="/doc/symfony-flex" target="_blank">Symfony Flex</a></li>
+            <li><a href="/doc/db/entity" target="_blank">设计Entity</a></li>
+            <li><a href="/blog/9.html" target="_blank">更好的防御BREACH攻击</a></li>
+            <li><a href="/blog/5.html" target="_blank">PHP生成全景图(krpano)</a></li>
+            <li><a href="/blog/2.html" target="_blank">Git分支参与者的常用操作</a></li>
+          </ul>
+        </li>
+        <li class="li-1 li-community">
+          <p>社区支持<span class="community-slack"><a href="/blog/13.html">建立集中高效的开源社区，PHPZlc 核心活动场所 Slack</a></span></p>
+          <!-- <span class="community-slack"><a href="/blog/13.html">建立集中高效的开源社区，PHPZlc 核心活动场所 Slack</a></span> -->
+          <ul class="community-ul">
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/qq-qun.png">
+                <p>扫码加入QQ交流群</p>
+              </div>
+            </li>
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/zxsjgzh-2.png">
+                <p>扫码关注公众号</p>
+              </div>
+            </li>
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/toutiao-jay.png">
+                <p>扫码关注作者头条号</p>
+              </div>
+            </li>
+            <li class="li-code">
+              <div>
+                <img src="/assets/images/zhihu-1.png">
+                <p>扫码关注作者知乎号</p>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p style="clear: both">
+    </div>
+    <!--//promo-block-inner-->
+  </div>
+  <!--//container-->
+</div>
+<!--//promo-block-->
+</div>
+<!--//page-wrapper-->
+
+<footer class="footer text-center">
+  <div class="container">
+    <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+    <small class="copyright">该站点设计由 <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a> 提供, 由
+      <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> 生成。Copyright © <span
+        id="copyright-year"></span> by CJayhe. All rights reserved.</small>
+
+  </div>
+  <div class="qun">
+    <a target="_blank" href="https://jq.qq.com/?_wv=1027&k=ZpwdagVG">
+      <img border="0" src="/assets/images/qq.png?v=20210324" alt="一键加群" title="一键加群">
+      <!-- <p>关注我们</p>
+      <p>点击入群</p> -->
+      <p>QQ群</p>
+    </a>
+    <a class="a-2" target="_blank"
+      href="https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g">
+      <img src="/assets/images/slack.png?v=1" alt="一键加群" title="一键加群">
+      <!-- <p>关注我们</p>
+      <p>点击入群</p> -->
+      <p>Slack</p>
+    </a>
+  </div>
+  <!--//container-->
+</footer>
+<!--//footer-->
+
+
+<!-- Main Javascript -->
+<!-- <script type="text/javascript" src="/assets/plugins/jquery-3.4.1.min.js"></script> -->
+<script type="text/javascript" src="/assets/plugins/jquery.js"></script>
+<script TYPE="text/javascript" src="/assets/js/reward.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+<script type="text/javascript" src="/assets/js/main.js"></script>
+<script type="text/javascript" src="/assets/plugins/prism/prism.js"></script>
+<script type="text/javascript" src="/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    $("#a_local_url").text(localBaseUrl());
+    $("#a_local_url").attr({ href: localBaseUrl() });
+
+
+    var date = new Date();
+    var year = date.getFullYear();
+    $('#copyright-year').text(year);
+
+
+    $('#left-div a').each(function () {
+      var path = window.location.pathname;
+      if ($(this).attr("href") == path || $(this).attr("href") == path.substring(0, path.length - 1)) {
+        $(this).addClass('a-active');
+      }
+    })
+
+    $('#author').text(getAuthor('1'));
+
+    $('.author').each(function () {
+      $(this).html('作者：' + getAuthor($(this).data('id')));
+    });
+
+    function localBaseUrl() {
+      return location.protocol + '//' + location.host + location.pathname;
+    }
+  })
+</script>
+</body>
+
+</html>
