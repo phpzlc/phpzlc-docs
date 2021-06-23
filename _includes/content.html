@@ -209,6 +209,19 @@
   <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
   <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
   <script>
+    let cmtBtns = document.getElementsByClassName('gitment-comments-init-btn');
+    let isClicked = false;
+
+    let timer = setInterval(() => {
+      Array.prototype.forEach.call(cmtBtns, item => {
+        item.click();
+        isClicked = true;
+        if(isClicked) {
+          clearInterval(timer);
+          console.log('Clear timer.')
+        }
+      })
+    }, 1000)
     var gitment = new Gitment({
       id: '{{ page.permalink }}', // 可选。默认为 location.href
       owner: 'phpzlc',
