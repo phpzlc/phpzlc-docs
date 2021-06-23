@@ -212,39 +212,22 @@
   </script>
 
   {% if site.enable %}
-  <div id="giteementContainer"></div>
-  <link rel="stylesheet" href="{{ '/styles/css/gitment.css' | prepend: site.baseurl }}">
-  <script src="{{ '/styles/js/gitment.js' | prepend: site.baseurl }}"></script>
+  <div id="giteementDiv"></div>
+  <link rel="stylesheet" href="https://giteement.oss-cn-beijing.aliyuncs.com/default.css">
+  <script src="https://giteement.oss-cn-beijing.aliyuncs.com/giteement.browser.js"></script>
   <script>
-    var title_length ='{{ page.title }}'.length
-    if (title_length < 50 && '{{ page.title }}'.indexOf(",")== -1 && '{{ page.title }}'.indexOf(":")== -1){
-      var giteement = new Giteement({
-        id: '{{ page.title }}',
-        owner: '{{site.gitee_username}}',
-        repo: '{{site.repo}}',
-        backcall_uri: '{{site.redirect_uri}}',
-        oauth_uri:'{{site.oauth_uri}}',
-        oauth: {
-          client_id: '{{site.comment_gitment_clientId}}',
-          client_secret: '{{site.comment_gitment_clientSecret}}',
-        },
-      });}
-    else
-    {
-      var giteement = new Giteement({
-        id: '{{ page.date }}',
-        title: '{{ page.title }}',
-        owner: '{{site.gitee_username}}',
-        repo: '{{site.repo}}',
-        backcall_uri: '{{site.redirect_uri}}',
-        oauth_uri:'{{site.oauth_uri}}',
-        oauth: {
-          client_id: '{{site.comment_gitment_clientId}}',
-          client_secret: '{{site.comment_gitment_clientSecret}}',
-        },
-      });}
-    giteement.render('giteementContainer')
-  </script>
+    var giteement = new Giteement({
+      id: {{date(page.date, 'YYYYMMDDHHmmss')}},
+    owner: '{{theme.giteement.giteeID}}',
+            repo: '{{theme.giteement.repo}}',
+            backcall_uri: '{{theme.giteement.redirect_uri}}',
+            oauth_uri: '{{theme.giteement.oauth_uri}}',
+            oauth: {
+      client_id: '{{theme.giteement.ClientID}}',
+              client_secret: '{{theme.giteement.ClientSecret}}'
+    },
+    })
+    giteement.render('giteementDiv')
   {% endif %}
 </div>
 <!--//content-inner-->
