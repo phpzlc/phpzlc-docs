@@ -1,4 +1,4 @@
-name: gitee-sync
+name: gh-page-sync
 
 on: [ push, delete, create ]
 
