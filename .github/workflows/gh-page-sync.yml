@@ -14,6 +14,7 @@ jobs:
           GITHUB_ACTOR: ${{ secrets.ACTOR }}
         uses: BryanSchuetz/jekyll-deploy-gh-pages@master
   git-mirror:
+    needs: build_and_deploy
     runs-on: ubuntu-latest
     steps:
       - uses: wearerequired/git-mirror-action@v1
@@ -24,6 +25,7 @@ jobs:
           destination-repo: "git@gitee.com:phpzlc/phpzlc.git"
   git-pages-construct:
     runs-on: ubuntu-latest
+    needs: build_and_deploy
     steps:
       - uses: yanglbme/gitee-pages-action@master
         env:
