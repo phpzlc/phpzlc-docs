@@ -1,7 +1,0 @@
-!/bin/bash
-
-cd ./
-echo -e "\n git fetch --all\n"
-/usr/bin/git fetch --all 2>&1
-echo -e "\n git reset --hard origin/gh-pages\n"
-/usr/bin/git reset --hard origin/gh-pages 2>&1
