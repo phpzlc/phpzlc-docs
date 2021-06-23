@@ -10,7 +10,7 @@ comment_gitment_clientSecret: 2c0f1168d11e9eb18c78d796afe3267d0cb38d9254669de2ce
 redirect_uri: https://phpzlc.com
 # 这个值不变
 oauth_uri: https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token
-repo: https://gitee.com/phpzlc/phpzlc.git
+repo: phpzlc/phpzlc
 
 defaults:
   -
