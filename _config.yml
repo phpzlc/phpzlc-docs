@@ -4,15 +4,6 @@ plugins: [jekyll-paginate]
 paginate: 5
 paginate_path: "blog/page:num"
 
-giteement:
-  enable: true
-  redirect_uri: https://phpzlc.com
-  oauth_uri: https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token
-  giteeID: phpzlc
-  repo: phpzlc
-  ClientID: 7135f2309c1bf78313cf2345df5edc2fa6f20dbfe8a2ad728981958736c12fa3
-  ClientSecret: 2c0f1168d11e9eb18c78d796afe3267d0cb38d9254669de2ced30840246a08d6
-
 defaults:
   -
     scope:
