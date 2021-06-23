@@ -37,3 +37,15 @@ jobs:
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
           # 注意替换为你的 Gitee 仓库
           gitee-repo: phpzlc/phpzlc
+  slack-notification:
+    runs-on: ubuntu-latest
+    needs: [git-pages-construct, git-mirror]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_TITLE: 'gh-page-sync'
+          SLACK_MESSAGE: '官网线上部署成功',
+          SLACK_USERNAME: 'phpzlc.com'
