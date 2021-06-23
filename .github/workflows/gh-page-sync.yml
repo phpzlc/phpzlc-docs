@@ -45,7 +45,7 @@ jobs:
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_TITLE: 'gh-page-sync'
           SLACK_MESSAGE: '官网线上部署成功',
           SLACK_USERNAME: 'phpzlc.com'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
