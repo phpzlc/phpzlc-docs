@@ -14,7 +14,7 @@ repo: phpzlc/phpzlc
 
 giteement:
   enable: true
-  redirect_uri: ttps://phpzlc.com
+  redirect_uri: https://phpzlc.com
   oauth_uri: https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token
   giteeID: phpzlc
   repo: phpzlc
