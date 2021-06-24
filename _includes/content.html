@@ -178,9 +178,7 @@
         </div>
       </div>
       <div class="zs-modal-footer">
-        <!-- 赞赏模式，你可以全部打开，也可以选择留一个你喜欢的
-                             只需注释掉你想关闭的赞赏模式对应的代码就行，然后再相应的微调一下样式
-                        -->
+        <!-- 赞赏模式，你可以全部打开，也可以选择留一个你喜欢的只需注释掉你想关闭的赞赏模式对应的代码就行，然后再相应的微调一下样式-->
         <!-- 支付宝控件 -->
         <label>
           <input type="radio" name="zs-type" value="alipay" class="zs-type" checked="checked" />
@@ -210,13 +208,14 @@
   <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
   <div id="gitalk-container"></div>
   <script>
+    alert();
     var gitalk = new Gitalk({
       clientID: 'c92fa605c71b2d6807b3',
       clientSecret: '5738c72df80ea2bbff7555ec3b72dbd733ec7a8c',
       repo: 'post-comment',
       owner: 'phpzlc',
       admin: ['CJayHe'],
-      id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: localBaseUrl(),      // Ensure uniqueness and length less than 50
       distractionFreeMode: false  // Facebook-like distraction free mode
     })
 
