@@ -55,7 +55,7 @@ def init_gitalk(session, not_initialized):
         # issuse lable 限制最大长度为50，使用md5防止超长导致报错
         m = hashlib.md5()
         m.update(post_path.encode('utf-8'))
-        gtalk_id = m.hexdigest()
+        gtalk_id = url
         issue = {
             'title': title,
             'body': url,
