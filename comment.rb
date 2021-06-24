@@ -1,3 +1,4 @@
+# https://draveness.me/git-comments-initialize/
 username = "phpzlc" # GitHub 用户名
 token = "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"  # GitHub Token
 repo_name = "post-comment" # 存放 issues
