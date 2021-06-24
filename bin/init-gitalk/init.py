@@ -60,9 +60,9 @@ def init_gitalk(session, not_initialized):
         }
         print('{}'.format(url))
         print('[{}] checking...'.format(title))
-        is_existed = get_comments(session=session, md5_label=gtalk_id)
+        is_existed = get_comments(session=session, md5_label=post_path)
         if is_existed:
-            print("issues [", gtalk_id,"] already exist")
+            print("issues [", post_path,"] already exist")
             continue
         print('[{}] initializing...'.format(title))
         resp = session.post(url=github_url, data=json.dumps(issue))
