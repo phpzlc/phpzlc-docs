@@ -48,7 +48,7 @@ def get_post_title(url):
     r = requests.get(url=url)
     soup = BeautifulSoup(r.text, 'html.parser')
     # 我的博客会自动给文章标题加上  - Linux Shell 后缀，需要去掉，当然不去掉也行
-    return soup.title.string.split(' - Linux Shell')[0]
+    return soup.title
 
 def init_gitalk(session, not_initialized):
     github_url = "https://api.github.com/repos/" + username + "/" + repo_name + "/issues"
@@ -65,6 +65,7 @@ def init_gitalk(session, not_initialized):
             'body': url,
             'labels': ['Gitalk', gtalk_id]
         }
+        print('{}'.format(url))
         print('[{}] checking...'.format(title))
         is_existed = get_comments(session=session, md5_label=gtalk_id)
         if is_existed:
