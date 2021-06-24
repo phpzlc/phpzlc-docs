@@ -24,9 +24,9 @@ def get_comments(session, md5_label=''):
     data = json.loads(r.text)
     for issue in data:
         issues.append(issue['body'].split('?')[0])
-
+    
     return issues
-
+    
 
 def get_posts():
     post_urls = []
@@ -34,15 +34,17 @@ def get_posts():
     root = ET.fromstring(r.text)
 
     for child in root:
-      post_urls.append(child[0].text)
-    return post_urls
+        # 只对文章页初始化评论，需要注意确认文章目录名是不是为 post
+        post_urls.append(child[0].text)
 
+    return post_urls
+    
 
 def get_post_title(url):
     r = requests.get(url=url)
     soup = BeautifulSoup(r.text, 'html.parser')
     # 我的博客会自动给文章标题加上  - Linux Shell 后缀，需要去掉，当然不去掉也行
-    return soup.title
+    return soup.title.string.split(' - Linux Shell')[0]
 
 def init_gitalk(session, not_initialized):
     github_url = "https://api.github.com/repos/" + username + "/" + repo_name + "/issues"
@@ -53,16 +55,16 @@ def init_gitalk(session, not_initialized):
         # issuse lable 限制最大长度为50，使用md5防止超长导致报错
         m = hashlib.md5()
         m.update(post_path.encode('utf-8'))
+        gtalk_id = m.hexdigest()
         issue = {
             'title': title,
             'body': url,
-            'labels': ['Gitalk', post_path]
+            'labels': ['Gitalk', gtalk_id]
         }
-        print('{}'.format(url))
         print('[{}] checking...'.format(title))
-        is_existed = get_comments(session=session, md5_label=post_path)
+        is_existed = get_comments(session=session, md5_label=gtalk_id)
         if is_existed:
-            print("issues [", post_path,"] already exist")
+            print("issues [", gtalk_id,"] already exist")
             continue
         print('[{}] initializing...'.format(title))
         resp = session.post(url=github_url, data=json.dumps(issue))
@@ -76,7 +78,7 @@ def init_gitalk(session, not_initialized):
 def main():
     # 暂停5分钟，主要是为了等待 vercel 编译新的文章
     print('sleep 300s for waiting hugo build...')
-    time.sleep(30)
+    time.sleep(300)
     session = requests.Session()
     session.auth = (username, token)
     session.headers = {
