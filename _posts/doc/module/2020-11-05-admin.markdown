@@ -28,37 +28,38 @@ composer require phpzlc/admin
 1. 后台初始化类
 
    本框架内的控制类层需要继承该后台初始化类
-
-   ```php
-   class AdminController extends SystemBaseController
-   {
-       /**
-        * @var AdminStrategy
-        */
-       private $adminStrategy;
    
-       /**
-        * @var string
-        */
-       private $pageTag;
-       
-       public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, $isLogin = true)
-       {
-           $this->adminStrategy = new AdminStrategy($this->container);
-           $this->adminStrategy->setPageTag($this->pageTag);
-           
-           return parent::inlet($returnType, $isLogin);
-       }
-   }
-   ```
+   ```php
+    class AdminController extends SystemBaseController
+      {
+          /**
+           * @var AdminStrategy
+           */
+          private $adminStrategy;
+      
+          /**
+           * @var string
+           */
+          private $pageTag;
+          
+          public function inlet($returnType = SystemBaseController::RETURN_HIDE_RESOURCE, $isLogin = true)
+          {
+              $this->adminStrategy = new AdminStrategy($this->container);
+              $this->adminStrategy->setPageTag($this->pageTag);
+              
+              return parent::inlet($returnType, $isLogin);
+          }
+      }
+    ```
 
 
 ## AdminStrategy类
 
-   该类用于处理后台管理系统页面上呈现的基础数据,例如：导航菜单,登录,退出登录,背景图等
+   该类用于处理后台管理系统页面上呈现的基础数据,例如：导航菜单,登录,退出登录,背景图等.
    
-    ```php
-    //菜单
+   ```php
+ //菜单
+
             $menus = [
                 new Menu($title, $ico, $tag, $url, $url_target, [
                     new Menu($title, $ico, $tag, $url, $url_target, $childs = array())
@@ -91,7 +92,7 @@ composer require phpzlc/admin
                         ->setMenus($menus)
                         // 设置登陆页面背景图片
                         ->setLoginLackGroundImg('public/image/200.png');
-    ```
+```
 
 1. 设置锚点url
    
