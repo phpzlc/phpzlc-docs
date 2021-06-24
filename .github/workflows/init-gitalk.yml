@@ -14,4 +14,4 @@ jobs:
       - name: Run script
         run: |
           pip install -r bin/init-gitalk/requirements.txt
-          python bin/init-gitalk/gitalk-init.py ${{ secrets.SITE_URL }} ${{ secrets.SITEMAP_URL }} ${{ secrets.TOKEN }} ${{ secrets.USER_NAME }} ${{ secrets.COMMENT_REPO_NAME }}
+          python bin/init-gitalk/init.py ${{ secrets.SITE_URL }} ${{ secrets.SITEMAP_URL }} ${{ secrets.TOKEN }} ${{ secrets.USER_NAME }} ${{ secrets.COMMENT_REPO_NAME }}
