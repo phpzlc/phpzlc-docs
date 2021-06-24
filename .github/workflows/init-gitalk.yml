@@ -1,8 +1,6 @@
 name: initialization-gitalk
 
-on: 
-  schedule:
-    - cron: '5 * * * *'
+on: [ push, delete, create ]
 
 jobs:
   build:
