@@ -34,13 +34,7 @@ def get_posts():
     root = ET.fromstring(r.text)
 
     for child in root:
-        # 只对文章页初始化评论，需要注意确认文章目录名是不是为 post
-        if 'post' in child[0].text:
-            post_urls.append(child[0].text)
-
-    if len(post_urls) > 0:
-        # 移除 post目录
-         post_urls.remove(site_url + '/post/')
+      post_urls.append(child[0].text)
     return post_urls
 
 
@@ -59,11 +53,10 @@ def init_gitalk(session, not_initialized):
         # issuse lable 限制最大长度为50，使用md5防止超长导致报错
         m = hashlib.md5()
         m.update(post_path.encode('utf-8'))
-        gtalk_id = m.hexdigest()
         issue = {
             'title': title,
             'body': url,
-            'labels': ['Gitalk', gtalk_id]
+            'labels': ['Gitalk', post_path]
         }
         print('{}'.format(url))
         print('[{}] checking...'.format(title))
