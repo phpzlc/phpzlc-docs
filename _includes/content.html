@@ -205,26 +205,34 @@
   </section>
   <!--//doc-section-->
 
-  <!-- 评论系统 标题不能含英文冒号和英文逗号 -->
-  {% if site.enable %}
-  <div id="giteementContainer"></div>
-  <link rel="stylesheet" href="https://giteement.oss-cn-beijing.aliyuncs.com/default.css">
-  <script src="https://giteement.oss-cn-beijing.aliyuncs.com/giteement.browser.js"></script>
+  <div id="container"></div>
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
   <script>
-      var giteement = new Giteement({
-        id: '{{ page.permalink }}',
-        owner: '{{site.gitee_username}}',
-        repo: '{{site.repo}}',
-        backcall_uri: '{{site.redirect_uri}}',
-        oauth_uri:'{{site.oauth_uri}}',
-        oauth: {
-          client_id: '{{site.comment_gitment_clientId}}',
-          client_secret: '{{site.comment_gitment_clientSecret}}',
-        },
-      });
-    giteement.render('giteementContainer')
+    let cmtBtns = document.getElementsByClassName('gitment-comments-init-btn');
+    let isClicked = false;
+
+    let timer = setInterval(() => {
+      Array.prototype.forEach.call(cmtBtns, item => {
+        item.click();
+        isClicked = true;
+        if(isClicked) {
+          clearInterval(timer);
+          console.log('Clear timer.')
+        }
+      })
+    }, 1000)
+    var gitment = new Gitment({
+      id: '{{ page.permalink }}', // 可选。默认为 location.href
+      owner: 'CJayHe',
+      repo: 'phpzlc-post-comment',
+      oauth: {
+        client_id: 'c92fa605c71b2d6807b3',
+        client_secret: '5738c72df80ea2bbff7555ec3b72dbd733ec7a8c',
+      },
+    })
+    gitment.render('container')
   </script>
-  {% endif %}
 </div>
 <!--//content-inner-->
 <script>
