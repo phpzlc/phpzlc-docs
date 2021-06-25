@@ -183,5 +183,13 @@ _以下效果来自`admin-business`_
    public function canRoute($route, UserAuth $userAuth = null)
    ```
 5. 清除用户权限菜单缓存
-
+   
+   ```php
+   /**
+    * 清除缓存
+    *
+    * @param UserAuth|null $userAuth //需要鉴权的用户,不传为当前登录用户
+    */
+   public function clearCache(UserAuth $userAuth = null)
+   ```
     
