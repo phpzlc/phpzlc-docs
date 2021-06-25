@@ -1588,7 +1588,7 @@ select {
 
 /* 评论区样式调整 */
 .gt-container .gt-svg {
-  vertical-align: inherit;
+  vertical-align: inherit !important;
 }
 
 .gt-container .gt-ico-text {
