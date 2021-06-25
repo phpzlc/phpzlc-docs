@@ -170,7 +170,7 @@ _以下效果来自`admin-business`_
    public function can($permissions, $model = 'and', UserAuth $userAuth = null)
    ```
 
-3. 判断是否有访问路由的权限
+4. 判断是否有访问路由的权限
 
    ```php
    /**
@@ -182,5 +182,6 @@ _以下效果来自`admin-business`_
     */
    public function canRoute($route, UserAuth $userAuth = null)
    ```
+5. 清除用户权限菜单缓存
 
     
