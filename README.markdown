@@ -2,7 +2,7 @@
 
 ## PHPZlc & Symfony4+
 
-在Symfony4的基础上,为PHP开发者提供成熟的Web应用程序开发教程和业务组件。
+为开发者提供全套Symfony实践教程和解决方案。
 
 ## 发行申明
 
