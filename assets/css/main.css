@@ -126,7 +126,8 @@
     padding: 10px 0 0 0;
   }
   .promo-block-inner-bottom .li-community .li-code p {
-    display: none;
+    /* display: none; */
+    padding: 0;
   }
   .promo-block-inner-bottom .li-community ul {
     display: flex;

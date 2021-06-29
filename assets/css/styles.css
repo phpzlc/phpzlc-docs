@@ -1594,3 +1594,36 @@ select {
 .gt-container .gt-ico-text {
   line-height: 1;
 }
+
+.a_link {
+  color: white;
+}
+
+.qq_join {
+  cursor: pointer;
+}
+
+.share {
+  display: flex;
+  justify-content: center;
+}
+
+.a_share {
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.wx {
+  position: relative;
+}
+
+.wxqrcode {
+  position: absolute;
+  top: 25px;
+  display: none;
+  width: 100px;
+  height: 100px;
+}
