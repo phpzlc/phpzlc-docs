@@ -1,5 +1,5 @@
 <head>
-  <title>PHPZlc & Symfony4+ {{ page.title }}</title>
+  <title>{{ page.title }}{% if page.title != '' and page.title != Nil and page.title != ' ' %} | {% endif %}PHPZlc & Symfony4+</title>
   <!-- Meta -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
