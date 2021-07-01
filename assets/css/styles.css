@@ -1618,7 +1618,9 @@ select {
 
 .share {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  width: 600px;
+  margin: 0 auto;
 }
 
 .a_share {
@@ -1659,7 +1661,7 @@ select {
 .share_main_title {
   width: 100%;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 2;
   font-weight: 700;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1667,16 +1669,15 @@ select {
 }
 
 .share_main_url {
+  display: block;
   width: 100%;
-  height: 36px;
-  font-size: 12px;
-  line-height: 1.5;
+  /* height: 36px; */
+  font-size: 14px;
+  line-height: 2;
   color: #337ab7;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  white-space: nowrap;
   word-break: break-all;
 }
 
@@ -1700,9 +1701,13 @@ select {
 }
 
 @media (max-width: 1199px) {
+  .share {
+    width: 100%;
+  }
+
   .share_main {
     width: 100%;
-    padding: 10px 5px;
+    padding: 10px;
   }
 
   .share_main_left {
