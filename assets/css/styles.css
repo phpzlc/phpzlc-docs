@@ -1116,11 +1116,19 @@ select {
 
 .promo-block a {
   color: rgba(0, 0, 0, 0.6);
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
-.promo-block a:hover {
-  color: rgba(0, 0, 0, 0.7);
+.promo-block .a_link_2:hover {
+  text-decoration: none;
+}
+
+.community-slack>a:hover {
+  color: white;
+}
+
+.community-slack>a:hover span {
+  color: #58bbee;
 }
 
 .promo-block .promo-block-inner {
@@ -1579,7 +1587,12 @@ select {
 }
 
 .community-slack {
-  padding-left: 12px;
+  padding-left: 0;
+}
+
+.community-slack>a {
+  text-decoration: none;
+  color: #58bbee !important;
 }
 
 .community-ul {
@@ -1626,4 +1639,95 @@ select {
   display: none;
   width: 100px;
   height: 100px;
+}
+
+.share_main {
+  width: 600px;
+  height: 80px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  box-shadow: 0 1px 6px rgb(0 0 0 / 20%);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.share_main_left {
+  float: left;
+  width: 430px;
+}
+
+.share_main_title {
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.share_main_url {
+  width: 100%;
+  height: 36px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #337ab7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.share_main_right {
+  float: left;
+  width: 100px;
+  height: 32px;
+  margin: 12px 0 0 16px;
+  font-size: 16px;
+  line-height: 2;
+  color: white !important;
+  text-align: center;
+  background-color: #ff1313;
+  border-radius: 5px;
+  box-shadow: 0 3px #f90000;
+}
+
+.share_main_right:hover {
+  text-decoration: none;
+  background-color: #ef2a2a;
+}
+
+@media (max-width: 1199px) {
+  .share_main {
+    width: 100%;
+    padding: 10px 5px;
+  }
+
+  .share_main_left {
+    width: 70%;
+  }
+
+  .share_main_right {
+    float: right;
+    width: 80px;
+    margin-top: 16px;
+    margin-left: 5px;
+  }
+
+  .container {
+    padding-bottom: 10px !important;
+  }
+}
+
+.demo_link {
+  font-size: 14px;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: underline;
+}
+
+.demo_link:hover {
+  color: #58bbee !important;
 }
