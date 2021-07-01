@@ -295,7 +295,8 @@
     var url = $(window).attr("location");
 
     // 新浪微博
-    $(".xlwb").attr("href",("http://v.t.sina.com.cn/share/share.php?title="+title2+"&url="+url));
+    var title3 = "%23PHPZlc%23%20%20%20" + title2;
+    $(".xlwb").attr("href",("http://v.t.sina.com.cn/share/share.php?title="+title3+"&url="+url));
         
     // QQ好友
     $(".qqhy").attr("href",("http://connect.qq.com/widget/shareqq/index.html?title="+title2+"&url="+url));
