@@ -1622,7 +1622,7 @@ text-shadow: none;
   padding-left: 32px;
   font-size: 16px;
   line-height: 40px;
-  font-style: italic;
+  /* font-style: italic; */
   background: url("/assets/images/github.gif") no-repeat scroll 0 4px transparent;
 }
 
