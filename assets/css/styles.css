@@ -1736,3 +1736,12 @@ select {
 .demo_link:hover {
   color: #58bbee !important;
 }
+
+.header_a {
+  color: #e2e3e4 !important;
+}
+
+.header_a:hover {
+  text-decoration: none !important;
+  color: #58bbee !important;
+}

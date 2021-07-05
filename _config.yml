@@ -18,7 +18,8 @@ defaults:
   - scope:
       path: "_posts/doc" # 一个空的字符串代表项目中所有的文件
     values:
-      column_title: 文档支持
+      # column_title: 文档支持
+      column_title: 实践教程
       layout: doc
       categories: post doc
 
