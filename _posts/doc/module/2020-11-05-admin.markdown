@@ -168,14 +168,14 @@ composer require phpzlc/admin
    ```
 
 10. 设置管理员角色名称
-   
    ```php
    public function setAdminRoleName($admin_role_name)
-   ```
+```
    
 11. 设置登陆页面背景图片
    
    $login_lack_ground_img 地址为图片的相对位置
+   
    ```php
    public function setLoginLackGroundImg(string $login_lack_ground_img)
    ```
@@ -195,24 +195,24 @@ composer require phpzlc/admin
 ## 设置面包线
 
    在需要设置面包线的页面调用此方法,我们提供了两种不同模式的面包线的设置方法
-   
-   第一种 在原有的面包线上添加面包线
-   
+        
+   第一种 初始化面包线
+         
    ```php
-   $this->adminStrategy->addNavigation(new Navigation($title, $url = ''));
+      $this->adminStrategy->setNavigations(array $navigations)
    ```
-   
-   第二种 初始化面包线
-   
+
+   第二种 在原有的面包线上添加面包线
+     
    ```php
-   $this->adminStrategy->setNavigations(array $navigations)
+      $this->adminStrategy->addNavigation(new Navigation($title, $url = ''));
    ```
    
 ## 模式切换
 
    本框架提供两种后台页面模式.这两种模式可以进行切换,适合不同量级的后台.
-   简单模式是传统的侧边栏.
-   复杂模式精细划分各个模块,设置头部导航功能.
+   简单模式：传统的侧边栏.
+   复杂模式：设置头部导航功能，精确划分各个模块.
             
    **场景**
       
@@ -220,7 +220,7 @@ composer require phpzlc/admin
       
    ```php
    $this->adminStrategy = new AdminStrategy(ContainerInterface $container);
-   $this->adminStrategy->setMenuModel(int $menu_model) // 复杂模式 menu_model_all = 1; 简单模式 menu_model_simple = 2
+   $this->adminStrategy->setMenuModel($menu_model) // 简单模式 menu_model_simple = 2; 复杂模式 menu_model_all = 1; 
    ```
    
    复杂模式效果
@@ -254,17 +254,19 @@ composer require phpzlc/admin
 
 ## 页面技术栈
 
-    [Vue.js](https://cn.vuejs.org/)
+   [Vue.js](https://cn.vuejs.org/)
     
-    [ElementUI](https://element.eleme.io/#/zh-CN/component/installation)
+   [ElementUI](https://element.eleme.io/#/zh-CN/component/installation)
     
-    [Twig](https://www.kancloud.cn/yunye/twig-cn/159454)
+   [Twig](https://www.kancloud.cn/yunye/twig-cn/159454)
     
-    [Font图表库](https://fontawesome.dashgame.com/)
+   [Font图表库](https://fontawesome.dashgame.com/)
     
 ## 仪表盘基本写法
 
    **页面层**
+   
+   [代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/statistical-station.html.twig)
    
    页面要先引用
    
@@ -349,6 +351,8 @@ composer require phpzlc/admin
 ## 列表页面基本写法
    
    **页面层**
+   
+   [代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/list.html.twig)
    
    搜索框
    
@@ -456,6 +460,8 @@ composer require phpzlc/admin
 ## 编辑页面基本写法
    
    **页面层**
+   
+   [代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/edit.html.twig)
    
    输入框(文本输入,密码输入等多种类型)
    
