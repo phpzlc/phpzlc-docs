@@ -10,8 +10,8 @@ defaults:
       path: "" # 一个空的字符串代表项目中所有的文件
     values:
       description_auto: 1
-      description: "在Symfony4的基础上,提供成熟的Web应用程序开发教程和业务组件。"
-      tags: phpzlc,symfony,symfony4,web开发,后端,php,实战教程,解决方案
+      description: "为开发者提供全套Symfony实践教程和解决方案"
+      tags: phpzlc,symfony,symfony4,web开发,php,实战教程,解决方案
       author_no: 1
       img_all: 1
 
