@@ -11,7 +11,7 @@ defaults:
     values:
       description_auto: 1
       description: "在Symfony4的基础上,提供成熟的Web应用程序开发教程和业务组件。"
-      tags: phpzlc,symfony,symfony4,web开发,后端,php
+      tags: phpzlc,symfony,symfony4,web开发,后端,php,实战教程,解决方案
       author_no: 1
       img_all: 1
 
