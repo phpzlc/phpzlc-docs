@@ -250,11 +250,11 @@ $this->adminStrategy
    
    完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/statistical-station.html.twig)
    
-   页面要先引用
+1. 页面要先引用
    
    ![引用](/assets/posts/admin/echart.png)
    
-1. 数据统计框
+2. 数据统计框
    
 ```vue
    <div class="console-small-statistics clearfix">
@@ -282,7 +282,7 @@ $this->adminStrategy
     },
    ```
   
-2. 数据统计表
+3. 数据统计表
    
    ```vue
    <div class="echarts-content clearfix">
@@ -326,13 +326,12 @@ $this->adminStrategy
                myChart1.setOption(option1);
    ```
 
-3. 页面效果
+4. 页面效果
    
    ![效果](/assets/posts/admin/data.png)
 
    
 ## 列表页面基本写法
-   
    
    完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/list.html.twig)
    
