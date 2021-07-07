@@ -76,6 +76,9 @@ def init_gitalk(session, not_initialized):
             break
 
 def main():
+    # 暂停，主要是为了等待 vercel 编译新的文章
+    print('sleep 100s for waiting hugo build...')
+    time.sleep(100)
     session = requests.Session()
     session.auth = (username, token)
     session.headers = {
