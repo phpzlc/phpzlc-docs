@@ -50,12 +50,12 @@ def init_gitalk(session, not_initialized):
     github_url = "https://api.github.com/repos/" + username + "/" + repo_name + "/issues"
 
     for url in not_initialized:
-        print('[{}] url1...'.format(url))
-        gtalk_id = url.replace("https://phpzlc.com/", "")
-        print('[{}] gtalk_id...'.format(gtalk_id))
-        print('[{}] url2...'.format(url))
         title = get_post_title(url=url)
-        print('[{}] url3...'.format(url))
+        post_path = url.split(site_url)[-1]
+        # issuse lable 限制最大长度为50，使用md5防止超长导致报错
+        m = hashlib.md5()
+        m.update(post_path.encode('utf-8'))
+        gtalk_id = post_path
         issue = {
             'title': title,
             'body': url,
@@ -76,9 +76,9 @@ def init_gitalk(session, not_initialized):
             break
 
 def main():
-    # 暂停，主要是为了等待 vercel 编译新的文章
-    # print('sleep 100s for waiting hugo build...')
-    # time.sleep(100)
+    # 暂停5分钟，主要是为了等待 vercel 编译新的文章
+    # print('sleep 300s for waiting hugo build...')
+    # time.sleep(300)
     session = requests.Session()
     session.auth = (username, token)
     session.headers = {
@@ -91,5 +91,6 @@ def main():
     not_initialized = list(set(post_urls) ^ set(existing_comments))
 
     init_gitalk(session=session, not_initialized=not_initialized)
-    
+
+
 main()
