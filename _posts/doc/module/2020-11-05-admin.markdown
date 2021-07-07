@@ -256,7 +256,7 @@ $this->adminStrategy
    
 2. 数据统计框
    
-```vue
+```php
    <div class="console-small-statistics clearfix">
        <a :class="'console-small-statistics-bg'+(index+1)"
            v-for="(item, index) in consoleSmall" :key="index" :href= "item.src" style="margin-left: 40px">
@@ -264,9 +264,9 @@ $this->adminStrategy
              <p class="console-statistics-value">${item.value}$</p>
         </a>
    </div>
-   ```
+```
    
-```shell script
+```php
     data: function () {
              return {
                   consoleSmall: [
@@ -280,7 +280,7 @@ $this->adminStrategy
                   ],
              }
     },
-   ```
+```
   
 3. 数据统计表
    
