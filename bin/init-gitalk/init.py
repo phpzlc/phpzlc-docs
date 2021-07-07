@@ -50,8 +50,12 @@ def init_gitalk(session, not_initialized):
     github_url = "https://api.github.com/repos/" + username + "/" + repo_name + "/issues"
 
     for url in not_initialized:
+        print('[{}] url1...'.format(url))
         gtalk_id = url.replace("https://phpzlc.com/", "")
+        print('[{}] gtalk_id...'.format(gtalk_id))
+        print('[{}] url2...'.format(url))
         title = get_post_title(url=url)
+        print('[{}] url3...'.format(url))
         issue = {
             'title': title,
             'body': url,
@@ -73,8 +77,8 @@ def init_gitalk(session, not_initialized):
 
 def main():
     # 暂停，主要是为了等待 vercel 编译新的文章
-    print('sleep 100s for waiting hugo build...')
-    time.sleep(100)
+    # print('sleep 100s for waiting hugo build...')
+    # time.sleep(100)
     session = requests.Session()
     session.auth = (username, token)
     session.headers = {
