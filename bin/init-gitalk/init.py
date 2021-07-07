@@ -50,8 +50,8 @@ def init_gitalk(session, not_initialized):
     github_url = "https://api.github.com/repos/" + username + "/" + repo_name + "/issues"
 
     for url in not_initialized:
-        title = get_post_title(url=url)
         gtalk_id = url.replace("https://phpzlc.com/", "")
+        title = get_post_title(url=url)
         issue = {
             'title': title,
             'body': url,
