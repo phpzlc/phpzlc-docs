@@ -23,14 +23,12 @@ tags: admin,phpzlc/admin,后台
 composer require phpzlc/admin
 ```
 
-## 内核基本方法
+## 服务引入
 
-1. 后台初始化类
-
-   本框架内的控制类层需要继承该后台初始化类
+   后台控制器需要按照下列来实现基类
    
-   ```php
-    class AdminController extends SystemBaseController
+```php
+class AdminController extends SystemBaseController
       {
           /**
            * @var AdminStrategy
@@ -50,64 +48,61 @@ composer require phpzlc/admin
               return parent::inlet($returnType, $isLogin);
           }
       }
-    ```
+```
 
 
-## AdminStrategy类
+## AdminStrategy
 
-   该类用于处理后台管理系统页面上呈现的基础数据,例如：导航菜单,登录,退出登录,背景图等.
+   是后台核心机制类,主要用于设置后台系统的基本属性和动作
    
-   ```php
- //菜单
+```php
 
-            $menus = [
-                new Menu($title, $ico, $tag, $url, $url_target, [
-                    new Menu($title, $ico, $tag, $url, $url_target, $childs = array())
-                ])
-            ];
+ //菜单配置
+$menus = [
+    new Menu($title, $ico, $tag, $url, $url_target, [
+    new Menu($title, $ico, $tag, $url, $url_target, $childs = array())
+    ])
+];           
     
-            $this->adminStrategy = new AdminStrategy($this->container);
+$this->adminStrategy = new AdminStrategy($this->container);
     
-            //设置管理端基本信息(名称,页面标记,菜单......)
-            $this->adminStrategy
-                        // 设置后台标题
-                        ->setTitle('admin')
-                        // 设置后台入口URL
-                        ->setEntranceUrl($this->generateUrl('admin_manage_index'))
-                        // 设置后台出口URL
-                        ->setEndUrl($this->generateUrl('admin_manage_logout'))
-                        // 设置修改密码页面URL
-                        ->setSettingPwdUrl($this->generateUrl('admin_manage_edit_password'))
-                        // 设置后台页面模式
-                        ->setMenuModel(AdminStrategy::menu_model_simple)
-                        // 设置页面标记
-                        ->setPageTag($this->page_tag)
-                        // 设置清除缓存API地址url
-                        ->setClearCacheApiUrl($this->generateUrl('admin_manage_clearCache'))
-                        // 设置后台favicon_ico图标
-                        ->setFaviconIco('public/image/100.png')
-                        // 设置后台logo
-                        ->setLogo('public/image/200.png')
-                        // 设置后台导航菜单
-                        ->setMenus($menus)
-                        // 设置登陆页面背景图片
-                        ->setLoginLackGroundImg('public/image/200.png');
+//设置管理端基本信息(名称,页面标记,菜单......)
+$this->adminStrategy
+    // 设置后台标题
+    ->setTitle('admin')
+    // 设置后台入口URL
+    ->setEntranceUrl($this->generateUrl('admin_manage_index'))
+    // 设置后台退出登录URL
+    ->setEndUrl($this->generateUrl('admin_manage_logout'))
+    // 设置修改密码页面URL
+    ->setSettingPwdUrl($this->generateUrl('admin_manage_edit_password'))
+    // 设置后台页面模式
+    ->setMenuModel(AdminStrategy::menu_model_simple)
+    // 设置页面标记
+    ->setPageTag($this->page_tag)
+    // 设置清除缓存API地址url
+    ->setClearCacheApiUrl($this->generateUrl('admin_manage_clearCache'))
+    // 设置后台favicon_ico图标
+    ->setFaviconIco('public/image/100.png')
+    // 设置后台logo
+    ->setLogo('public/image/200.png')
+    // 设置后台导航菜单
+    ->setMenus($menus)
+    // 设置登陆页面背景图片
+    ->setLoginLackGroundImg('public/image/200.png');
 ```
 
 1. 设置锚点url
    
-   **场景**
+   用于设置表单提交,取消等需要返回到某个控制器层的action中时,我们可以使用该方法,将action设为锚点,一般在列表中设置
    
-   用于设置表单提交,取消等需要返回到某个控制器层的action中时,我们可以使用该方法,将action设为锚点.
-   
-   ```php
-   public function setUrlAnchor()
-   ```
+    ```php
+    public function setUrlAnchor()
+    ```
    
 2. 设置页面标记
    
-   $tag 需要在每个控制器层去定义一个string类型的标记标记名称,并且在设置导航菜单的tag参数中写入设置的标记名称,这样
-   在生成导航菜单的时候,设置的页面标记就会标记在该导航菜单上.
+    页面标记配置，需要和菜单配置相对应，用于菜单选项的高亮显示。
    
    ```php
    public function setPageTag($tag)
@@ -120,17 +115,13 @@ composer require phpzlc/admin
    ```
 
 4. 设置后台favicon_ico图标
-   
-   $favicon_ico 地址为图片的相对位置
-   
+    
    ```php
    public function setFaviconIco($favicon_ico)
    ```
 
 5. 设置后台logo
-   
-   $logo 地址为图片的相对位置
-   
+    
    ```php
    public function setLogo($logo)
    ```
@@ -143,18 +134,14 @@ composer require phpzlc/admin
    public function setEntranceUrl($entrance_url)
    ```
    
-7. 设置后台出口URL
-   
-   $end_url 可以使用$this->generateUrl(string $route)方法进行生成,$route是在yaml中设置的路由名称
-   
+7. 设置退出登录URL
+    
    ```php
    public function setEndUrl($end_url)
    ```
 
 8. 设置密码修改页面url
    
-   $setting_pwd_url 可以使用$this->generateUrl(string $route)方法进行生成,$route是在yaml中设置的路由名称
-
    ```php
    public function setSettingPwdUrl($setting_pwd_url)
    ```
@@ -173,106 +160,103 @@ composer require phpzlc/admin
    public function setAdminRoleName($admin_role_name)
    ```
    
-11. 设置登陆页面背景图片
+1 1. 设置登陆页面背景图片
    
-   $login_lack_ground_img 地址为图片的相对位置
    ```php
    public function setLoginLackGroundImg(string $login_lack_ground_img)
    ```
    
-12. 设置管理员登录头像
+1 2. 设置管理员登录头像
 
    ```php
    public function setAdminAvatar(string $admin_avatar)
    ```
 
-13. 设置定制页面head
+1 3. 设置head自定义代码
 
    ```php
    public function setHendCode(string $hend_code)
    ```
 
-## 设置面包线
+## 面包线配置
 
    在需要设置面包线的页面调用此方法,我们提供了两种不同模式的面包线的设置方法
-   
-   第一种 在原有的面包线上添加面包线
-   
-   ```php
-   $this->adminStrategy->addNavigation(new Navigation($title, $url = ''));
-   ```
-   
-   第二种 初始化面包线
-   
+        
+1. 初始化面包线
+         
    ```php
    $this->adminStrategy->setNavigations(array $navigations)
+   ```
+
+2. 在原有的面包线上添加面包线
+     
+   ```php
+   $this->adminStrategy->addNavigation(new Navigation($title, $url = ''));
    ```
    
 ## 模式切换
 
    本框架提供两种后台页面模式.这两种模式可以进行切换,适合不同量级的后台.
-   简单模式是传统的侧边栏.
-   复杂模式精细划分各个模块,设置头部导航功能.
-            
-   **场景**
-      
-   复杂模式和简单模式切换
+   
+1. 简单模式(三级菜单,后期可升级为复杂模式)
+
+2. 复杂模式(四级菜单,增加头部菜单,功能划分更精确直观)
       
    ```php
    $this->adminStrategy = new AdminStrategy(ContainerInterface $container);
-   $this->adminStrategy->setMenuModel(int $menu_model) // 复杂模式 menu_model_all = 1; 简单模式 menu_model_simple = 2
+   $this->adminStrategy->setMenuModel(AdminStrategy::menu_model_simple) // 简单模式 menu_model_simple; 复杂模式 menu_model_all; 
    ```
    
-   复杂模式效果
-  
-   ![复杂模式](/assets/posts/admin/model_all.png)
+3. 页面效果
    
    简单模式效果
    
    ![简单模式](/assets/posts/admin/model_simple.png)
    
+   复杂模式效果
+   
+   ![复杂模式](/assets/posts/admin/model_all.png)
+   
 ## 设置导航菜单   
    
-   我们将要显示的导航菜单根据它的层级设置一个多维数组$menus,然后调用
+1. 我们将要显示的导航菜单根据它的层级设置一个多维数组$menus,然后调用
    
    ```php
    $this->adminStrategy->setMenus(array $menus);
    ```
    
-   **场景**
-   
-   比较常用三级层级的导航菜单
+2. 比较常用三级层级的导航菜单
    
    ```php
-     new Menu('博客管理系统', null, null, null, null, [
-            new Menu('博客管理', 'fa fa-clone', null, null, null, [
-                new Menu('文章管理', null, 'admin_article_index', $this->generateUrl('admin_blog_manage_article_index'), null),
-            ]),
+   new Menu('博客管理系统', null, null, null, null, [
+          new Menu('博客管理', 'fa fa-clone', null, null, null, [
+              new Menu('文章管理', null, 'admin_article_index', $this->generateUrl('admin_blog_manage_article_index'), null),
+          ]),
       
-     ]);
+   ]);
    ```
 
 ## 页面技术栈
 
-    [Vue.js](https://cn.vuejs.org/)
+   [Vue.js](https://cn.vuejs.org/)
     
-    [ElementUI](https://element.eleme.io/#/zh-CN/component/installation)
+   [ElementUI](https://element.eleme.io/#/zh-CN/component/installation)
     
-    [Twig](https://www.kancloud.cn/yunye/twig-cn/159454)
+   [Twig](https://www.kancloud.cn/yunye/twig-cn/159454)
     
-    [Font图表库](https://fontawesome.dashgame.com/)
+   [Font图表库](https://fontawesome.dashgame.com/)
     
 ## 仪表盘基本写法
-
-   **页面层**
    
-   页面要先引用
+   完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/statistical-station.html.twig)
+   
+1. 页面要先引用
    
    ![引用](/assets/posts/admin/echart.png)
    
-   数据统计框
+2. 数据统计框
    
-   ```twig
+```php
    <div class="console-small-statistics clearfix">
        <a :class="'console-small-statistics-bg'+(index+1)"
            v-for="(item, index) in consoleSmall" :key="index" :href= "item.src" style="margin-left: 40px">
@@ -280,9 +264,9 @@ composer require phpzlc/admin
              <p class="console-statistics-value">${item.value}$</p>
         </a>
    </div>
-   ```
+```
    
-   ```vue
+```php
     data: function () {
              return {
                   consoleSmall: [
@@ -296,13 +280,11 @@ composer require phpzlc/admin
                   ],
              }
     },
-   ```
+```
+  
+3. 数据统计表
    
-   ![数据统计框](/assets/posts/admin/data_box.png)
-   
-   数据统计表
-   
-   ```twig
+   ```vue
    <div class="echarts-content clearfix">
             <el-col>
                 <el-col :span="12">
@@ -321,7 +303,7 @@ composer require phpzlc/admin
    </div>
    ```
    
-   ```vue
+   ```shell script
    setTimeout(function(){
                // 基于准备好的dom,初始化echarts实例
                var myChart1 = echarts.init(document.getElementById('main1'), "macarons");
@@ -342,17 +324,20 @@ composer require phpzlc/admin
                };
                // 使用刚指定的配置项和数据显示图表.
                myChart1.setOption(option1);
-
    ```
-   ![数据统计表](/assets/posts/admin/data_cart.png)
+
+4. 页面效果
+   
+   ![效果](/assets/posts/admin/data.png)
+
    
 ## 列表页面基本写法
    
-   **页面层**
+   完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/list.html.twig)
    
-   搜索框
+1. 搜索框
    
-   ```twig
+   ```vue
        <el-row class="page-search">
            <el-form ref="searchForm" :inline="true" :model="searchForm" label-width="90px" style="margin-left: 10px">
    
@@ -378,9 +363,9 @@ composer require phpzlc/admin
        
    ```
    
-   数据显示
+2. 数据显示
    
-   ```twig
+   ```vue
         <el-table :data="listData" style="width: 100%" border class="mt-10">
     
             <el-table-column prop="数据" label="数据"></el-table-column>
@@ -405,9 +390,9 @@ composer require phpzlc/admin
         </el-col>
    ```
    
-   Vue代码模块
+3. Vue代码模块
    
-   ```twig
+   ```shell script
    <script>
        new Vue({
            el: '#main-content',
@@ -450,22 +435,24 @@ composer require phpzlc/admin
        })
    </script>
    ```
+4. 页面效果
    
    ![效果](/assets/posts/admin/index.png)
    
 ## 编辑页面基本写法
+  
    
-   **页面层**
+   完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/edit.html.twig)
    
-   输入框(文本输入,密码输入等多种类型)
+1. 输入框(文本输入,密码输入等多种类型)
    
-   ```twig
+   ```vue
      <el-input v-model="" size="mini" clearable placeholder="请输入"></el-input>
    ```
    
-   下拉单选框
+2. 下拉单选框
    
-   ```twig
+   ```vue
     <el-select v-model="value" placeholder="请选择">
         <el-option
           v-for="item in options"
@@ -473,7 +460,7 @@ composer require phpzlc/admin
           :label="item.label"
           :value="item.value">
         </el-option>
-      </el-select>
+    </el-select>
    
     <script>
       export default {
@@ -486,9 +473,9 @@ composer require phpzlc/admin
     </script>
    ```
    
-   下拉多选框
+3. 下拉多选框
    
-   ```twig
+   ```vue
     <el-select v-model="value" multiple placeholder="请选择">
             <el-option
               v-for="item in options"
@@ -498,7 +485,7 @@ composer require phpzlc/admin
             </el-option>
           </el-select>
        
-        <script>
+    <script>
           export default {
             data() {
               return {
@@ -506,11 +493,11 @@ composer require phpzlc/admin
               }
             }
           }
-        </script>
+    </script>
    ```
-   上传控件
+4. 上传控件
    
-   ```twig
+   ```vue
     <el-upload
       class="upload-demo"
       action=""
@@ -549,9 +536,9 @@ composer require phpzlc/admin
       }
     </script>
    ```
-   日期选择器
+5. 日期选择器
    
-   ```twig
+   ```vue
    <el-date-picker
          v-model="value1"
          type="daterange"
@@ -567,11 +554,12 @@ composer require phpzlc/admin
          };
        }
      };
+   </script>
    ```
    
-   单选框
+6. 单选框
    
-   ```twig
+   ```vue
    <el-radio v-model="radio" label="1">备选项</el-radio>
      
    <script>
@@ -585,11 +573,11 @@ composer require phpzlc/admin
    </script>
    ```   
    
-   多选框
+7. 多选框
    
-   ```twig
+   ```vue
     <!-- `checked` 为 true 或 false -->
-    <el-checkbox v-model="checked">备选项</el-checkbox>
+   <el-checkbox v-model="checked">备选项</el-checkbox>
    
    <script>
      export default {
@@ -602,7 +590,7 @@ composer require phpzlc/admin
    </script>
    ```
    
-   更多控件请点击[ElementUI](https://element.eleme.io/#/zh-CN/component/installation)
+   更多控件请进入[ElementUI](https://element.eleme.io/#/zh-CN/component/input)
    
    
 ## 导入功能基本写法
@@ -615,8 +603,8 @@ composer require phpzlc/admin
    
    **页面层**
    
-   ```twig
-     <el-upload
+   ```vue
+    <el-upload
           class="upload-demo"
           action="导入地址"
           :limit="1"
@@ -641,7 +629,7 @@ composer require phpzlc/admin
 
    **控制器层**
    
-   下载导入模板
+1. 下载导入模板
    
    ```php
     // Business层
@@ -660,7 +648,7 @@ composer require phpzlc/admin
     $Business->goUrl($Business->downloadImportTemplate(Request $request));
    ```
    
-   导入模板
+2. 导入模板
    
    ```php
    // Business层
@@ -714,7 +702,7 @@ composer require phpzlc/admin
 
    **页面层**
    
-   ```twig
+   ```vue
    <el-button size="mini" type="success" @click="export_data()">导出</el-button>
 
     <script>

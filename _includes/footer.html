@@ -5,32 +5,34 @@
         <li class="li-1 li-link">
           <p>关联站</p>
           <ul>
-            <li><a href="https://github.com/phpzlc/" target="_blank">GitHub 主页</a></li>
-            <li><a href="http://symfony.com/" target="_blank">Symfony 官网</a></li>
-            <li><a href="http://www.symfonychina.com/" target="_blank">Symfony 中文文档</a></li>
-            <li><a href="https://getcomposer.org/" target="_blank">Composer 官网</a></li>
-            <li><a href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html"
+            <li><a class="a_link_2" href="https://github.com/phpzlc/" target="_blank">GitHub 主页</a></li>
+            <li><a class="a_link_2" href="http://symfony.com/" target="_blank">Symfony 官网</a></li>
+            <li><a class="a_link_2" href="http://www.symfonychina.com/" target="_blank">Symfony 中文文档</a></li>
+            <li><a class="a_link_2" href="https://getcomposer.org/" target="_blank">Composer 官网</a></li>
+            <li><a class="a_link_2" href="https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/index.html"
                 target="_blank">Doctrine 官网</a></li>
           </ul>
         </li>
         <li class="li-1 li-link">
           <p>热门Blog</p>
           <ul>
-            <li><a href="/doc/symfony-flex" target="_blank">Symfony Flex</a></li>
-            <li><a href="/doc/db/entity" target="_blank">设计Entity</a></li>
-            <li><a href="/blog/9.html" target="_blank">更好的防御BREACH攻击</a></li>
-            <li><a href="/blog/5.html" target="_blank">PHP生成全景图(krpano)</a></li>
-            <li><a href="/blog/2.html" target="_blank">Git分支参与者的常用操作</a></li>
+            <li><a class="a_link_2" href="/doc/symfony-flex" target="_blank">Symfony Flex</a></li>
+            <li><a class="a_link_2" href="/doc/db/entity" target="_blank">设计Entity</a></li>
+            <li><a class="a_link_2" href="/blog/9.html" target="_blank">更好的防御BREACH攻击</a></li>
+            <li><a class="a_link_2" href="/blog/5.html" target="_blank">PHP生成全景图(krpano)</a></li>
+            <li><a class="a_link_2" href="/blog/2.html" target="_blank">Git分支参与者的常用操作</a></li>
           </ul>
         </li>
         <li class="li-1 li-community">
-          <p>社区支持<span class="community-slack"><a href="/blog/13.html">建立集中高效的开源社区，PHPZlc 核心活动场所 Slack</a></span></p>
+          <p>社区支持<span class="community-slack">
+            <a href="/blog/13.html">建立集中高效的开源社区，PHPZlc 核心活动场所 <span>Slack</span>
+          </a></span></p>
           <!-- <span class="community-slack"><a href="/blog/13.html">建立集中高效的开源社区，PHPZlc 核心活动场所 Slack</a></span> -->
           <ul class="community-ul">
             <li class="li-code">
               <div>
-                <img src="/assets/images/qq-qun.png">
-                <p>扫码加入QQ交流群</p>
+                <img src="/assets/images/qq-qun.png" class="qq_join">
+                <p>扫码点击加入QQ群</p>
               </div>
             </li>
             <li class="li-code">
@@ -72,21 +74,19 @@
         id="copyright-year"></span> by CJayhe. All rights reserved.</small>
 
   </div>
-  <div class="qun">
+
+  <!-- <div class="qun">
     <a target="_blank" href="https://jq.qq.com/?_wv=1027&k=ZpwdagVG">
       <img border="0" src="/assets/images/qq.png?v=20210324" alt="一键加群" title="一键加群">
-      <!-- <p>关注我们</p>
-      <p>点击入群</p> -->
       <p>QQ群</p>
     </a>
     <a class="a-2" target="_blank"
       href="https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g">
       <img src="/assets/images/slack.png?v=1" alt="一键加群" title="一键加群">
-      <!-- <p>关注我们</p>
-      <p>点击入群</p> -->
       <p>Slack</p>
     </a>
-  </div>
+  </div> -->
+
   <!--//container-->
 </footer>
 <!--//footer-->
@@ -125,5 +125,10 @@
     $('.author').each(function () {
       $(this).html('作者：' + getAuthor($(this).data('id')));
     });
+
+    $(".qq_join").click(function(){
+      // window.location.href = "https://jq.qq.com/?_wv=1027&k=ZpwdagVG";
+      window.open("https://jq.qq.com/?_wv=1027&k=ZpwdagVG")
+    })
   })
 </script>

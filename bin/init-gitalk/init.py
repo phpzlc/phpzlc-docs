@@ -35,7 +35,7 @@ def get_posts():
 
     for child in root:
         # 只对文章页初始化评论，需要注意确认文章目录名是不是为 post
-        post_urls.append(child[0].text)
+        post_urls.append(child[0].text.replace("https://phpzlc.com/", ""))
 
     return post_urls
     
