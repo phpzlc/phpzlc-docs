@@ -257,74 +257,74 @@ $this->adminStrategy
 2. 数据统计框
    
 ```php
-   <div class="console-small-statistics clearfix">
-       <a :class="'console-small-statistics-bg'+(index+1)"
-           v-for="(item, index) in consoleSmall" :key="index" :href= "item.src" style="margin-left: 40px">
-            <p class="console-statistics-name">${item.name}$:</p>
-             <p class="console-statistics-value">${item.value}$</p>
-        </a>
-   </div>
+<div class="console-small-statistics clearfix">
+    <a :class="'console-small-statistics-bg'+(index+1)"
+        v-for="(item, index) in consoleSmall" :key="index" :href= "item.src" style="margin-left: 40px">
+        <p class="console-statistics-name">${item.name}$:</p>
+        <p class="console-statistics-value">${item.value}$</p>
+    </a>
+</div>
 ```
    
 ```php
-    data: function () {
-             return {
-                  consoleSmall: [
-                     {
-                         id: '',
-                         name: '',
-                         value: '',
-                         src: ''
-                     },
+data: function () {
+    return {
+        consoleSmall: [
+            {
+                id: '',
+                name: '',
+                value: '',
+                src: ''
+            },
                        
-                  ],
-             }
-    },
+        ],
+    }
+},
 ```
   
 3. 数据统计表
    
-   ```vue
-   <div class="echarts-content clearfix">
-            <el-col>
-                <el-col :span="12">
-                    <div id="main1" style="width: 100%;height:400px;">
-                    </div>
-                    <span style="position: absolute; margin-left: 365px; margin-top: -30px; z-index: 100; font-size: 16px">最近七日博客数增长图</span>
-                </el-col>
-
-                <el-col :span="12">
-                    <div id="main2" style="width: 100%;height:400px;"></div>
-                    <span style="position: absolute; margin-left: 365px; margin-top: -30px; z-index: 100; font-size: 16px">最近七日用户数增长图</span>
-
-                </el-col>
+```php
+<div class="echarts-content clearfix">
+    <el-col>
+        <el-col :span="12">
+            <div id="main1" style="width: 100%;height:400px;">
+            </div>
+            <span style="position: absolute; margin-left: 365px; margin-top: -30px; z-index: 100; font-size: 16px">最近七日博客数增长图</span>
             </el-col>
 
-   </div>
-   ```
+        <el-col :span="12">
+            <div id="main2" style="width: 100%;height:400px;"></div>
+            <span style="position: absolute; margin-left: 365px; margin-top: -30px; z-index: 100; font-size: 16px">最近七日用户数增长图</span>
+
+        </el-col>
+    </el-col>
+
+</div>
+```
    
-   ```shell script
-   setTimeout(function(){
-               // 基于准备好的dom,初始化echarts实例
-               var myChart1 = echarts.init(document.getElementById('main1'), "macarons");
-               option1 = {
-                   xAxis: {
-                       type: 'category',
-                       boundaryGap: false,
-                       data: [],
-                   },
-                   yAxis: {
-                       type: 'value'
-                   },
-                   series: [{
-                       data: [],
-                       type: 'line',
-                       areaStyle: {}
-                   }]
-               };
-               // 使用刚指定的配置项和数据显示图表.
-               myChart1.setOption(option1);
-   ```
+```php
+setTimeout(function(){
+        // 基于准备好的dom,初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('main1'), "macarons");
+            option1 = {
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: [],
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: [],
+                    type: 'line',
+                    areaStyle: {}
+                }]
+            };
+            // 使用刚指定的配置项和数据显示图表.
+            myChart1.setOption(option1);
+```
 
 4. 页面效果
    
@@ -337,104 +337,105 @@ $this->adminStrategy
    
 1. 搜索框
    
-   ```vue
-       <el-row class="page-search">
-           <el-form ref="searchForm" :inline="true" :model="searchForm" label-width="90px" style="margin-left: 10px">
+```php
+<el-row class="page-search">
+        <el-form ref="searchForm" :inline="true" :model="searchForm" label-width="90px" style="margin-left: 10px">
    
-               <el-form-item label="input输入框" prop="user_name">
-                   <el-input v-model="searchForm.user_name" size="mini" clearable placeholder="请输入">
-                   </el-input>
-               </el-form-item>
+            <el-form-item label="input输入框" prop="user_name">
+                <el-input v-model="searchForm.user_name" size="mini" clearable placeholder="请输入">
+                </el-input>
+            </el-form-item>
    
-               <el-form-item label="时间选择框" prop="login_at" class="search-item-time">
-                   <el-date-picker v-model="searchForm.login_at" size="mini" clearable type="daterange"
-                                   range-separator="-" start-placeholder="开始日期" end-placeholder="结束日期">
-                   </el-date-picker>
-               </el-form-item>
+            <el-form-item label="时间选择框" prop="login_at" class="search-item-time">
+                <el-date-picker v-model="searchForm.login_at" size="mini" clearable type="daterange"
+                                range-separator="-" start-placeholder="开始日期" end-placeholder="结束日期">
+                </el-date-picker>
+            </el-form-item>
    
-               <el-form-item>
-                   <el-button type="primary" size="mini" @click="searchBtn()"> 搜索 </el-button>
-                   <el-button size="mini" @click="resetForm('searchForm')"> 重置 </el-button>
-               </el-form-item>
+            <el-form-item>
+                <el-button type="primary" size="mini" @click="searchBtn()"> 搜索 </el-button>
+                <el-button size="mini" @click="resetForm('searchForm')"> 重置 </el-button>
+            </el-form-item>
    
-           </el-form>
+        </el-form>
    
-       </el-row>
+</el-row>
        
-   ```
+```
    
 2. 数据显示
    
-   ```vue
-        <el-table :data="listData" style="width: 100%" border class="mt-10">
+```php
+<el-table :data="listData" style="width: 100%" border class="mt-10">
     
-            <el-table-column prop="数据" label="数据"></el-table-column>
-            // 操作行
-            <el-table-column prop="date" label="操作" width="200">
-                <template slot-scope="scope">
-                    <el-button size="mini" @click="handleEdit(scope.$index, scope.row)" type="primary"> 编辑 </el-button>
-                    <el-button size="mini" @click="handleDelete(scope.$index, scope.row)" type="danger"> 删除 </el-button>
-                    <el-button size="mini" @click="handleDisable(scope.$index, scope.row)" type="danger"> 禁用 </el-button>
-                    <el-button size="mini" @click="handleEnable(scope.$index, scope.row)" type="success"> 启用 </el-button>
-                </template>
-            </el-table-column>
+        <el-table-column prop="数据" label="数据"></el-table-column>
+        // 操作行
+        <el-table-column prop="date" label="操作" width="200">
+            <template slot-scope="scope">
+                <el-button size="mini" @click="handleEdit(scope.$index, scope.row)" type="primary"> 编辑 </el-button>
+                <el-button size="mini" @click="handleDelete(scope.$index, scope.row)" type="danger"> 删除 </el-button>
+                <el-button size="mini" @click="handleDisable(scope.$index, scope.row)" type="danger"> 禁用 </el-button>
+                <el-button size="mini" @click="handleEnable(scope.$index, scope.row)" type="success"> 启用 </el-button>
+            </template>
+        </el-table-column>
           
-        </el-table>
+</el-table>
    
-        // 分页
-        <el-col class="mt-20 clearfix">
-            <el-pagination class="page" @current-change="handleCurrentChange" @size-change="handleSizeChange"
-                           :page-sizes="[20, 60, 100, 200]" :page-size="" :hide-on-single-page="true" :current-page=""
-                           layout="total, sizes, prev, pager, next, jumper" :total="">
-            </el-pagination>
-        </el-col>
-   ```
+// 分页
+<el-col class="mt-20 clearfix">
+        <el-pagination class="page" @current-change="handleCurrentChange" @size-change="handleSizeChange"
+                        :page-sizes="[20, 60, 100, 200]" :page-size="" :hide-on-single-page="true" :current-page=""
+                        layout="total, sizes, prev, pager, next, jumper" :total="">
+        </el-pagination>
+</el-col>
+```
    
 3. Vue代码模块
    
-   ```shell script
-   <script>
-       new Vue({
-           el: '#main-content',
-           //用于替换vue数据调用符号
-           delimiters: ['${', '}$'],
-           data: function () {
-               return {
-                   searchForm: {},
-                   listData: [],
-               }
-           },
+```php
+<script>
+    new Vue({
+        el: '#main-content',
+        //用于替换vue数据调用符号
+        delimiters: ['${', '}$'],
+        data: function () {
+            return {
+                searchForm: {},
+                listData: [],
+            }
+        },
    
-           created(){
-               //页面初始化勾子
-           },
+        created(){
+            //页面初始化勾子
+        },
    
-           methods: {
-                   handleCurrentChange(val) {
-                       window.location.href = urlParamWrite(getSelfUrl(), 'page', val);
-                   },
+        methods: {
+            handleCurrentChange(val) {
+                window.location.href = urlParamWrite(getSelfUrl(), 'page', val);
+            },
    
-                   handleSizeChange(val) {
-                       window.location.href = urlParamWrite(getSelfUrl(), 'rows', val);
-                   },
+            handleSizeChange(val) {
+                window.location.href = urlParamWrite(getSelfUrl(), 'rows', val);
+            },
    
-                   // 搜索按钮
-                   searchBtn() {},
+            // 搜索按钮
+            searchBtn() {},
    
-                   // 重置按钮
-                   resetForm(formName){
-                       this.$refs[formName].resetFields();
-                   },
+            // 重置按钮
+            resetForm(formName){
+                this.$refs[formName].resetFields();
+            },
    
-                   handleDisable(index, row){},
+            handleDisable(index, row){},
    
-                   handleEnable(index, row){},
+            handleEnable(index, row){},
    
-           }
+        }
    
-       })
-   </script>
-   ```
+    })
+</script>
+```
+
 4. 页面效果
    
    ![效果](/assets/posts/admin/index.png)
@@ -445,75 +446,76 @@ $this->adminStrategy
    完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/edit.html.twig)
    
 1. 输入框(文本输入,密码输入等多种类型)
-   
-   ```vue
-     <el-input v-model="" size="mini" clearable placeholder="请输入"></el-input>
-   ```
+    
+```php
+<el-input v-model="" size="mini" clearable placeholder="请输入"></el-input>
+```
    
 2. 下拉单选框
    
-   ```vue
-    <el-select v-model="value" placeholder="请选择">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value">
-        </el-option>
-    </el-select>
+```php
+<el-select v-model="value" placeholder="请选择">
+    <el-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value">
+    </el-option>
+</el-select>
    
-    <script>
-      export default {
+<script>
+    export default {
         data() {
-          return {
-            options: [],
-          }
+            return {
+                options: [],
+            }
         }
-      }
-    </script>
-   ```
+    }
+</script>
+```
    
 3. 下拉多选框
    
-   ```vue
-    <el-select v-model="value" multiple placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
+```php
+<el-select v-model="value" multiple placeholder="请选择">
+        <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+        </el-option>
+</el-select>
        
-    <script>
-          export default {
+<script>
+        export default {
             data() {
               return {
                 options: [],
               }
             }
-          }
-    </script>
-   ```
+        }
+</script>
+```
+
 4. 上传控件
    
-   ```vue
-    <el-upload
-      class="upload-demo"
-      action=""
-      :on-preview="handlePreview"
-      :on-remove="handleRemove"
-      :before-remove="beforeRemove"
-      multiple
-      :limit="3"
-      :on-exceed="handleExceed"
-      :file-list="fileList">
-      <el-button size="small" type="primary">点击上传</el-button>
-      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件,且不超过500kb</div>
-    </el-upload>
+```php
+<el-upload
+    class="upload-demo"
+        action=""
+        :on-preview="handlePreview"
+        :on-remove="handleRemove"
+        :before-remove="beforeRemove"
+        multiple
+        :limit="3"
+        :on-exceed="handleExceed"
+        :file-list="fileList">
+        <el-button size="small" type="primary">点击上传</el-button>
+        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件,且不超过500kb</div>
+</el-upload>
    
-    <script>
-      export default {
+<script>
+    export default {
         data() {
           return {
             fileList: []
@@ -533,62 +535,63 @@ $this->adminStrategy
             return this.$confirm(`确定移除 ${ file.name }？`);
           }
         }
-      }
-    </script>
-   ```
+    }
+</script>
+```
+
 5. 日期选择器
    
-   ```vue
-   <el-date-picker
-         v-model="value1"
-         type="daterange"
-         range-separator="至"
-         start-placeholder="开始日期"
-         end-placeholder="结束日期">
-   </el-date-picker>
-   <script>
-     export default {
-       data() {
+```php
+<el-date-picker
+    v-model="value1"
+    type="daterange"
+    range-separator="至"
+    start-placeholder="开始日期"
+    end-placeholder="结束日期">
+</el-date-picker>
+<script>
+    export default {
+        data() {
          return {
            value1: ''
          };
        }
-     };
-   </script>
-   ```
+    };
+</script>
+```
    
 6. 单选框
    
-   ```vue
-   <el-radio v-model="radio" label="1">备选项</el-radio>
+```php
+<el-radio v-model="radio" label="1">备选项</el-radio>
      
-   <script>
-     export default {
-       data () {
-         return {
+<script>
+    export default {
+        data () {
+            return {
            radio: ''
          };
        }
-     }
-   </script>
-   ```   
+    }
+</script>
+```   
    
 7. 多选框
    
-   ```vue
-    <!-- `checked` 为 true 或 false -->
-   <el-checkbox v-model="checked">备选项</el-checkbox>
+```vue
+<!-- `checked` 为 true 或 false -->
+<el-checkbox v-model="checked">备选项</el-checkbox>
    
-   <script>
-     export default {
-       data() {
-         return {
-           checked: true
-         };
-       }
-     };
-   </script>
-   ```
+<script>
+  export default {
+    data() {
+      return {
+        checked: true
+      };
+    }
+  };
+</script>
+```
    
    更多控件请进入[ElementUI](https://element.eleme.io/#/zh-CN/component/input)
    
@@ -603,7 +606,7 @@ $this->adminStrategy
    
    **页面层**
    
-   ```vue
+   ```php
     <el-upload
           class="upload-demo"
           action="导入地址"
