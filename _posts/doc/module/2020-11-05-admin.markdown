@@ -94,7 +94,7 @@ $this->adminStrategy
 
 1. 设置锚点url
    
-   用于设置表单提交,取消等需要返回到某个控制器层的action中时,我们可以使用该方法,将action设为锚点,一般在列表中设置
+   用于设置表单提交,取消等需要返回到某个控制器层的action中时,我们可以使用该方法,将action设为锚点,一般在列表中设置。
    
     ```php
     public function setUrlAnchor()
@@ -102,7 +102,7 @@ $this->adminStrategy
    
 2. 设置页面标记
    
-    页面标记配置，需要和菜单配置相对应，用于菜单选项的高亮显示。
+   页面标记配置，需要在菜单相对应配置，用于菜单选项选中后高亮显示。
    
    ```php
    public function setPageTag($tag)
@@ -126,9 +126,7 @@ $this->adminStrategy
    public function setLogo($logo)
    ```
 
-6. 设置后台入口URL
-   
-   $entrance_url 可以使用$this->generateUrl(string $route)方法进行生成,$route是在yaml中设置的路由名称
+6. 设置后台入口URL,一般用于返回首页功能
 
    ```php
    public function setEntranceUrl($entrance_url)
@@ -148,8 +146,6 @@ $this->adminStrategy
 
 9. 设置清除缓存API地址url
    
-   $clear_cache_api_url 可以使用$this->generateUrl(string $route)方法进行生成,$route是在yaml中设置的路由名称
-
    ```php
    public function setClearCacheApiUrl(string $clear_cache_api_url)
    ```
@@ -179,10 +175,8 @@ $this->adminStrategy
    ```
 
 ## 面包线配置
-
-   在需要设置面包线的页面调用此方法,我们提供了两种不同模式的面包线的设置方法
         
-1. 初始化面包线
+1. 设置面包线
          
    ```php
    $this->adminStrategy->setNavigations(array $navigations)
