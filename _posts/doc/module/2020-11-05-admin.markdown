@@ -160,19 +160,19 @@ $this->adminStrategy
    public function setAdminRoleName($admin_role_name)
    ```
    
-1 1. 设置登陆页面背景图片
+11. 设置登陆页面背景图片
    
    ```php
    public function setLoginLackGroundImg(string $login_lack_ground_img)
    ```
    
-1 2. 设置管理员登录头像
+12. 设置管理员登录头像
 
    ```php
    public function setAdminAvatar(string $admin_avatar)
    ```
 
-1 3. 设置head自定义代码
+13. 设置head自定义代码
 
    ```php
    public function setHendCode(string $hend_code)
@@ -250,83 +250,7 @@ $this->adminStrategy
    
    完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/statistical-station.html.twig)
    
-1. 页面要先引用
-   
-   ![引用](/assets/posts/admin/echart.png)
-   
-2. 数据统计框
-   
-```php
-<div class="console-small-statistics clearfix">
-    <a :class="'console-small-statistics-bg'+(index+1)"
-        v-for="(item, index) in consoleSmall" :key="index" :href= "item.src" style="margin-left: 40px">
-        <p class="console-statistics-name">${item.name}$:</p>
-        <p class="console-statistics-value">${item.value}$</p>
-    </a>
-</div>
-```
-   
-```php
-data: function () {
-    return {
-        consoleSmall: [
-            {
-                id: '',
-                name: '',
-                value: '',
-                src: ''
-            },
-                       
-        ],
-    }
-},
-```
-  
-3. 数据统计表
-   
-```php
-<div class="echarts-content clearfix">
-    <el-col>
-        <el-col :span="12">
-            <div id="main1" style="width: 100%;height:400px;">
-            </div>
-            <span style="position: absolute; margin-left: 365px; margin-top: -30px; z-index: 100; font-size: 16px">最近七日博客数增长图</span>
-            </el-col>
-
-        <el-col :span="12">
-            <div id="main2" style="width: 100%;height:400px;"></div>
-            <span style="position: absolute; margin-left: 365px; margin-top: -30px; z-index: 100; font-size: 16px">最近七日用户数增长图</span>
-
-        </el-col>
-    </el-col>
-
-</div>
-```
-   
-```php
-setTimeout(function(){
-        // 基于准备好的dom,初始化echarts实例
-        var myChart1 = echarts.init(document.getElementById('main1'), "macarons");
-            option1 = {
-                xAxis: {
-                    type: 'category',
-                    boundaryGap: false,
-                    data: [],
-                },
-                yAxis: {
-                    type: 'value'
-                },
-                series: [{
-                    data: [],
-                    type: 'line',
-                    areaStyle: {}
-                }]
-            };
-            // 使用刚指定的配置项和数据显示图表.
-            myChart1.setOption(option1);
-```
-
-4. 页面效果
+   页面效果
    
    ![效果](/assets/posts/admin/data.png)
 
@@ -335,300 +259,51 @@ setTimeout(function(){
    
    完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/list.html.twig)
    
-1. 搜索框
-   
-```php
-<el-row class="page-search">
-        <el-form ref="searchForm" :inline="true" :model="searchForm" label-width="90px" style="margin-left: 10px">
-   
-            <el-form-item label="input输入框" prop="user_name">
-                <el-input v-model="searchForm.user_name" size="mini" clearable placeholder="请输入">
-                </el-input>
-            </el-form-item>
-   
-            <el-form-item label="时间选择框" prop="login_at" class="search-item-time">
-                <el-date-picker v-model="searchForm.login_at" size="mini" clearable type="daterange"
-                                range-separator="-" start-placeholder="开始日期" end-placeholder="结束日期">
-                </el-date-picker>
-            </el-form-item>
-   
-            <el-form-item>
-                <el-button type="primary" size="mini" @click="searchBtn()"> 搜索 </el-button>
-                <el-button size="mini" @click="resetForm('searchForm')"> 重置 </el-button>
-            </el-form-item>
-   
-        </el-form>
-   
-</el-row>
-       
-```
-   
-2. 数据显示
-   
-```php
-<el-table :data="listData" style="width: 100%" border class="mt-10">
-    
-        <el-table-column prop="数据" label="数据"></el-table-column>
-        // 操作行
-        <el-table-column prop="date" label="操作" width="200">
-            <template slot-scope="scope">
-                <el-button size="mini" @click="handleEdit(scope.$index, scope.row)" type="primary"> 编辑 </el-button>
-                <el-button size="mini" @click="handleDelete(scope.$index, scope.row)" type="danger"> 删除 </el-button>
-                <el-button size="mini" @click="handleDisable(scope.$index, scope.row)" type="danger"> 禁用 </el-button>
-                <el-button size="mini" @click="handleEnable(scope.$index, scope.row)" type="success"> 启用 </el-button>
-            </template>
-        </el-table-column>
-          
-</el-table>
-   
-// 分页
-<el-col class="mt-20 clearfix">
-        <el-pagination class="page" @current-change="handleCurrentChange" @size-change="handleSizeChange"
-                        :page-sizes="[20, 60, 100, 200]" :page-size="" :hide-on-single-page="true" :current-page=""
-                        layout="total, sizes, prev, pager, next, jumper" :total="">
-        </el-pagination>
-</el-col>
-```
-   
-3. Vue代码模块
-   
-```php
-<script>
-    new Vue({
-        el: '#main-content',
-        //用于替换vue数据调用符号
-        delimiters: ['${', '}$'],
-        data: function () {
-            return {
-                searchForm: {},
-                listData: [],
-            }
-        },
-   
-        created(){
-            //页面初始化勾子
-        },
-   
-        methods: {
-            handleCurrentChange(val) {
-                window.location.href = urlParamWrite(getSelfUrl(), 'page', val);
-            },
-   
-            handleSizeChange(val) {
-                window.location.href = urlParamWrite(getSelfUrl(), 'rows', val);
-            },
-   
-            // 搜索按钮
-            searchBtn() {},
-   
-            // 重置按钮
-            resetForm(formName){
-                this.$refs[formName].resetFields();
-            },
-   
-            handleDisable(index, row){},
-   
-            handleEnable(index, row){},
-   
-        }
-   
-    })
-</script>
-```
-
-4. 页面效果
+   页面效果
    
    ![效果](/assets/posts/admin/index.png)
    
-## 编辑页面基本写法
-  
+## 新建/编辑页面基本写法
    
    完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/edit.html.twig)
    
-1. 输入框(文本输入,密码输入等多种类型)
-    
-```php
-<el-input v-model="" size="mini" clearable placeholder="请输入"></el-input>
-```
-   
-2. 下拉单选框
-   
-```php
-<el-select v-model="value" placeholder="请选择">
-    <el-option
-        v-for="item in options"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value">
-    </el-option>
-</el-select>
-   
-<script>
-    export default {
-        data() {
-            return {
-                options: [],
-            }
-        }
-    }
-</script>
-```
-   
-3. 下拉多选框
-   
-```php
-<el-select v-model="value" multiple placeholder="请选择">
-        <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-        </el-option>
-</el-select>
-       
-<script>
-        export default {
-            data() {
-              return {
-                options: [],
-              }
-            }
-        }
-</script>
-```
-
-4. 上传控件
-   
-```php
-<el-upload
-    class="upload-demo"
-        action=""
-        :on-preview="handlePreview"
-        :on-remove="handleRemove"
-        :before-remove="beforeRemove"
-        multiple
-        :limit="3"
-        :on-exceed="handleExceed"
-        :file-list="fileList">
-        <el-button size="small" type="primary">点击上传</el-button>
-        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件,且不超过500kb</div>
-</el-upload>
-   
-<script>
-    export default {
-        data() {
-          return {
-            fileList: []
-          };
-        },
-        methods: {
-          handleRemove(file, fileList) {
-            console.log(file, fileList);
-          },
-          handlePreview(file) {
-            console.log(file);
-          },
-          handleExceed(files, fileList) {
-            this.$message.warning(`当前限制选择 3 个文件,本次选择了 ${files.length} 个文件,共选择了 ${files.length + fileList.length} 个文件`);
-          },
-          beforeRemove(file, fileList) {
-            return this.$confirm(`确定移除 ${ file.name }？`);
-          }
-        }
-    }
-</script>
-```
-
-5. 日期选择器
-   
-```php
-<el-date-picker
-    v-model="value1"
-    type="daterange"
-    range-separator="至"
-    start-placeholder="开始日期"
-    end-placeholder="结束日期">
-</el-date-picker>
-<script>
-    export default {
-        data() {
-         return {
-           value1: ''
-         };
-       }
-    };
-</script>
-```
-   
-6. 单选框
-   
-```php
-<el-radio v-model="radio" label="1">备选项</el-radio>
-     
-<script>
-    export default {
-        data () {
-            return {
-           radio: ''
-         };
-       }
-    }
-</script>
-```   
-   
-7. 多选框
-   
-```vue
-<!-- `checked` 为 true 或 false -->
-<el-checkbox v-model="checked">备选项</el-checkbox>
-   
-<script>
-  export default {
-    data() {
-      return {
-        checked: true
-      };
-    }
-  };
-</script>
-```
+   主要控件请进入[主要控件参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/control.html.twig)
    
    更多控件请进入[ElementUI](https://element.eleme.io/#/zh-CN/component/input)
-   
    
 ## 导入功能基本写法
 
    导入导出功能需要[phpoffice/phpspreadsheet](https://packagist.org/packages/phpoffice/phpspreadsheet)
    
-   ```text
-   composer require phpoffice/phpspreadsheet
-   ```
+```text
+composer require phpoffice/phpspreadsheet
+```
    
    **页面层**
    
-   ```php
-    <el-upload
-          class="upload-demo"
-          action="导入地址"
-          :limit="1"
-          :on-success="handleImport"
-          :on-error = "handleImport"
-          :file-list="fileList">
-          <el-button size="small" type="primary">点击上传</el-button>
-          <div slot="tip" class="el-upload__tip">只能上传xls/xlsx文件</div>
-    </el-upload>
+```php
+<el-upload
+    class="upload-demo"
+    action="导入地址"
+    :limit="1"
+    :on-success="handleImport"
+    :on-error = "handleImport"
+    :file-list="fileList">
+    <el-button size="small" type="primary">点击上传</el-button>
+    <div slot="tip" class="el-upload__tip">只能上传xls/xlsx文件</div>
+</el-upload>
     
-    <script>
-          export default {
-            methods: {
-              handleImport(result){
-                  const that = this;
-                  resultPreprocess(that, result, "admin_url_anchor()");
-              },
-            }
-          }
-    </script>
-   ```
+<script>
+    export default {
+        methods: {
+            handleImport(result){
+                const that = this;
+                resultPreprocess(that, result, "admin_url_anchor()");
+            },
+        }
+    }
+</script>
+```
 
    **控制器层**
    
@@ -705,51 +380,51 @@ setTimeout(function(){
 
    **页面层**
    
-   ```vue
-   <el-button size="mini" type="success" @click="export_data()">导出</el-button>
+```php
+<el-button size="mini" type="success" @click="export_data()">导出</el-button>
 
-    <script>
-       export default {
-          methods: {
+<script>
+    export default {
+        methods: {
             export_data(){
-              window.location.href = urlParamWrite(getSelfUrl(), 'ex', '1');
-           },
-          }
-       }
-       </script>
-   ```
+                window.location.href = urlParamWrite(getSelfUrl(), 'ex', '1');
+            },
+        }
+    }
+</script>
+```
    **控制器层**
    
-   ```php
-    use PHPZlc\Admin\Strategy\Excel\Export;
+```php
+use PHPZlc\Admin\Strategy\Excel\Export;
 
-    $ex = new Export();
+$ex = new Export();
 
-    // 表格第一行
-    $head = [];
-    // 数据库数据
-    $list = array();
+// 表格第一行
+$head = [];
+// 数据库数据
+$list = array();
 
-    $data = [];
+$data = [];
     
-    foreach ($list as $value){
-         $data[] = array(
-          // 循环的数据
-        );
-    }
+foreach ($list as $value){
+    $data[] = array(
+    // 循环的数据
+    );
+}
     
-    /**
-        * 导出
-        *
-        * @param string $title  标题
-        * @param array $head 表头 ["表头1", "表头2"]
-        * @param array $data 内容 [{"1", "1"}]
-        * @param bool $is_need 是否插入序号
-        * @param array $mergeCells 合并单元格 [{0,1,0,2})] 0,1 表示合并开始单元格数组坐标, 0,2 代表合并结束单元格数组坐标
-        * @param string $format
-        * @throws \PhpOffice\PhpSpreadsheet\Exception
-    */
-   $ex->export($title, $head, $data, $is_need = false, $mergeCells = array(), $format = 'Xls');
-   ```
+/**
+    * 导出
+    *
+    * @param string $title  标题
+    * @param array $head 表头 ["表头1", "表头2"]
+    * @param array $data 内容 [{"1", "1"}]
+    * @param bool $is_need 是否插入序号
+    * @param array $mergeCells 合并单元格 [{0,1,0,2})] 0,1 表示合并开始单元格数组坐标, 0,2 代表合并结束单元格数组坐标
+    * @param string $format
+    * @throws \PhpOffice\PhpSpreadsheet\Exception
+*/
+$ex->export($title, $head, $data, $is_need = false, $mergeCells = array(), $format = 'Xls');
+```
 
     
