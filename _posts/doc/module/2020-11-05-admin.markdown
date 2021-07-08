@@ -152,27 +152,27 @@ $this->adminStrategy
 
 10. 设置管理员角色名称
    
-   ```php
-   public function setAdminRoleName($admin_role_name)
-   ```
+```php
+public function setAdminRoleName($admin_role_name)
+```
    
 11. 设置登陆页面背景图片
    
-   ```php
-   public function setLoginLackGroundImg(string $login_lack_ground_img)
-   ```
+```php
+public function setLoginLackGroundImg(string $login_lack_ground_img)
+```
    
 12. 设置管理员登录头像
 
-   ```php
-   public function setAdminAvatar(string $admin_avatar)
-   ```
+```php
+public function setAdminAvatar(string $admin_avatar)
+```
 
 13. 设置head自定义代码
 
-   ```php
-   public function setHendCode(string $hend_code)
-   ```
+```php
+public function setHendCode(string $hend_code)
+```
 
 ## 面包线配置
         
@@ -194,22 +194,16 @@ $this->adminStrategy
    
 1. 简单模式(三级菜单,后期可升级为复杂模式)
 
+   ![简单模式](/assets/posts/admin/model_simple.png)
+
 2. 复杂模式(四级菜单,增加头部菜单,功能划分更精确直观)
+
+   ![复杂模式](/assets/posts/admin/model_all.png)
       
    ```php
    $this->adminStrategy = new AdminStrategy(ContainerInterface $container);
    $this->adminStrategy->setMenuModel(AdminStrategy::menu_model_simple) // 简单模式 menu_model_simple; 复杂模式 menu_model_all; 
    ```
-   
-3. 页面效果
-   
-   简单模式效果
-   
-   ![简单模式](/assets/posts/admin/model_simple.png)
-   
-   复杂模式效果
-   
-   ![复杂模式](/assets/posts/admin/model_all.png)
    
 ## 设置导航菜单   
    
@@ -242,40 +236,101 @@ $this->adminStrategy
     
 ## 仪表盘基本写法
    
-   完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/statistical-station.html.twig)
+1. 我们提供可复制的仪表盘页面[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/statistical-station.html.twig)
    
-   页面效果
+2. 页面效果
    
    ![效果](/assets/posts/admin/data.png)
 
    
 ## 列表页面基本写法
    
-   完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/list.html.twig)
+1. 我们提供可复制的列表页面[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/list.html.twig)
    
-   页面效果
+2. 页面效果
    
    ![效果](/assets/posts/admin/index.png)
    
+3. 控制器层
+   
+```php
+/**
+     * 用户管理首页
+     *
+     * @param Request|null $request
+     * @return bool|JsonResponse|RedirectResponse|Response
+     */
+    public function index(Request $request = null)
+    {
+        $r = $this->inlet(self::RETURN_SHOW_RESOURCE, true);
+        if($r !== true){    
+            return $r;
+        }
+
+        // 设置当前页面为锚点
+        $this->adminStrategy->setUrlAnchor();
+
+        // 获取搜索框数据
+        $user_name = $request->get('user_name');
+        
+        // 添加需要搜索字段的规则
+        $rules = [
+          'user_name' . Rule::RA_LIKE => '%' . $user_name . '%',
+        ];
+        
+        // 页面页码配置(必须在控制器配置) 
+        $page = $request->get('page', 1);
+
+        // 页面展示数据的行数(必须在控制器配置， 默认展示20行数据)    
+        $rows = $request->get('rows', 20);
+        
+        // 页面展示的数据    
+        $data = $this->userRepository->findLimitAll($rows, $page, $rules);
+
+        // 数据库数据的数量(必须在控制器配置)
+        $count = $this->userRepository->findCount($rules);
+        
+        // 返回数据和页面
+        return $this->render('admin/user/index.html.twig', array(
+            'page' => $page,
+            'rows' => $rows,
+            'count' => $count,
+            'users' => $data
+        ));
+    }
+```      
+   
+   
 ## 新建/编辑页面基本写法
    
-   完整页面请进入[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/edit.html.twig)
+1. 我们提供可复制的新建/编辑页面[代码参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/edit.html.twig)
+
+2. 页面效果
+
+   ![效果](/assets/posts/admin/edit.png) 
    
-   主要控件请进入[主要控件参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/control.html.twig)
+3. 主要页面控件请进入[主要控件参考模板](https://github.com/phpzlc/demo-blog/blob/master/templates/page/control.html.twig)
    
-   更多控件请进入[ElementUI](https://element.eleme.io/#/zh-CN/component/input)
+4. 更多页面控件请进入[ElementUI](https://element.eleme.io/#/zh-CN/component/input)
+
    
 ## 导入功能基本写法
 
-   导入导出功能需要[phpoffice/phpspreadsheet](https://packagist.org/packages/phpoffice/phpspreadsheet)
+1. 导入导出功能安装支持[phpoffice/phpspreadsheet](https://packagist.org/packages/phpoffice/phpspreadsheet)
    
 ```text
 composer require phpoffice/phpspreadsheet
 ```
-   
-   **页面层**
+2. 页面层   
    
 ```php
+
+//  该功能控件常见于在列表页中,位置处于搜索框和数据列表页中间部分跟新建按钮存在一个标签中(特殊情况根据需求可以编写在任何你想要的页面)
+
+// 下载导入模板
+<el-button size="mini" @click="handleImportTemplate">下载导入模板</el-button>
+
+// 导入按钮
 <el-upload
     class="upload-demo"
     action="导入地址"
@@ -299,82 +354,97 @@ composer require phpoffice/phpspreadsheet
 </script>
 ```
 
-   **控制器层**
-   
-1. 下载导入模板
-   
-   ```php
-    // Business层
-    public function importTemplateFilePath()
-    {
-            return '模板名称.xlsx';
-    }
-    
-    public function downloadImportTemplate(Request $request)
-    {
-       $this->goUrl($request->getSchemeAndHttpHost() . $request->getBasePath() . '/存放导入文件的文件夹/' . $this->importTemplateFilePath());
-    }
+3. 效果图
 
-    // Controller层
-    $Business  = new Business($this->container);
-    $Business->goUrl($Business->downloadImportTemplate(Request $request));
-   ```
+   ![效果](/assets/posts/admin/export.png)
+
+4. 控制器层
    
-2. 导入模板
+ **下载导入模板**
    
-   ```php
-   // Business层
-   public function format($data)
-       {
-           if(empty($data)){
-               throw new PhpZlcApiException('导入数据不能为空');
-           }
+   Business层(需要对导入模板的地址进行修改)
    
-           $info = [];
-         
-           foreach ($data as $index => $value){
-               $name = $this->getValue($value, 0);
-            
-               $info[] = array(
-                   'name' => $name
-               );
-  
-           }
-           return $info;
-       }
-   // Controller层
-   set_time_limit(0);
-   ob_start();
+```php
+public function importTemplateFilePath()
+  {
+    return '模板名称.xlsx';
+  }
+    
+public function downloadImportTemplate(Request $request)
+  {
+    $this->goUrl($request->getSchemeAndHttpHost() . $request->getBasePath() . '/存放导入文件的文件夹/' . $this->importTemplateFilePath());
+  }
+```
+
+   Controller层
+```php
+$Business  = new Business($this->container);
+// 在控制器中调用Business封装好的方法
+$Business->goUrl($Business->downloadImportTemplate(Request $request));
+```
    
-   $Business  = new Business($this->container);
+  **导入模板**
    
-   /**
-      * @var Connection $conn
-   */
-   $conn = $this->getDoctrine()->getConnection();
-   $conn->beginTransaction();
+  Business层(介绍在控制器层时我们如何调用导入方法)
    
-   try {
-        $data = $Business->importData();
-   
-        foreach ($data as $k => $v) {
-           // 将$data的数据循环插入
-           $conn->commit();
+```php
+public function format($data)
+    {
+        if(empty($data)){
+            throw new PhpZlcApiException('导入数据不能为空');
         }
    
-        return Responses::success('导入成功');
+        $info = [];
+         
+        foreach ($data as $index => $value){
+            $name = $this->getValue($value, 0);
+            
+            $info[] = array(
+                'name' => $name
+            );
+  
+        }
+        return $info;
+    }
+```
+  Controller层
+  
+```php
+set_time_limit(0);
+ob_start();
    
-   }catch (PhpZlcApiException $exception){
-        $conn->rollBack();
-        return Responses::error($exception->getMessage());
-   }
-   ```
+$Business  = new Business($this->container);
+   
+/**
+    * @var Connection $conn
+*/
+$conn = $this->getDoctrine()->getConnection();
+$conn->beginTransaction();
+   
+try {
+    $data = $Business->importData();
+   
+    foreach ($data as $k => $v) {
+        // 将$data的数据循环插入
+        $conn->commit();
+    }
+   
+    return Responses::success('导入成功');
+   
+    }catch (PhpZlcApiException $exception){
+    $conn->rollBack();
+    return Responses::error($exception->getMessage());
+}
+```
+   
    
 ## 导出功能基本写法
 
-   **页面层**
+1. 页面层
    
 ```php
+// 该控件的编写位置跟上面的下载导入模板和导入的位置相同(具体位置具体分析)
+
 <el-button size="mini" type="success" @click="export_data()">导出</el-button>
 
 <script>
@@ -387,9 +457,16 @@ composer require phpoffice/phpspreadsheet
     }
 </script>
 ```
-   **控制器层**
-   
+
+2. 效果图
+
+   ![效果](/assets/posts/admin/export.png)
+     
+3. 控制器层
+  
+  Controller层 
 ```php
+// 调用PHPZlc Export组件
 use PHPZlc\Admin\Strategy\Excel\Export;
 
 $ex = new Export();
@@ -400,13 +477,15 @@ $head = [];
 $list = array();
 
 $data = [];
-    
+ 
+// 循环获得的数据   
 foreach ($list as $value){
     $data[] = array(
     // 循环的数据
     );
 }
-    
+ 
+// 需要调出Export组件封装好的方法   
 /**
     * 导出
     *
@@ -420,5 +499,9 @@ foreach ($list as $value){
 */
 $ex->export($title, $head, $data, $is_need = false, $mergeCells = array(), $format = 'Xls');
 ```
+
+## 后台实战
+  
+  想要了解更多的PHPZlc框架所快速搭建的后台请点击[后台实战](http://demo.blog.phpzlc.com/admin)
 
     
