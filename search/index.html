@@ -28,32 +28,58 @@ column_title: 搜索
 
     <script type="text/javascript" src="/assets/js/simple-jekyll-search.min.js?v=20201101"></script>
     <script type="text/javascript">
+        $(function(){
+          var searchInputObject = document.getElementById('search-input');
+          searchInputObject.value = GetQueryString('search');
+          var sjs = SimpleJekyllSearch({
+            searchInput: searchInputObject,
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json?v=20200131'
+          })
 
-      var searchInputObject = document.getElementById('search-input');
-      searchInputObject.value = GetQueryString('search');
-      var sjs = SimpleJekyllSearch({
-        searchInput: searchInputObject,
-        resultsContainer: document.getElementById('results-container'),
-        json: '/search.json?v=20200131'
-      })
+          var changeEvent = document.createEvent("HtmlEvents");
+          changeEvent.initEvent("input", true, true);
+          searchInputObject.dispatchEvent(changeEvent);
 
-      $(function () {
-        var changeEvent = document.createEvent("HtmlEvents");
-        changeEvent.initEvent("input", true, true);
-        searchInputObject.dispatchEvent(changeEvent);
-      })
+          $('#search-input').change(function () {
+            if ($(this).val() == '') {
+              $('#results-container').html('<h4>请输入检索内容</h4>');
+            }
+          });
 
-      $('#search-input').change(function () {
-        if ($(this).val() == '') {
-          $('#results-container').html('<h4>请输入检索内容</h4>');
-        }
-      });
+          function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return decodeURI(r[2]); return null;
+          }
+        })
+        
+        // 进入页面触发一次
+        setTimeout(() => {
+          var searchInputObject = document.getElementById('search-input');
+          searchInputObject.value = GetQueryString('search');
+          var sjs = SimpleJekyllSearch({
+            searchInput: searchInputObject,
+            resultsContainer: document.getElementById('results-container'),
+            json: '/search.json?v=20200131'
+          })
 
-      function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return decodeURI(r[2]); return null;
-      }
+          var changeEvent = document.createEvent("HtmlEvents");
+          changeEvent.initEvent("input", true, true);
+          searchInputObject.dispatchEvent(changeEvent);
+
+          $('#search-input').change(function () {
+            if ($(this).val() == '') {
+              $('#results-container').html('<h4>请输入检索内容</h4>');
+            }
+          });
+
+          function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return decodeURI(r[2]); return null;
+          }
+        }, 500);
     </script>
 </body>
 
