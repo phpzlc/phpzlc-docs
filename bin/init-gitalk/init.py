@@ -34,8 +34,7 @@ def get_posts():
     root = ET.fromstring(r.text)
 
     for child in root:
-        # 只对文章页初始化评论，需要注意确认文章目录名是不是为 post
-        post_urls.append(child[0].text.replace("https://phpzlc.com/", ""))
+        post_urls.append(child[0].text)
 
     return post_urls
     
@@ -55,7 +54,7 @@ def init_gitalk(session, not_initialized):
         # issuse lable 限制最大长度为50，使用md5防止超长导致报错
         m = hashlib.md5()
         m.update(post_path.encode('utf-8'))
-        gtalk_id = url
+        gtalk_id = m.hexdigest()
         issue = {
             'title': title,
             'body': url,
