@@ -3,9 +3,10 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 p {
-  margin-bottom: 0px;
+  /* margin-bottom: 0px; */
   font-size: 14px;
   line-height: 2;
+  margin: .5em 0;
 }
 
 .btn {
