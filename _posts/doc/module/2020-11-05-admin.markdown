@@ -404,16 +404,16 @@ $this->adminStrategy
    
 5. 控制器层
    
-  **下载导入模板**
- 
+   **下载导入模板**
+  
     ```php
     $Business  = new Business($this->container);
     // 在控制器中调用Business封装好的方法
     $Business->goUrl($Business->downloadImportTemplate(Request $request));
     ```
    
-  **导入模板**
-    
+   **导入模板**
+  
     ```php
     set_time_limit(0);
     ob_start();
