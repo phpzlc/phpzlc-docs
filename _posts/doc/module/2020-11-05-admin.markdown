@@ -95,83 +95,83 @@ $this->adminStrategy
    
    用于设置表单提交,取消等需要返回到某个控制器层的action中时,我们可以使用该方法,将action设为锚点,一般在列表中设置。
    
-    ```php
-    public function setUrlAnchor()
-    ```
+     ```php
+     public function setUrlAnchor()
+     ```
    
 2. 设置页面标记
    
    页面标记配置，需要在菜单相对应配置，用于菜单选项选中后高亮显示。
    
-   ```php
-   public function setPageTag($tag)
-   ```
+    ```php
+    public function setPageTag($tag)
+    ```
 
 3. 设置后台标题
    
-   ```php
-   public function setTitle($title)
-   ```
+    ```php
+    public function setTitle($title)
+    ```
 
 4. 设置后台favicon_ico图标
     
-   ```php
-   public function setFaviconIco($favicon_ico)
-   ```
+    ```php
+    public function setFaviconIco($favicon_ico)
+    ```
 
 5. 设置后台logo
     
-   ```php
-   public function setLogo($logo)
-   ```
+    ```php
+    public function setLogo($logo)
+    ```
 
 6. 设置后台入口URL,一般用于返回首页功能
 
-   ```php
-   public function setEntranceUrl($entrance_url)
-   ```
+    ```php
+    public function setEntranceUrl($entrance_url)
+    ```
    
 7. 设置退出登录URL
     
-   ```php
-   public function setEndUrl($end_url)
-   ```
+    ```php
+    public function setEndUrl($end_url)
+    ```
 
 8. 设置密码修改页面url
    
-   ```php
-   public function setSettingPwdUrl($setting_pwd_url)
-   ```
+    ```php
+    public function setSettingPwdUrl($setting_pwd_url)
+    ```
 
 9. 设置清除缓存API地址url
    
-   ```php
-   public function setClearCacheApiUrl(string $clear_cache_api_url)
-   ```
+    ```php
+    public function setClearCacheApiUrl(string $clear_cache_api_url)
+    ```
 
 10. 设置管理员角色名称
    
-   ```php
-   public function setAdminRoleName($admin_role_name)
-   ```
+    ```php
+    public function setAdminRoleName($admin_role_name)
+    ```
    
 11. 设置登陆页面背景图片
    
-   ```php
-   public function setLoginLackGroundImg(string $login_lack_ground_img)
-   ```
+    ```php
+    public function setLoginLackGroundImg(string $login_lack_ground_img)
+    ```
    
 12. 设置管理员登录头像
 
-   ```php
-   public function setAdminAvatar(string $admin_avatar)
-   ```
+    ```php
+    public function setAdminAvatar(string $admin_avatar)
+    ```
 
 13. 设置head自定义代码
 
-   ```php
-   public function setHendCode(string $head_code)
-   ```
+    ```php
+    public function setHendCode(string $head_code)
+    ```
 
 ## 面包线配置
         
@@ -201,28 +201,28 @@ $this->adminStrategy
    
 3. 代码配置  
     
-   ```php
-   $this->adminStrategy = new AdminStrategy(ContainerInterface $container);
-   $this->adminStrategy->setMenuModel(AdminStrategy::menu_model_simple) // 简单模式 menu_model_simple; 复杂模式 menu_model_all; 
-   ```
+    ```php
+    $this->adminStrategy = new AdminStrategy(ContainerInterface $container);
+    $this->adminStrategy->setMenuModel(AdminStrategy::menu_model_simple) // 简单模式 menu_model_simple; 复杂模式 menu_model_all; 
+    ```
    
 ## 设置导航菜单   
    
 1. 我们将要显示的导航菜单根据它的层级设置一个多维数组$menus,然后调用
    
-   ```php
-   $this->adminStrategy->setMenus(array $menus);
-   ```
+    ```php
+    $this->adminStrategy->setMenus(array $menus);
+    ```
    
 2. 比较常用三级层级的导航菜单
    
-   ```php
-   new Menu('博客管理系统', null, null, null, null, [
+    ```php
+    new Menu('博客管理系统', null, null, null, null, [
           new Menu('博客管理', 'fa fa-clone', null, null, null, [
               new Menu('文章管理', null, 'admin_article_index', $this->generateUrl('admin_blog_manage_article_index'), null),
           ]),
-   ]);
-   ```
+    ]);
+    ```
 
 ## 页面技术栈
 
@@ -253,14 +253,14 @@ $this->adminStrategy
    
 3. 控制器层
    
-```php
-/**
+    ```php
+    /**
     * 用户管理首页
     *
     * @param Request|null $request
     * @return bool|JsonResponse|RedirectResponse|Response
-*/
-public function index(Request $request = null)
+    */
+    public function index(Request $request = null)
     {
         $r = $this->inlet(self::RETURN_SHOW_RESOURCE, true);
         if($r !== true){    
@@ -297,8 +297,8 @@ public function index(Request $request = null)
             'count' => $count,
             'users' => $data
         ));
-    }
-```      
+       }
+    ```      
    
    
 ## 新建/编辑页面基本写法
@@ -318,41 +318,41 @@ public function index(Request $request = null)
 
 1. 安装组件[phpoffice/phpspreadsheet](https://packagist.org/packages/phpoffice/phpspreadsheet)
    
-```text
-composer require phpoffice/phpspreadsheet
-```
+   ```text
+   composer require phpoffice/phpspreadsheet
+   ```
 2. 页面层   
    
-```php
+    ```php
 
-//  该功能控件常见于在列表页中,位置处于搜索框和数据列表页中间部分跟新建按钮存在一个标签中(特殊情况根据需求可以编写在任何你想要的页面)
+    //  该功能控件常见于在列表页中,位置处于搜索框和数据列表页中间部分跟新建按钮存在一个标签中(特殊情况根据需求可以编写在任何你想要的页面)
 
-// 下载导入模板
-<el-button size="mini" @click="handleImportTemplate">下载导入模板</el-button>
+    // 下载导入模板
+    <el-button size="mini" @click="handleImportTemplate">下载导入模板</el-button>
 
-// 导入按钮
-<el-upload
-    class="upload-demo"
-    action="导入地址"
-    :limit="1"
-    :on-success="handleImport"
-    :on-error = "handleImport"
-    :file-list="fileList">
-    <el-button size="small" type="primary">点击上传</el-button>
-    <div slot="tip" class="el-upload__tip">只能上传xls/xlsx文件</div>
-</el-upload>
+    // 导入按钮
+    <el-upload
+       class="upload-demo"
+       action="导入地址"
+       :limit="1"
+       :on-success="handleImport"
+       :on-error = "handleImport"
+       :file-list="fileList">
+       <el-button size="small" type="primary">点击上传</el-button>
+       <div slot="tip" class="el-upload__tip">只能上传xls/xlsx文件</div>
+    </el-upload>
     
-<script>
-    export default {
-        methods: {
-            handleImport(result){
-                const that = this;
-                resultPreprocess(that, result, "admin_url_anchor()");
-            },
-        }
-    }
-</script>
-```
+    <script>
+       export default {
+           methods: {
+               handleImport(result){
+                   const that = this;
+                   resultPreprocess(that, result, "admin_url_anchor()");
+               },
+           }
+       }
+    </script>
+    ```
 
 3. 效果图
 
@@ -365,102 +365,101 @@ composer require phpoffice/phpspreadsheet
    
    Business层(需要对导入模板的地址进行修改)
    
-```php
-public function importTemplateFilePath()
-  {
-    return '模板名称.xlsx';
-  }
+    ```php
+    public function importTemplateFilePath()
+    {
+       return '模板名称.xlsx';
+    }
     
-public function downloadImportTemplate(Request $request)
-  {
-    $this->goUrl($request->getSchemeAndHttpHost() . $request->getBasePath() . '/存放导入文件的文件夹/' . $this->importTemplateFilePath());
-  }
-```
+    public function downloadImportTemplate(Request $request)
+    {
+       $this->goUrl($request->getSchemeAndHttpHost() . $request->getBasePath() . '/存放导入文件的文件夹/' . $this->importTemplateFilePath());
+    }
+    ```
 
   **导入模板**
   
-  Business层(介绍在控制器层时我们如何调用导入方法)
+   Business层(介绍在控制器层时我们如何调用导入方法)
    
-```php
-// 需要在Business层编写该方法，用于对excel表格数据的处理(该方法是必须的)
-public function format($data)
-    {
-        if(empty($data)){
-            throw new PhpZlcApiException('导入数据不能为空');
-        }
+    ```php
+    // 需要在Business层编写该方法，用于对excel表格数据的处理(该方法是必须的)
+    public function format($data)
+        {
+            if(empty($data)){
+                throw new PhpZlcApiException('导入数据不能为空');
+            }
    
-        $info = [];
+            $info = [];
          
-        foreach ($data as $index => $value){
-            $name = $this->getValue($value, 0);
+            foreach ($data as $index => $value){
+                $name = $this->getValue($value, 0);
             
-            $info[] = array(
-                'name' => $name
-            );
-  
+                $info[] = array(
+                    'name' => $name
+                );
+            }
+            return $info;
         }
-        return $info;
-    }
-```
+    ```
    
 5. 控制器层
    
  **下载导入模板**
  
-```php
-$Business  = new Business($this->container);
-// 在控制器中调用Business封装好的方法
-$Business->goUrl($Business->downloadImportTemplate(Request $request));
-```
+    ```php
+    $Business  = new Business($this->container);
+    // 在控制器中调用Business封装好的方法
+    $Business->goUrl($Business->downloadImportTemplate(Request $request));
+    ```
    
   **导入模板**
     
-```php
-set_time_limit(0);
-ob_start();
+    ```php
+    set_time_limit(0);
+    ob_start();
    
-$Business  = new Business($this->container);
+    $Business  = new Business($this->container);
    
-/**
-    * @var Connection $conn
-*/
-$conn = $this->getDoctrine()->getConnection();
-$conn->beginTransaction();
+    /**
+        * @var Connection $conn
+    */
+    $conn = $this->getDoctrine()->getConnection();
+    $conn->beginTransaction();
    
-try {
-    $data = $Business->importData();
+    try {
+        $data = $Business->importData();
    
-    foreach ($data as $k => $v) {
-        // 将$data的数据循环插入
-        $conn->commit();
+        foreach ($data as $k => $v) {
+            // 将$data的数据循环插入
+            $conn->commit();
+        }
+   
+        return Responses::success('导入成功');
+   
+        }catch (PhpZlcApiException $exception){
+        $conn->rollBack();
+        return Responses::error($exception->getMessage());
     }
-   
-    return Responses::success('导入成功');
-   
-    }catch (PhpZlcApiException $exception){
-    $conn->rollBack();
-    return Responses::error($exception->getMessage());
-}
-```
+    ```
     
 ## 导出功能基本写法
 
 1. 页面层
    
-```php
-// 该控件的编写位置跟上面的下载导入模板和导入的位置相同(具体位置具体分析)
-<el-button size="mini" type="success" @click="export_data()">导出</el-button>
+    ```php
+    // 该控件的编写位置跟上面的下载导入模板和导入的位置相同(具体位置具体分析)
+    <el-button size="mini" type="success" @click="export_data()">导出</el-button>
 
-<script>
-    export default {
-        methods: {
-            export_data(){
-                window.location.href = urlParamWrite(getSelfUrl(), 'ex', '1');
-            },
-        }
-    }
-</script>
-```
+    <script>
+       export default {
+           methods: {
+               export_data(){
+                   window.location.href = urlParamWrite(getSelfUrl(), 'ex', '1');
+               },
+           }
+       }
+    </script>
+    ```
 
 2. 效果图
 
@@ -469,28 +468,28 @@ try {
 3. 控制器层
   
   Controller层 
-```php
-// 调用PHPZlc Export组件
-use PHPZlc\Admin\Strategy\Excel\Export;
+    ```php
+    // 调用PHPZlc Export组件
+    use PHPZlc\Admin\Strategy\Excel\Export;
 
-$ex = new Export();
+    $ex = new Export();
 
-// 表格第一行
-$head = [];
-// 数据库数据
-$list = array();
+    // 表格第一行
+    $head = [];
+    // 数据库数据
+    $list = array();
 
-$data = [];
+    $data = [];
  
-// 循环获得的数据   
-foreach ($list as $value){
-    $data[] = array(
-    // 循环的数据
-    );
-}
+    // 循环获得的数据   
+    foreach ($list as $value){
+        $data[] = array(
+        // 循环的数据
+        );
+    }
  
-// 需要调出Export组件封装好的方法   
-/**
+    // 需要调出Export组件封装好的方法   
+    /**
     * 导出
     *
     * @param string $title  标题
@@ -500,9 +499,9 @@ foreach ($list as $value){
     * @param array $mergeCells 合并单元格 [{0,1,0,2})] 0,1 表示合并开始单元格数组坐标, 0,2 代表合并结束单元格数组坐标
     * @param string $format
     * @throws \PhpOffice\PhpSpreadsheet\Exception
-*/
-$ex->export($title, $head, $data, $is_need = false, $mergeCells = array(), $format = 'Xls');
-```
+    */
+    $ex->export($title, $head, $data, $is_need = false, $mergeCells = array(), $format = 'Xls');
+    ```
 
 ## 后台实战(更多写法)
   
