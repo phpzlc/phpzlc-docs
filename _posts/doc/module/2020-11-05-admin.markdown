@@ -29,7 +29,7 @@ composer require phpzlc/admin
    
 ```php
 class AdminController extends SystemBaseController
-      {
+{
           /**
            * @var AdminStrategy
            */
@@ -47,7 +47,7 @@ class AdminController extends SystemBaseController
               
               return parent::inlet($returnType, $isLogin);
           }
-      }
+}
 ```
 
 
@@ -56,7 +56,6 @@ class AdminController extends SystemBaseController
    是后台核心机制类,主要用于设置后台系统的基本属性和动作
    
 ```php
-
  //菜单配置
 $menus = [
     new Menu($title, $ico, $tag, $url, $url_target, [
@@ -152,27 +151,27 @@ $this->adminStrategy
 
 10. 设置管理员角色名称
    
-```php
-public function setAdminRoleName($admin_role_name)
-```
+   ```php
+   public function setAdminRoleName($admin_role_name)
+   ```
    
 11. 设置登陆页面背景图片
    
-```php
-public function setLoginLackGroundImg(string $login_lack_ground_img)
-```
+   ```php
+   public function setLoginLackGroundImg(string $login_lack_ground_img)
+   ```
    
 12. 设置管理员登录头像
 
-```php
-public function setAdminAvatar(string $admin_avatar)
-```
+   ```php
+   public function setAdminAvatar(string $admin_avatar)
+   ```
 
 13. 设置head自定义代码
 
-```php
-public function setHendCode(string $hend_code)
-```
+   ```php
+   public function setHendCode(string $head_code)
+   ```
 
 ## 面包线配置
         
@@ -192,14 +191,16 @@ public function setHendCode(string $hend_code)
 
    本框架提供两种后台页面模式.这两种模式可以进行切换,适合不同量级的后台.
    
-1. 简单模式(三级菜单,后期可升级为复杂模式)
+1. 简单模式(三级菜单,后期可便捷地切换到复杂模式)
 
    ![简单模式](/assets/posts/admin/model_simple.png)
 
 2. 复杂模式(四级菜单,增加头部菜单,功能划分更精确直观)
 
    ![复杂模式](/assets/posts/admin/model_all.png)
-      
+   
+3. 代码配置  
+    
    ```php
    $this->adminStrategy = new AdminStrategy(ContainerInterface $container);
    $this->adminStrategy->setMenuModel(AdminStrategy::menu_model_simple) // 简单模式 menu_model_simple; 复杂模式 menu_model_all; 
@@ -220,7 +221,6 @@ public function setHendCode(string $hend_code)
           new Menu('博客管理', 'fa fa-clone', null, null, null, [
               new Menu('文章管理', null, 'admin_article_index', $this->generateUrl('admin_blog_manage_article_index'), null),
           ]),
-      
    ]);
    ```
 
@@ -255,12 +255,12 @@ public function setHendCode(string $hend_code)
    
 ```php
 /**
-     * 用户管理首页
-     *
-     * @param Request|null $request
-     * @return bool|JsonResponse|RedirectResponse|Response
-     */
-    public function index(Request $request = null)
+    * 用户管理首页
+    *
+    * @param Request|null $request
+    * @return bool|JsonResponse|RedirectResponse|Response
+*/
+public function index(Request $request = null)
     {
         $r = $this->inlet(self::RETURN_SHOW_RESOURCE, true);
         if($r !== true){    
@@ -316,7 +316,7 @@ public function setHendCode(string $hend_code)
    
 ## 导入功能基本写法
 
-1. 导入导出功能安装支持[phpoffice/phpspreadsheet](https://packagist.org/packages/phpoffice/phpspreadsheet)
+1. 安装组件[phpoffice/phpspreadsheet](https://packagist.org/packages/phpoffice/phpspreadsheet)
    
 ```text
 composer require phpoffice/phpspreadsheet
@@ -357,10 +357,11 @@ composer require phpoffice/phpspreadsheet
 3. 效果图
 
    ![效果](/assets/posts/admin/export.png)
-
-4. 控制器层
    
- **下载导入模板**
+   
+4. Business层
+
+   **下载导入模板**
    
    Business层(需要对导入模板的地址进行修改)
    
@@ -376,18 +377,12 @@ public function downloadImportTemplate(Request $request)
   }
 ```
 
-   Controller层
-```php
-$Business  = new Business($this->container);
-// 在控制器中调用Business封装好的方法
-$Business->goUrl($Business->downloadImportTemplate(Request $request));
-```
-   
   **导入模板**
-   
+  
   Business层(介绍在控制器层时我们如何调用导入方法)
    
 ```php
+// 需要在Business层编写该方法，用于对excel表格数据的处理(该方法是必须的)
 public function format($data)
     {
         if(empty($data)){
@@ -407,8 +402,19 @@ public function format($data)
         return $info;
     }
 ```
-  Controller层
-  
+   
+5. 控制器层
+   
+ **下载导入模板**
+ 
+```php
+$Business  = new Business($this->container);
+// 在控制器中调用Business封装好的方法
+$Business->goUrl($Business->downloadImportTemplate(Request $request));
+```
+   
+  **导入模板**
+    
 ```php
 set_time_limit(0);
 ob_start();
@@ -436,15 +442,13 @@ try {
     return Responses::error($exception->getMessage());
 }
 ```
-   
-   
+    
 ## 导出功能基本写法
 
 1. 页面层
    
 ```php
 // 该控件的编写位置跟上面的下载导入模板和导入的位置相同(具体位置具体分析)
-
 <el-button size="mini" type="success" @click="export_data()">导出</el-button>
 
 <script>
@@ -500,8 +504,8 @@ foreach ($list as $value){
 $ex->export($title, $head, $data, $is_need = false, $mergeCells = array(), $format = 'Xls');
 ```
 
-## 后台实战
+## 后台实战(更多写法)
   
-  想要了解更多的PHPZlc框架所快速搭建的后台请点击[后台实战](http://demo.blog.phpzlc.com/admin)
+  想要了解更多关于PHPZlc框架的实战写法请点击[后台实战](http://demo.blog.phpzlc.com/admin)
 
     
