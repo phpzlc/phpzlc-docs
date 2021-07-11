@@ -377,7 +377,7 @@ $this->adminStrategy
     }
     ```
 
-  **导入模板**
+   **导入模板**
   
    Business层(介绍在控制器层时我们如何调用导入方法)
    
@@ -404,7 +404,7 @@ $this->adminStrategy
    
 5. 控制器层
    
- **下载导入模板**
+  **下载导入模板**
  
     ```php
     $Business  = new Business($this->container);
@@ -467,7 +467,6 @@ $this->adminStrategy
      
 3. 控制器层
   
-  Controller层 
     ```php
     // 调用PHPZlc Export组件
     use PHPZlc\Admin\Strategy\Excel\Export;
