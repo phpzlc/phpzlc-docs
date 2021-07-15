@@ -191,7 +191,7 @@ $this->adminStrategy
 
    本框架提供两种后台页面模式.这两种模式可以进行切换,适合不同量级的后台.
    
-1. 简单模式(三级菜单,后期可便捷地切换到复杂模式)
+1. 简单模式(三级菜单,后期业务升级可便捷地切换到复杂模式)
 
    ![简单模式](/assets/posts/admin/model_simple.png)
 
@@ -383,23 +383,24 @@ $this->adminStrategy
    
     ```php
     // 需要在Business层编写该方法，用于对excel表格数据的处理(该方法是必须的)
+    // $data数据已经被导入方法序列化的数据
     public function format($data)
-        {
-            if(empty($data)){
-                throw new PhpZlcApiException('导入数据不能为空');
-            }
+    {
+       if(empty($data)){
+           throw new PhpZlcApiException('导入数据不能为空');
+       }
    
-            $info = [];
+       $info = [];
          
-            foreach ($data as $index => $value){
-                $name = $this->getValue($value, 0);
+       foreach ($data as $index => $value){
+           $name = $this->getValue($value, 0);
             
-                $info[] = array(
-                    'name' => $name
-                );
-            }
-            return $info;
-        }
+           $info[] = array(
+               'name' => $name
+               );
+       }
+       return $info;
+    }
     ```
    
 5. 控制器层
@@ -415,30 +416,45 @@ $this->adminStrategy
    **导入模板**
   
     ```php
-    set_time_limit(0);
-    ob_start();
-   
-    $Business  = new Business($this->container);
-   
     /**
-        * @var Connection $conn
+    * 导入
+    *
+    * @return bool|JsonResponse|RedirectResponse|Response
+    * @throws \Doctrine\DBAL\ConnectionException
     */
-    $conn = $this->getDoctrine()->getConnection();
-    $conn->beginTransaction();
-   
-    try {
-        $data = $Business->importData();
-   
-        foreach ($data as $k => $v) {
-            // 将$data的数据循环插入
-            $conn->commit();
-        }
-   
-        return Responses::success('导入成功');
-   
-        }catch (PhpZlcApiException $exception){
-        $conn->rollBack();
-        return Responses::error($exception->getMessage());
+    public function import()
+    {
+       // phpzlc框架控制器的入口方法
+       $r = $this->inlet(self::RETURN_HIDE_RESOURCE, true);
+       if($r !== true){
+           return $r;
+       }
+    
+       set_time_limit(0);
+       ob_start();
+       // 该Business层封装导入方法(该Business层根据业务需求所编写,但是必须继承Business/ExcelBusiness/ImportBusiness类)
+       $ImportBusiness  = new ImportBusiness($this->container);
+    
+       /**
+       * @var Connection $conn
+       */
+       $conn = $this->getDoctrine()->getConnection();
+       $conn->beginTransaction();
+    
+       try {
+           $data = $ImportBusiness->importData();
+           // 循环data数据
+           foreach ($data as $k => $v) {
+           $conn->commit();
+           }
+    
+           return Responses::success('导入成功');
+    
+       }catch (PhpZlcApiException $exception){
+           $conn->rollBack();
+           return Responses::error($exception->getMessage());
+       }
+    
     }
     ```
     
@@ -468,38 +484,53 @@ $this->adminStrategy
 3. 控制器层
   
     ```php
-    // 调用PHPZlc Export组件
-    use PHPZlc\Admin\Strategy\Excel\Export;
-
-    $ex = new Export();
-
-    // 表格第一行
-    $head = [];
-    // 数据库数据
-    $list = array();
-
-    $data = [];
- 
-    // 循环获得的数据   
-    foreach ($list as $value){
-        $data[] = array(
-        // 循环的数据
-        );
-    }
- 
-    // 需要调出Export组件封装好的方法   
     /**
     * 导出
     *
-    * @param string $title  标题
-    * @param array $head 表头 ["表头1", "表头2"]
-    * @param array $data 内容 [{"1", "1"}]
-    * @param bool $is_need 是否插入序号
-    * @param array $mergeCells 合并单元格 [{0,1,0,2})] 0,1 表示合并开始单元格数组坐标, 0,2 代表合并结束单元格数组坐标
-    * @param string $format
-    * @throws \PhpOffice\PhpSpreadsheet\Exception
     */
-    $ex->export($title, $head, $data, $is_need = false, $mergeCells = array(), $format = 'Xls');
+    public function info(Request $request)
+    {
+       $r = $this->inlet();
+       if($r !== true){
+           return $r;
+       }
+    
+       $this->adminStrategy->setUrlAnchor();
+    
+       $rows = $request->get('rows', 20);
+       $page = $request->get('page', 1);
+       
+       // 获取数据的规则
+       $rules = [
+           'feedDayDaily' => $request->get('id')
+       ];
+           
+       $daily = $this->getDoctrine()->getRepository('App:FeedDayDaily')->find($request->get('id'));
+       
+       // 通过ex判断是否是导出数据, 如若ex的值为1,则导出数据,如若不是,则显示页面
+       if($request->get('ex') != 1){
+   
+       }else{
+           // 调用phpzlcExport组件
+           $ex = new Export();
+   
+           // 设置导出Excel表头
+           $head = [];
+    
+           // 获取需要导出的数据
+           $list = $this->getDoctrine()->getRepository('App:FeedDayDailyInfo')->findAll($rules);
+    
+           $data = [];
+           
+           // 对需要导出的数据进行循环处理,放入data数组中
+           foreach ($list as $value){
+               $data[] = array($value）
+           }
+           
+           // 调用Excel组件的export方法
+           $ex->export($daily->getTitle(), $head, $data, true);
+       }
+    }
     ```
 
 ## 后台实战(更多写法)
