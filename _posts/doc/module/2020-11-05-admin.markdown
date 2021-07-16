@@ -514,7 +514,7 @@ $this->adminStrategy
            // 调用phpzlcExport组件
            $ex = new Export();
    
-           // 设置导出Excel表头
+           // 设置导出Excel表头(一维数组)
            $head = [];
     
            // 获取需要导出的数据
@@ -522,9 +522,12 @@ $this->adminStrategy
     
            $data = [];
            
-           // 对需要导出的数据进行循环处理,放入data数组中
+           // 对需要导出的数据进行循环处理,放入data数组中(二维数组)
            foreach ($list as $value){
-               $data[] = array($value）
+               $data[] = array(
+                  $value->getId(),
+                  $value->getName
+               ）
            }
            
            // 调用Excel组件的export方法
@@ -535,6 +538,6 @@ $this->adminStrategy
 
 ## 后台实战(更多写法)
   
-  想要了解更多关于PHPZlc框架的实战写法请点击[后台实战](http://demo.blog.phpzlc.com/admin)
+  具体写法,更多特性可通过[demo项目](https://github.com/phpzlc/demo-blog)了解。
 
     
