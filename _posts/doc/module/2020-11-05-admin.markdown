@@ -358,66 +358,31 @@ $this->adminStrategy
 
    ![效果](/assets/posts/admin/export.png)
    
-   
-4. Business层
-
-   **下载导入模板**
-   
-   Business层(需要对导入模板的地址进行修改)
-   
-    ```php
-    public function importTemplateFilePath()
-    {
-       return '模板名称.xlsx';
-    }
+4. 控制器层
     
-    public function downloadImportTemplate(Request $request)
-    {
-       $this->goUrl($request->getSchemeAndHttpHost() . $request->getBasePath() . '/存放导入文件的文件夹/' . $this->importTemplateFilePath());
-    }
-    ```
-
-   **导入模板**
-  
-   Business层(介绍在控制器层时我们如何调用导入方法)
-   
     ```php
-    // 需要在Business层编写该方法，用于对excel表格数据的处理(该方法是必须的)
-    // $data数据已经被导入方法序列化的数据
-    public function format($data)
-    {
-       if(empty($data)){
-           throw new PhpZlcApiException('导入数据不能为空');
-       }
-   
-       $info = [];
-         
-       foreach ($data as $index => $value){
-           $name = $this->getValue($value, 0);
-            
-           $info[] = array(
-               'name' => $name
-               );
-       }
-       return $info;
-    }
+     /**
+         * 导入模板下载
+         *
+         * @param Request $request
+         * @return bool|JsonResponse|RedirectResponse|Response|void
+         */
+        public function importTemplate(Request $request)
+        {
+            $r = $this->inlet(self::RETURN_HIDE_RESOURCE, true);
+            if($r !== true){
+                return $r;
+            }
+            // 根据业务所设置的Business层
+            $driverImportBusiness  = new DriverImportBusiness($this->container);
+    
+            return $driverImportBusiness->goUrl($driverImportBusiness->downloadImportTemplate($request));
+        }
     ```
    
-5. 控制器层
-   
-   **下载导入模板**
-  
-    ```php
-    $Business  = new Business($this->container);
-    // 在控制器中调用Business封装好的方法
-    $Business->goUrl($Business->downloadImportTemplate(Request $request));
-    ```
-   
-   **导入模板**
-  
     ```php
     /**
-    * 导入
+    * 导入功能
     *
     * @return bool|JsonResponse|RedirectResponse|Response
     * @throws \Doctrine\DBAL\ConnectionException
@@ -457,7 +422,76 @@ $this->adminStrategy
     
     }
     ```
-    
+      
+5. Business层
+  
+    ```php
+   // 命名空间
+   namespace App\Business\DriverBusiness;
+   
+   //引用的文件
+   use App\Business\ExcelBusiness\ImportBusiness;
+   use PHPZlc\PHPZlc\Bundle\EventListener\ApiExceptionListener\PhpZlcApiException;
+   
+   class DriverImportBusiness extends ImportBusiness
+   {
+       public function importTemplateFilePath()
+       {   
+           // 导入模板的名称
+           return '司机导入模板.xlsx';
+       }
+       
+       // 序列化导入的数据
+       public function format($data)
+       {
+           if(empty($data)){
+               throw new PhpZlcApiException('导入数据不能为空');
+           }
+   
+           $info = [];
+           $drivers = [];
+           
+           // 数据的循环与判断
+           foreach ($data as $index => $value){
+               $name = $this->getValue($value, 0);
+               $sex = $this->getValue($value, 1);
+               $phone = $this->getValue($value, 2);
+               $password = $this->getValue($value, 3);
+               $id_card_no = $this->getValue($value, 4);
+   
+               $rows = $index + 1;
+   
+               if(empty($phone)){
+                   throw new PhpZlcApiException('第' . $rows . '行手机号不能为空');
+               }
+   
+               if(empty($sex)){
+                   throw new PhpZlcApiException('第' . $rows . '行性别不能为空');
+               }else{
+                   if($sex == '男'){
+                       $sex = 1;
+                   }elseif ($sex == '女'){
+                       $sex = 2;
+                   }else{
+                       throw new PhpZlcApiException('第' . $rows . '行请输入正确的性别');
+                   }
+               }
+   
+   
+               $info[] = array(
+                   'name' => $name,
+                   'sex' => $sex,
+                   'phone' => $phone,
+                   'password' => $password,
+                   'id_card_no' => $id_card_no
+               );
+   
+           }
+           return $info;
+       }
+   }
+    ```
+     
 ## 导出功能基本写法
 
 1. 页面层

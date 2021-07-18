@@ -22,21 +22,72 @@ tags: platform,platform-business,平台,phpzlc/platform-business
 composer require phpzlc/platform-business
 ```
 
+## YAML配置
+
+config/packages/phpzlc-platform-business.yaml
+```yaml
+
+
+parameters:
+# 默认参数(根据需求可自行添加平台,用户参数)
+
+  # 平台 - 后台
+  platform_admin: admin
+
+  # 全部平台
+  platform_array:
+    '%platform_admin%': 后台
+
+```
+
 ## 提供功能
 
-多个平台基础功能
-
-1. 获取平台名称
-
    ```php
-    public static function getPlatform()
-   ```
-2. 设置平台名称
-    
-    ```php
-    public static function setPlatform($platform)
-    ```
-3. 得到所有平台名称
-   ```php
-    public static function getPlatforms(ContainerInterface $container)
+   namespace App\Business\PlatformBusiness;
+   
+   use PHPZlc\PHPZlc\Bundle\Business\AbstractBusiness;
+   use Psr\Container\ContainerInterface;
+   
+   class PlatformClass extends AbstractBusiness
+   {
+       const NOT_LOGIN_GO_URL = 'not_login_go_url';
+       
+       /**
+        * 平台名称
+        * 
+        * @var string
+        */
+       private static $platform;
+   
+       /**
+        * 获取平台名称
+        * 
+        * @return string
+        */
+       public static function getPlatform()
+       {
+           return self::$platform;
+       }
+   
+       /**
+        * 设置平台名称
+        * 
+        * @param $platform
+        */
+       public static function setPlatform($platform)
+       {
+           self::$platform = $platform;
+       }
+   
+       /**
+        * 得到所有平台名称
+        *
+        * @param ContainerInterface $container
+        * @return array
+        */
+       public static function getPlatforms(ContainerInterface $container)
+       {
+           return array();
+       }
+   } 
    ```
