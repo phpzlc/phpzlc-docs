@@ -2,7 +2,7 @@
 title: Exception
 permalink: doc/exception
 prev_page: /doc/tool/log
-next_page: /doc/repository
+next_page: /doc/repository/base
 description_auto: 0
 description: 定义异常类,监听异常做响应式处理
 tags: symfony,phpzlc,exception,异常监听
