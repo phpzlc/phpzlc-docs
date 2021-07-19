@@ -359,28 +359,25 @@ $this->adminStrategy
    ![效果](/assets/posts/admin/export.png)
    
 4. 控制器层
-    
+       
     ```php
      /**
-         * 导入模板下载
-         *
-         * @param Request $request
-         * @return bool|JsonResponse|RedirectResponse|Response|void
-         */
-        public function importTemplate(Request $request)
-        {
-            $r = $this->inlet(self::RETURN_HIDE_RESOURCE, true);
-            if($r !== true){
-                return $r;
-            }
-            // 根据业务所设置的Business层
-            $driverImportBusiness  = new DriverImportBusiness($this->container);
-    
-            return $driverImportBusiness->goUrl($driverImportBusiness->downloadImportTemplate($request));
-        }
-    ```
+     * 导入模板下载
+     *
+     * @param Request $request
+     * @return bool|JsonResponse|RedirectResponse|Response|void
+     */
+     public function importTemplate(Request $request)
+     {
+           $r = $this->inlet(self::RETURN_HIDE_RESOURCE, true);
+           if($r !== true){
+               return $r;
+           }
+           // 根据业务所设置的Business层
+           $driverImportBusiness  = new DriverImportBusiness($this->container);
+           return $driverImportBusiness->goUrl($driverImportBusiness->downloadImportTemplate($request));
+     }
    
-    ```php
     /**
     * 导入功能
     *
@@ -407,11 +404,13 @@ $this->adminStrategy
        $conn->beginTransaction();
     
        try {
+           // 通过Import组件获取上传导入的数据
            $data = $ImportBusiness->importData();
            // 循环data数据
            foreach ($data as $k => $v) {
-           $conn->commit();
+               //将数据导入数据库当中
            }
+           $conn->commit();
     
            return Responses::success('导入成功');
     
