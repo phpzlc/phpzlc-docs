@@ -26,8 +26,6 @@ composer require phpzlc/platform-business
 
 config/packages/phpzlc-platform-business.yaml
 ```yaml
-
-
 parameters:
 # 默认参数(根据需求可自行添加平台,用户参数)
 
@@ -42,52 +40,52 @@ parameters:
 
 ## 提供功能
 
-   ```php
-   namespace App\Business\PlatformBusiness;
+```php
+namespace App\Business\PlatformBusiness;
    
-   use PHPZlc\PHPZlc\Bundle\Business\AbstractBusiness;
-   use Psr\Container\ContainerInterface;
+use PHPZlc\PHPZlc\Bundle\Business\AbstractBusiness;
+use Psr\Container\ContainerInterface;
    
-   class PlatformClass extends AbstractBusiness
-   {
-       const NOT_LOGIN_GO_URL = 'not_login_go_url';
+class PlatformClass extends AbstractBusiness
+{
+    const NOT_LOGIN_GO_URL = 'not_login_go_url';
        
-       /**
-        * 平台名称
-        * 
-        * @var string
-        */
-       private static $platform;
+    /**
+    * 平台名称
+    * 
+    * @var string
+    */
+    private static $platform;
    
-       /**
-        * 获取平台名称
-        * 
-        * @return string
-        */
-       public static function getPlatform()
-       {
-           return self::$platform;
-       }
+    /**
+    * 获取平台名称
+    * 
+    * @return string
+    */
+    public static function getPlatform()
+    {
+        return self::$platform;
+    }
    
-       /**
-        * 设置平台名称
-        * 
-        * @param $platform
-        */
-       public static function setPlatform($platform)
-       {
-           self::$platform = $platform;
-       }
+    /**
+    * 设置平台名称
+    * 
+    * @param $platform
+    */
+    public static function setPlatform($platform)
+    {
+        self::$platform = $platform;
+    }
    
-       /**
-        * 得到所有平台名称
-        *
-        * @param ContainerInterface $container
-        * @return array
-        */
-       public static function getPlatforms(ContainerInterface $container)
-       {
-           return array();
-       }
-   } 
+    /**
+    * 得到所有平台名称
+    *
+    * @param ContainerInterface $container
+    * @return array
+    */
+    public static function getPlatforms(ContainerInterface $container)
+    {
+        return array();
+    }
+} 
    ```
