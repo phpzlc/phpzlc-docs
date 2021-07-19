@@ -28,51 +28,184 @@ composer require phpzlc/auth-business
 php bin/console doctrine:schema:update --force
 ```
 
+## YAML配置
+
+config/packages/phpzlc-auth-business.yaml
+
+```yaml
+parameters:
+# 根据需求添加不同类型的操作主体
+
+  # 登录session名后缀
+  login_tag_session_name: _login_tag
+
+  # 操作主体- 系统
+  subject_system: system
+
+  # 操作主体- 管理员
+  subject_admin: admin
+
+  # 全部操作主体
+  subject_array:
+    '%subject_system%': 系统
+```
+
 ## 提供功能
 
 [CurAuthSubject](#) 当前授权登录用户信息类,属于该业务的基本类,用来对管理系统当前登录用户信息的存储与操作
 
-1. 设置当前管理员授权信息（get方法：getCurUserAuth）
-   ```php
-   public static function setCurUserAuth(UserAuth $userAuth)
-   ```
-   
-2. 设置当前可跳转路由（get方法：getCurAuthSuccessGoUrl）
-   ```php
-   public static function setCurAuthSuccessGoUrl($cur_auth_success_go_url)
-   ```
+```php
+namespace App\Business\AuthBusiness;
 
-3. 设置当前登录用户信息（get方法： getCurUser）
-   ```php
-   public static function setCurUser(UserInterface $user)
-   ```
+use App\Entity\UserAuth;
+use App\Business\AuthBusiness\UserInterface;
+
+class CurAuthSubject
+{
+    /**
+     * 当前管理员授权信息
+     *
+     * @var UserAuth
+     */
+    private static $cur_user_auth;
+
+    /**
+     * 当前管理员信息
+     *
+     * @var UserInterface
+     */
+    private static $cur_user;
+
+    /**
+     * 当前可跳转路由
+     *
+     * @var string
+     */
+    private static $cur_auth_success_go_url = '';
+
+    /**
+     * 设置当前管理员授权信息
+     * 
+     * @param UserAuth $userAuth
+     */
+    public static function setCurUserAuth(UserAuth $userAuth)
+    {
+        self::$cur_user_auth = $userAuth;
+    }
+
+    /**
+     * 设置当前可跳转路由
+     *
+     * @param $cur_auth_success_go_url
+     */
+    public static function setCurAuthSuccessGoUrl($cur_auth_success_go_url)
+    {
+        self::$cur_auth_success_go_url = $cur_auth_success_go_url;
+    }
+
+    /**
+     * 获取当前管理员授权信息
+     * 
+     * @return mixed
+     */
+    public static function getCurUserAuth()
+    {
+        return self::$cur_user_auth;
+    }
+
+    /**
+     * 获取当前可跳转路由
+     * 
+     * @return string
+     */
+    public static function getCurAuthSuccessGoUrl()
+    {
+        return self::$cur_auth_success_go_url;
+    }
+
+    /**
+     * 设置当前登录用户信息
+     *
+     * @param UserInterface $user
+     */
+    public static function setCurUser(UserInterface $user)
+    {
+        self::$cur_user = $user;
+    }
+
+    /**
+     * 获取当前登录管理员信息
+     *
+     * @return UserInterface
+     */
+    public static function getCurUser()
+    {
+        return self::$cur_user;
+    }
+}
+```
 
 [SubjectAuthInterface](#) 登录组件接口类,属于该业务的基本类,用来规定多用户类型多平台类型的基本方法,该基本类可以根据多用户类型多平台类型进行改写
 
-1. 检查用户状态
-   ```php
-   public function checkStatus($user)
-   ```
+```php
+namespace App\Business\AuthBusiness;
 
-2. 获取用户信息
-   ```php
-   public function user($rules)
-   ```
+interface SubjectAuthInterface
+{
+    /**
+     * 检查用户状态
+     * 
+     * @param $user
+     * @return mixed
+     */
+    public function checkStatus($user);
+
+    /**
+     * 获取用户信息
+     * 
+     * @param $rules
+     * @return mixed
+     */
+    public function user($rules);
+}
+```
 
 [UserInterface](#) 授权接口类,属于该业务的基本类,当管理系统设置多平台多用户类型继承该类
 
-   ```php
-   interface UserInterface
-   ```
+```php
+namespace App\Business\AuthBusiness;
+
+interface UserInterface
+{
+
+}
+```
 
 [AuthTag](#) 授权标记类,属于该业务的基本类,用来操作管理系统的session
 
-1. 设置Session标记
+```php
+namespace App\Business\AuthBusiness;
 
-   该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台登录进行设置session的操作
 
-   ```php
-   public static function set(ContainerInterface $container, UserAuth $userAuth)
+use App\Business\PlatformBusiness\PlatformClass;
+use App\Entity\UserAuth;
+use Doctrine\Persistence\ManagerRegistry;
+use Psr\Container\ContainerInterface;
+use Exception;
+
+class AuthTag
+{
+    /**
+     * 设置Session标记
+     *
+     * 该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台登录进行设置session的操作
+     * 
+     * @param ContainerInterface $container
+     * @param UserAuth $userAuth
+     * @return string
+     * @throws Exception
+     */
+    public static function set(ContainerInterface $container, UserAuth $userAuth)
     {
         $tag = '';
 
@@ -80,22 +213,26 @@ php bin/console doctrine:schema:update --force
             case $container->get('parameter_bag')->get('platform_admin'):
                 $container->get('session')->set(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'), $userAuth->getId());
                 break;
-
             default:
                 throw new \Exception('来源溢出');
         }
 
         return $tag;
     }
-   ```
 
-2. 获取Session标记内容
-
-   该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台进行获取session的操作,在本组件中,我们统一获取的返回值为对象
-
-   ```php
-   public static function get(ContainerInterface $container)
+    /**
+     * 获取Session标记内容
+     * 
+     * 该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台进行获取session的操作,在本组件中,我们统一获取的返回值为对象
+     *
+     * @param ContainerInterface $container
+     * @return UserAuth|false|object
+     * @throws Exception
+     */
+    public static function get(ContainerInterface $container)
     {
+        $userAuth = null;
+
         /**
          * @var ManagerRegistry $doctrine
          */
@@ -105,44 +242,59 @@ php bin/console doctrine:schema:update --force
             case $container->get('parameter_bag')->get('platform_admin'):
                 $user_auth_id = $container->get('session')->get(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
                 $userAuth = $doctrine->getRepository('App:UserAuth')->find($user_auth_id);
-                if(empty($userAuth)){
-                    Errors::setError(new Error('登录失效,请重新登录', -1));
-                    return false;
-                }
                 break;
-
             default:
                 throw new \Exception('来源溢出');
         }
 
         return $userAuth;
     }
-   ```
 
-3. 移除Session标记
-
-   该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台进行删除session的操作
-
-   ```php
-   public static function remove(ContainerInterface $container)
+    /**
+     * 移除Session标记
+     * 
+     * 该方法可以根据实际使用场景进行改写,具体改写形式：添加switch 的 case 判断条件可以给多类型平台进行删除session的操作
+     *
+     * @param ContainerInterface $container
+     * @throws Exception
+     */
+    public static function remove(ContainerInterface $container)
     {
         switch (PlatformClass::getPlatform()){
             case $container->get('parameter_bag')->get('platform_admin'):
                 $container->get('session')->remove(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
                 break;
-
             default:
                 throw new \Exception('来源溢出');
         }
     }
-   ```
+
+}
+```
 
 [UserAuthBusiness](#) 用户登录业务类,属于该业务的基本核心类,是整个授权登录组件的业务层,用来对管理系统中的登录业务的操作
 
-1. 新建用户授权信息
+```php
+namespace App\Business\AuthBusiness;
 
-   ```php
-   public function create(UserAuth $userAuth, $is_flush = true)
+use App\Business\AdminBusiness\AdminAuth;
+use App\Entity\UserAuth;
+use App\Repository\UserAuthRepository;
+use PHPZlc\PHPZlc\Abnormal\Errors;
+use PHPZlc\PHPZlc\Bundle\Business\AbstractBusiness;
+use Psr\Container\ContainerInterface;
+
+class UserAuthBusiness extends AbstractBusiness
+{
+    /**
+     * 新建用户授权
+     * 
+     * @param UserAuth $userAuth
+     * @param bool $is_flush
+     * @return bool
+     * @throws \Exception
+     */
+    public function create(UserAuth $userAuth, $is_flush = true)
     {
         $userAuth->setCreateAt(new \DateTime());
         
@@ -165,43 +317,54 @@ php bin/console doctrine:schema:update --force
             return false;
         }
     }
-   ```
-
-2. 获取指定平台端方法
-
-   ```php
-   private function getUserAuthService($subject_type)
+    
+    /**
+    * 获取指定平台端方法
+    *
+    * @param $subject_type
+    * @return SubjectAuthInterface
+    * @throws \Exception
+    */
+    private function getUserAuthService($subject_type)
     {
         if(!array_key_exists($subject_type, $this->subjectAuthCaches)){
+            // 根据需求添加的操作主体来获取对应的平台端方法
             switch ($subject_type){
                 case $this->getParameter('subject_admin'):
                     $this->subjectAuthCaches[$subject_type] = new AdminAuth($this->container);
                     break;
-                    
-                default:
-                    throw new \Exception('授权登录权限不存在');
+    
+                    default:
+                        throw new \Exception('授权登录权限不存在');
             }
         }
-        
+    
         return $this->subjectAuthCaches[$subject_type];
     }
-   ```
+    
+    /**
+    * 账号登录
+    *
+    * @param $account
+    * @param $password
+    * @param $subject_type
+    * @param string $account_field
+    * @param string $userAuthFunctionName
+    * @param string $account_title
+    * @return false|void
+    * @throws \Exception
+    */
+    public function accountLogin($account, $password, $subject_type, $account_field = 'account', $account_title = '账号', $userAuthFunctionName = 'getUserAuth')
+    {
+        $userAuth = $this->accountCheck($account, $password, $subject_type, $account_field, $account_title, $userAuthFunctionName);
+    
+        if($userAuth === false){
+            return false;
+        }
+    
+        return $this->login($userAuth);
+    }
 
-3. 账号登录方法
-
-   ```php
-   public function accountLogin()
-   ```
-
-5. 修改密码方法
-
-   ```php
-   public function changePassword()
-   ```
-
-6. 检查登录状态方法
-
-   ```php
-   public function isLogin()
-   ```
+}
+```
 
