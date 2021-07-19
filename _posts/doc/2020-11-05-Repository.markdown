@@ -1,6 +1,6 @@
 ---
 title: 高级查询
-permalink: doc/repository
+permalink: doc/repository/base
 prev_page: /doc/exception
 next_page: /doc/repository/rule
 description_auto: 0
