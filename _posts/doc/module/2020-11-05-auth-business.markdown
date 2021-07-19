@@ -36,18 +36,18 @@ config/packages/phpzlc-auth-business.yaml
 parameters:
 # 根据需求添加不同类型的操作主体
 
-  # 登录session名后缀
-  login_tag_session_name: _login_tag
+# 登录session名后缀
+login_tag_session_name: _login_tag
 
-  # 操作主体- 系统
-  subject_system: system
+# 操作主体- 系统
+subject_system: system
 
-  # 操作主体- 管理员
-  subject_admin: admin
+# 操作主体- 管理员
+subject_admin: admin
 
-  # 全部操作主体
-  subject_array:
-    '%subject_system%': 系统
+# 全部操作主体
+subject_array:
+  '%subject_system%': 系统
 ```
 
 ## 提供功能

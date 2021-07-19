@@ -29,12 +29,12 @@ config/packages/phpzlc-platform-business.yaml
 parameters:
 # 默认参数(根据需求可自行添加平台,用户参数)
 
-  # 平台 - 后台
-  platform_admin: admin
+# 平台 - 后台
+platform_admin: admin
 
-  # 全部平台
-  platform_array:
-    '%platform_admin%': 后台
+# 全部平台
+platform_array:
+  '%platform_admin%': 后台      
 
 ```
 
