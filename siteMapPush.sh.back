@@ -10,17 +10,18 @@ function setUrls()
 
   for file in `find blog -name '*.html'`
   do
-    url=${file/$1}
+    url="$1/$file"
 
     if !([[ $url =~ 'page' ]])
     then
        urls+=($url)
     fi
+
   done
 
   for file in `find doc -name '*.html'`
   do
-    urls+=(${file/$1})
+    urls+=("$1/$file")
   done
 }
 
