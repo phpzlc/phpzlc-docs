@@ -8,9 +8,9 @@ function setUrls()
 
   urls+=("$1" "$1/module" "$1/about"  "$1/member" "$1/faqs")
 
-  for file in `find _site/blog -name '*.html'`
+  for file in `find blog -name '*.html'`
   do
-    url=${file/_site/$1}
+    url=${file/$1}
 
     if !([[ $url =~ 'page' ]])
     then
@@ -18,9 +18,9 @@ function setUrls()
     fi
   done
 
-  for file in `find _site/doc -name '*.html'`
+  for file in `find doc -name '*.html'`
   do
-    urls+=(${file/_site/$1})
+    urls+=(${file/$1})
   done
 }
 
