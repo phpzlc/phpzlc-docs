@@ -63,7 +63,7 @@ img_all: 1
 
 ## 基于以上，我邀请大家加入我的社区
 
-**加入`PHPZlc`,`Symfony`，`PHP`的频道。**
+**加入`PHPZlc`,`Symfony`,`PHP`的频道。**
 
 ![A7521899-D114-4f56-9CFD-DC5848FB648D.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ef2728e4e774064b9995de91a2e0bc1~tplv-k3u1fbpfcp-watermark.image)
 
