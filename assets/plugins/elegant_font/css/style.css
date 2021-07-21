@@ -1264,7 +1264,7 @@ text-shadow: none;
   float: right;
   width: 150px;
   height: 90px;
-  padding-top: 10px;
+  /*padding-top: 10px;*/
 }
 
 .author-right p {
