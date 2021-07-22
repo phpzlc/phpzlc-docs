@@ -63,7 +63,7 @@ img_all: 1
 
 ## 基于以上，我邀请大家加入我的社区
 
-**加入`PHPZlc`,`Symfony`，`PHP`的频道。**
+**加入`PHPZlc`,`Symfony`,`PHP`的频道。**
 
 ![A7521899-D114-4f56-9CFD-DC5848FB648D.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ef2728e4e774064b9995de91a2e0bc1~tplv-k3u1fbpfcp-watermark.image)
 
@@ -72,7 +72,7 @@ img_all: 1
 **人数是活跃程度的保证，希望大家加入并且推荐给小伙伴们。**
 
 
-## 点击链接加入(耐心注册)
+## 点击链接加入(耐心注册-注册的时候最好用翻墙+谷歌邮箱)
 
 [https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g)
 
