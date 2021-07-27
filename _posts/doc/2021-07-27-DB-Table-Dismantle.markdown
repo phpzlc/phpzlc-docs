@@ -66,7 +66,6 @@ $userRepository = $this->getDoctrine()->getRepository('App:User')->dismantleMark
 //查询
 $userRepository->findAll();
 
-
 //插入
 $user = new User();
 $user
@@ -74,7 +73,6 @@ $user
 
 $this->getDoctrine()->getManager()->persist($user);
 $this->getDoctrine()->getManager()->flush();
-
 ```
 
 1. 使用`dismantleMark()`可以重新指定分表。
