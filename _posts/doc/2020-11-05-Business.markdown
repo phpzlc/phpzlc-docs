@@ -1,7 +1,7 @@
 ---
 title: 业务层(Business)
 permalink: doc/business
-prev_page: /doc/db/query
+prev_page: /doc/db/table-dismantle
 next_page: /doc/tool/sql
 description_auto: 0
 description: PHPZlc业务层

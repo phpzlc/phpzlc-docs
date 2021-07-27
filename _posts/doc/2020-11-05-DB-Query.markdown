@@ -2,7 +2,7 @@
 title: 简单查询
 permalink: doc/db/query
 prev_page: /doc/db/edit
-next_page: /doc/business
+next_page: /doc/table-dismantle
 description_auto: 0
 description: 这是个全新的内容,PHPZlc在Symfony原有的ORM查询支持上,封装了一套传入简单规则即可查询的方法。你会迅速降低学习成本,并且喜欢上他。
 tags: symfony,phpzlc,查询,select
