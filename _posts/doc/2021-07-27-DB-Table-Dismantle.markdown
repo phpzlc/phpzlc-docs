@@ -5,7 +5,7 @@ prev_page: /doc/db/query
 next_page: /doc/business
 description_auto: 0
 description: 单表数据量较大的时候，我们需要进行拆表，以减少单表的负荷，这时候如何管理拆分出的表就十分重要，决定了程序的维护难度。
-tags: symfony,phpzlc,查询,select
+tags: symfony,phpzlc,单表拆分
 ---
 
 ## 架构定义
