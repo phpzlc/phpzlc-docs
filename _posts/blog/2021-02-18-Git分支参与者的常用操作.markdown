@@ -35,3 +35,16 @@ git fetch origin master
 
 git reset --hard origin/master
 ```
+
+## 清除git缓存提交
+
+
+```shell
+git rm -r --cached .
+
+git add .
+
+git commit -m 'update .gitignore'
+
+git push
+```
