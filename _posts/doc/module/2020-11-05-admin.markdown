@@ -268,7 +268,7 @@ $this->adminStrategy
     
    [Twig](https://www.kancloud.cn/yunye/twig-cn/159454)
     
-   [Font图表库](https://fontawesome.dashgame.com/)
+   [Font图标库](https://fontawesome.dashgame.com/)
     
 ## 仪表盘基本写法
    
