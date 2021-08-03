@@ -17,6 +17,9 @@ tags: symfony,phpzlc,查询,select
 ```php
 $userRepository = $this->getDoctrine()->getRepository('App:User');
 
+//检查数据是否存在
+$userRepository->isExist($rules = null, ResultSetMappingBuilder $resultSetMappingBuilder = null, $aliasChain = '');
+
 //通过id查询,后面两个参数暂不支持
 $userRepository->find($id, $lockMode = null, $lockVersion = null);
 
