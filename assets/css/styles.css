@@ -1724,6 +1724,11 @@ select {
   .container {
     padding-bottom: 10px !important;
   }
+
+  .footer_link {
+    display: block;
+    width: 100%;
+  }
 }
 
 .demo_link {

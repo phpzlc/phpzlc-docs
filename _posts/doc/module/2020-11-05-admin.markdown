@@ -223,7 +223,43 @@ $this->adminStrategy
           ]),
     ]);
     ```
+   
+## 设置后台环境
 
+我们提供全局变量参数，来改变后台环境显示.例如,内测;开发;样品;正式环境
+   
+1. 内测环境(配置地址.env.local)
+   
+   ```php
+   ADMIN_ENV=beta
+   ```   
+   
+   ![效果](/assets/posts/admin/beta.png)
+   
+2. 开发模式环境(配置地址.env.local)
+
+   ```php
+   ADMIN_ENV=dev
+   ```
+   
+   ![效果](/assets/posts/admin/dev.png)
+   
+3. 样品环境(配置地址.env.local)
+
+   ```php
+   ADMIN_ENV=demo
+   ```
+   
+   ![效果](/assets/posts/admin/demo.png)
+   
+4. 正式环境(配置地址.env.local)
+
+   ```php
+   ADMIN_ENV=prod
+   ```      
+   
+   ![效果](/assets/posts/admin/prod.png)
+   
 ## 页面技术栈
 
    [Vue.js](https://cn.vuejs.org/)
