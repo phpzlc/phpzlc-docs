@@ -1750,3 +1750,7 @@ select {
   text-decoration: none !important;
   color: #58bbee !important;
 }
+
+.copyright>span {
+  padding: 0 10px;
+}
