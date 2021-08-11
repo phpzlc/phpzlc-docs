@@ -270,9 +270,9 @@ php bin/console make:entity {entityClassName} --regenerate --overwrite
     /**
      * @var string
      *
-     * @ORM\Column(name="lng", type="decimal", precision=10, scale=6, options={"comment":"经度"})
+     * @ORM\Column(name="lon", type="decimal", precision=10, scale=6, options={"comment":"经度"})
      */
-    private $lng;
+    private $lon;
 
     /**
      * @var string
