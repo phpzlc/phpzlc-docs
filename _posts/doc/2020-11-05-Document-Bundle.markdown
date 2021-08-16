@@ -18,8 +18,6 @@ tags: symfony,phpzlc,php,document,api,文档
 
 **Symfony 4 +**
 
-**[配置本地食谱服务器](/doc/symfony-flex)**
-
 ## 安装
 
 ```json
