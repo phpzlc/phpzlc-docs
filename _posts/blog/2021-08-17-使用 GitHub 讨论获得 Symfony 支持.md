@@ -2,7 +2,7 @@
 title: 使用 GitHub 讨论获得 Symfony 支持 (中文翻译)
 permalink: /blog/16.html
 description_auto: 0
-description: 开源 Symfony 支持由社区通过 StackOverflow 和 Slack 提供。多年来，两者都为我们提供了良好的服务，但它们缺少一些对我们来说越来越重要的功能。
+description: Symfony 支持由社区通过 StackOverflow 和 Slack 提供。多年来，两者都为我们提供了良好的服务，但它们缺少一些对我们来说越来越重要的功能。
 tags: phpzlc,symfony,github,discussions
 author_no: 1
 img_all: 1
