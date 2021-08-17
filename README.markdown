@@ -72,7 +72,7 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 *记录每一分贡献,珍惜每一次相遇。*
 
-[https://phpzlc.github.io/member/](https://phpzlc.github.io/member/)
+[https://phpzlc.com/member/](https://phpzlc.com/member/)
     
 ## 社区
  
