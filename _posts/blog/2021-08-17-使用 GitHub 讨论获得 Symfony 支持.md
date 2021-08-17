@@ -29,7 +29,8 @@ Slack 非常适合同步支持，您需要快速、实时地回复您的问题�
 * 尽管讨论不会像 Slack 聊天那样同步，但 Symfony 社区的规模可以确保对大多数讨论的快速回复；
 * 我们现在可以将这些问题转化为讨论，从而改善新手体验，而不是因为它们是支持问题而关闭一些问题；
 * 我们将提供更多审核工具，以确保 GitHub 讨论区对每个人来说都是一个安全的好地方。
-* 我们正在寻**找版主来帮助我们监控讨论并为其做出贡献**。访问[https://github.com/symfony/symfony/discussions](https://github.com/symfony/symfony/discussions)并找到需要答案的讨论或寻求帮助的人。
+
+我们正在寻**找版主来帮助我们监控讨论并为其做出贡献**。访问[https://github.com/symfony/symfony/discussions](https://github.com/symfony/symfony/discussions)并找到需要答案的讨论或寻求帮助的人。
 
 我们很高兴尝试 GitHub 讨论。然而，目前这只是一个实验。我们将根据需要进行调整，如果未达到预期，我们甚至可以在未来删除 GitHub 讨论。
 
