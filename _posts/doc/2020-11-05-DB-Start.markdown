@@ -36,18 +36,18 @@ DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5
    
 2. 创建数据库结构
 
-   ```shell
-   php bin/console doctrine:schema:create
-   ```
+    ```shell
+    php bin/console doctrine:schema:create
+    ```
    
 3. 更新数据库结构
 
-   ```shell
-   php bin/console doctrine:schema:update --force
-   ```
+    ```shell
+    php bin/console doctrine:schema:update --force
+    ```
  
  4. 删除数据库
  
-   ```shell
-   php bin/console doctrine:database:drop --force
-   ```
+    ```shell
+    php bin/console doctrine:database:drop --force
+    ```
