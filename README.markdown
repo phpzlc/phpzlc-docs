@@ -76,13 +76,19 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
     
 ## 社区
  
-QQ群 ([645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG))
+> 最广泛的交流-**QQ交流群** 
+
+[645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG)
 
 ![](/assets/images/qq-qun.png)
 
-Slack社区 ([加入我们](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g))
+> 专业的社区-**Slack**
 
-RobeeAsk问答 [http://phpzlc.robeeask.com](http://phpzlc.robeeask.com)
+([点击进入社区](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g))
+
+> 技术问答论坛-**RobeeAsk**
+
+[http://phpzlc.robeeask.com](http://phpzlc.robeeask.com)
 
 ## 联系我们
 
