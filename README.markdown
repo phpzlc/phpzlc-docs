@@ -122,10 +122,9 @@ Slack社区 ([加入我们](https://join.slack.com/t/phpzlc/shared_invite/zt-r7m
 
 > 可爱的赞助商们 （感谢您对开源工作的支持）
 
-｜ 赞助商 | 网站 | 说明 |
-｜ ---— ｜ ---- ｜ ---- ｜
-｜ RobeeAsk | [http://phpzlc.robeeask.com](http://phpzlc.robeeask.com) | 在线问答社区 ｜
-
+| 赞助商 | 网站 | 说明 |
+| ---- | ---- | ---- |
+| RobeeAsk | [http://phpzlc.robeeask.com](http://phpzlc.robeeask.com) | 在线问答社区 |
 
 
 
