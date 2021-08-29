@@ -76,17 +76,17 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
     
 ## 社区
  
-> 最广泛的交流-**QQ交流群** 
+> 最广泛的交流 **QQ交流群** 
 
 [645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG)
 
 ![](/assets/images/qq-qun.png)
 
-> 专业的社区-**Slack**
+> 专业的社区 **Slack**
 
-([点击进入社区](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g))
+[点击加入社区,与核心开发人员零距离沟通](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g)
 
-> 技术问答论坛-**RobeeAsk**
+> 技术问答论坛 **RobeeAsk**
 
 [http://phpzlc.robeeask.com](http://phpzlc.robeeask.com)
 
@@ -99,18 +99,18 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 发布框架、Symfony动态。IT资讯，技术博客。
 
 提供技术咨询服务。
- 
-> 头条号(CJayHe)
-
-![](/assets/images/toutiao-jay.png)
-
-> 公众号(知行实践)
-
-![](/assets/images/zxsjgzh-2.png)
 
 > 知乎号(PHP知了虫)
 
 ![](/assets/images/zhihu-1.png)
+
+> 公众号(知行实践)
+
+![](/assets/images/zxsjgzh-2.png)
+ 
+> 头条号(CJayHe)
+
+![](/assets/images/toutiao-jay.png)
  
 ## 赞赏支持
 
