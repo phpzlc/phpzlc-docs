@@ -52,7 +52,7 @@ composer 2 (推荐)
 
 官网: [https://phpzlc.com](https://phpzlc.com)
 
-GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
+GitHub首页: [https://github.com/phpzlc](https://github.com/phpzlc/)
 
 演示项目: [https://github.com/phpzlc/demo-blog](https://github.com/phpzlc/demo-blog)
 
