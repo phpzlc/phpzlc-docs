@@ -76,7 +76,7 @@ GitHub首页: [https://github.com/phpzlc](https://github.com/phpzlc/)
     
 ## 社区
  
-> 最广泛的交流 **QQ交流群** 
+> 最广泛的交流 **QQ群** 
 
 [645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG)
 
@@ -84,9 +84,9 @@ GitHub首页: [https://github.com/phpzlc](https://github.com/phpzlc/)
 
 > 专业的社区 **Slack**
 
-[点击加入社区,与核心开发人员零距离沟通](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g)
+[点击加入社区](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g),与核心开发人员零距离沟通
 
-> 技术问答论坛 **RobeeAsk**
+> 论坛 **RobeeAsk**
 
 [http://phpzlc.robeeask.com](http://phpzlc.robeeask.com)
 
@@ -114,11 +114,11 @@ GitHub首页: [https://github.com/phpzlc](https://github.com/phpzlc/)
  
 ## 赞赏支持
 
-**感觉有帮助？对您有价值？开源不易, 一键投喂 牛奶/咖啡/冰阔乐！」**
+**感觉有帮助？对您有价值！开源不易, 扫码递送 牛奶/咖啡/冰阔乐！」**
 
 | 赞助商 | 网站 | 说明 |
 | ---- | ---- | ---- |
-| RobeeAsk | [https://robeeask.com](https://robeeask.com) | 在线问答社区 |
+| RobeeAsk | [https://robeeask.com](https://robeeask.com) | 可以赚钱的技术论坛 |
 
 *请尽可能在付款备注中说明，以方便确定资金来源。*
  
