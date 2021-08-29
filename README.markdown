@@ -120,7 +120,7 @@ Slack社区 ([加入我们](https://join.slack.com/t/phpzlc/shared_invite/zt-r7m
 
 ![微信支付付款码](/assets/images/pay/wechat-1.png)
 
-> 可爱的赞助商们 （感谢您对开源工作的支持）
+> 可爱的赞助商们 （您的支持会让我们走的更远，更好）
 
 | 赞助商 | 网站 | 说明 |
 | ---- | ---- | ---- |
