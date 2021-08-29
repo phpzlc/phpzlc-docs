@@ -52,7 +52,7 @@ composer 2 (推荐)
 
 官网: [https://phpzlc.com](https://phpzlc.com)
 
-GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
+GitHub首页: [https://github.com/phpzlc](https://github.com/phpzlc/)
 
 演示项目: [https://github.com/phpzlc/demo-blog](https://github.com/phpzlc/demo-blog)
 
@@ -72,15 +72,23 @@ GitHub首页: [https://github.com/phpzlc/](https://github.com/phpzlc/)
 
 *记录每一分贡献,珍惜每一次相遇。*
 
-[https://phpzlc.com/member/](https://phpzlc.com/member/)
+[https://phpzlc.com/member](https://phpzlc.com/member/)
     
 ## 社区
  
-QQ群 ([645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG))
+> 最广泛的交流 **QQ群** 
+
+[645891927](https://jq.qq.com/?_wv=1027&k=ZpwdagVG)
 
 ![](/assets/images/qq-qun.png)
 
-Slack社区 ([加入我们](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g))
+> 专业的社区 **Slack**
+
+与开发人员零距离深入交流，[点击加入社区](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g)。
+
+> 论坛 **RobeeAsk**
+
+[http://phpzlc.robeeask.com](http://phpzlc.robeeask.com)
 
 ## 联系我们
 
@@ -91,22 +99,26 @@ Slack社区 ([加入我们](https://join.slack.com/t/phpzlc/shared_invite/zt-r7m
 发布框架、Symfony动态。IT资讯，技术博客。
 
 提供技术咨询服务。
- 
-> 头条号(CJayHe)
-
-![](/assets/images/toutiao-jay.png)
-
-> 公众号(知行实践)
-
-![](/assets/images/zxsjgzh-2.png)
 
 > 知乎号(PHP知了虫)
 
 ![](/assets/images/zhihu-1.png)
+
+> 公众号(知行实践)
+
+![](/assets/images/zxsjgzh-2.png)
+ 
+> 头条号(CJayHe)
+
+![](/assets/images/toutiao-jay.png)
  
 ## 赞赏支持
 
-**感觉有帮助？对您有价值？开源不易, 一键投喂 牛奶/咖啡/冰阔乐！」**
+**感觉有帮助？对您有价值！开源不易, 扫码速递 牛奶/咖啡/冰阔乐！」**
+
+| 赞助商 | 网站 | 说明 |
+| ---- | ---- | ---- |
+| RobeeAsk | [https://robeeask.com](https://robeeask.com) | 可以赚钱的技术论坛 |
 
 *请尽可能在付款备注中说明，以方便确定资金来源。*
  
@@ -117,7 +129,5 @@ Slack社区 ([加入我们](https://join.slack.com/t/phpzlc/shared_invite/zt-r7m
 > 微信赞赏码
 
 ![微信支付付款码](/assets/images/pay/wechat-1.png)
-
-
 
 
