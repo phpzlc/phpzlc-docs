@@ -84,7 +84,7 @@ GitHub首页: [https://github.com/phpzlc](https://github.com/phpzlc/)
 
 > 专业的社区 **Slack**
 
-[点击加入社区](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g),与核心开发人员零距离沟通
+与开发人员零距离深入交流，[点击加入社区](https://join.slack.com/t/phpzlc/shared_invite/zt-r7mxo37k-jamLvYensNjo89eJdrg_7g)。
 
 > 论坛 **RobeeAsk**
 
