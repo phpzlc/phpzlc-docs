@@ -124,7 +124,7 @@ Slack社区 ([加入我们](https://join.slack.com/t/phpzlc/shared_invite/zt-r7m
 
 | 赞助商 | 网站 | 说明 |
 | ---- | ---- | ---- |
-| RobeeAsk | [https://robeeask.com](http://phpzlc.robeeask.com) | 在线问答社区 |
+| RobeeAsk | [https://robeeask.com](https://robeeask.com) | 在线问答社区 |
 
 
 
