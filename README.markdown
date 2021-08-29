@@ -110,8 +110,6 @@ Slack社区 ([加入我们](https://join.slack.com/t/phpzlc/shared_invite/zt-r7m
 
 **感觉有帮助？对您有价值？开源不易, 一键投喂 牛奶/咖啡/冰阔乐！」**
 
-> 可爱的赞助商们 （您的支持会让我们走的更远，更好）
-
 | 赞助商 | 网站 | 说明 |
 | ---- | ---- | ---- |
 | RobeeAsk | [https://robeeask.com](https://robeeask.com) | 在线问答社区 |
