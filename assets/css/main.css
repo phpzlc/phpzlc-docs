@@ -192,4 +192,18 @@
     height: 63px;
   }
 
+  /* 视频 */
+  .teaching_video video {
+    width: 100%;
+  }
+
+  /* github */
+  .github-btn {
+    justify-content: space-around;
+  }
+
+  .github-btn>a {
+    margin: 0;
+  }
+
 }
