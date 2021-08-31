@@ -1,6 +1,9 @@
 name: gh-page-sync
 
-on: [ push, delete, create ]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build_and_deploy:
