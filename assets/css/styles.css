@@ -1336,7 +1336,7 @@ select {
 }
 
 .cards-section {
-  padding: 60px 0;
+  padding: 40px 0;
   background: #f9f9fb;
 }
 
@@ -1753,4 +1753,35 @@ select {
 
 .copyright>span {
   padding: 0 10px;
+}
+
+/* 教学视频 */
+.teaching_video {
+  display: block;
+  width: 100%;
+  padding-top: 40px;
+  background-color: #f9f9fb;
+}
+
+.teaching_video video {
+  display: block;
+  width: 500px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* github 按钮 */
+.github-btn  {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.github-btn>a {
+  display: block;
+  margin: 0 10px;
+}
+
+.github-btn>a>img {
+  display: block;
 }
