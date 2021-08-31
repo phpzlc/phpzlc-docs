@@ -193,17 +193,21 @@
   }
 
   /* 视频 */
+  .teaching_video {
+    padding-top: 30px;
+  }
+
   .teaching_video video {
     width: 100%;
   }
 
   /* github */
   .github-btn {
-    justify-content: space-around;
+    flex-direction: column;
   }
 
   .github-btn>a {
-    margin: 0;
+    margin: 6px auto;
   }
 
 }
