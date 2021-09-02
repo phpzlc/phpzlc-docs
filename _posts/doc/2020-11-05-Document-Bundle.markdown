@@ -18,6 +18,30 @@ tags: symfony,phpzlc,php,document,api,文档
 
 **Symfony 4 +**
 
+## 启用社区食谱
+
+打开项目中`composer.json`文件,将
+
+```js
+"extra": {
+   "symfony": {
+       "allow-contrib": false,
+       "require": "4.4.*"
+   }
+}
+```
+
+替换为
+
+```js
+"extra": {
+  "symfony": {
+      "allow-contrib": true,
+       "require": "4.4.*",
+  }
+}
+```
+
 ## 安装
 
 ```json
