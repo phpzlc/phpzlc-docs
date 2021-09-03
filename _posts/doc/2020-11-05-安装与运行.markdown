@@ -113,7 +113,7 @@ composer create-project symfony/website-skeleton:"^4.4" my_project_name
 
 ```shell
 git init
-git remote add origin {远程仓库地址}
+git remote add origin {远程仓库克隆地址}
 git add .
 git commit -m "project init"
 git push --set-upstream origin master
