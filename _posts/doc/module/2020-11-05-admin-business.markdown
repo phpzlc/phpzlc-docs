@@ -170,8 +170,7 @@ private function getUserAuthService($subject_type)
         switch ($subject_type){
             case $this->getParameter('subject_admin'):
                 $this->subjectAuthCaches[$subject_type] = new AdminAuth($this->container);
-                break;
-                    
+                break;     
             default:
                 throw new \Exception('授权登录权限不存在');
         }
