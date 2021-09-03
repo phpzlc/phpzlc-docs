@@ -157,6 +157,8 @@ public static function remove(ContainerInterface $container)
    文件位置: `src/Business/AuthBusiness/UserAuthBusiness.php`
 
 ```php
+use App\Business\AdminBusiness\AdminAuth;
+
 /**
 * 获取指定平台端方法
 *
