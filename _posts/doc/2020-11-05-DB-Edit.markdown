@@ -49,6 +49,9 @@ tags: symfony,phpzlc,orm,表,插入,更新,删除
 1. Controller 写法
 
     ```php
+    use Symfony\Component\Validator\Validator\ValidatorInterface;
+    use Symfony\Component\HttpFoundation\Request;
+    
     public function createUser(ValidatorInterface $validator, Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
@@ -94,6 +97,9 @@ tags: symfony,phpzlc,orm,表,插入,更新,删除
 1. Controller 写法
 
     ```php
+    use Symfony\Component\Validator\Validator\ValidatorInterface;
+    use Symfony\Component\HttpFoundation\Request;
+    
     public function updateUser(ValidatorInterface $validator, Request $request)
     {
         $manager = $this->getDoctrine()->getManager();

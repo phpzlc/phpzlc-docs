@@ -95,13 +95,11 @@ composer create-project symfony/website-skeleton:"^4.4" my_project_name
 1. 找到项目根目录的`.gitignore`文件,将`vendor`所在行注释或删除。
 
 2. 解决git子仓库问题
-
-    **在 ZSH 中**
     
     ```shell
      rm -rf vendor/**/.git
     ```
-    **或**
+    **在 ZSH 中**
     
     ```shell
     find vendor/ -type d -name ".git" -exec rm -rf {} \;
@@ -115,7 +113,7 @@ composer create-project symfony/website-skeleton:"^4.4" my_project_name
 
 ```shell
 git init
-git remote add origin {远程仓库地址}
+git remote add origin {远程仓库克隆地址}
 git add .
 git commit -m "project init"
 git push --set-upstream origin master
