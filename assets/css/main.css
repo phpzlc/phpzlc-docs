@@ -191,4 +191,7 @@
   .cards-section .item .intro {
     height: 63px;
   }
+  .teaching_video {
+      display:none;
+  }
 }
