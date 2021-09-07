@@ -1785,11 +1785,6 @@ select {
   background-color: #f9f9fb;
 }
 
-.teaching_video iframe {
-  display: block;
-  margin: 0 auto;
-}
-
 .github-btn>a {
   display: block;
   margin: 0 10px;
