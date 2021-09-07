@@ -1777,15 +1777,6 @@ select {
   justify-content: center;
 }
 
-.github-btn>a {
-  display: block;
-  margin: 0 10px;
-}
-
-.github-btn>a>img {
-  display: block;
-}
-
 /* 教学视频 */
 .teaching_video {
   display: block;
@@ -1797,4 +1788,13 @@ select {
 .teaching_video iframe {
   display: block;
   margin: 0 auto;
+}
+
+.github-btn>a {
+  display: block;
+  margin: 0 10px;
+}
+
+.github-btn>a>img {
+  display: block;
 }
