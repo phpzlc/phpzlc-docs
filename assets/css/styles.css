@@ -1785,3 +1785,16 @@ select {
 .github-btn>a>img {
   display: block;
 }
+
+/* 教学视频 */
+.teaching_video {
+  display: block;
+  width: 100%;
+  padding-top: 40px;
+  background-color: #f9f9fb;
+}
+
+.teaching_video iframe {
+  display: block;
+  margin: 0 auto;
+}

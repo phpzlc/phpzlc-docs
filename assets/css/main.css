@@ -191,23 +191,4 @@
   .cards-section .item .intro {
     height: 63px;
   }
-
-  /* 视频 */
-  .teaching_video {
-    padding-top: 30px;
-  }
-
-  .teaching_video video {
-    width: 100%;
-  }
-
-  /* github */
-  .github-btn {
-    flex-direction: column;
-  }
-
-  .github-btn>a {
-    margin: 6px auto;
-  }
-
 }
