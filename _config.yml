@@ -9,6 +9,7 @@ defaults:
     scope:
       path: "" # 一个空的字符串代表项目中所有的文件
     values:
+      title: PHPZlc & Symfony4+
       description_auto: 1
       description: "为开发者提供全套Symfony实践教程和解决方案"
       tags: phpzlc,symfony,symfony4,web开发,php,实战教程,解决方案,知了虫,php开源,php框架
