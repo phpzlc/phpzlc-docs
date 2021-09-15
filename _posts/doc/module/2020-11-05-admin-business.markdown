@@ -237,7 +237,7 @@ aitime 123456
     
 ## 权限功能
 
-   本框架提供一套标准化的权限功能[RBAC](/doc/module/RBAC-business)
+   本框架提供一套标准化的权限功能[RBAC](/doc/module/RBAC-business)。
 
 1. 对路由进行权限校验   
    
