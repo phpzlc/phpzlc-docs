@@ -4,46 +4,26 @@ permalink: doc/tool/action-load
 prev_page: /doc/tool/log
 next_page: /doc/exception
 description_auto: 0
-description: 控制器Action之前加载处理
+description: 控制器Action之前加载处理。用于在控制器前过滤参数，书写前置业务，设置全局变量。
 tags: symfony,phpzlc,tool,action-load
 ---
 
 ## 架构定义
 
-便捷记录各类日志。
+控制器Action之前加载处理。用于在控制器前过滤参数，书写前置业务，设置全局变量。
 
-## 文档
+## 全局静态变量
 
 ```php
-use PHPZlc\PHPZlc\Bundle\Service\Log\Log;
+use PHPZlc\PHPZlc\Bundle\Safety\ActionLoad;
+
+//全局ContainerInterface变量
+ActionLoad::$globalContainer;
+
+//全局ObjectManager变量
+ActionLoad::$globalDoctrine;
 ```
 
-1. 写日志
+## 拓展链接
 
-    ```php
-    Log::writeLog($content, $logFileName = '');
-    ```
-
-   **方法解析**
-
-   `$content` 日志内容
-
-   `$logFileName` 日志文件名称; 如果不传会根据`$_ENV['APP_ENV']`写入到`prod.log`或`dev.log`中。
-
-   _日志文件路径地址为`var/log/`_
-
-2. 读日志
-
-    ```php
-     Log::readLog(int $rows = 20, string $logFileName = '');
-    ```
-
-   **方法解析**
-
-   `$rows` 读取文件最后的行数
-
-   `$logFileName` 志文件名称; 如果不传会根据`$_ENV['APP_ENV']`读取`prod.log`或`dev.log`中。
-
-   _日志文件路径地址为`var/log/`_
-
-   **此方法没有返回值,会直接将内容输出给页面,可以写一个接口通过此方法远程的查看日志内容**
+1. [如何设置前后过滤器](https://symfony.com/doc/current/event_dispatcher/before_after_filters.html#creating-an-event-subscriber)
