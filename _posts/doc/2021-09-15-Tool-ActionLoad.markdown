@@ -1,11 +1,11 @@
 ---
-title: 工具类-Log
-permalink: doc/tool/log
-prev_page: /doc/tool/sql
-next_page: /doc/tool/action-load
+title: 工具类-ActionLoad
+permalink: doc/tool/action-load
+prev_page: /doc/tool/log
+next_page: /doc/exception
 description_auto: 0
-description: 便捷记录各类日志
-tags: symfony,phpzlc,log,tool
+description: 控制器Action之前加载处理
+tags: symfony,phpzlc,tool,action-load
 ---
 
 ## 架构定义
@@ -19,31 +19,31 @@ use PHPZlc\PHPZlc\Bundle\Service\Log\Log;
 ```
 
 1. 写日志
-    
+
     ```php
     Log::writeLog($content, $logFileName = '');
     ```
-   
+
    **方法解析**
 
    `$content` 日志内容
-   
+
    `$logFileName` 日志文件名称; 如果不传会根据`$_ENV['APP_ENV']`写入到`prod.log`或`dev.log`中。
-   
-    _日志文件路径地址为`var/log/`_
-    
+
+   _日志文件路径地址为`var/log/`_
+
 2. 读日志
 
     ```php
      Log::readLog(int $rows = 20, string $logFileName = '');
     ```
-   
+
    **方法解析**
-   
+
    `$rows` 读取文件最后的行数
-   
+
    `$logFileName` 志文件名称; 如果不传会根据`$_ENV['APP_ENV']`读取`prod.log`或`dev.log`中。
-   
+
    _日志文件路径地址为`var/log/`_
-   
+
    **此方法没有返回值,会直接将内容输出给页面,可以写一个接口通过此方法远程的查看日志内容**
