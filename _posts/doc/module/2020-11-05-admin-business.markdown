@@ -264,7 +264,7 @@ aitime 123456
    ```php
    $rbac = new RBACBusiness(ContainerInterface $container, $platform = null);
    $rbac->setIsSuper($isSuper);
-   $rbac->can($permissions, $model = 'and', UserAuth $userAuth = null)
+   $rbac->can($permissions, $model = 'and', UserAuth $userAuth = null);
    ```   
 
 
