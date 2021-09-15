@@ -66,7 +66,7 @@ platform_admin: admin
 
 # 全部平台
 platform_array:
-  '%platform_admin%': 后台
+    '%platform_admin%': 后台
 ```
 
    **操作主体注册**
@@ -79,7 +79,7 @@ subject_admin: admin
 
 # 全部操作主体
 subject_array:
-  '%subject_admin%': 管理员
+    '%subject_admin%': 管理员
 ```
 
    **登录标记代码注入**
