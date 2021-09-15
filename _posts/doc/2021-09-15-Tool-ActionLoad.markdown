@@ -4,13 +4,13 @@ permalink: doc/tool/action-load
 prev_page: /doc/tool/log
 next_page: /doc/exception
 description_auto: 0
-description: 控制器Action之前加载处理。用于在控制器前过滤参数，书写前置业务，设置全局变量。
+description: 在action执行之前将$this::container对象静态化存储，方便在系统的各个位置进行调用。
 tags: symfony,phpzlc,tool,action-load
 ---
 
 ## 架构定义
 
-控制器Action之前加载处理。用于在控制器前过滤参数，书写前置业务，设置全局变量。
+在action执行之前将`$this::container`对象静态化存储，方便在系统的各个位置进行调用。
 
 ## 全局静态变量
 
