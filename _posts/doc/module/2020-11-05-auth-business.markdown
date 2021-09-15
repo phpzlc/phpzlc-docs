@@ -33,9 +33,6 @@ php bin/console doctrine:schema:update --force
 config/packages/phpzlc-auth-business.yaml
 
 ```yaml
-parameters:
-# 根据需求添加不同类型的操作主体
-
 # 登录session名后缀
 login_tag_session_name: _login_tag
 
@@ -47,7 +44,7 @@ subject_admin: admin
 
 # 全部操作主体
 subject_array:
-  '%subject_system%': 系统
+    '%subject_system%': 系统
 ```
 
 ## 当前登录用户授权信息类(CurAuthSubject)
