@@ -58,6 +58,6 @@ $userRepository->findAssoc(['name' . Rule::RA_LIKE => '%'. $request->get('name')
 
 _关于规则和更多的使用方法,见[高级查询](/doc/repository)。_
 
-## 拓展链接
+## 了解更多
 
 [Symfony4如何通过直接书写SQL控制数据库](/blog/4.html)

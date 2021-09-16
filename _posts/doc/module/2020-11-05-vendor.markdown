@@ -22,7 +22,7 @@ tags: symfony,phpzlc,vender,功能
 
 _需要了解更多写法,可以前往[业务组件(Business Package)](doc/module/business)了解。_
 
-## 拓展链接
+## 了解更多
 
 [食谱书写文档](https://github.com/symfony/recipes/blob/master/README.rst)
 

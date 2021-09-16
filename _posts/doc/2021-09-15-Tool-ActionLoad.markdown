@@ -26,6 +26,6 @@ ActionLoad::$globalContainer;
 ActionLoad::$globalDoctrine;
 ```
 
-## 拓展链接
+## 了解更多
 
 1. [如何设置前后过滤器](https://symfony.com/doc/current/event_dispatcher/before_after_filters.html#creating-an-event-subscriber)

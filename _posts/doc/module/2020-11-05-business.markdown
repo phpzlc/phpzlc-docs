@@ -109,7 +109,7 @@ _`copy`的目录需要根据组件的实际情况决定。_
 
 参照组件食谱代码: [contrib](https://github.com/phpzlc/contrib/tree/master/phpzlc/admin-business/1.0)。
 
-## 拓展链接
+## 了解更多
 
 [食谱书写文档](https://github.com/symfony/recipes/blob/master/README.rst)
 

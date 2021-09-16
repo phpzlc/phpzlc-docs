@@ -79,6 +79,6 @@ api_user_info:
   prefix:   /user-info
 ```
 
-## 拓展链接
+## 了解更多
 
 [运用Symfony路由组件定制化开发](/blog/3.html)
