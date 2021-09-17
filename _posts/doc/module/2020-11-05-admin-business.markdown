@@ -48,10 +48,6 @@ upload:
 captcha:
     resource: "routing/captcha/captcha.yaml"
     prefix:   /captcha
-
-api:
-    resource: "routing/api/api.yaml"
-    prefix:   /api
 ```
 
 > 代码配置
