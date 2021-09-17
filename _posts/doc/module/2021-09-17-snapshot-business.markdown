@@ -29,9 +29,10 @@ php bin/console doctrine:schema:update --force
 ```
 
 ## 使用
-use App\Business\SnapshotBusiness\SnapshotBusiness;
 
 ```php
+use App\Business\SnapshotBusiness\SnapshotBusiness;
+
 $snapshotBusiness = new SnapshotBusiness($this->container);
 
 //写入
