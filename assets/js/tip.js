@@ -100,7 +100,7 @@ $(function(){
             dataType: "json",
             success: function(data) {
                 if(data.code == 0){
-                    show_id = data.show_id;
+                    show_id = data.data.show_id;
                 }
             }
         });
