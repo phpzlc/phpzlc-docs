@@ -39,7 +39,7 @@ $(function(){
             // console.log('Cookie不存在');
             window.localStorage.removeItem('time');
             window.localStorage.setItem('time_ready',true);
-            setCookie('name','Noir1','30');
+            setCookie('name','Noir1','216000');
             if(window.localStorage.getItem('time') == null){
                 var num = 0;
             }else {
@@ -47,7 +47,7 @@ $(function(){
             }
             var timer = setInterval(() => {
                 num++;
-                if(num >= 20){
+                if(num >= 30){
                     $('.mask_tip').css({'display':'block'});
                     window.localStorage.removeItem('time_ready');
                     clearInterval(timer);
@@ -69,7 +69,7 @@ $(function(){
         }
         var timer = setInterval(() => {
             num++;
-            if(num >= 20){
+            if(num >= 30){
                 $('.mask_tip').css({'display':'block'});
                 window.localStorage.removeItem('time_ready');
                 clearInterval(timer);
