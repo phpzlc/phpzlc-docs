@@ -1785,6 +1785,12 @@ select {
   background-color: #f9f9fb;
 }
 
+.teaching_video_box {
+  width: 830px;
+  height: 500px;
+  margin: 0 auto;
+}
+
 .github-btn>a {
   display: block;
   margin: 0 10px;
