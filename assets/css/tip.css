@@ -52,7 +52,7 @@
 .tip_2 {
     display: block;
     margin-bottom: 20px!important;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5;
     color: gray;
     font-family: Georgia,Times New Roman,Times,serif;
@@ -70,7 +70,7 @@
     height: 92px;
     margin-bottom: 20px!important;
     padding: 6px 10px;
-    font-size: 16px;
+    font-size: 13px;
     line-height: 1.5;
     resize: none;
     border-radius: 4px;
@@ -92,7 +92,7 @@
     width: 300px;
     height: 36px;
     padding: 6px 10px;
-    font-size: 16px;
+    font-size: 13px;
     line-height: 1;
     resize: none;
     border-radius: 4px;
