@@ -90,6 +90,8 @@ $(function(){
         hide();
     })
 
+    show();
+
     function show(){
         $(".mask_tip").css({"display":"block"});
         $.ajax({
