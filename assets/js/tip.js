@@ -1,4 +1,6 @@
 $(function(){
+    var show_id = '';
+
       // 设置Cookie
     function setCookie(cname,cvalue,exdays){
         var d = new Date();
@@ -48,7 +50,7 @@ $(function(){
             var timer = setInterval(() => {
                 num++;
                 if(num >= 20){
-                    $('.mask_tip').css({'display':'block'});
+                    show();
                     window.localStorage.removeItem('time_ready');
                     clearInterval(timer);
                 }else {
@@ -70,7 +72,7 @@ $(function(){
         var timer = setInterval(() => {
             num++;
             if(num >= 20){
-                $('.mask_tip').css({'display':'block'});
+                show();
                 window.localStorage.removeItem('time_ready');
                 clearInterval(timer);
             }else {
@@ -90,6 +92,18 @@ $(function(){
 
     function show(){
         $(".mask_tip").css({"display":"block"});
+        $.ajax({
+            url: "http://api.phpzlc.com/api/feedback/show",
+            data: {
+            },
+            type: "POST",
+            dataType: "json",
+            success: function(data) {
+                if(data.code == 0){
+                    show_id = data.show_id;
+                }
+            }
+        });
     }
 
     function hide(){
@@ -104,7 +118,8 @@ $(function(){
             url: "http://api.phpzlc.com/api/feedback/submit",
             data: {
                 content: advice,
-                contact_way: contact
+                contact_way: contact,
+                show_id: show_id
             },
             type: "POST",
             dataType: "json",
