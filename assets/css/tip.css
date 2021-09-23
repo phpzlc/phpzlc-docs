@@ -229,7 +229,7 @@
     .tip_1 {
         margin: 0 0 20px 0;
         padding: 0;
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .tip_2 {
@@ -273,10 +273,12 @@
     .zanzhu {
         padding: 0;
         margin: 0 0 20px 0;
+        flex-direction: column;
     }
 
     .zanzhu>a {
-        width: 40%;
+        width: 100%;
+        margin-bottom: 10px;
         text-align: center;
     }
 
