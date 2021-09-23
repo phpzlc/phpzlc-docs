@@ -93,7 +93,7 @@ $(function(){
     function show(){
         $(".mask_tip").css({"display":"block"});
         $.ajax({
-            url: "http://api.phpzlc.com/api/feedback/show",
+            url: "https://api.phpzlc.com/api/feedback/show",
             data: {
             },
             type: "POST",
@@ -115,7 +115,7 @@ $(function(){
         var contact = $("#contact").val();
         // console.log(advice,contact);
         $.ajax({
-            url: "http://api.phpzlc.com/api/feedback/submit",
+            url: "https://api.phpzlc.com/api/feedback/submit",
             data: {
                 content: advice,
                 contact_way: contact,
