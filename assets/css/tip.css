@@ -306,7 +306,7 @@
         position: relative;
         bottom: 0;
         width: 100%;
-        margin: 0 0 20px 0;
+        margin: 0!important;
         padding: 0;
         flex-direction: column;
     }
@@ -321,7 +321,7 @@
     }
 
     .cancel_btn_2 {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .img>.zhihu {
