@@ -21,7 +21,7 @@
 .tip {
     position: relative;
     width: 600px;
-    height: 835px;
+    height: 815px;
     margin: 50px auto;
     padding: 20px;
     background-color: white;
@@ -70,8 +70,8 @@
     height: 92px;
     margin-bottom: 20px!important;
     padding: 6px 10px;
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 12px;
+    line-height: 20px;
     resize: none;
     border-radius: 4px;
 }
@@ -92,8 +92,8 @@
     width: 300px;
     height: 36px;
     padding: 6px 10px;
-    font-size: 13px;
-    line-height: 1;
+    font-size: 12px;
+    line-height: 20px;
     resize: none;
     border-radius: 4px;
 }
@@ -290,7 +290,7 @@
 
     .img>a {
         display: block;
-        width: 40%;
+        width: 130px;
         margin: 0 0 20px 0;
     }
 
@@ -324,5 +324,9 @@
 
     .img>.zhihu {
         display: none;
+    }
+
+    .tip_2>span {
+        display: inline;
     }
 }
