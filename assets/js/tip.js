@@ -41,7 +41,7 @@ $(function(){
             // console.log('Cookie不存在');
             window.localStorage.removeItem('time');
             window.localStorage.setItem('time_ready',true);
-            setCookie('name','Noir1','30');
+            setCookie('name','Noir1','216000');
             if(window.localStorage.getItem('time') == null){
                 var num = 0;
             }else {
