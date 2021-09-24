@@ -320,10 +320,10 @@ php bin/console make:entity {entityClassName} --regenerate --overwrite
    _该字段在数据库中不对应具体的实际字段,所以称为**表外字段**。在实际使用中,除了不能进行写相关的操作,其他部分和表内其他字段基本无差别。_
    
    ```php
-    /**
-     * @OuterColumn(name="site_domains", type="simple_array", sql="(SELECT GROUP_CONCAT(sd.site_domain) FROM site_domain sd WHERE sd.site_id = sql_pre.id),  options={"comment":"站点域名"}")
-     */
-    public $siteDomains;
+   /**
+    * @OuterColumn(name="site_domains", type="simple_array", sql="(SELECT GROUP_CONCAT(sd.site_domain) FROM site_domain sd WHERE sd.site_id = sql_pre.id),  options={"comment":"站点域名"}")
+    */
+   public $siteDomains;
    ```
    
 1. 语法注解
