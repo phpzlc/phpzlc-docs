@@ -49,7 +49,7 @@ $(function(){
             }
             var timer = setInterval(() => {
                 num++;
-                if(num >= 20){
+                if(num >= 120){
                     show();
                     window.localStorage.removeItem('time_ready');
                     clearInterval(timer);
@@ -71,7 +71,7 @@ $(function(){
         }
         var timer = setInterval(() => {
             num++;
-            if(num >= 20){
+            if(num >= 120){
                 show();
                 window.localStorage.removeItem('time_ready');
                 clearInterval(timer);

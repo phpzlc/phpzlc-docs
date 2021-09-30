@@ -139,7 +139,7 @@ button.close {
   display: inline;
 }
 
-.zs-modal-head .tip {
+.zs-modal-head .tips_2 {
   background: #f6f6f6;
   padding: 0 10px;
   font-size: 12px;
@@ -151,7 +151,7 @@ button.close {
   margin-bottom: 10px;
 }
 
-.zs-modal-head .tip i {
+.zs-modal-head .tips_2 i {
   display: block;
   border-width: 0 7px 7px 7px;
   border-color: transparent transparent #f6f6f6 transparent;
