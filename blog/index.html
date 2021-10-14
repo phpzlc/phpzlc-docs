@@ -20,7 +20,7 @@ column_title: 博客动态
               <div
                 class="post-1552 post type-post status-publish format-standard has-post-thumbnail hentry category-blog blog-list-div">
                 <div class="content" style="border-bottom: 1px">
-                  <dv class="post-title mb-3">
+                  <h4 class="post-title mb-3">
                     <a href="{{ post.url }}" class="content"> {{ post.title }} </a>
 <!--                    <p>{{ post.description }}</p>-->
                     <p class="post-details">
@@ -29,7 +29,7 @@ column_title: 博客动态
                       <!-- <span class="number">文章来源：{{ post.column_title }}</span>-->
                       <a href="{{ post.url }}" class="last-span">阅读全文</a>
                     </p>
-                  </dv>
+                  </h4>
                   <div class="entry post-entry post-excerpt blog-list-excerpt">
                     {{ post.excerpt | strip_html | strip_newlines }}
                   </div>
