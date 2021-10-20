@@ -135,7 +135,7 @@ git push --set-upstream origin master
 
 ## 程序中已经安装了下述组件,他们构成了PHPZlc的核心策略
 
-1. [phpzlc/phpzlc](https://github.com/phpzlc/phpzlc) 内核组件,确定基本技术特征,技术组织形式,技术规范,写法,接口定义等。
+1. [phpzlc/phpzlc](https://github.com/phpzlc/phpzlc-kernel) 内核组件,确定基本技术特征,技术组织形式,技术规范,写法,接口定义等。
 2. [phpzlc/validate](https://github.com/phpzlc/validate) 常用的验证方法和验证正则(可以独立使用)。
 3. [phpzlc/document-bundle](https://github.com/phpzlc/document-bundle) API文档组件(可以独立使用), 用于项目API文档书写以及业务组件API文档书写。让API文档可以自由组合,随码而动。
 4. [doctrine/doctrine-fixtures-bundle](https://github.com/doctrine/DoctrineFixturesBundle) 内置数据组件,Symfony官方组件,用于通过命令向数据库写入数据。

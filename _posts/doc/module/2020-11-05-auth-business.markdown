@@ -2,7 +2,7 @@
 title: 登录授权(auth-business)
 permalink: doc/module/auth-business
 author_no: 2
-prev_page: /doc/module/RBAC-business
+prev_page: /doc/module/rbac-business
 next_page: /doc/module/platform-business
 description_auto: 0
 description: 提供登录,修改密码等基础功能

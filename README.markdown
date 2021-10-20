@@ -66,7 +66,7 @@ GitHub首页: [https://github.com/phpzlc](https://github.com/phpzlc/)
 
 *推荐的开源协作方式,应当是在issues中进行,这样方便追踪,讨论,查阅。*
 
-[https://github.com/phpzlc/phpzlc.github.io/issues](https://github.com/phpzlc/phpzlc.github.io/issues) 
+[https://github.com/phpzlc/phpzlc/issues](https://github.com/phpzlc/phpzlc/issues) 
 
 ## 团队名单
 

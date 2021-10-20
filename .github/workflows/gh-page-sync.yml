@@ -24,7 +24,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
         with:
-          source-repo: "git@github.com:phpzlc/phpzlc.github.io.git"
+          source-repo: "git@github.com:phpzlc/phpzlc.git"
           destination-repo: "git@gitee.com:phpzlc/phpzlc.git"
   git-pages-construct:
     runs-on: ubuntu-latest

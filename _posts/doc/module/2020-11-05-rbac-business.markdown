@@ -1,6 +1,6 @@
 ---
 title: RBAC权限(RBAC-business)
-permalink: doc/module/RBAC-business
+permalink: doc/module/rbac-business
 prev_page: /doc/module/admin-business
 next_page: /doc/module/auth-business
 description_auto: 0
