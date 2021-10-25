@@ -74,6 +74,7 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
    ```php
    Errors::getError();
    Errors::getAllError();
+   Errors::getAllErrorArray();
    ```
    
    **注意**
