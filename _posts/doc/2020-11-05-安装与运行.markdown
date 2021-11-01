@@ -129,7 +129,7 @@ git push --set-upstream origin master
 
 ## 常用组件
 
-1. [phpzlc/admin-business](https://github.com/phpzlc/admin-business) 后台业务组件,便捷的开发后台。开箱即用,免开发,内置了后台的基本功能(登录权限模块,管理员管理,权限管理)。
+1. [phpzlc/admin-business](https://phpzlc.com/doc/module/admin-business) 后台业务组件,便捷的开发后台。开箱即用,免开发,内置了后台的基本功能(登录权限模块,管理员管理,权限管理)。
 
 **更多组件前往[组件中心](/module/)。**
 
