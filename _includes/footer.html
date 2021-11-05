@@ -71,46 +71,6 @@
 </div>
 <!--//page-wrapper-->
 
-<!-- 弹框 -->
-<div class="mask_tip">
-  <div class="tip">
-      <!-- <a class="cancel" href="javascript:;">&times;</a> -->
-      <p class="tip_1">抱歉弹框打扰，系统检测到您今日累计浏览时长已达120秒。如果我们的项目对您有帮助，在
-        <a href="javascript:;" class="cancel_btn_2">关闭</a>窗口之前，希望能够阅读弹框内容，帮助我们变得更好。</p>
-      <p class="tip_2">
-          <span>一个成功的项目，实现功能只是基础，合理的架构，对资源的调度能力才是灵魂。</span>
-          <span>PHPZlc, 致力于在Symfony的基础上提供“知行合一”的项目开发方案。</span>
-      </p>
-      <p class="tip_1">如果您有关切问题和好的想法:</p>
-      <textarea class="input_1" id="advice" placeholder="请输入内容"></textarea>
-      <div class="send">
-          <textarea class="input_2" id="contact" placeholder="请输入联系信息(选填)"></textarea>
-          <p class="tips"></p>
-          <p class="send_btn">提交</p>
-      </div>
-      <p class="tip_1">如果您想帮助我们，可以为我们点亮星星，也可以提供资金支持。</p>
-      <div class="zanzhu">
-          <a href="https://github.com/phpzlc/phpzlc" target="_blank">前往Github，为我们点亮星星</a>
-          <a class="dashan" href="https://github.com/phpzlc/phpzlc/blob/master/sponsor.md" target="_blank">打赏，赞助，提供资金物质支持</a>
-      </div>
-      <p class="tip_1">您还可以通过以下渠道，关注我们，获取最新的框架动态，帮助项目获取人气，扩大影响力。</p>
-      <div class="img">
-          <a href="https://jq.qq.com/?_wv=1027&k=ZpwdagVG" target="_blank">
-              <img src="https://phpzlc.com/assets/images/qq-qun.png" alt="">
-              <span>技术交流群</span>
-          </a>
-          <a  href="https://www.zhihu.com/people/phpzlc" target="_blank">
-              <img src="https://phpzlc.com/assets/images/zhihu-1.png" alt="">
-              <span>PHP知了虫</span>
-          </a>
-      </div>
-      <div class="do">
-          <p class="tip_3">开源伙伴招募：<a class="link_3" href="https://phpzlc.com/blog/11.html" target="_blank">https://phpzlc.com/blog/11.html</a>。</p>
-          <p class="tip_3">由于我们无法获取您是否已经是我们的会员了，所以此弹框每日都会弹出一次,<a href="javascript:;" class="cancel_btn">关闭</a>。</p>
-      </div>
-  </div>
-</div>
-
 <footer class="footer text-center">
   <div class="container">
     <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
@@ -149,7 +109,6 @@
 <script type="text/javascript" src="/assets/plugins/prism/prism.js"></script>
 <script type="text/javascript" src="/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
 <script type="text/javascript" src="/assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>
-<script type="text/javascript" src="/assets/js/tip.js"></script>
 <script type="text/javascript">
   $(function () {
     $("#a_local_url").text(localBaseUrl());
@@ -179,7 +138,7 @@
       window.open("https://jq.qq.com/?_wv=1027&k=ZpwdagVG")
     });
 
-    $(".qq_join").click(function(){
+    $(".zhihu_join").click(function(){
       // window.location.href = "https://jq.qq.com/?_wv=1027&k=ZpwdagVG";
       window.open("https://www.zhihu.com/people/phpzlc")
     })

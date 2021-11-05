@@ -1616,6 +1616,10 @@ select {
   cursor: pointer;
 }
 
+.zhihu_join {
+  cursor: pointer;
+}
+
 .share {
   display: flex;
   justify-content: flex-end;

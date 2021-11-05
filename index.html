@@ -56,26 +56,30 @@
     </header>
     <!--//header-->
 
-    <div class="teaching_video">
-      <div class="teaching_video_box">
-        <iframe
-              style="
-                  display: block;
-                  margin: 0 auto;
-              "
-              src="//player.bilibili.com/player.html?aid=632791391&bvid=BV1Wb4y1U7Av&cid=404291182&page=1"
-              allowfullscreen="allowfullscreen"
-              width="100%"
-              height="500"
-              scrolling="no"
-              frameborder="0"
-      >
-      </iframe>
-      </div>
-    </div>
+<!--    <div class="teaching_video">-->
+<!--      <div class="teaching_video_box">-->
+<!--        <iframe-->
+<!--              style="-->
+<!--                  display: block;-->
+<!--                  margin: 0 auto;-->
+<!--              "-->
+<!--              src="//player.bilibili.com/player.html?aid=632791391&bvid=BV1Wb4y1U7Av&cid=404291182&page=1"-->
+<!--              allowfullscreen="allowfullscreen"-->
+<!--              width="100%"-->
+<!--              height="500"-->
+<!--              scrolling="no"-->
+<!--              frameborder="0"-->
+<!--      >-->
+<!--      </iframe>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <section class="cards-section text-center">
       <div class="container">
+        <h2 class="title">入门很容易！</h2>
+        <div class="intro">
+          <p>使用PHPZlc，您可以很轻松的使用Symfony构建Web项目。</p>
+        </div><!--//intro-->
         <div id="cards-wrapper" class="cards-wrapper row">
           <div class="item item-blue col-lg-4 col-6">
             <div class="item-inner">
@@ -163,11 +167,31 @@
           <!--//item-->
         </div>
         <!--//cards-->
+
+        <!-- 弹框 -->
+        <div class="mask_tip">
+<!--          <div class="tip">-->
+            <p class="tip_1">如果您有关切问题和好的想法:</p>
+            <textarea class="input_1" id="advice" placeholder="请输入内容"></textarea>
+            <div class="send">
+              <textarea class="input_2" id="contact" placeholder="请输入联系信息(选填)"></textarea>
+              <p class="tips"></p>
+              <p class="send_btn">提交</p>
+            </div>
+            <p class="tip_1">开源不易，可以为我们点亮星星或提供资金支持。</p>
+            <div class="zanzhu">
+              <a href="https://github.com/phpzlc/phpzlc" target="_blank">前往Github，为我们点亮星星</a>
+              <a class="dashan" href="https://github.com/phpzlc/phpzlc/blob/master/sponsor.md" target="_blank">打赏，赞助，提供资金物质支持</a>
+            </div>
+<!--          </div>-->
+        </div>
       </div>
       <!--//container-->
     </section>
 
     <!--//cards-section-->
+
+    <script type="text/javascript" src="/assets/js/tip.js"></script>
 
     {% include footer.html %}
 </body>
