@@ -279,7 +279,7 @@ _字段的属性名和字段名都可以识别。_
    
     ```php    
     $rules = [
-       'user_id' . Rule::RA_JOIN => 'u' 必填参数 表别名
+       'user_id' . Rule::RA_JOIN => 'u' //必填参数 表别名
     ];
     ```
         
