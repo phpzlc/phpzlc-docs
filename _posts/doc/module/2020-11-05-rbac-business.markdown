@@ -193,3 +193,11 @@ _以下效果来自`admin-business`_
    public function clearCache(UserAuth $userAuth = null)
    ```
     
+## 在页面中鉴权
+
+   ```twig
+   {% if userPermissions.entry_delete is defined %}
+       <el-button size="mini" type="danger" @click="del()">删除</el-button>
+   {% endif %}
+   ```
+
