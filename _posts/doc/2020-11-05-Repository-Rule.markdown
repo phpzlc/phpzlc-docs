@@ -279,7 +279,7 @@ _字段的属性名和字段名都可以识别。_
    
     ```php    
     $rules = [
-       'user_id' . Rule::RA_JOIN => 'u' //必填参数 表别名
+       'user' . Rule::RA_JOIN => 'u' //必填参数 表别名
     ];
     ```
         
@@ -287,7 +287,7 @@ _字段的属性名和字段名都可以识别。_
         
     ```php    
     $rules = [
-       'user_id' . Rule::RA_JOIN => array(
+       'user' . Rule::RA_JOIN => array(
           'type' => 'LEFT JOIN',  // 可选参数, 默认值为 'LEFT JOIN'
           'tableName' => 'user', //可选参数, 系统根据字段结构注释自动读取表名
           'alias' => 'u', //必填参数 表别名
