@@ -203,7 +203,7 @@ proxy_send_timeout       9000s;
    **文件夹权限**
 
 ```shell
-sudo chmod -R 777 public/upload/
+sudo chmod -R 755 public/upload/
 ```
 
 > 后台超级管理员账号密码
