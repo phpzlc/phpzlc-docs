@@ -53,7 +53,7 @@ proxy_send_timeout       9000s;
 > 文件夹权限
 
 ```shell
-sudo chmod -R 777 public/upload/
+sudo chmod -R 755 public/upload/
 ```
 
 ## 提供功能
