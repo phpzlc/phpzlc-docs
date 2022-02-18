@@ -205,4 +205,4 @@ public function __construct($name, $value ,$collision = null, $jointClass = null
    
 ## 书写复杂SQL和聚合查询的使用方法
 
-   [前往了解原理,学习方法](/doc/repository#具体如何干预sql)。
+   [前往了解原理,学习方法](/doc/repository/base#具体如何干预sql)。
