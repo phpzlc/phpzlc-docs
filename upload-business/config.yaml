@@ -1,0 +1,22 @@
+name: UploadBusiness
+title: 上传业务(upload-business)
+description: 提供上传文件的接口,文档。
+keys: 上传,upload,upload-business,phpzlc/upload-business
+type: 业务组件
+language:
+version: v1.0
+status: support
+sort: 0
+links:
+  -
+    title: gitee
+    url: https://gitee.com/phpzlc/upload-business
+  -
+    title: github
+    url: https://github.com/phpzlc/upload-business
+  -
+    title: composer
+    url: https://packagist.org/packages/phpzlc/upload-business
+menus:
+  -
+    title: UploadBusiness

@@ -1,9 +1,1 @@
 .idea
-_site
-.jekyll-cache
-.DS_Store
-Gemfile.lock
-build
-sitemap.xml
-sitemap.txt
-siteMapPush.sh

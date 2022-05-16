@@ -1,0 +1,22 @@
+name: AdminBusiness
+title: 后台开发(admin-business)
+description: 后台开发,提供管理系统基础功能(首页,登录,退出登录,修改密码等管理系统基础功能)
+keys: admin-business,phpzlc/admin-business,admin,后台
+type: 业务组件
+language:
+version: v1.0
+status: support
+sort: 0
+links:
+  -
+    title: gitee
+    url: https://gitee.com/phpzlc/admin-business
+  -
+    title: github
+    url: https://github.com/phpzlc/admin-business
+  -
+    title: composer
+    url: https://packagist.org/packages/phpzlc/admin-business
+menus:
+  -
+    title: AdminBusiness

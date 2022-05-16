@@ -1,0 +1,22 @@
+name: RBACBusiness
+title: RBAC权限(RBAC-business)
+description: RBAC权限(RBAC-business)
+keys: rbac,rbac-business,权限,phpzlc/rbac-business
+type: 业务组件
+language:
+version: v1.0
+status: support
+sort: 0
+links:
+  -
+    title: gitee
+    url: https://gitee.com/phpzlc/rbac-business
+  -
+    title: github
+    url: https://github.com/phpzlc/rbac-business
+  -
+    title: composer
+    url: https://packagist.org/packages/phpzlc/rbac-business
+menus:
+  -
+    title: RBACBusiness

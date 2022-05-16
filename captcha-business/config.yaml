@@ -1,0 +1,22 @@
+name: CaptchaBusiness
+title: 图形验证码(captcha-business)
+description: 提供生成图形验证码接口,文档。
+keys: captcha,captcha-business,phpzlc/captcha-business,图形验证码
+type: 业务组件
+language:
+version: v1.0
+status: support
+sort: 0
+links:
+  -
+    title: gitee
+    url: https://gitee.com/phpzlc/captcha-business
+  -
+    title: github
+    url: https://github.com/phpzlc/captcha-business
+  -
+    title: composer
+    url: https://packagist.org/packages/phpzlc/captcha-business
+menus:
+  -
+    title: CaptchaBusiness

@@ -1,0 +1,120 @@
+name: phpzlc
+title:
+description:
+keys:
+language:
+version: v1.0
+status: support
+sort: 0
+links:
+  -
+    title: gitee
+    url: https://gitee.com/phpzlc/phpzlc
+  -
+    title: github
+    url: https://github.com/phpzlc/phpzlc
+  -
+    title: composer
+    url: https://packagist.org/packages/phpzlc/phpzlc
+menus:
+  -
+    title: 安装与运行
+    url: phpzlc/install
+  -
+    title: 目录与架构
+    url: phpzlc/skeleton
+  -
+    title: 配置
+    menus:
+      -
+        title: 常量参数配置与环境变量
+        url: phpzlc/config
+      -
+        title: 路由(Route)
+        url: phpzlc/route
+  -
+    title: 控制器
+    menus:
+      -
+        title: 控制器(Controller)
+        url: phpzlc/controller
+      -
+        title: 错误收集(Errors)
+        url: phpzlc/error
+      -
+        title: 验证(Validate)
+        url: phpzlc/validate
+  -
+    title: 数据库
+    menus:
+      -
+        title: 创建使用数据库
+        url: phpzlc/db/start
+      -
+        title: 设计Entity
+        url: phpzlc/db/entity
+      -
+        title: 插入、更新、删除
+        url: phpzlc/db/edit
+      -
+        title: 简单查询
+        url: phpzlc/db/query
+      -
+        title: 单表拆分
+        url: phpzlc/db/table-dismantle
+  -
+    title: 业务层
+    menus:
+      -
+        title: 业务层(Business)
+        url: phpzlc/business
+      -
+        title: 工具类-SQL
+        url: phpzlc/tool/sql
+      -
+        title: 工具类-Log
+        url: phpzlc/tool/log
+      -
+        title: 工具类-ActionLoad
+        url: phpzlc/tool/action-log
+      -
+        title: Exception
+        url: phpzlc/exception
+  -
+    title: 高级查询
+    menus:
+      -
+        title: 概述
+        url: phpzlc/repository
+      -
+        title: 规则
+        url: phpzlc/repository/rule
+      -
+        title: 规则-高级用法
+        url: phpzlc/repository/rule/advanced-usage
+  -
+    title: 支持配套
+    menus:
+      -
+        title: Symfony Flex
+        url: phpzlc/symfony-flex
+      -
+        title: 文档书写(Document)
+        url: document-bundle
+      -
+        title: 内置数据(DataFixtures)
+        url: phpzlc/data-fixtures
+  -
+    title: 组件开发
+    menus:
+      -
+        title: 业务组件(Business Package)
+        url: phpzlc/module/business
+      -
+        title: 功能组件(Vendor Package)
+        url: phpzlc/module/vendor
+
+parameters:
+    symfony:
+      version: 5.4
+      home: https://symfony.com/doc/5.4/index.html

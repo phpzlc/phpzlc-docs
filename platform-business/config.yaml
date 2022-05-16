@@ -1,0 +1,22 @@
+name: PlatformBusiness
+title: 平台标识(platform-business)
+description: 提供多平台管理的基础功能
+keys: platform,platform-business,平台,phpzlc/platform-business
+type: 业务组件
+language:
+version: v1.0
+status: support
+sort: 0
+links:
+  -
+    title: gitee
+    url: https://gitee.com/phpzlc/platform-business
+  -
+    title: github
+    url: https://github.com/phpzlc/platform-business
+  -
+    title: composer
+    url: https://packagist.org/packages/phpzlc/platform-business
+menus:
+  -
+    title: PlatformBusiness

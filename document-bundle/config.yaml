@@ -1,0 +1,22 @@
+name: DocumentBundle
+title: 文档书写(Document)
+description: 用于编写接口文档,通过命令生成,在线的,可测试,可交付的技术文档。
+keys: symfony,phpzlc,php,document,api,文档
+type: 功能组件
+language:
+version: v1.0
+status: support
+sort: 0
+links:
+  -
+    title: gitee
+    url: https://gitee.com/phpzlc/document-bundle
+  -
+    title: github
+    url: https://github.com/phpzlc/document-bundle
+  -
+    title: composer
+    url: https://packagist.org/packages/phpzlc/document-bundle
+menus:
+  -
+    title: DocumentBundle

@@ -1,0 +1,22 @@
+name: SnapshotBusiness
+title: 快照组件(snapshot-business)
+description: 快照组件，在数据库中便捷的设置读取自定义参数。
+keys: snapshot,symfony,phpzlc,快照
+type: 业务组件
+language:
+version: v1.0
+status: support
+sort: 0
+links:
+  -
+    title: gitee
+    url: https://gitee.com/phpzlc/snapshot-business
+  -
+    title: github
+    url: https://github.com/phpzlc/snapshot-business
+  -
+    title: composer
+    url: https://packagist.org/packages/phpzlc/snapshot-business
+menus:
+  -
+    title: SnapshotBusiness

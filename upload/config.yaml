@@ -1,0 +1,22 @@
+name: Upload
+title: 上传组件(Upload)
+description: 提供文件上传功能
+keys: upload,上传,phpzlc/upload
+type: 功能组件
+language:
+version: v1.0
+status: support
+sort: 0
+links:
+  -
+    title: gitee
+    url: https://gitee.com/phpzlc/upload
+  -
+    title: github
+    url: https://github.com/phpzlc/upload
+  -
+    title: composer
+    url: https://packagist.org/packages/phpzlc/upload
+menus:
+  -
+    title: Upload
