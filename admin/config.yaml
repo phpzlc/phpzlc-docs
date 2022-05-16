@@ -4,8 +4,8 @@ description: 后台内核,为后台业务提供底层策略,写法支持.(导航
 keys: admin,phpzlc/admin,后台
 type: 功能组件
 language:
-version: v1.0
-status: support
+version: v2.0
+status: newest
 sort: 0
 links:
   -

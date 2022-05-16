@@ -4,8 +4,8 @@ description: 提供文件上传功能
 keys: upload,上传,phpzlc/upload
 type: 功能组件
 language:
-version: v1.0
-status: support
+version: v2.0
+status: newest
 sort: 0
 links:
   -

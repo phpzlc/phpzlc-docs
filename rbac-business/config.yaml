@@ -4,8 +4,8 @@ description: RBAC权限(RBAC-business)
 keys: rbac,rbac-business,权限,phpzlc/rbac-business
 type: 业务组件
 language:
-version: v1.0
-status: support
+version: v2.0
+status: newest
 sort: 0
 links:
   -

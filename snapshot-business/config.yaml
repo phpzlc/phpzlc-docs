@@ -4,8 +4,8 @@ description: 快照组件，在数据库中便捷的设置读取自定义参数�
 keys: snapshot,symfony,phpzlc,快照
 type: 业务组件
 language:
-version: v1.0
-status: support
+version: v2.0
+status: newest
 sort: 0
 links:
   -
