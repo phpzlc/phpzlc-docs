@@ -116,5 +116,5 @@ menus:
 
 parameters:
     symfony:
-      version: 5.4
-      home: https://symfony.com/doc/5.4/index.html
+      version: 4.4
+      home: https://symfony.com/doc/4.4/index.html
