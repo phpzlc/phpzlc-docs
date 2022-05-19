@@ -77,5 +77,3 @@ GitHub首页: [https://github.com/phpzlc](https://github.com/phpzlc/)
 > 头条号(CJayHe)
 
 ![](/_image/toutiao.png)
-
-123454365345
