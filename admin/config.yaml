@@ -10,13 +10,13 @@ sort: 0
 links:
   -
     title: gitee
-    url: https://gitee.com/phpzlc/admim
+    url: https://gitee.com/phpzlc/admin
   -
     title: github
-    url: https://github.com/phpzlc/admim
+    url: https://github.com/phpzlc/admin
   -
     title: composer
-    url: https://packagist.org/packages/phpzlc/admim
+    url: https://packagist.org/packages/phpzlc/admin
 menus:
   -
     title: Admin
