@@ -14,7 +14,7 @@ keys: symfony,phpzlc,sql,tool
 use use PHPZlc\PHPZlc\Doctrine\ORM\Untils\SQL;
 ```
 
-1. function in
+1. static function in
 
     将作为`in`查询的字符串进行加工,使其不报错
 
@@ -25,3 +25,24 @@ use use PHPZlc\PHPZlc\Doctrine\ORM\Untils\SQL;
     **原理**
     
     作为`in`查询字符串,一般为`123,123`。加工策略会给每端字符串增加引号。返回结果为`"123","123"`。
+
+2. static function simpleArrayIn
+
+   实现`simple_array`的`in`查询策略
+   
+   ```php
+   SQL::simpleArrayIn(($value , $column)?:string
+   ```
+
+   **方法解析**
+     
+   `$value`   作为`in`查询字符串,一般为`123,123`
+   `$column`  被查询的`simple_array`字段名,一般为`sql_pre.column_name`
+
+3. static function sqlPreReplace
+   
+   替换`sql`中的`sql_pre`前缀为指定前缀
+
+   ```php
+   SQL::sqlPreReplace($sql , $pre)?:string
+   ```

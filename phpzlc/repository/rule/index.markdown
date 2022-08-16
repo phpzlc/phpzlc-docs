@@ -91,7 +91,17 @@ _(2)全局规则在所有规则之前执行,决定`SQL`主结构。_
    ];
    ```
 
-5. `R_HIDE_SELECT`
+5. `Rule::R_GROUP_BY`
+
+   分别查询对`group_by`部分进行修改。
+
+   ```php
+   $rules = [
+      Rule::R_GROUP_BY => 'sql_pre.name'
+   ];
+   ```   
+
+6. `Rule::R_HIDE_SELECT`
     
    对查询的一些字段进行隐藏,在所有规则运行之后运行。
     
@@ -101,7 +111,7 @@ _(2)全局规则在所有规则之前执行,决定`SQL`主结构。_
    ];
    ```
 
-6. `R_FREED_FALSE_DEL` 
+7. `Rule::R_FREED_FALSE_DEL` 
 
    释放逻辑删除数据。
     
