@@ -37,6 +37,7 @@ use use PHPZlc\PHPZlc\Doctrine\ORM\Untils\SQL;
    **方法解析**
      
    `$value`   作为`in`查询字符串,一般为`123,123`
+
    `$column`  被查询的`simple_array`字段名,一般为`sql_pre.column_name`
 
 3. static function sqlPreReplace
