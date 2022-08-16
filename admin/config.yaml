@@ -14,7 +14,7 @@ links:
   -
     title: github
     url: https://github.com/phpzlc/admin
- n
+  -
     title: composer
     url: https://packagist.org/packages/phpzlc/admin
 menus:
