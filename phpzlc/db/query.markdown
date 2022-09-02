@@ -42,6 +42,9 @@ $userRepository->findLimitAll($rows, $page = 1, $rules = null, ResultSetMappingB
 
 //查询总数
 $userRepository->findCount($rules = null, ResultSetMappingBuilder $resultSetMappingBuilder = null, $aliasChain = '');
+
+//查询指定字段
+$userRepository->findColumn($column, $rules = null, ResultSetMappingBuilder $resultSetMappingBuilder = null, $aliasChain = '');
 ```
 
 ## 简单查询示例
