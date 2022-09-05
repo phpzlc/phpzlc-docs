@@ -59,3 +59,7 @@ throw new ApiException('接口错误');
 4. 注意
 
    邮箱配置发送失败可以在`prod.log`中查看原因。
+
+5. 邮件样式
+
+   ![报错邮件样式](/_image/error_email.png)
