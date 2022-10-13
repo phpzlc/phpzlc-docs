@@ -40,7 +40,7 @@ composer create-project symfony/website-skeleton:"^5.4" my_project_name
    "extra": {
        "symfony": {
            "allow-contrib": false,
-           "require": "4.4.*"
+           "require": "5.4.*"
        }
    }
    ```
@@ -51,7 +51,7 @@ composer create-project symfony/website-skeleton:"^5.4" my_project_name
    "extra": {
       "symfony": {
           "allow-contrib": true,
-           "require": "4.4.*",
+           "require": "5.4.*",
            "endpoint": "https://flex.phpzlc.com"
       }
    }
