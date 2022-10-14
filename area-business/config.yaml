@@ -1,0 +1,22 @@
+name: AreaBusiness
+title: 省市区业务组件(area-business)
+description: 省市区组件,内置完整的省市区数据及接口
+keys: area-business,area,地址,省市区
+type: 业务组件
+language:
+version: v2.0
+status: newest
+sort: 0
+links:
+  -
+    title: gitee
+    url: https://gitee.com/phpzlc/area-business
+  -
+    title: github
+    url: https://github.com/phpzlc/area-business
+  -
+    title: composer
+    url: https://packagist.org/packages/phpzlc/area-business
+menus:
+  -
+    title: AreaBusiness
