@@ -32,38 +32,13 @@ composer create-project symfony/website-skeleton:"^5.4" my_project_name
 
 ## PHPZlc内核安装
 
-1. 在项目中中配置食谱服务器地址
-
-   打开项目中`composer.json`文件,将
-   
-   ```js
-   "extra": {
-       "symfony": {
-           "allow-contrib": false,
-           "require": "5.4.*"
-       }
-   }
-   ```
-   
-   替换为
-   
-   ```js
-   "extra": {
-      "symfony": {
-          "allow-contrib": true,
-           "require": "5.4.*",
-           "endpoint": "https://flex.phpzlc.com"
-      }
-   }
-   ```
-
-2. 安装phpzlc
+1. 安装phpzlc
 
    ```shell
    composer require phpzlc/phpzlc
    ```
 
-3. 执行安装命令
+2. 执行安装命令 (非必须)
 
    ```shell
    php bin/console phpzlc:install
@@ -148,34 +123,3 @@ git push --set-upstream origin master
 2. Demo(示例项目-个人博客系统)
 
     [https://github.com/phpzlc/demo-blog](https://github.com/phpzlc/demo-blog)。
-
-## 额外知识
-
-1. 启用社区食谱
-
-   打开项目中`composer.json`文件,将
-   
-   ```js
-   "extra": {
-       "symfony": {
-           "allow-contrib": false,
-           "require": "5.4.*"
-       }
-   }
-   ```
-   
-   替换为
-   
-   ```js
-   "extra": {
-      "symfony": {
-          "allow-contrib": true,
-           "require": "5.4.*",
-      }
-   }
-   ```
-
-
-
-    
-  
