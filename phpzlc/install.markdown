@@ -38,7 +38,7 @@ composer create-project symfony/website-skeleton:"^5.4" my_project_name
    composer require phpzlc/phpzlc
    ```
 
-2. 执行安装命令 (非必须)
+2. 执行安装命令
 
    ```shell
    php bin/console phpzlc:install
