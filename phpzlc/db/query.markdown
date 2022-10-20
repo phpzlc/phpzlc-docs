@@ -59,4 +59,4 @@ _关于规则和更多的使用方法,见[高级查询](/phpzlc/repository/index
 
 ## 了解更多
 
-[Symfony4如何通过直接书写SQL控制数据库](/_blog/如何通过直接书写SQL控制数据库.markdown)
+[Symfony4如何通过直接书写SQL控制数据库](https://phpzlc.com/blog/16528612833942-eff21b3de7bca-79)
