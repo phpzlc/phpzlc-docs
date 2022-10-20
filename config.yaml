@@ -96,9 +96,6 @@ menus:
     title: 支持配套
     menus:
       -
-        title: Symfony Flex
-        url: phpzlc/symfony-flex
-      -
         title: 文档书写(Document)
         url: document-bundle
       -
