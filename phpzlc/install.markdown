@@ -36,7 +36,6 @@ composer create-project symfony/website-skeleton:"^5.4" my_project_name
 
    ```shell
    composer require phpzlc/phpzlc
-   composer require doctrine/doctrine-fixtures-bundle
    ```
 
 
