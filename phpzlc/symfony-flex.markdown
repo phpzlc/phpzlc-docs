@@ -1,7 +1,7 @@
 ---
-title: 自托管的 Symfony Flex 服务器
+title: 自托管的 Symfony Flex 服务器 (已弃用)
 description: SymfonyFlex是Symfony4的重要新功能。
-keys: symfony,phpzlc,symfony flex,flex
+keys: symfony,phpzlc,symfony flex,flex,symfony-flex
 ---
 
 ## Symfony Flex 介绍
