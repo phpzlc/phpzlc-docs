@@ -45,6 +45,10 @@ area:
 
 ![数据库结构](/_image/posts/area-business/entity.png)
 
+# 提供开放API
+
+![API](/_image/posts/area-business/api.png)
+
 
 
 
