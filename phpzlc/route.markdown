@@ -77,4 +77,4 @@ api_user_info:
 
 ## 了解更多
 
-[运用Symfony路由组件定制化开发](/blog/3.html)
+[运用Symfony路由组件定制化开发](https://phpzlc.com/blog/16667763038835-7b9e1a20aecc4-70)
