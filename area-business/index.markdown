@@ -41,6 +41,11 @@ area:
    prefix:   /area
 ```
 
+## 省市区数据
+
+![数据库结构](/_image/posts/area-business/entity.png)
+
+
 
 
 
