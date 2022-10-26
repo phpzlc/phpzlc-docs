@@ -76,7 +76,7 @@ menus:
         url: phpzlc/tool/log
       -
         title: 工具类-ActionLoad
-        url: phpzlc/tool/action-log
+        url: phpzlc/tool/action-load
       -
         title: Exception
         url: phpzlc/exception
