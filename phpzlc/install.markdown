@@ -119,7 +119,7 @@ git push --set-upstream origin master
 
 1. 开始
 
-    一切准备就绪之后,让我们可以正式开始吧,[项目目录与架构](/phpzlc/exception.markdown#prod模式下报错信息邮箱通知功能启用)。
+    一切准备就绪之后,让我们可以正式开始吧,[项目目录与架构](/phpzlc/skeleton.markdown)。
 
 2. Demo(示例项目-个人博客系统)
 

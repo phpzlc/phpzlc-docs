@@ -8,21 +8,21 @@ keys: symfony,phpzlc,错误收集,errors,error
 
 这是一个自研的功能,很简单。作用就是对错误信息进行存储归纳,并将错误信息对象化,增加更多可编程属性。
 
-## 文档
+## 引用
 
 ```php
 use PHPZlc\PHPZlc\Abnormal\Error;
 use PHPZlc\PHPZlc\Abnormal\Errors;
 ```
 
-1. 设置追加错误
+## 设置追加错误
 
     ```php
     Errors::setError(new Error('错误信息'));
     Errors::setErrorMessage('错误信息');
     ```
 
-2. 设置异常错误
+## 设置异常错误
 
     ```php
     Errors::exceptionError(new \Exception('错误信息'));
@@ -42,7 +42,7 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
    }
    ```
 
-3. 验证类是否符合验证注释并设置错误
+## 验证类是否符合验证注释并设置错误
    
    ```php 
    Errors::validate($validator, $class); //return bool
@@ -64,8 +64,8 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
        }
    }   
    ```
-   
-4. 得到错误
+
+## 得到错误
    
    ```php
    Errors::getError();
@@ -77,32 +77,32 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
    
    `getError` 获得最早记录的错误
 
-5. 判断是否存在错误
+## 判断是否存在错误
 
     ```php
     Errors::isExistError(); // return bool
     ```
 
-6. 覆盖错误信息(在错误集合前追加错误信息)
+## 覆盖错误信息(在错误集合前追加错误信息)
    
    ```php
    Errors::coverError(new Error('错误信息'));
    Errors::coverErrorMessage('错误信息');
    ```
-   
-7. 清空错误
+
+## 清空错误
    
    ```php
    Errors::clearError()
    ```
 
-8. 主动发送报错邮件提醒开发者
+## 主动发送报错邮件提醒开发者
 
    ```php
    Errors::notificationError($msg);
    ```
    
-   邮箱配置参照：[项目目录与架构](/phpzlc/skeleton.markdown)
+   邮箱配置和内容详见：[prod模式下报错信息邮箱通知功能启用](/phpzlc/exception.markdown#prod模式下报错信息邮箱通知功能启用)
 
 ## 详解 Class Error
 
