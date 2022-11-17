@@ -95,7 +95,14 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
    ```php
    Errors::clearError()
    ```
+
+8. 主动发送报错邮件提醒开发者
+
+   ```php
+   Errors::notificationError($msg);
+   ```
    
+   邮箱配置参照：[项目目录与架构](/phpzlc/skeleton.markdown)
 
 ## 详解 Class Error
 
