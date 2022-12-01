@@ -90,6 +90,22 @@ sudo chmod -R 755 public/upload/
    UploadFile::getFileNetworkPath(ContainerInterface $container, $path);
    ```
 
+4. 富文本内容解码-将资源路径转为绝对路径
+
+   ```php
+   use  App\Business\UploadBusiness\UploadFile;
+   
+   UploadFile::contentDecode(ContainerInterface $container, $content);
+   ```
+
+5. 富文本内容加码-将资源路径转为相对路径
+
+   ```php
+   use  App\Business\UploadBusiness\UploadFile;
+   
+   UploadFile::contentEncode(ContainerInterface $container, $content);
+   ```
+
 ## 底层技术
 
    [phpzlc/upload](/upload/index.markdown)
