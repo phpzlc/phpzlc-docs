@@ -16,6 +16,7 @@ keys: 上传,upload,upload-business,phpzlc/upload-business
 
 ```shell
 composer require phpzlc/upload-business
+php bin/console phpzlc:flex:install upload-business
 ```
 
 ## 项目中引用
@@ -26,30 +27,6 @@ composer require phpzlc/upload-business
 upload:
   resource: "routing/upload/upload.yaml"
   prefix:   /upload
-```
-
-## README.md 补充
-
-> php.ini
-
-```apacheconfig
-upload_max_filesize = 1024M
-post_max_size = 1024M
-```
-
-> nginx
-
-```apacheconfig
-client_max_body_size     1024M;
-proxy_connect_timeout    9000s;
-proxy_read_timeout       9000s;
-proxy_send_timeout       9000s;
-```
-
-> 文件夹权限
-
-```shell
-sudo chmod -R 755 public/upload/
 ```
 
 ## 提供功能
