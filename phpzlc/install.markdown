@@ -42,7 +42,7 @@ composer create-project symfony/website-skeleton:"^5.4" my_project_name
 2. 执行安装命令
 
    ```shell
-   php bin/console phpzlc:install
+   php bin/console phpzlc:flex:install phpzlc
    ```
    
   **由于 phpzlc 覆盖了一部分 symfony 内核代码,当使用过程之中由于 composer安装更新包 导致的程序报错，可以优先使用本命令进行修复。**
@@ -109,11 +109,12 @@ git push --set-upstream origin master
 
 ## 程序中已经安装了下述组件,他们构成了PHPZlc的核心策略
 
-1. [phpzlc/phpzlc](https://github.com/phpzlc/phpzlc-kernel) 内核组件,确定基本技术特征,技术组织形式,技术规范,写法,接口定义等。
+1. [phpzlc/phpzlc](https://github.com/phpzlc/phpzlc) 内核组件,确定基本技术特征,技术组织形式,技术规范,写法,接口定义等。
 2. [phpzlc/validate](https://github.com/phpzlc/validate) 常用的验证方法和验证正则(可以独立使用)。
 3. [phpzlc/document-bundle](https://github.com/phpzlc/document-bundle) API文档组件(可以独立使用), 用于项目API文档书写以及业务组件API文档书写。让API文档可以自由组合,随码而动。
 4. [doctrine/doctrine-fixtures-bundle](https://github.com/doctrine/DoctrineFixturesBundle) 内置数据组件,Symfony官方组件,用于通过命令向数据库写入数据。
 5. [ramsey/uuid](https://github.com/ramsey/uuid) 用于支持`Entity`实体类的主键从自增变为具有排序属性的UUID。方便项目向分布式拓展。
+6. [phpzlc/fledx](https://github.com/phpzlc/flex) 用于 phpzlc包的安装。
 
 ## 开始编码
 
