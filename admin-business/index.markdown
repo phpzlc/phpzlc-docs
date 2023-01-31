@@ -15,6 +15,8 @@ keys: admin-business,phpzlc/admin-business,admin,后台
 
 ```shell
 composer require phpzlc/admin-business
+
+php bin/console phpzlc:flex:install upload-business
 ```
 
 安装完成后执行更新数据库的操作
