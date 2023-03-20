@@ -219,4 +219,31 @@ PHPZlc在原有基础上集成了最常见的API接口响应,定义了返回的�
    ```php
    return Responses::error(Errors::getError());
    ```
+
+4. 全局返回值机制
+    
+   **调用示例：**
+
+   ```php
+    Responses::addGlobalData('name', '这是个全局参数');
+
+    return Responses::success('');
+   ```
+
+  **返回示例：**
+
+    ```json
+    {
+        "code": 0,
+        "msg": "",
+        "msgInfo": [],
+        "data": [],
+        "system": {
+            "name": "这是个全局参数"
+        }
+    }
+    ```
+
+
+
  
