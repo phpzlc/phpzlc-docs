@@ -20,6 +20,9 @@ ActionLoad::$globalContainer;
 
 //全局ObjectManager变量
 ActionLoad::$globalDoctrine;
+
+//全局ParameterBagInterface变量
+ActionLoad::$globalParameter;
 ```
 
 ## 了解更多
