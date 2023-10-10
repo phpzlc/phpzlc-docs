@@ -109,6 +109,4 @@ _`copy`的目录需要根据组件的实际情况决定。_
 
 [食谱书写文档](https://github.com/symfony/recipes/blob/master/README.rst)
 
-[symfony-flxe 教程](/phpzlc/symfony-flex.markdown#如何创建自托管的flex服务器用于测试或私有化发布)
-
 [phpzlc 食谱库](https://github.com/phpzlc/contrib)
