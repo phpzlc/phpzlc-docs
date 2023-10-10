@@ -213,7 +213,6 @@ php bin/console make:entity {entityClassName} --regenerate --overwrite
 
     const STATUS_PAYMENT = 4;
 
-
     public static function getStatusArray()
     {
         return [

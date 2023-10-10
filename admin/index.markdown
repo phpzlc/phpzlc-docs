@@ -20,7 +20,7 @@ composer require phpzlc/admin
 
 ## 服务引入
 
-   后台控制器需要按照下列来实现基类
+后台控制器需要按照下列来实现基类
    
 ```php
 class AdminController extends SystemBaseController
@@ -48,7 +48,7 @@ class AdminController extends SystemBaseController
 
 ## AdminStrategy
 
-   是后台核心机制类,主要用于设置后台系统的基本属性和动作
+是后台核心机制类,主要用于设置后台系统的基本属性和动作
    
 ```php
  //菜单配置
