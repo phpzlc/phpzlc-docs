@@ -141,7 +141,6 @@ php bin/console make:entity {entityClassName} --regenerate --overwrite
     */
    private $isDel = false;
    
-   
    /**
     * @var boolean
     *
