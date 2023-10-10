@@ -17,16 +17,16 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
 
 ## 设置追加错误
 
-    ```php
-    Errors::setError(new Error('错误信息'));
-    Errors::setErrorMessage('错误信息');
-    ```
+```
+Errors::setError(new Error('错误信息'));
+Errors::setErrorMessage('错误信息');
+```
 
 ## 设置异常错误
 
-    ```php
-    Errors::exceptionError(new \Exception('错误信息'));
-    ```
+```php
+Errors::exceptionError(new \Exception('错误信息'));
+```
 
    _如果在开发模式中,则会直接抛出错误,程序中止。_
    
@@ -79,9 +79,9 @@ use PHPZlc\PHPZlc\Abnormal\Errors;
 
 ## 判断是否存在错误
 
-    ```php
+    
     Errors::isExistError(); // return bool
-    ```
+  
 
 ## 覆盖错误信息(在错误集合前追加错误信息)
    
