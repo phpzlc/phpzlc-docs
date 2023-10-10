@@ -42,8 +42,8 @@ DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5
     php bin/console doctrine:schema:update --force
     ```
  
- 4. 删除数据库
+4. 删除数据库
  
-    ```shell
-    php bin/console doctrine:database:drop --force
-    ```
+   ```shell
+   php bin/console doctrine:database:drop --force
+   ```

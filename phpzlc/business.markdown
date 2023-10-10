@@ -21,9 +21,9 @@ keys: symfony,phpzlc,业务,业务层,business
 
 2. 在目录中创建类
 
-    ```php
-    namespace App\Business\UserBusiness;
+    ```php    
     
+    namespace App\Business\UserBusiness;
     
     use App\Entity\User;
     use PHPZlc\PHPZlc\Bundle\Business\AbstractBusiness;
