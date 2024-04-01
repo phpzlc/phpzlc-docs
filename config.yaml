@@ -3,8 +3,8 @@ title:
 description:
 keys:
 language:
-version: v2.0
-status: newest
+version: v3.0
+status: develop
 sort: 0
 links:
   -
@@ -113,5 +113,5 @@ menus:
 
 parameters:
     symfony:
-      version: 5.4
-      home: https://symfony.com/doc/5.4/index.html
+      version: 7.0
+      home: https://symfony.com/doc/7.0/index.html

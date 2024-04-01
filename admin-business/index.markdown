@@ -94,7 +94,7 @@ public static function set(ContainerInterface $container, UserAuth $userAuth)
 
     switch (PlatformClass::getPlatform()){
         case $container->get('parameter_bag')->get('platform_admin'):
-            $container->get('session')->set(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'), $userAuth->getId());
+            $container->get('request_stack')->getCurrentRequest()->getSession()->set(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'), $userAuth->getId());
             break;
         default:
             throw new \Exception('来源溢出');
@@ -114,15 +114,10 @@ public static function get(ContainerInterface $container)
 {
     $userAuth = null;
 
-    /**
-    * @var ManagerRegistry $doctrine
-    */
-    $doctrine = $container->get('doctrine');
-
     switch (PlatformClass::getPlatform()){
         case $container->get('parameter_bag')->get('platform_admin'):
-            $user_auth_id = $container->get('session')->get(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
-            $userAuth = $doctrine->getRepository(UserAuth::class)->find($user_auth_id);
+            $user_auth_id = $container->get('request_stack')->getCurrentRequest()->getSession()->get(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
+             $userAuth = ActionLoad::$globalDoctrine->getRepository(UserAuth::class)->find($user_auth_id);
             break;
         default:
             throw new \Exception('来源溢出');
@@ -141,7 +136,7 @@ public static function remove(ContainerInterface $container)
 {
     switch (PlatformClass::getPlatform()){
         case $container->get('parameter_bag')->get('platform_admin'):
-            $container->get('session')->remove(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
+            $container->get('request_stack')->getCurrentRequest()->getSession()->remove(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
             break;
         default:
             throw new \Exception('来源溢出');
@@ -183,7 +178,7 @@ private function getUserAuthService($subject_type)
 
    **php.ini**
 
-```apacheconfig
+```ini
 upload_max_filesize = 1024M
 post_max_size = 1024M
 ```

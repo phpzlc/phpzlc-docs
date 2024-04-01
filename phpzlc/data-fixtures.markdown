@@ -39,7 +39,7 @@ php bin/console doctrine:fixtures:load  --append
    use App\Entity\Admin;
    use Doctrine\Bundle\FixturesBundle\Fixture;
    use Doctrine\Persistence\ObjectManager;
-   use Psr\Container\ContainerInterface;
+   use PHPZlc\PHPZlc\Bundle\Safety\ActionLoad;
    
    class AdminFixtures extends Fixture
    {
@@ -60,7 +60,7 @@ php bin/console doctrine:fixtures:load  --append
                ->setIsSuper(true);
    
            
-           (new AdminAuth($this->container))->create($admin, '123456');
+           (new AdminAuth(ActionLoad::$globalContainer))->create($admin, '123456');
        }
    }
    ```

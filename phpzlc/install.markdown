@@ -16,19 +16,21 @@ Symfony对于相同技术提供了多种使用途径,在教程中,所呈现的�
 
 ## 运行环境
 
-**php >=7.2.5 (推荐PHP7.3)**
+**php >=8.2**
 
 **mysql 5.7 +**
 
 **composer 2 (推荐)**
 
-## 安装Symfony5.4
+## 安装Symfony7.0
 
 ```shell
-composer create-project symfony/website-skeleton:"^5.4" my_project_name
+composer create-project symfony/skeleton:"7.0.*" my_project_directory
+cd my_project_directory 
+composer require webapp  //该选项会安装额外的软件包以提供 构建 Web 应用程序所需的一切 通常需要安装
 ```
 
-这是Symfony5.4安装的命令,如果有疑问或者希望了解更多,请阅读官方文档[安装和设置Symfony框架](https://symfony.com/doc/5.4/setup.html)。
+这是Symfony7.0安装的命令,如果有疑问或者希望了解更多,请阅读官方文档[安装和设置Symfony框架](https://symfony.com/doc/7.0/setup.html)。
 
 ## PHPZlc内核安装
 

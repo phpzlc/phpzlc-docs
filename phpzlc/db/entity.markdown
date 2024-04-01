@@ -24,67 +24,61 @@ keys: symfony,phpzlc,entity
 
    `{entityClassName}` _选填_ 未指定的话则对话式询问,询问不指定则对所有实体生效
    
-2. **通常不建议使用命令行创建实体,直接创建类文件会比较便捷**
+   1. **通常不建议使用命令行创建实体,直接创建类文件会比较便捷**
     
-   _下面提供了两组模版可以用于实体的创建。_
-   _使用时请将模版中user和User部分替换。并且修改表的描述。_
+      _下面提供了两组模版可以用于实体的创建。_
+      _使用时请将模版中user和User部分替换。并且修改表的描述。_
       
-   **UUID 代码模版(推荐方式)**
+      **UUID 代码模版(推荐方式)**
    
-   ```php
-   <?php        
-   namespace App\Entity;
+      ```php
+      <?php        
+      namespace App\Entity;
    
-   use App\Repository\UserRepository;
-   use Doctrine\ORM\Mapping as ORM;
-   use Symfony\Component\Validator\Constraints as Assert;
+      use App\Repository\UserRepository;
+      use Doctrine\ORM\Mapping as ORM;
+      use Symfony\Component\Validator\Constraints as Assert;
+
+      #[ORM\Entity(repositoryClass: UserRepository::class)]
+      #[ORM\Table(name: "user", options:["comment" => "用户表"])]
+      class User
+      {
+           #[ORM\Id]
+           #[ORM\Column(name: "id", type: "string")]
+           #[ORM\GeneratedValue(strategy: "CUSTOM")]
+           #[ORM\CustomIdGenerator(class: SortIdGenerator::class)]
+           private ?string $id = null;
+      }
+      ```
    
-   /**
-    * @ORM\Entity(repositoryClass=UserRepository::class)
-    * @ORM\Table(name="user", options={"comment":"用户表"})
-    */
-   class User
-   {
-       /**
-        * @var string
-        *
-        * @ORM\Column(name="id", type="string")
-        * @ORM\Id()
-        * @ORM\GeneratedValue(strategy="CUSTOM")
-        * @ORM\CustomIdGenerator(class="PHPZlc\PHPZlc\Doctrine\SortIdGenerator")
-        */
-       private $id;
-   }
-   ```
-   
-    _UUID更加方便系统向分布式系统转化。_
+       _UUID更加方便系统向分布式系统转化。_
     
-    _PHPZlc对UUID进行了改造,其在保持唯一性的同时,增加了如自增ID一样的排序性,缺点在于最终生成的ID较长,（如果有更好的算法,希望与我们联系）。_
+       _PHPZlc对UUID进行了改造,其在保持唯一性的同时,增加了如自增ID一样的排序性,缺点在于最终生成的ID较长,（如果有更好的算法,希望与我们联系）。_
     
-    **自增ID代码模版**
+       **自增ID代码模版**
             
-    ```php
-    <?php        
-    namespace App\Entity;
+       ```php
+       <?php        
+       namespace App\Entity;
     
-    use App\Repository\UserRepository;
-    use Doctrine\ORM\Mapping as ORM;
-    use Symfony\Component\Validator\Constraints as Assert;
+       use App\Repository\UserRepository;
+       use Doctrine\ORM\Mapping as ORM;
+       use Symfony\Component\Validator\Constraints as Assert;
     
-    /**
-     * @ORM\Entity(repositoryClass=UserRepository::class)
-     * @ORM\Table(name="user", options={"comment":"用户表"})
-     */
-    class User
-    {
-        /**
-         * @ORM\Id
-         * @ORM\GeneratedValue
-         * @ORM\Column(type="integer")
-         */
-        private $id;
-    }
-    ```
+       /**
+        * @ORM\Entity(repositoryClass=UserRepository::class)
+        * @ORM\Table(name="user", options={"comment":"用户表"})
+        */
+       class User
+       {
+           /**
+            * @ORM\Id
+            * @ORM\GeneratedValue
+            * @ORM\Column(type="integer")
+            */
+           private $id;
+       }
+       ```
    
 ## 生成GetSet方法,生成RepositoryClass类
 

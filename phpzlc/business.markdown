@@ -78,13 +78,11 @@ abstract class AbstractBusiness extends AbstractController
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
-        $this->em = $this->getDoctrine()->getManager();
-        $this->conn = $this->getDoctrine()->getConnection();
+        $this->em = ActionLoad::$globalDoctrine;
+        $this->conn = ActionLoad::$globalConnection;
 
         if(empty(self::$validation)){
-            self::$validation =  Validation::createValidatorBuilder()
-                ->enableAnnotationMapping()
-                ->getValidator();
+            self::$validation = ActionLoad::$globalValidation;
         }
     }
 
