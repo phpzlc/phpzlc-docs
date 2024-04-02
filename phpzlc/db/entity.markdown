@@ -65,18 +65,14 @@ keys: symfony,phpzlc,entity
        use Doctrine\ORM\Mapping as ORM;
        use Symfony\Component\Validator\Constraints as Assert;
     
-       /**
-        * @ORM\Entity(repositoryClass=UserRepository::class)
-        * @ORM\Table(name="user", options={"comment":"用户表"})
-        */
+       #[ORM\Entity(repositoryClass: UserRepository::class)]
+       #[ORM\Table(name: "user", options:["comment" => "用户表"])]
        class User
        {
-           /**
-            * @ORM\Id
-            * @ORM\GeneratedValue
-            * @ORM\Column(type="integer")
-            */
-           private $id;
+           #[ORM\Id]
+           #[ORM\Column(name: "id", type: "integer")]
+           #[ORM\GeneratedValue()]
+           private ?int $id = null;
        }
        ```
    
@@ -100,99 +96,42 @@ php bin/console make:entity {entityClassName} --regenerate --overwrite
 
 ## 常用字段写法示例
 
-1. string 
+```php
+#[ORM\Column(name:"name", type:"string", length:30, options:["comment" => "名称"])]
+private ?string $name = null;
 
-    ```php
-    /**
-     * @var string
-     * 
-     * @ORM\Column(name="name", type="string", length=30, options={"comment":"名称"})
-     */
-    private $name;
-   
-   /**
-    * @var string
-    * 
-    * @ORM\Column(name="content", type="text", options={"comment":"长文本"})
-    */
-   private $content;
-    ```
+#[ORM\Column(name:"content", type:"text", nullable:true, options:["comment" => "长文本"])]
+private ?string $content = null;
 
-2. boolean
+#[ORM\Column(name:"sort_value", type: "integer", options: ["comment" => "排序值"])]
+private int $sortValue = 0;
 
-    ```php
-   /**
-     * @var boolean
-     *
-     * @ORM\Column(name="is_disable", type="boolean", options={"comment":"是否禁用", "default":"0"})
-     */
-   private $isDisable = false;
-   
-   /**
-    * @var boolean
-    *
-    * @ORM\Column(name="is_del", type="boolean", options={"comment":"是否删除", "default":"0"})
-    */
-   private $isDel = false;
-   
-   /**
-    * @var boolean
-    *
-    * @ORM\Column(name="is_built", type="boolean", options={"comment":"是否内置", "default":"0"})
-    */
-   private $isBuilt = false;
-    ```
+#[ORM\Column(name:"status", type: "smallint", options: ["comment" => "状态"])]
+private int $status = 0;
 
-3. datetime
+//_存储格式为:123,123,123_
+#[ORM\Column(name: "tags", type: "simple_array", nullable: true, options: ["comment" => "标记集合"])]
+private ?array $tags = [];
 
-    ```php
-   /**
-    * @var \DateTime
-    *
-    * @ORM\Column(name="create_at", type="datetime", options={"comment":"创建时间"})
-    */
-   private $createAt;
-    ```
-   
-4. date
+#[ORM\Column(name:"is_del", type: "smallint", options: ["comment" => "是否删除", "default" => 0])]
+private int $isDel = 0;
 
-    ```php
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="date", options={"comment":"日期"})
-     */
-    private $date; 
-    ```   
+//直接定义成boolean类型不会生成get方法 会生成is方法
+#[ORM\Column(name:"disable", type: "boolean", options: ["comment" => "是否禁用", "default" => 0])]
+private bool $disable = false;
 
-5. time
-   
-   ```php
-   /**
-    * @var \DateTime
-    *
-    * @ORM\Column(name="date", type="time", options={"comment":"时间"})
-    */
-   private $date; 
-   ```   
+#[ORM\Column(name:"is_del", type: "smallint", options: ["comment" => "是否删除", "default" => 0])]
+private int $isDel = 0;
 
-5. int
+#[ORM\Column(name: "date", type: "date", options:["comment" => "日期"])]
+private ?\DateTime $date = null;
 
-    ```php
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="sort_value", type="integer", options={"comment":"排序值"})
-     */
-    private $sortValue = 0;
+#[ORM\Column(name: "time", type: "time", options:["comment" => "时间"])]
+private ?\DateTime $time = null;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="show_num", type="integer", options={"comment":"展现数"})
-     */
-    private $showNum = 0;
-   ```
+#[ORM\Column(name: "create_at", type: "datetime", options:["comment" => "创建时间"])]
+private ?\DateTime $createAt = null;
+```
 
 6. smallint
 
@@ -252,32 +191,32 @@ php bin/console make:entity {entityClassName} --regenerate --overwrite
    
    _储存格式为对象序列化之后的结果,检索能力较差_
 
-10. double
+9. double
 
-    ```php
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lon", type="decimal", precision=10, scale=6, options={"comment":"经度"})
-     */
-    private $lon;
+   ```php
+   /**
+    * @var string
+    *
+    * @ORM\Column(name="lon", type="decimal", precision=10, scale=6, options={"comment":"经度"})
+    */
+   private $lon;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lat", type="decimal", precision=10, scale=6, options={"comment":"纬度"})
-     */
-    private $lat;
+   /**
+    * @var string
+    *
+    * @ORM\Column(name="lat", type="decimal", precision=10, scale=6, options={"comment":"纬度"})
+    */
+   private $lat;
     
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="amount", type="decimal", precision=10, scale=2, nullable=true, options={"comment":"价格"})
-     */
-    private $amount;
-    ```
+   /**
+    * @var string
+    *
+    * @ORM\Column(name="amount", type="decimal", precision=10, scale=2, nullable=true, options={"comment":"价格"})
+    */
+   private $amount;
+   ```
 
-11. 外键
+10. 外键
 
     **多对一**
     ```php
