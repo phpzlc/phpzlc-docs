@@ -11,7 +11,7 @@ keys: symfony,phpzlc,查询,select
 ## 语法
 
 ```php
-$userRepository = $this->getDoctrine()->getRepository('App:User');
+$userRepository = ActionLoad::$globalDoctrine->getRepository('App:User');
 
 //检查数据是否存在
 $userRepository->isExist($rules = null, ResultSetMappingBuilder $resultSetMappingBuilder = null, $aliasChain = '');
