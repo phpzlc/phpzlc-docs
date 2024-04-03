@@ -5,7 +5,7 @@ keys: symfony,phpzlc,php,document,api,文档
 type: 功能组件
 language:
 version: v2.0
-status: newest
+status: support
 sort: 0
 links:
   -

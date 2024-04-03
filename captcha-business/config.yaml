@@ -5,7 +5,7 @@ keys: captcha,captcha-business,phpzlc/captcha-business,图形验证码
 type: 业务组件
 language:
 version: v2.0
-status: newest
+status: support
 sort: 0
 links:
   -

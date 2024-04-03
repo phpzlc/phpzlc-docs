@@ -5,7 +5,7 @@ keys: admin,phpzlc/admin,后台
 type: 功能组件
 language:
 version: v2.0
-status: newest
+status: support
 sort: 0
 links:
   -

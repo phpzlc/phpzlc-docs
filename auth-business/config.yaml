@@ -5,7 +5,7 @@ keys: auth,auth-business,phpzlc/auth-business,登录,授权
 type: 业务组件
 language:
 version: v2.0
-status: newest
+status: support
 sort: 0
 links:
   -

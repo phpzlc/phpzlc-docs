@@ -4,7 +4,7 @@ description: 提供上传文件的接口,文档。
 type: 业务组件
 language:
 version: v2.0
-status: newest
+status: support
 sort: 0
 links:
   -
