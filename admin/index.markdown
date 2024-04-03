@@ -431,7 +431,7 @@ $this->adminStrategy
        /**
        * @var Connection $conn
        */
-       $conn = $this->getDoctrine()->getConnection();
+       $conn = ActionLoad::$globalDoctrine->getConnection();
        $conn->beginTransaction();
     
        try {
@@ -569,7 +569,7 @@ $this->adminStrategy
            'feedDayDaily' => $request->get('id')
        ];
            
-       $daily = $this->getDoctrine()->getRepository('App:FeedDayDaily')->find($request->get('id'));
+       $daily = ActionLoad::$globalDoctrine->getRepository('App:FeedDayDaily')->find($request->get('id'));
        
        // 通过ex判断是否是导出数据, 如若ex的值为1,则导出数据,如若不是,则显示页面
        if($request->get('ex') != 1){
@@ -582,7 +582,7 @@ $this->adminStrategy
            $head = [];
     
            // 获取需要导出的数据
-           $list = $this->getDoctrine()->getRepository('App:FeedDayDailyInfo')->findAll($rules);
+           $list = ActionLoad::$globalDoctrine->getRepository('App:FeedDayDailyInfo')->findAll($rules);
     
            $data = [];
            

@@ -27,6 +27,7 @@ keys: symfony,phpzlc,orm,表,插入,更新,删除
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
     use Symfony\Component\Validator\Validator\ValidatorInterface;
+    use PHPZlc\PHPZlc\Bundle\Safety\ActionLoad;
     ```
 
 2. Business 写法依赖
@@ -50,7 +51,7 @@ keys: symfony,phpzlc,orm,表,插入,更新,删除
     
     public function createUser(ValidatorInterface $validator, Request $request)
     {
-        $manager = $this->getDoctrine()->getManager();
+        $manager = ActionLoad::$globalDoctrine->getManager();
 
         $user = new User();
         $user->setName($request->get('name'));
@@ -98,9 +99,9 @@ keys: symfony,phpzlc,orm,表,插入,更新,删除
     
     public function updateUser(ValidatorInterface $validator, Request $request)
     {
-        $manager = $this->getDoctrine()->getManager();
+        $manager = ActionLoad::$globalDoctrine->getManager();
 
-        $user = $this->getDoctrine()->getRepository('App:User')->find($request->get('id'));
+        $user = ActionLoad::$globalDoctrine->getRepository('App:User')->find($request->get('id'));
 
         $user->setName($request->get('name'));
 
@@ -138,9 +139,9 @@ keys: symfony,phpzlc,orm,表,插入,更新,删除
     ```php
     public function removeUser(Request $request)
     {
-        $manager = $this->getDoctrine()->getManager();
+        $manager = ActionLoad::$globalDoctrine->getManager();
 
-        $user = $this->getDoctrine()->getRepository('App:User')->find($request->get('id'));
+        $user = ActionLoad::$globalDoctrine->getRepository('App:User')->find($request->get('id'));
 
         $manager->remove($user);
         $manager->flush();

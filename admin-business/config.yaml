@@ -4,7 +4,7 @@ description: 后台开发,提供管理系统基础功能(首页,登录,退出登
 keys: admin-business,phpzlc/admin-business,admin,后台
 type: 业务组件
 language:
-version: v2.0
+version: v3.0
 status: newest
 sort: 0
 links:

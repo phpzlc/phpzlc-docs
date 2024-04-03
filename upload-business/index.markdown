@@ -37,7 +37,7 @@ upload:
     # 上传接口
     upload_file:
       path: /
-      controller: App\Controller\Upload\UploadController:upload
+      controller: App\Controller\Upload\UploadController::upload
    ```
 
     _如果使用,可以生成查看API文档。[文档知识](/document-bundle/index.markdown)_

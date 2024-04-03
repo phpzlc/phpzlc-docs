@@ -32,7 +32,7 @@ class UserRepository extends AbstractDismantleTableRepository
 ## 创建表
 
 ```php
-$this->getDoctrine()->getRepository('App:User')->dismantleMark('1')->createDismantleTable();
+ActionLoad::$globalDoctrine->getRepository('App:User')->dismantleMark('1')->createDismantleTable();
 ```
 
 `dismantleMark()`方法用于设置分表标识。 为了分表标识生成表的稳定性，程序默认对分表标识进行`m5`。 你如果想要修改分表标识的使用，可以重写`getDismantleTableName()`。
@@ -41,7 +41,7 @@ $this->getDoctrine()->getRepository('App:User')->dismantleMark('1')->createDisma
 ## 更新拆分表的结构
 
 ```php
-$this->getDoctrine()->getRepository('App:User')->updateAllDismantleTable();
+ActionLoad::$globalDoctrine->getRepository('App:User')->updateAllDismantleTable();
 ```
 
 源表的结构发生变化的时候，我们需要将所有拆分出的表结构进行更新。
@@ -49,7 +49,7 @@ $this->getDoctrine()->getRepository('App:User')->updateAllDismantleTable();
 ## 获取全部的拆分表表名
 
 ```php
-$this->getDoctrine()->getRepository('App:User')->getAllDismantleTable();
+ActionLoad::$globalDoctrine->getRepository('App:User')->getAllDismantleTable();
 ```
 
 当你重写了`getDismantleTableName()`后，你需要关注这个方法，做对应的调整。
@@ -57,7 +57,7 @@ $this->getDoctrine()->getRepository('App:User')->getAllDismantleTable();
 ## 拆分表的插入，查询写法示例
 
 ```php
-$userRepository = $this->getDoctrine()->getRepository('App:User')->dismantleMark('1');
+$userRepository = ActionLoad::$globalDoctrine->getRepository('App:User')->dismantleMark('1');
 
 //查询
 $userRepository->findAll();
@@ -67,8 +67,8 @@ $user = new User();
 $user
     ->setName('用户');
 
-$this->getDoctrine()->getManager()->persist($user);
-$this->getDoctrine()->getManager()->flush();
+ActionLoad::$globalDoctrine->getManager()->persist($user);
+ActionLoad::$globalDoctrine->getManager()->flush();
 ```
 
 1. 使用`dismantleMark()`可以重新指定分表。

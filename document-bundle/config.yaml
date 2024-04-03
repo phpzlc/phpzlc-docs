@@ -4,7 +4,7 @@ description: 用于编写接口文档,通过命令生成,在线的,可测试,可
 keys: symfony,phpzlc,php,document,api,文档
 type: 功能组件
 language:
-version: v2.0
+version: v3.0
 status: newest
 sort: 0
 links:

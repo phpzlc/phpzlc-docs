@@ -8,7 +8,7 @@ keys: area-business,area,地址,省市区
 省市区组件,内置完整的省市区数据及接口
 
 ## 源码地址
-[phpzlc/area-business](https://github.com/phpzlc/area-business) 
+[phpzlc/area-business](https://github.com/phpzlc/area-business)   (未适配PHPZLC 3 陆续会升级 需要或参与开发技术群内告知)
 
 ## 安装
 

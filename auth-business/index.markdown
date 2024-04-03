@@ -208,7 +208,7 @@ class AuthTag
         //根据不同的操作平台,进行不同的Session标记设置
         switch (PlatformClass::getPlatform()){
             case $container->get('parameter_bag')->get('platform_admin'):
-                $container->get('session')->set(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'), $userAuth->getId());
+                $container->get('request_stack')->getCurrentRequest()->getSession()->set(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'), $userAuth->getId());
                 break;
             default:
                 throw new \Exception('来源溢出');
@@ -229,17 +229,12 @@ class AuthTag
     public static function get(ContainerInterface $container)
     {
         $userAuth = null;
-
-        /**
-         * @var ManagerRegistry $doctrine
-         */
-        $doctrine = $container->get('doctrine');
         
         // 根据不同的操作平台,进行对应平台的Session标记获取
         switch (PlatformClass::getPlatform()){
             case $container->get('parameter_bag')->get('platform_admin'):
-                $user_auth_id = $container->get('session')->get(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
-                $userAuth = $doctrine->getRepository('App:UserAuth')->find($user_auth_id);
+                $user_auth_id = $container->get('request_stack')->getCurrentRequest()->getSession()->get(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
+                $userAuth = ActionLoad::$globalDoctrine->getRepository('App:UserAuth')->find($user_auth_id);
                 break;
             default:
                 throw new \Exception('来源溢出');
@@ -260,7 +255,7 @@ class AuthTag
     {
         switch (PlatformClass::getPlatform()){
             case $container->get('parameter_bag')->get('platform_admin'):
-                $container->get('session')->remove(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
+                $container->get('request_stack')->getCurrentRequest()->getSession()->get('session')->remove(PlatformClass::getPlatform() . $container->get('parameter_bag')->get('login_tag_session_name'));
                 break;
             default:
                 throw new \Exception('来源溢出');

@@ -103,15 +103,35 @@ private ?string $name = null;
 #[ORM\Column(name:"content", type:"text", nullable:true, options:["comment" => "长文本"])]
 private ?string $content = null;
 
+//外键-多对一
+#[ORM\ManyToOne(targetEntity:"App\Entity\UserAuth")]
+#[ORM\JoinColumn(name:"user_auth_id", referencedColumnName:"id")]
+private ?UserAuth $userAuth = null;
+
+//外键-一对一
+#[ORM\OneToOne(targetEntity:"App\Entity\UserAuth")]
+#[ORM\JoinColumn(name:"user_auth_id", referencedColumnName:"id")]
+private ?UserAuth $userAuth = null;
+
 #[ORM\Column(name:"sort_value", type: "integer", options: ["comment" => "排序值"])]
 private int $sortValue = 0;
 
 #[ORM\Column(name:"status", type: "smallint", options: ["comment" => "状态"])]
 private int $status = 0;
 
+#[ORM\Column(name: "amount", type: "decimal", precision: 10, scale:2, nullable: true, options: ["comment" => "价格"])]
+private ?string $amount = null;
+
+#[ORM\Column(name: "amount", type: "decimal", precision: 10, scale:2, nullable: true, options: ["comment" => "价格"])]
+private ?string $amount = null;
+
 //_存储格式为:123,123,123_
 #[ORM\Column(name: "tags", type: "simple_array", nullable: true, options: ["comment" => "标记集合"])]
 private ?array $tags = [];
+
+//储存格式为对象序列化之后的结果,检索能力较差
+#[ORM\Column(name: "files", type: "array", nullable: true, options: ["comment" => "文件集"])]
+private ?array $files = [];
 
 #[ORM\Column(name:"is_del", type: "smallint", options: ["comment" => "是否删除", "default" => 0])]
 private int $isDel = 0;
@@ -132,113 +152,6 @@ private ?\DateTime $time = null;
 #[ORM\Column(name: "create_at", type: "datetime", options:["comment" => "创建时间"])]
 private ?\DateTime $createAt = null;
 ```
-
-6. smallint
-
-    ```php
-   
-    const STATUS_COMPLETE = 1;
-
-    const STATUS_CANCEL = 2;
-
-    const STATUS_REFUND = 3;
-
-    const STATUS_PAYMENT = 4;
-
-    public static function getStatusArray()
-    {
-        return [
-            self::STATUS_COMPLETE => '已完成',
-            self::STATUS_CANCEL => '已取消',
-            self::STATUS_REFUND => '已退款',
-            self::STATUS_PAYMENT => '已支付'
-        ];
-    }
-   
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="status", type="smallint", options={"comment":"订单状态"})
-     */
-    private $status;
-    ```
-   
-   _简单选项在表的头部定义成常量,并且设置读取全部的静态方法。_
-
-7. simple_array(简单数组)
-
-    ```php
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="tags", type="simple_array", options={"comment":"标签"})
-     */
-    private $tags;
-   ```
-   
-   _存储格式为:123,123,123_
-
-8. array
-
-    ```php
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="files", type="array", options={"comment":"文件集合"})
-     */
-    private $files;
-   ```
-   
-   _储存格式为对象序列化之后的结果,检索能力较差_
-
-9. double
-
-   ```php
-   /**
-    * @var string
-    *
-    * @ORM\Column(name="lon", type="decimal", precision=10, scale=6, options={"comment":"经度"})
-    */
-   private $lon;
-
-   /**
-    * @var string
-    *
-    * @ORM\Column(name="lat", type="decimal", precision=10, scale=6, options={"comment":"纬度"})
-    */
-   private $lat;
-    
-   /**
-    * @var string
-    *
-    * @ORM\Column(name="amount", type="decimal", precision=10, scale=2, nullable=true, options={"comment":"价格"})
-    */
-   private $amount;
-   ```
-
-10. 外键
-
-    **多对一**
-    ```php
-    /**
-     * @var User
-     *
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
-    ```
-    
-    **一对一**
-    ```php
-    /**
-     * @var User
-     *
-     * @ORM\OneToOne(targetEntity="App\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
-    ```
     
 ## 新特性-表外字段
 
@@ -246,12 +159,10 @@ private ?\DateTime $createAt = null;
    
    _该字段在数据库中不对应具体的实际字段,所以称为**表外字段**。在实际使用中,除了不能进行写相关的操作,其他部分和表内其他字段基本无差别。_
    
-   ```php
-   /**
-    * @OuterColumn(name="site_domains", type="simple_array", sql="(SELECT GROUP_CONCAT(sd.site_domain) FROM site_domain sd WHERE sd.site_id = sql_pre.id),  options={"comment":"站点域名"}")
-    */
-   public $siteDomains;
-   ```
+```php
+#[OuterColumn(name: "role_string", type: "string", sql: "(IF(sql_pre.is_super = 1,'超级管理员', (select GROUP_CONCAT(r.name) from role r where id in (select role_id from user_auth_role uar where uar.user_auth_id = sql_pre.user_auth_id))))", options: ["comment" => "是否超级管理员"])]
+private ?string $roleString = null;
+ ```
    
 1. 语法注解
    
@@ -267,10 +178,10 @@ private ?\DateTime $createAt = null;
    
 2. 高级用法
 
-   **支持`@AddRule`注释,利用规则注释可以为其成功执行提供必要的保证。**
+   **支持`#[AddRule()]` attribute,利用规则注释可以为其成功执行提供必要保证。**
 
    ```php
-   @AddRule(name="id", value="1")
+    #[AddRule(name:"id", value: 1)]
    ```    
 
    _具体更多的知识,可以通过学习[高级查询-规则章节](/phpzlc/repository/rule/index.markdown)来了解。_
@@ -280,10 +191,8 @@ private ?\DateTime $createAt = null;
    正常情况下,子查询的sql是固定不变的。但是有些情况下,子查询的Sql需要传入变量才可以正常的工作。这时候我们可以通过Sql重写解决。
    
    ```php
-   /**
-    * @OuterColumn(name="distance", type="string", sql="repository内重写", options={"comment":"距离"})
-    */
-   public $distance;
+   #[OuterColumn(name: "distance", type: "string", sql: "repository内重写", options: ["comment" => "距离"])]
+   private ?string $distance = null;
    ```
 
    _具体更多的知识,可以通过学习[规则-高级用法](/phpzlc/repository/rule/advanced-usage.markdown#定义新规则重写规则)来了解。_
@@ -291,7 +200,13 @@ private ?\DateTime $createAt = null;
 ## 表加索引
 
 ```php
-@ORM\Table(name="sms_record", options={"comment"="短信动态码"}, indexes={@ORM\Index(name="phone", columns={"phone"})})
+use use Doctrine\ORM\Mapping\Index;
+
+#[ORM\Table(
+    name: "admin",
+    indexes: [new Index(name: 'name', columns: ['name'])],
+    options:["comment" => "管理员表"],
+)]
 ```
 
 
