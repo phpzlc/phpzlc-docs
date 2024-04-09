@@ -38,6 +38,7 @@ keys: symfony,phpzlc,entity
       use App\Repository\UserRepository;
       use Doctrine\ORM\Mapping as ORM;
       use Symfony\Component\Validator\Constraints as Assert;
+      use PHPZlc\PHPZlc\Doctrine\SortIdGenerator;
 
       #[ORM\Entity(repositoryClass: UserRepository::class)]
       #[ORM\Table(name: "user", options:["comment" => "用户表"])]
