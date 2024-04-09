@@ -14,6 +14,7 @@ keys: area-business,area,地址,省市区
 
 ```shell
 composer require phpzlc/area-business
+php bin/console phpzlc:flex:install area-business
 ```
 
 安装完成后执行更新数据库的操作
