@@ -145,13 +145,13 @@ private bool $disable = false;
 private int $isDel = 0;
 
 #[ORM\Column(name: "date", type: "date", options:["comment" => "日期"])]
-private ?\DateTime $date = null;
+private ?\DateTimeInterface $date = null;
 
 #[ORM\Column(name: "time", type: "time", options:["comment" => "时间"])]
-private ?\DateTime $time = null;
+private ?\DateTimeInterface $time = null;
 
 #[ORM\Column(name: "create_at", type: "datetime", options:["comment" => "创建时间"])]
-private ?\DateTime $createAt = null;
+private ?\DateTimeInterface $createAt = null;
 ```
     
 ## 新特性-表外字段
